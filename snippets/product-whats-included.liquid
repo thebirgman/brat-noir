@@ -1,0 +1,44 @@
+{%- assign featured_image = product.metafields.custom.shopthelook_featured_img.value -%}
+
+<div class="product-whats-included" 
+     style="--padding-top: {{ block.settings.padding_top }}px; --padding-horizontal: {{ block.settings.padding_horizontal }}px; --padding-bottom: {{ block.settings.padding_bottom }}px; --border-radius: {{ block.settings.border_radius }}px;"
+     {{ block.shopify_attributes }}>
+  
+  <div class="product-whats-included__container">
+    
+    <!-- Left: Heading and Text -->
+    <div class="product-whats-included__content">
+      {% if block.settings.heading != blank %}
+        <div class="product-whats-included__heading">
+          {{ block.settings.heading }}
+        </div>
+      {% endif %}
+      
+      {% if block.settings.text != blank %}
+        <div class="product-whats-included__text">
+          {{ block.settings.text }}
+        </div>
+      {% endif %}
+    </div>
+    
+    <!-- Right: Image from Metafield -->
+    {% if featured_image %}
+      <div class="product-whats-included__image">
+        {% assign image_width = block.settings.image_max_width | default: 600 %}
+        {% assign image_width_2x = image_width | times: 2 %}
+        
+        {% capture srcset %}
+          {{ featured_image | image_url: width: image_width_2x }} 2x,
+          {{ featured_image | image_url: width: image_width }}
+        {% endcapture %}
+        
+        {%- render 'image' img_object: featured_image, srcset: srcset, width: image_width -%}
+      </div>
+    {% elsif request.design_mode %}
+      <div class="product-whats-included__placeholder">
+        <p class="product-whats-included__placeholder-text">Image will appear here when metafield <code>custom.shopthelook_featured_img</code> is set.</p>
+      </div>
+    {% endif %}
+    
+  </div>
+</div>

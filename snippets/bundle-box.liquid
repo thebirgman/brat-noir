@@ -1,0 +1,52 @@
+{% comment %}
+  Snippet: bundle-box.liquid
+  Usage: Render inside product.liquid section as a block
+{% endcomment %}
+
+{% assign img_width = block.settings.image_width | default: 50 %}
+{% assign border_radius = block.settings.border_radius | default: 12 %}
+{% assign padding_bottom = block.settings.padding_bottom | default: 40 %}
+
+<div class="bundle-box" style="  background-color: {{ block.settings.background_color }};
+display: flex; align-items: center; gap: 24px; border-radius: {{ border_radius }}px; overflow: hidden; padding: {{ padding_bottom }}px; flex-wrap: wrap;">
+
+{% if template contains "halloween" %}
+
+
+<img src="https://cdn.shopify.com/s/files/1/0729/8845/9031/files/Vector_6.png?v=1757389687" class="image-pos image-bat">
+{% endif %}
+  <div class="bundle-box__image" style="flex: 0 0 {{ img_width }}%; max-width: {{ img_width }}%;">
+    {% if block.settings.image != blank %}
+      <img
+        src="{{ block.settings.image | image_url }}"
+        alt="{{ block.settings.heading | escape }}"
+        loading="lazy"
+        style="width: 100%; height: auto; display: block; border-radius: {{ border_radius }}px;"
+      />
+    {% endif %}
+  </div>
+
+  <div class="bundle-box__content" style="flex: 1;">
+    {% if block.settings.heading != blank %}
+      <h3 class="bundle-box__heading" style="margin: 0 0 5px 0; font-size: 12px; font-weight: 700;">
+        {{ block.settings.heading }}
+      </h3>
+    {% endif %}
+
+    {% if block.settings.text != blank %}
+      <div class="bundle-box__text" style="margin-bottom: 10px; color: #333; font-size: 12px;">
+        {{ block.settings.text }}
+      </div>
+    {% endif %}
+
+    {% if block.settings.button_label != blank and block.settings.button_link != blank %}
+      <a
+        href="{{ block.settings.button_link }}"
+        class="bundle-box__button"
+          style="display: inline-block; padding: 10px 20px; background-color: black; color: white; text-decoration: none; border-radius: 60px; width: 100%; text-align:center;"
+      >
+        {{ block.settings.button_label }}
+      </a>
+    {% endif %}
+  </div>
+</div>

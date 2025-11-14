@@ -1,0 +1,19 @@
+<!-- /snippets/cart-subtotal.liquid -->
+
+<p class="cart__footer__itemtotal">
+  <span class="cart__footer__label">
+    {{ 'cart.general.subtotal' | t | capitalize }}:
+  </span>
+  <span class="cart__footer__value" data-cart-final>
+    {{ cart.total_price | money }}
+  </span>
+</p>
+
+{%- if cart.cart_level_discount_applications.size > 0 -%}
+  {%- for discount in cart.cart_level_discount_applications -%}
+    <p class="cart__footer__discount">
+      <span class="cart__footer__label">{{ discount.title }}:</span>
+      <span class="cart__footer__value">-{{ discount.total_allocated_amount | money }}</span>
+    </p>
+  {%- endfor -%}
+{%- endif -%}

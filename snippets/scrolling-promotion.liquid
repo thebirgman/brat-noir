@@ -1,0 +1,77 @@
+<div
+  class="scrolling-promo"
+  style="
+    --bg: #000000;
+    --text: #ffffff;
+    --pt: 10px;
+    --pb: 10px;
+  "
+>
+  <div class="scrolling-promo__track">
+    <div class="scrolling-promo__content">
+      <span>Buy 5 Sets and Get 20% Off + Free Shipping. Math Can Be Cute</span>
+     
+      <span>Buy 5 Sets and Get 20% Off + Free Shipping. Math Can Be Cute</span>
+   
+      <span>Buy 5 Sets and Get 20% Off + Free Shipping. Math Can Be Cute</span>
+     
+    </div>
+  </div>
+</div>
+
+<style>
+.scrolling-promo {
+  background: var(--bg);
+  color: var(--text);
+  padding-top: var(--pt);
+  padding-bottom: var(--pb);
+  overflow: hidden;
+  position: relative;
+  margin-top: 6px;
+  margin-bottom: 40px;
+
+  /* Break out to full viewport width */
+  width: 100vw;
+  left: 50%;
+  margin-left: -50vw;
+
+  z-index: 10;
+}
+
+.scrolling-promo__track {
+  display: flex;
+  white-space: nowrap;
+}
+
+.scrolling-promo__content {
+  display: inline-flex;
+  align-items: center;
+  animation: scroll-left 30s linear infinite;
+  will-change: transform;
+}
+
+.scrolling-promo__content span {
+  padding: 0 2rem;
+  display: inline-block;
+
+  /* Typography from Figma */
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 100%;
+  
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.star-separator {
+  margin: 0 2rem;
+  flex-shrink: 0;
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+</style>

@@ -1,0 +1,148 @@
+{%- assign numOfBundle = settings.bundle_limit | default: 5 -%}
+{%- assign totalItems = cart.item_count | default: 0 -%}
+
+{%- assign progressRatio = totalItems | times: 1.0 | divided_by: numOfBundle -%}
+{%- assign clampedRatio = progressRatio | at_most: 1.0 -%}
+
+<style>
+  .bundle-progress-bar {
+    margin: 20px 0;
+    text-align: center;
+    font-family: inherit;
+  }
+
+  .bundle-progress-bar__track {
+    position: relative;
+    height: 8px;
+    background: #f0f0f0;
+    border-radius: 999px;
+    overflow: visible; /* IMPORTANT: allow the dot to stick out */
+    width: 95%;
+    max-width: 400px;
+    margin: 0 auto 12px;
+  }
+.bundle-progress-bar__fill {
+    background: #000;
+    height: 100%;
+    transition: width 0.3s ease;
+    border-radius: 999px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+  }
+
+.bundle-progress-bar__dot {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    background: #000;
+    border-radius: 50%;
+    z-index: 2;
+    transition: left 0.3s ease;
+  }
+
+  .bundle-progress-bar-text-wrapper {
+    max-width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 35px;
+}
+
+  .bundle-progress-bar__text {
+    font-size: 16px;
+    font-style: italic;
+    max-width: 200px;
+    text-align: right;
+}
+
+  .bundle-progress-divider {
+    width: 95%;
+    height: 1px;
+    background: #fff;
+    margin: 30px auto 0;
+    max-width: 400px;
+}
+</style>
+
+<div class="bundle-progress-bar-wrapper">
+  <div class="bundle-progress-bar">
+    <div class="bundle-progress-bar__track">
+      <div
+        class="bundle-progress-bar__fill"
+        style="width: {{ clampedRatio | times: 100 }}%;"
+      ></div>
+      <div
+        class="bundle-progress-bar__dot"
+        style="left: {{ clampedRatio | times: 100 }}%;"
+      ></div>
+    </div>
+
+    {% if totalItems < numOfBundle %}
+      <div class="bundle-progress-bar-text-wrapper">
+        <p class="bundle-progress-bar__text">
+          {%- assign remaining = numOfBundle | minus: totalItems -%}
+          You are <strong>{{ remaining }}</strong> more {{ remaining | pluralize: 'product', 'products' }} away from a bundle
+        </p>
+      </div>
+    {% else %}
+      <div class="bundle-progress-bar-text-wrapper">
+        <p class="bundle-progress-bar__text">
+          You've unlocked the bundle! 🎉
+        </p>
+      </div>
+    {% endif %}
+    
+    <div class="bundle-progress-divider"></div>
+  </div>
+</div>
+
+
+
+<script>
+(function() {
+  const bundleLimit = {{ settings.bundle_limit | default: 5 }};
+
+  const updateProgressBar = () => {
+    const wrapper = document.querySelector('.bundle-progress-bar-wrapper');
+    const isCartEmpty = document.querySelector('[data-cart-empty]:not(.cart--hidden)');
+    const cartContainer = document.querySelector('.cart__items');
+
+    if (wrapper) {
+      wrapper.style.display = isCartEmpty ? 'none' : 'block';
+    }
+
+    if (isCartEmpty || !cartContainer) return;
+
+    const inputs = cartContainer.querySelectorAll('[data-quantity-input]');
+    let total = 0;
+
+    inputs.forEach(input => {
+      total += parseInt(input.value || 0);
+    });
+
+    const ratio = Math.min(total / bundleLimit, 1);
+    const percent = ratio * 100;
+
+    const fill = document.querySelector('.bundle-progress-bar__fill');
+    const dot = document.querySelector('.bundle-progress-bar__dot');
+    const text = document.querySelector('.bundle-progress-bar__text');
+
+    if (fill) fill.style.width = percent + '%';
+    if (dot) dot.style.left = percent + '%';
+
+    if (text) {
+      if (total < bundleLimit) {
+        const remaining = bundleLimit - total;
+        text.innerHTML = `You are <strong>${remaining}</strong> more ${remaining === 1 ? 'product' : 'products'} away from a bundle`;
+      } else {
+        text.innerHTML = `You've unlocked the bundle! 🎉`;
+      }
+    }
+  };
+
+  setInterval(updateProgressBar, 300);
+})();
+</script>

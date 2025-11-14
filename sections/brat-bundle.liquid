@@ -1,0 +1,312 @@
+{% stylesheet %}
+.brat-bundle {
+  padding: 50px 0;
+  margin: auto;
+  background: linear-gradient(198.25deg, #F9E4E3 13.06%, #F1DFFE 31.86%, #D6E5F1 51.39%, #F1DFFE 70.91%, #F9E4E3 87.9%);
+}
+
+.brat-bundle p{
+  max-width: 890px;
+  margin: auto;
+}
+.brat-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+  font-family: "DM Serif Display";
+  
+}
+
+.brat-featured-heading{
+   font-family: "DM Serif Display";
+}
+.brat-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  background-color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: 195px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+  
+}
+.brat-button.active {
+  background-color: #B594EE;
+  color: white;
+  border-color: transparent;
+}
+
+  .brat-button:hover{
+    box-shadow: 0 4px 10px rgba(22, 22, 22, 0.3);
+  }
+  
+.brat-featured {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 40px;
+  border-radius: 20px;
+}
+.brat-featured img {
+  max-width: 100%;
+  border-radius: 20px;
+}
+.brat-featured-content {
+  flex: 1;
+  max-width: 540px;
+  margin: auto;
+}
+
+  .brat-featured-content strong {
+    font-weight: 700;
+}
+  
+.brat-featured-heading {
+  font-size: 38px;
+  font-weight: 400;
+  letter-spacing: -1px;
+}
+.brat-featured-price {
+  font-size: 18px;
+  font-weight: 700;
+}
+.brat-featured-description {
+  margin: 5px 0 20px;
+}
+.brat-featured-button {
+  background-color: black;
+  color: white;
+  width: 195px;
+    height: 52px;
+  text-decoration: none;
+  font-weight: 600;
+  display: flex!important;
+    align-items: center;
+    justify-content: center;
+    border-radius: 75px;   
+    font-size: 18px;
+    text-transform: uppercase;
+  margin: 0 0 20px;
+  letter-spacing: 0;
+  transition: all 0.3s ease;
+}
+
+  .brat-featured-button:hover{
+  color: #fff;
+    box-shadow: 0 4px 10px rgba(22, 22, 22, 0.3);
+}
+
+
+@media screen and (max-width: 768px) {
+  .brat-bundle{
+    padding: 30px 0;
+  }
+.brat-button {
+  width: 150px;
+}
+
+.brat-featured {
+    flex-direction: column;
+}
+
+.brat-featured-heading {
+    font-size: 28px;
+  margin-bottom: 20px;
+}
+
+a.brat-featured-button {
+    height: 45px;
+    font-size: 16px;
+    margin-top: 30px;
+}  
+
+}  
+{% endstylesheet %}
+
+<div class="brat-bundle full-width-padded">
+  <div class="{{ section.settings.width }}">
+    <div class="text-center mb-6">
+      {% if section.settings.heading %}
+        <h2>{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.subheading %}
+        <p>{{ section.settings.subheading }}</p>
+      {% endif %}
+    </div>
+
+    {% assign blocks = section.blocks | where: "type", "bundle_block" %}
+    {% if blocks.size > 0 %}
+      <div class="brat-buttons">
+        {% for block in blocks %}
+          <button
+            class="brat-button {% if forloop.first %}active{% endif %}"
+            data-index="{{ forloop.index0 }}"
+          >
+            {{ block.settings.button_label }}
+          </button>
+        {% endfor %}
+      </div>
+
+      <div class="brat-featured-container">
+        {% for block in blocks %}
+          <div
+            class="brat-featured"
+            data-index="{{ forloop.index0 }}"
+            style="{% unless forloop.first %}display: none;{% endunless %}"
+          >
+            {% if block.settings.featured_image != blank %}
+              <div class="brat-featured-image" style="flex: 1; max-width: 400px;">
+                <img src="{{ block.settings.featured_image | image_url: width: 800 }}" alt="{{ block.settings.featured_heading }}">
+              </div>
+            {% endif %}
+            <div class="brat-featured-content">
+              <div class="brat-featured-heading">{{ block.settings.featured_heading }}</div>
+              <div class="brat-featured-price">{{ block.settings.featured_price }}</div>
+              <div class="brat-featured-description">{{ block.settings.featured_description }}</div>
+              {% if block.settings.featured_button_text and block.settings.featured_button_link %}
+                <a href="{{ block.settings.featured_button_link }}" class="brat-featured-button">
+                  {{ block.settings.featured_button_text }}
+                </a>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% javascript %}
+document.addEventListener("DOMContentLoaded", function () {
+  const buttons = document.querySelectorAll(".brat-button");
+  const featuredBlocks = document.querySelectorAll(".brat-featured");
+
+  buttons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      buttons.forEach((btn) => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      featuredBlocks.forEach((block) => {
+        if (block.dataset.index === index.toString()) {
+          block.style.display = "flex";
+        } else {
+          block.style.display = "none";
+        }
+      });
+    });
+  });
+});
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Brat Bundle",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Experience Our Brat Bundle"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>"
+    },
+    {
+  "type": "select",
+  "id": "width",
+  "label": "Width",
+  "default": "wrapper",
+  "options": [
+    {
+      "value": "wrapper--none",
+      "label": "Full width"
+    },
+    {
+      "value": "wrapper--full",
+      "label": "Full width padded"
+    },
+    {
+      "value": "wrapper",
+      "label": "Page width"
+    },
+    {
+      "value": "wrapper--narrow",
+      "label": "Page width narrow"
+    },
+    {
+      "value": "wrapper--tiny",
+      "label": "Page width extra narrow"
+    }
+  ]
+}
+  ],
+  "blocks": [
+    {
+      "type": "bundle_block",
+      "name": "Brat Option",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label",
+          "default": "Brat Classic"
+        },
+        {
+          "type": "image_picker",
+          "id": "featured_image",
+          "label": "Featured Image"
+        },
+        {
+          "type": "text",
+          "id": "featured_heading",
+          "label": "Featured Heading",
+          "default": "Ready to Feel the Difference"
+        },
+        {
+          "type": "text",
+          "id": "featured_price",
+          "label": "Price",
+          "default": "$22.00"
+        },
+        {
+          "type": "richtext",
+          "id": "featured_description",
+          "label": "Description",
+          "default": "<p>Lorem ipsum dolor sit amet...</p>"
+        },
+        {
+          "type": "text",
+          "id": "featured_button_text",
+          "label": "Button Text",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "featured_button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brat Bundle",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

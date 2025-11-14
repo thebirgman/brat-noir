@@ -1,0 +1,82 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {
+        "kicker": "",
+        "kicker_size": 3,
+        "show_title": false,
+        "title_size": 8,
+        "show_content": true,
+        "content_size": 5,
+        "align_text": "text-left",
+        "text_color": "text--neutral",
+        "bg": "palette--light bg--neutral",
+        "width": "wrapper--narrow",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "contact": {
+      "type": "section-contact",
+      "blocks": {
+        "name": {
+          "type": "text",
+          "settings": {
+            "title": "Full Name"
+          }
+        },
+        "email": {
+          "type": "email",
+          "settings": {
+            "title": "Email"
+          }
+        },
+        "body_Bh9Jk8": {
+          "type": "body",
+          "settings": {
+            "title": "Message"
+          }
+        }
+      },
+      "block_order": [
+        "name",
+        "email",
+        "body_Bh9Jk8"
+      ],
+      "custom_css": [
+        "p.standard__kicker.kicker__line {font-size: 48px !important; text-transform: none; letter-spacing: 0; margin-bottom: 0px; padding-bottom: 0px; padding-top: 50px;}",
+        "button.btn--neutral.btn--long.btn--outline {width: 100%; background: black; color: white; font-size: 18px; border-radius: 74px; padding-top: 17px; padding-bottom: 17px;}",
+        "@media screen and (max-width: 768px) {p.standard__kicker.kicker__line {font-size: 40px !important; }}",
+        ".form__legal p {font-size: 14px !important;}"
+      ],
+      "settings": {
+        "title": "Contact Us",
+        "subtext": "We make soft-gel press-ons so luxe, they'll swear you spent hours at the salon.",
+        "align_text": "text-center",
+        "button_size": "btn--long",
+        "button_color": "btn--neutral",
+        "button_style": "btn--outline",
+        "text_color": "text--neutral",
+        "bg": "palette--light bg--neutral",
+        "width": "wrapper--narrow",
+        "padding_top": 52,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "main",
+    "contact"
+  ]
+}

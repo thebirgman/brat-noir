@@ -1,0 +1,39 @@
+<div class="bundle-product__card" data-collection="{{ product.metafields.custom.collection_name | metafield_text }}">
+  <img class="bundle-product__image" src="{{ product | image_url }}" alt="{{ product.title }}" >
+  <div class="bundle-product__details">
+    <div class="bundle-product__info">
+       <p class="product__grid__collection-name"> {{ product.metafields.custom.collection_name | metafield_text }} </p>
+      {% comment %} <span class="bundle-product__collection">{{ product.collections[0].title }}</span> {% endcomment %}
+      <span class="bundle-product__title">{{ product.title }}</span>
+    </div>
+    <div class="bundle-product__price">
+      {% if product.compare_at_price > product.price %}
+        <span class="bundle-product__price--sale">{{ product.price | money }}</span>
+        <span class="bundle-product__price--compare">{{ product.compare_at_price | money }}</span>
+      {% else %}
+        <span class="bundle-product__price--regular">{{ product.price | money }}</span>
+      {% endif %}
+    </div>
+  </div>
+  <div class="bundle-product__actions">
+    {% assign first_variant = product.variants.first %}
+
+    {% for allocation in first_variant.selling_plan_allocations %}
+      {% assign first_selling_plan_id = allocation.selling_plan.id %}
+      {% break %}
+    {% endfor %}
+    <button
+      class="bundle-product__atc"
+      data-variant-id="{{ product.first_available_variant.id }}"
+      data-selling-plan="{{ first_selling_plan_id }}"
+      data-add-to-cart
+    >
+      ADD
+    </button>
+    <button class="bundle-product__favorite">
+      <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 0L10.116 5.08754L15.6085 5.52786L11.4238 9.11246L12.7023 14.4721L8 11.6L3.29772 14.4721L4.5762 9.11246L0.391548 5.52786L5.88397 5.08754L8 0Z" fill="black"/>
+      </svg>
+    </button>
+  </div>
+</div>

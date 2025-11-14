@@ -1,0 +1,507 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {
+        "kicker": "",
+        "kicker_size": 3,
+        "show_title": false,
+        "title_size": 8,
+        "show_content": true,
+        "content_size": 5,
+        "align_text": "text-center",
+        "text_color": "text--neutral",
+        "bg": "palette--light bg--neutral",
+        "width": "wrapper--narrow",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "section_richtext_36xnMX": {
+      "type": "section-richtext",
+      "blocks": {
+        "kicker_9JgVxY": {
+          "type": "kicker",
+          "settings": {
+            "kicker": "WELCOME TO BRAT NOIR",
+            "enable_line": false,
+            "text_size": 3
+          }
+        },
+        "heading_taXWPR": {
+          "type": "heading",
+          "settings": {
+            "heading": "Where Your Inner Brat Reigns Supreme",
+            "text_size": 8
+          }
+        },
+        "text_tyN7ir": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Feeling trapped by basic nails and salon drama that dim your vibe, babe—let Brat Noir ignite your unapologetic edge with press-ons that make every moment iconic.</p>",
+            "text_size": 4,
+            "text_columns": 1
+          }
+        }
+      },
+      "block_order": [
+        "kicker_9JgVxY",
+        "heading_taXWPR",
+        "text_tyN7ir"
+      ],
+      "custom_css": [
+        ".standard__kicker.accent-size-3.aos-init.aos-animate p {font-size: 14px !important;}",
+        ".rte.body-size-4.columns--1.aos-init.aos-animate {max-width: 900px; margin: 0 auto;}",
+        ".brat-bundle {background: transparent;}",
+        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
+        "@media screen and (max-width: 768px) {.wrapper.section-padding {padding-bottom: 0px; }}"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "align_text": "text-center",
+        "text_color": "text--neutral",
+        "bg": "palette--light bg--neutral",
+        "content_width": 2000,
+        "width": "wrapper",
+        "padding_top": 86,
+        "padding_bottom": 30
+      }
+    },
+    "section_double_QYarBJ": {
+      "type": "section-double",
+      "blocks": {
+        "image_kFydUx": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_180.png",
+            "overlay_opacity": 0,
+            "overlay_color": "#000000",
+            "enable_overlay_text": false,
+            "kicker": "",
+            "title": "",
+            "richtext": "",
+            "text_align": "align--middle-center",
+            "text_color": "text--white",
+            "link_text": "",
+            "link": "",
+            "button_color": "btn--white",
+            "button_style": "btn"
+          }
+        },
+        "text_rBjtpA": {
+          "type": "text",
+          "settings": {
+            "kicker": "",
+            "title": "Hey, Babe",
+            "text": "<p>Yes, we’re totally calling you out—tired of your style screaming ‘meh’ when it could radiate iconic power? Meet Brat Noir, the press-on nail brand that turns your vibe into an untouchable statement, no fuss.</p><p>Why hide in the crowd when you can own the room with a flick of our nails? Dive into the deep end and let’s make waves together babe.</p>",
+            "font_size": 4,
+            "text_columns": 1,
+            "align_text": "text-left",
+            "button_text": "",
+            "button_url": "",
+            "button_color": "btn--neutral",
+            "button_style": "btn-text-thick-line",
+            "text_color": "text--neutral",
+            "bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_kFydUx",
+        "text_rBjtpA"
+      ],
+      "custom_css": [
+        ".brick__block__image {border-radius: 20px;}",
+        "@media screen and (max-width: 768px) {img {max-width: 100%; height: auto; }}",
+        ".brat-bundle {background: transparent;}",
+        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
+        "@media screen and (max-width: 768px) {.brick__block__text .text__standard {padding-bottom: 0px; }}"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "height": "use_image",
+        "brick_gutter": 0,
+        "borders": false,
+        "bg_color": "",
+        "preload_image": true,
+        "width": "wrapper",
+        "padding_top": 0,
+        "padding_bottom": 30
+      }
+    },
+    "section_double_CaJAtf": {
+      "type": "section-double",
+      "blocks": {
+        "text_TEN6qE": {
+          "type": "text",
+          "settings": {
+            "kicker": "",
+            "title": "Unleash the Real You with Brat Noir",
+            "text": "<p>Ever feel like you’re fading into the background, babe, or stressing over salon nails that cost a fortune and still chip? Brat Noir was born from those quiet insecurities—fear of looking basic, the pressure to keep up, the dread of wasting time on salons that don’t get you.</p><p>We fuse bold, unapologetic BRAT energy with chic, mysterious NOIR elegance, crafting press-on nails that banish those doubts with effortless comfort, killer durability, and a luxe vibe that screams your untouchable edge.</p><p>So, ditch the drama, Bestie—shop Brat Noir now and let our shadowy designs (think jet-black pearls or midnight-blue dazzlers) transform your insecurities into the rebellious icon you’re meant to be.</p>",
+            "font_size": 4,
+            "text_columns": 1,
+            "align_text": "text-left",
+            "button_text": "",
+            "button_url": "",
+            "button_color": "btn--neutral",
+            "button_style": "btn-text-thick-line",
+            "text_color": "text--neutral",
+            "bg_color": ""
+          }
+        },
+        "image_gaqJhn": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_181.png",
+            "overlay_opacity": 0,
+            "overlay_color": "#000000",
+            "enable_overlay_text": false,
+            "kicker": "",
+            "title": "",
+            "richtext": "",
+            "text_align": "align--middle-center",
+            "text_color": "text--white",
+            "link_text": "",
+            "link": "",
+            "button_color": "btn--white",
+            "button_style": "btn"
+          }
+        }
+      },
+      "block_order": [
+        "text_TEN6qE",
+        "image_gaqJhn"
+      ],
+      "custom_css": [
+        ".brick__block__image {border-radius: 20px;}",
+        "@media screen and (max-width: 768px) {.brick__block__text .text__standard {padding-bottom: 0px; }}"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "height": "use_image",
+        "brick_gutter": 0,
+        "borders": false,
+        "bg_color": "",
+        "preload_image": false,
+        "width": "wrapper",
+        "padding_top": 0,
+        "padding_bottom": 30
+      }
+    },
+    "section_richtext_R7DWUw": {
+      "type": "section-richtext",
+      "blocks": {
+        "heading_AHyjKm": {
+          "type": "heading",
+          "settings": {
+            "heading": "From Ordinary to Iconic: Unleash Your Rebellious Glam",
+            "text_size": 8
+          }
+        },
+        "text_9YLUGg": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Feeling stuck in the everyday grind, babe? Let Brat Noir transform you from that boardroom basic into a mysterious, untouchable icon. Dare to step into your dream. Slip these on and own every gala, rooftop party, or power lunch with a sultry, rebellious glow that leaves ‘em guessing. Shop now and let Brat Noir redefine you, no drama—just pure, polished rebellion that turns heads and sets the rules, babe.</p>",
+            "text_size": 4,
+            "text_columns": 1
+          }
+        }
+      },
+      "block_order": [
+        "heading_AHyjKm",
+        "text_9YLUGg"
+      ],
+      "custom_css": [
+        ".text__standard.text-center {padding: 57px 102px; background: white; border-radius: 20px; background: rgba(255, 255, 255, 0.4);}",
+        ".standard__heading.heading-size-8.aos-init.aos-animate {max-width: 700px; margin: 0 auto 20px auto; font-size: 48px !important;}",
+        "@media screen and (max-width: 768px) {.text__standard.text-center {padding: 40px 20px; } .standard__heading.heading-size-8.aos-init.aos-animate p {font-size: 40px; }}",
+        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "align_text": "text-center",
+        "text_color": "text--neutral",
+        "bg": "palette--light bg--neutral",
+        "content_width": 2000,
+        "width": "wrapper",
+        "padding_top": 0,
+        "padding_bottom": 50
+      }
+    },
+    "section_announcement_JxCeh6": {
+      "type": "section-announcement",
+      "blocks": {
+        "text_kfwLaj": {
+          "type": "text",
+          "settings": {
+            "text": "<p>FULL BRAT ATTITUDE.</p>"
+          }
+        },
+        "text_giNKHw": {
+          "type": "text",
+          "settings": {
+            "text": "<p>SOFT-GEL COMFORT.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_kfwLaj",
+        "text_giNKHw"
+      ],
+      "name": "Scrolling promotion",
+      "settings": {
+        "bg_color": "#000000",
+        "color": "#ffffff",
+        "text_size": 4,
+        "padding_top": 10,
+        "padding_bottom": 10
+      }
+    },
+    "section_richtext_3bwnWt": {
+      "type": "section-richtext",
+      "blocks": {
+        "heading_Ntcw3W": {
+          "type": "heading",
+          "settings": {
+            "heading": "Crafted for the Unstoppable",
+            "text_size": 8
+          }
+        },
+        "text_9AYcxM": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Juggling a crazy life—careers, galas, rooftop plans—and dreading those overpriced salon traps or chipped nails that scream ‘blah,’ babe? Brat Noir’s press-ons were made for you, solving the chaos with effortless, durable designs—think innovative soft gel that fits like a dream, ditching the $90+ hassle and endless dry time.<br/><br/>Each set is crafted to flatter your fingertips and turn heads with mysterious flair. So, skip the perfection pressure, Bestie—shop Brat Noir now and let our unstoppable nails transform your busiest days into iconic moments, polished and unapologetic, every time.</p>",
+            "text_size": 4,
+            "text_columns": 1
+          }
+        }
+      },
+      "block_order": [
+        "heading_Ntcw3W",
+        "text_9AYcxM"
+      ],
+      "custom_css": [
+        "p {max-width: 1044px; margin: 0 auto;}"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "align_text": "text-center",
+        "text_color": "text--neutral",
+        "bg": "palette--light bg--neutral",
+        "content_width": 2000,
+        "width": "wrapper",
+        "padding_top": 50,
+        "padding_bottom": 30
+      }
+    },
+    "section_columns_EyEp7P": {
+      "type": "section-columns",
+      "blocks": {
+        "text_block_k7CXb3": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/Rectangle_183.png",
+            "shape_class": "",
+            "title": "Luxe Looks, Zero Drama",
+            "text": "<p>Why waste hours (and dollars) at some overcrowded salon just to walk out with nails that scream… average? Brat Noir nails deliver that expensive, I-just-landed-in-Paris energy—without the appointment, the attitude, or the UV damage. You get salon-quality soft-gel nails in minutes, all from the comfort of your perfectly unbothered home. Chic is now a press-on away.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_color": "btn--neutral",
+            "button_style": "btn--soft",
+            "enable_video": false,
+            "video_link": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "video_button_color": "text--white"
+          }
+        },
+        "text_block_HYzhkt": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/Rectangle_185.png",
+            "shape_class": "",
+            "title": "No UV, No Gluey Mess,  No Patience Required",
+            "text": "<p>Soft-gel press-ons that don’t need UV lights, don’t wreck your real nails, and don’t play games. We’re not acrylics, babe—we’re better. Our nails are feather-light, snatched for every finger type, and apply faster than your ex’s apology text. Stick 'em, slay the day, and remove without the drama. We’re the glam upgrade you didn’t know your hands were begging for.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_color": "btn--neutral",
+            "button_style": "btn--soft",
+            "enable_video": false,
+            "video_link": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "video_button_color": "text--white"
+          }
+        },
+        "text_block_DhftBf": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/Rectangle_184.png",
+            "shape_class": "",
+            "title": "Everyone's Looking At you Babe",
+            "text": "<p>If you want to slip into something that whispers “mystery” but shouts “I own this room,” you’re in the right place. We refuse to compromise on quality or our thirst for drama—after all, being a bit of a brat is about demanding the best, right?</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_color": "btn--neutral",
+            "button_style": "btn--soft",
+            "enable_video": false,
+            "video_link": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "video_button_color": "text--white"
+          }
+        }
+      },
+      "block_order": [
+        "text_block_k7CXb3",
+        "text_block_HYzhkt",
+        "text_block_DhftBf"
+      ],
+      "custom_css": [
+        ".accent-title-large.strong.mb-r4 {font-size: 18px !important; font-weight: bold; max-width: 300px; margin: 0 auto 30px auto;}",
+        ".brat-bundle {background: transparent;}",
+        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}"
+      ],
+      "name": "Text columns with images",
+      "settings": {
+        "title": "",
+        "bg": "palette--light bg--neutral",
+        "align_text": "text-center",
+        "scale_image": true,
+        "wh_ratio": 1,
+        "grid_large": 3,
+        "grid_medium": 3,
+        "grid_mobile": 1,
+        "progress_bar_mobile": true,
+        "width": "wrapper",
+        "padding_top": 0,
+        "padding_bottom": 50
+      }
+    },
+    "section_richtext_eEWxzd": {
+      "type": "section-richtext",
+      "blocks": {
+        "heading_NniWUw": {
+          "type": "heading",
+          "settings": {
+            "heading": "CLOUDLIKE COMFORT",
+            "text_size": 4
+          }
+        }
+      },
+      "block_order": [
+        "heading_NniWUw"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".text--neutral {background: #000;}",
+        ".text--neutral p {color: #fff; font-family: \"Montserrat\" !important;}",
+        "@media screen and (max-width: 768px) {.wrapper.section-padding {padding-bottom: 10px; }}"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "align_text": "text-center",
+        "text_color": "text--neutral",
+        "bg": "palette--dark bg--invert--accent",
+        "content_width": 2000,
+        "width": "wrapper",
+        "padding_top": 6,
+        "padding_bottom": 6
+      }
+    },
+    "section_announcement_mjE43F": {
+      "type": "section-announcement",
+      "blocks": {
+        "text_BQnmNM": {
+          "type": "text",
+          "settings": {
+            "text": "<p>TOO CUTE TO BOOK A NAIL APPOINTMENT 💅</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_BQnmNM"
+      ],
+      "name": "Scrolling promotion",
+      "settings": {
+        "bg_color": "#000000",
+        "color": "#ffffff",
+        "text_size": 4,
+        "padding_top": 10,
+        "padding_bottom": 10
+      }
+    },
+    "section_richtext_b6WxXa": {
+      "type": "section-richtext",
+      "blocks": {
+        "heading_FdMBCE": {
+          "type": "heading",
+          "settings": {
+            "heading": "Dare Step Into Your Icon Era Babe. Grab Brat Noir Now and Reign Forever.",
+            "text_size": 8
+          }
+        },
+        "button_BHbmG8": {
+          "type": "button",
+          "settings": {
+            "link_text_1": "EXPLORE THE BRAT NOIR LIFESTYLE",
+            "link_1": "shopify://collections/all",
+            "button_size_1": "btn--small",
+            "button_style_1": "btn",
+            "button_color_1": "btn--black",
+            "link_text_2": "",
+            "link_2": "",
+            "button_size_2": "btn--medium",
+            "button_style_2": "btn-text-thick-line",
+            "button_color_2": "btn--neutral",
+            "link_text_3": "",
+            "link_3": "",
+            "button_size_3": "btn--medium",
+            "button_style_3": "btn-text-thick-line",
+            "button_color_3": "btn--neutral"
+          }
+        }
+      },
+      "block_order": [
+        "heading_FdMBCE",
+        "button_BHbmG8"
+      ],
+      "custom_css": [
+        ".standard__cta,.hero__cta__wrapper a {min-width: 400px; letter-spacing: 1px !important;}",
+        "@media screen and (max-width: 768px) {.standard__cta, .hero__cta__wrapper a, a.standard__cta.hero__btn.btn.btn--black.btn--small.aos-init.aos-animate {min-width: 360px; margin: auto; font-size: 16px !important; }}",
+        ".brat-bundle {background: transparent;}",
+        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "align_text": "text-center",
+        "text_color": "text--neutral",
+        "bg": "palette--light bg--neutral",
+        "content_width": 2000,
+        "width": "wrapper",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "main",
+    "section_richtext_36xnMX",
+    "section_double_QYarBJ",
+    "section_double_CaJAtf",
+    "section_richtext_R7DWUw",
+    "section_announcement_JxCeh6",
+    "section_richtext_3bwnWt",
+    "section_columns_EyEp7P",
+    "section_richtext_eEWxzd",
+    "section_announcement_mjE43F",
+    "section_richtext_b6WxXa"
+  ]
+}

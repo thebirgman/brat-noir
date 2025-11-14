@@ -1,0 +1,34 @@
+<div class="product-feature-icons"
+     style="--bg-color: {{ block.settings.background_color }}; --padding-bottom: {{ block.settings.padding_bottom }}px; --icon-size: {{ block.settings.icon_size }}px; --text-size: {{ block.settings.text_size }}px;"
+     {{ block.shopify_attributes }}>
+
+    <div class="product-feature-icons__container">
+
+      {% for i in (1..6) %}
+        {% assign icon_key = 'icon_' | append: i %}
+        {% assign line1_key = 'line_1_' | append: i %}
+        {% assign line2_key = 'line_2_' | append: i %}
+
+        {% assign icon = block.settings[icon_key] %}
+        {% assign line1 = block.settings[line1_key] %}
+        {% assign line2 = block.settings[line2_key] %}
+
+        {% if icon or line1 or line2 %}
+          <div class="product-feature-icons__item" {% if forloop.first %}{{ block.shopify_attributes }}{% endif %}>
+            {% if icon %}
+              <img
+                src="{{ icon | image_url: width: 100 }}"
+                alt="Feature Icon {{ i }}"
+                class="product-feature-icons__icon"
+              />
+            {% endif %}
+            {% if line1 or line2 %}
+              <p class="product-feature-icons__text">
+                {% if line1 %}{{ line1 }}{% endif %}{% if line1 and line2 %}<br>{% endif %}{% if line2 %}{{ line2 }}{% endif %}
+              </p>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>

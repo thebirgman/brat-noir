@@ -1,0 +1,72 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {
+        "kicker": "",
+        "kicker_size": 3,
+        "show_title": true,
+        "title_size": 8,
+        "show_content": true,
+        "content_size": 5,
+        "align_text": "text-left",
+        "text_color": "text--neutral",
+        "bg": "palette--light bg--neutral",
+        "width": "wrapper",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "17566992076fdcfcf9": {
+      "type": "apps",
+      "disabled": true,
+      "settings": {
+        "text_color": "text--neutral",
+        "bg": "palette--light bg--neutral",
+        "width": "wrapper",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "17566992188520cf7a": {
+      "type": "apps",
+      "blocks": {
+        "goaffpro_affiliate_marketing_goaffpro_affiliate_portal_page_nq6JNz": {
+          "type": "shopify://apps/goaffpro-affiliate-marketing/blocks/goaffpro-affiliate-portal-page/2f4d802b-86c2-47e4-8096-ae1aa3efbab2",
+          "settings": {}
+        },
+        "goaffpro_affiliate_marketing_goaffpro_customer_single_sign_on_cP3LNw": {
+          "type": "shopify://apps/goaffpro-affiliate-marketing/blocks/goaffpro-customer-single-sign-on/2f4d802b-86c2-47e4-8096-ae1aa3efbab2",
+          "disabled": true,
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "goaffpro_affiliate_marketing_goaffpro_affiliate_portal_page_nq6JNz",
+        "goaffpro_affiliate_marketing_goaffpro_customer_single_sign_on_cP3LNw"
+      ],
+      "settings": {
+        "text_color": "text--neutral",
+        "bg": "palette--light bg--neutral",
+        "width": "wrapper",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "17566992076fdcfcf9",
+    "17566992188520cf7a"
+  ]
+}

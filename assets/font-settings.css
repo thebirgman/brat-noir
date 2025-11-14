@@ -1,0 +1,82 @@
+
+
+
+@font-face {
+  font-family: "DM Serif Display";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("//bratnoir.com/cdn/fonts/dm_serif_display/dmserifdisplay_n4.d2fb62d84e79a0e0554bcf26e5e3d5bd86318b17.woff2") format("woff2"),
+       url("//bratnoir.com/cdn/fonts/dm_serif_display/dmserifdisplay_n4.776a8bf9adeb2bdfa35851c8b8f6488e4bd0da4e.woff") format("woff");
+}
+
+@font-face {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("//bratnoir.com/cdn/fonts/montserrat/montserrat_n4.81949fa0ac9fd2021e16436151e8eaa539321637.woff2") format("woff2"),
+       url("//bratnoir.com/cdn/fonts/montserrat/montserrat_n4.a6c632ca7b62da89c3594789ba828388aac693fe.woff") format("woff");
+}
+
+@font-face {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("//bratnoir.com/cdn/fonts/montserrat/montserrat_n4.81949fa0ac9fd2021e16436151e8eaa539321637.woff2") format("woff2"),
+       url("//bratnoir.com/cdn/fonts/montserrat/montserrat_n4.a6c632ca7b62da89c3594789ba828388aac693fe.woff") format("woff");
+}
+
+
+
+
+
+  @font-face {
+  font-family: Montserrat;
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url("//bratnoir.com/cdn/fonts/montserrat/montserrat_n5.07ef3781d9c78c8b93c98419da7ad4fbeebb6635.woff2") format("woff2"),
+       url("//bratnoir.com/cdn/fonts/montserrat/montserrat_n5.adf9b4bd8b0e4f55a0b203cdd84512667e0d5e4d.woff") format("woff");
+}
+
+
+
+
+  @font-face {
+  font-family: Montserrat;
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url("//bratnoir.com/cdn/fonts/montserrat/montserrat_n5.07ef3781d9c78c8b93c98419da7ad4fbeebb6635.woff2") format("woff2"),
+       url("//bratnoir.com/cdn/fonts/montserrat/montserrat_n5.adf9b4bd8b0e4f55a0b203cdd84512667e0d5e4d.woff") format("woff");
+}
+
+
+
+
+
+
+
+  @font-face {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  src: url("//bratnoir.com/cdn/fonts/montserrat/montserrat_i4.5a4ea298b4789e064f62a29aafc18d41f09ae59b.woff2") format("woff2"),
+       url("//bratnoir.com/cdn/fonts/montserrat/montserrat_i4.072b5869c5e0ed5b9d2021e4c2af132e16681ad2.woff") format("woff");
+}
+
+
+
+  @font-face {
+  font-family: Montserrat;
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+  src: url("//bratnoir.com/cdn/fonts/montserrat/montserrat_i5.d3a783eb0cc26f2fda1e99d1dfec3ebaea1dc164.woff2") format("woff2"),
+       url("//bratnoir.com/cdn/fonts/montserrat/montserrat_i5.76d414ea3d56bb79ef992a9c62dce2e9063bc062.woff") format("woff");
+}
+
+

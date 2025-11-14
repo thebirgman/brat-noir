@@ -1,0 +1,91 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "newsletter": {
+          "type": "newsletter",
+          "settings": {
+            "show_image": false,
+            "image": "shopify://shop_images/Brat_Noir_Logo_1.png",
+            "wh_ratio": 1,
+            "newsletter_enable": true,
+            "recaptcha_enabled": false,
+            "kicker": "Unlock Your Brat Privilege. Get 10% Off Your First Order.",
+            "heading": "",
+            "richtext": "<p>Join our email list and never miss a drop, a deal, or a dangerously pretty nail set.</p>",
+            "text_size": 4,
+            "background_color": "#000000",
+            "text_color_value": "#ffffff"
+          }
+        },
+        "linklist-1": {
+          "type": "linklist",
+          "settings": {
+            "linklist": "footer-menu-1",
+            "title": "QUICK LINKS",
+            "accordion_default": ""
+          }
+        },
+        "linklist-2": {
+          "type": "linklist",
+          "settings": {
+            "linklist": "footer-menu-2",
+            "title": "POLICIES",
+            "accordion_default": ""
+          }
+        },
+        "social_KczYAe": {
+          "type": "social",
+          "settings": {
+            "title": "",
+            "text_size": 8,
+            "enable_follow_on_shop": false
+          }
+        }
+      },
+      "block_order": [
+        "newsletter",
+        "linklist-1",
+        "linklist-2",
+        "social_KczYAe"
+      ],
+      "settings": {
+        "menu_position": "right",
+        "footer_image": "shopify://shop_images/Brat_Noir_Logo_1.png",
+        "logo_max_limit": 125,
+        "width": "wrapper--full",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "subfooter": {
+      "type": "subfooter",
+      "settings": {
+        "footer_secondary_linklist": "",
+        "footer_payment_enable": false,
+        "footer_social_enable": false,
+        "show_locale_selector": true,
+        "show_currency_selector": true,
+        "width": "wrapper--full",
+        "padding_top": 20,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "footer",
+    "subfooter"
+  ]
+}

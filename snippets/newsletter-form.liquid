@@ -1,0 +1,185 @@
+<!-- /snippets/newsletter-form.liquid -->
+{% comment %}
+  {% render 'newsletter-form', unique: unique, text: block.settings.button_text, style: block.settings.button_style, color: block.settings.button_color %}
+{% endcomment %}
+{%- liquid
+  assign style = style | default: 'btn'
+  assign color = color | default: 'btn--secondary'
+  assign translation = 'general.newsletter_form.submit' | t
+  assign text = text | default: translation
+  assign class_message = ' newsletter--default-messages'
+  assign class_modifier = class_modifier | default: ''
+  assign terms = terms | default: false
+
+  if success_text != blank
+    assign class_message = ''
+  endif
+
+  assign class = class_modifier | append: class_message
+  assign class = class | strip
+-%}
+
+{%- if unique -%}
+  <div class="klaviyo-form-XH4dYJ"></div>
+  {% form 'customer', id: unique, data-newsletter-form: '', class: class %}
+   
+
+    {% if success_text != blank %}
+      <p class="newsletter__message newsletter__message--success">{{ success_text | newline_to_br }}</p>
+
+      <p class="newsletter__message newsletter__message--error"><em>{{ 'general.newsletter_form.error_message' | t }}</em></p>
+    {% else %}
+      {% if form.posted_successfully? %}
+        <p><em>{{ 'general.newsletter_form.subscribed' | t }}</em></p>
+      {% elsif form.errors %}
+        {% for field in form.errors %}
+          <p><em>{{ field }} - {{ form.errors.messages[field] }}</em></p>
+        {% endfor %}
+      {%- else -%}
+        <p class="newsletter__message newsletter__message--error"><em>{{ 'general.newsletter_form.error_message' | t }}</em></p>
+      {% endif %}
+    {% endif %}
+
+    <input type="hidden" name="contact[tags]" value="newsletter">
+    <input type="hidden" name="contact[accepts_marketing]" value="true">
+    <div class="input-group input-group--inner-button float__wrapper">
+      <label for="mail-{{ unique }}">{{ 'general.newsletter_form.email' | t }}</label>
+      <input class="input-group-field"
+        type="email"
+        placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}"
+        id="mail-{{ unique }}"
+        aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}"
+        autocorrect="off"
+        autocapitalize="off"
+        name="contact[email]"
+        data-newsletter-field />
+      <span class="input-group-button">
+        <button
+          type="submit" {% unless show_icon %}class="{{ style }} {{ color }}"{% endunless %}
+          aria-label="{{ text }}"
+          name="subscribe"
+          id="subscribe-{{ unique }}">
+          {%- if show_icon -%}
+            {{ btn_text }}
+            {%- render 'icon-core-arrow-long-right' -%}
+            {%- render 'icon-core-checkmark' -%}
+          {%- else -%}
+            {{ text }}
+          {%- endif -%}
+        </button>
+      </span>
+    </div>
+
+    {%- if terms -%}
+      <div class="form__legal">
+        {{ 'shopify.online_store.spam_detection.disclaimer_html' | t }}
+      </div>
+    {%- endif -%}
+  {% endform %}
+{%- endif -%}
+
+
+
+<style>
+  form[id*="newsletter-modal-form-newsletter_signup"] {
+    display: none;
+}
+footer form.needsclick.klaviyo-form.klaviyo-form-version-cid_1.go3279073480.kl-private-reset-css-Xuajs1 {
+    background: transparent!important;
+}
+
+
+footer div.needsclick.kl-private-reset-css-Xuajs1 {
+    padding: 0!important;
+    min-height: 0!important;
+}
+footer 
+.needsclick.kl-private-reset-css-Xuajs1 {
+    font-family: 'Montserrat'!important;
+    font-size: 16px!Important;
+}
+
+footer button.needsclick.go3265039304.kl-private-reset-css-Xuajs1 {
+    font-size: 18px!Important;
+    font-weight: 400!Important;
+    margin-top: 10px!important;
+    border: 0!important;
+}
+
+input#email_01K73YKNFCDA0EPQ1MG0Y7JRX4 {}
+
+footer input.needsclick.kl-private-reset-css-Xuajs1 {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+    border: 0!important;
+    border-radius: 10px!important;
+}
+
+
+form#footer-newsletter {
+    display: none;
+}
+
+footer input.needsclick.kl-private-reset-css-Xuajs1 {
+    background: transparent!important;
+    border: 1px solid #fff!important;
+    color: #fff!important;
+}
+
+footer button.needsclick.go3265039304.kl-private-reset-css-Xuajs1 {
+    background: #fff!important;
+    color: #000!Important;
+    margin-top: 15px!Important;
+}
+
+footer form.needsclick.klaviyo-form.klaviyo-form-version-cid_2.go3279073480.kl-private-reset-css-Xuajs1 {
+    padding: 10px 0!Important;
+        margin-left: 0!Important;
+}
+
+span.ql-font-nunito-sans {
+    background: transparent!important;
+}
+
+h1 {}
+
+.needsclick.kl-private-reset-css-Xuajs1 {}
+
+footer .needsclick.kl-private-reset-css-Xuajs1 h1 span {
+    margin-bottom: 5px;
+    color: #000!important;
+    display: block;
+}
+
+footer .needsclick.kl-private-reset-css-Xuajs1 h1 span {
+    color: #Fff!Important;
+    text-align: left;
+    font-size: 20px!Important;
+}
+
+.footer__newsletter__body p:first-child {
+    text-align: left!important;
+    color: #fff!Important;
+}
+
+.footer__newsletter__body p:first-child span {
+    color: #fff!important;
+    font-size: 16px!important;
+}
+
+
+form.needsclick.klaviyo-form.klaviyo-form-version-cid_1.go3279073480.kl-private-reset-css-Xuajs1 {
+    background-color: transparent!important;
+}
+
+@media screen and (max-width: 768px) {
+form.needsclick.klaviyo-form.klaviyo-form-version-cid_3.go417382439.kl-private-reset-css-Xuajs1 {
+    background-color: transparent!important;
+    border-radius: 17px!Important;
+}
+
+.needsclick.kl-private-reset-css-Xuajs1[style*="33px"] {
+    padding-bottom: 20px!important;
+}
+}
+</style>
+

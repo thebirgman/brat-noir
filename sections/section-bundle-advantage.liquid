@@ -1,0 +1,66 @@
+{{ 'section-bundle-advantage.css' | asset_url | stylesheet_tag }}
+
+<section class="bundle-advantage">
+  <div class="bundle-advantage__marquee">
+    <div class="bundle-advantage__marquee-content">
+      <span class="bundle-advantage__marquee-text">FULL BRAT ATTITUDE.</span>
+      <span class="bundle-advantage__marquee-text">SOFT-GEL COMFORT.</span>
+      <span class="bundle-advantage__marquee-text">FULL BRAT ATTITUDE.</span>
+      <span class="bundle-advantage__marquee-text">SOFT-GEL COMFORT.</span>
+      <span class="bundle-advantage__marquee-text">FULL BRAT ATTITUDE.</span>
+      <span class="bundle-advantage__marquee-text">SOFT-GEL COMFORT.</span>
+      <span class="bundle-advantage__marquee-text">FULL BRAT ATTITUDE.</span>
+      <span class="bundle-advantage__marquee-text">SOFT-GEL COMFORT.</span>
+      <span class="bundle-advantage__marquee-text">FULL BRAT ATTITUDE.</span>
+      <span class="bundle-advantage__marquee-text">SOFT-GEL COMFORT.</span>
+    </div>
+  </div>
+  <div class="bundle-advantage__content">
+    <h2 class="bundle-advantage__title">{{ section.settings.heading }}</h2>
+    <ul class="bundle-advantage__list">
+      {%- for block in section.blocks %}
+      <li class="bundle-advantage__item">
+        <img src="{{ block.settings.image | image_url }}" alt="{{ block.settings.title }}" />
+        <p class="bundle-advantage__item-title">{{ block.settings.title }}</p>
+      </li>
+    {%- endfor %}
+    </ul>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Bundle Advantage",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why Brat Noir?"
+    },
+  ],
+  "blocks": [
+    {
+      "type": "advantage_item",
+      "name": "Advantage Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bundle Advantage",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

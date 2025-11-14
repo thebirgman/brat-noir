@@ -1,0 +1,536 @@
+<!-- /sections/section-sticky-cta.liquid -->
+{%- liquid
+  comment
+    Always use the current product on product pages
+  endcomment
+  if template.name == 'product'
+    assign product = product
+  else
+    assign product = section.settings.product
+    if product == blank
+      assign product = all_products[section.settings.product]
+    endif
+  endif
+  
+  if product != blank
+    assign current_variant = product.selected_or_first_available_variant
+    assign product_form_id = 'sticky-cta-form-' | append: section.id
+  endif
+-%}
+
+{%- if product -%}
+  <div 
+    class="sticky-cta-bar" 
+    data-section-id="{{ section.id }}"
+    data-section-type="sticky-cta"
+    style="
+      --PT: {{ section.settings.padding_top }}px;
+      --PB: {{ section.settings.padding_bottom }}px;
+    "
+  >
+    <div class="sticky-cta-bar__container">
+      <div class="sticky-cta-bar__content">
+        {%- comment -%} Product Info Left Side {%- endcomment -%}
+        <div class="sticky-cta-bar__product-info">
+          {%- if product.featured_image -%}
+            <div class="sticky-cta-bar__thumbnail">
+              <img 
+                src="{{ product.featured_image | image_url: width: 160 }}"
+                alt="{{ product.featured_image.alt | escape }}"
+                width="80"
+                height="80"
+                loading="eager"
+                style="object-fit: cover; border-radius: 8px;"
+              >
+            </div>
+          {%- endif -%}
+          
+          <div class="sticky-cta-bar__product-details">
+            <h3 class="sticky-cta-bar__product-name">{{ product.title }}</h3>
+            
+            {%- comment -%} Judge.me Preview Badge {%- endcomment -%}
+            <div class="sticky-cta-bar__rating">
+              					<div class='jdgm-widget jdgm-preview-badge' data-id='{{ product.id }}'> 
+						{{ product.metafields.judgeme.badge }} 
+					</div> 
+            </div>
+          </div>
+        </div>
+        
+        {%- comment -%} Add to Cart Button Right Side {%- endcomment -%}
+        <div class="sticky-cta-bar__button-wrapper">
+          <product-form x-data="productAddButtonForm()" class="sticky-cta-bar__form">
+            {%- form 'product', product, id: product_form_id, data-product-form: '', data-product-handle: product.handle -%}
+              <input type="hidden" name="id" value="{{ current_variant.id }}">
+              
+              {%- assign button_text = 'products.product.add_to_cart' | t -%}
+              {%- if product.metafields.theme.preorder.value == true -%}
+                <input type="hidden" data-product-preorder name="properties[{{ 'products.product.sale_type' | t }}]" value="{{ 'products.product.pre_order' | t }}">
+                {%- assign button_text = 'products.product.pre_order' | t -%}
+              {%- endif -%}
+              
+              {%- unless current_variant.available -%}
+                {%- assign button_text = 'products.product.sold_out' | t -%}
+              {%- endunless -%}
+              
+              <button
+                type="submit"
+                name="add"
+                class="sticky-cta-bar__button btn--add-to-cart"
+                data-add-to-cart
+                aria-label="{{ button_text }}"
+                :class="{
+                  'has-success': isSuccess,
+                  'loading': isLoading
+                }"
+                {% unless current_variant.available %} disabled="disabled" {% endunless %}
+              >
+                <span class="btn-state-ready">
+                  <span data-add-to-cart-text>{{ button_text }}</span>
+                </span>
+                <span class="btn-state-loading">
+                  <svg height="18" width="18" class="svg-loader">
+                    <circle r="7" cx="9" cy="9" />
+                    <circle stroke-dasharray="87.96459430051421 87.96459430051421" r="7" cx="9" cy="9" />
+                  </svg>
+                </span>
+                <span class="btn-state-complete">&nbsp;</span>
+              </button>
+              
+              <script data-product-json type="application/json">
+                {{ product | json }}
+              </script>
+            {%- endform -%}
+          </product-form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .sticky-cta-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 99999999;
+      background: linear-gradient(198.25deg, #F9E4E3 21.38%, #F1DFFE 50.3%, #D6E5F1 87.9%);
+      backdrop-filter: blur(4px);
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0px -4px 14px 0px #00000040;
+      border-radius: 20px 20px 0 0;
+      padding: 10px var(--PB, 16px);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(100%);
+      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+
+    }
+    
+    .sticky-cta-bar.sticky-cta-bar--visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    body.sticky-cta-visible {
+      padding-bottom: var(--sticky-cta-height, 100px);
+    }
+    
+    .sticky-cta-bar__container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .sticky-cta-bar__content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    
+    .sticky-cta-bar__product-info {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .sticky-cta-bar__thumbnail {
+      flex-shrink: 0;
+      width: 67px;
+      height: 67px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+    
+    .sticky-cta-bar__thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .sticky-cta-bar__product-details {
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .sticky-cta-bar__product-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 24px;
+      font-weight: 600;
+      color: #000;
+      margin: 0 0 8px 0;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .sticky-cta-bar__rating {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    
+    /* Judge.me widget styling */
+    .sticky-cta-bar__rating .jdgm-prev-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .sticky-cta-bar__rating .jdgm-prev-badge .jdgm-star {
+      color: #F06F26;
+      font-size: 18px;
+    }
+    
+    .sticky-cta-bar__rating .jdgm-prev-badge .jdgm-prev-badge__stars {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+    
+    .sticky-cta-bar__rating .jdgm-prev-badge .jdgm-prev-badge__text {
+      font-size: 14px;
+      color: #0066cc;
+      text-decoration: underline;
+    }
+    
+    .sticky-cta-bar__rating .jdgm-prev-badge .jdgm-prev-badge__text:hover {
+      color: #0052a3;
+    }
+    
+    .sticky-cta-bar__button-wrapper {
+      flex-shrink: 0;
+    }
+    
+    .sticky-cta-bar__form {
+      width: 100%;
+    }
+    
+    .sticky-cta-bar__button {
+      background: #F06F26;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0;
+      padding: 16px 32px;
+      min-width: 200px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      font-family: 'Montserrat', sans-serif;
+    }
+    
+    .sticky-cta-bar__button:hover:not(:disabled) {
+      background: #e55e1a;
+      box-shadow: 0 4px 12px rgba(240, 111, 38, 0.3);
+    }
+    
+    .sticky-cta-bar__button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    
+    .sticky-cta-bar__button.loading {
+      pointer-events: none;
+    }
+    
+    /* Mobile Styles */
+    @media screen and (max-width: 768px) {
+      .sticky-cta-bar {
+        padding: 16px;
+        border-radius: 20px 20px 0 0;
+      }
+      
+      .sticky-cta-bar__container {
+        padding: 0;
+      }
+      
+      .sticky-cta-bar__content {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+      
+      .sticky-cta-bar__product-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 8px;
+        width: 100%;
+      }
+      
+      .sticky-cta-bar__thumbnail {
+        display: none;
+      }
+      
+      .sticky-cta-bar__product-details {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .sticky-cta-bar__product-name {
+        font-size: 20px;
+        margin-bottom: 8px;
+        text-align: center;
+        width: 100%;
+      }
+      
+      .sticky-cta-bar__rating {
+        justify-content: center;
+        width: 100%;
+      }
+      
+      .sticky-cta-bar__rating .jdgm-prev-badge .jdgm-star {
+        font-size: 16px;
+      }
+      
+      .sticky-cta-bar__rating .jdgm-prev-badge .jdgm-prev-badge__text {
+        font-size: 14px;
+      }
+      
+      .sticky-cta-bar__button-wrapper {
+        width: 100%;
+      }
+      
+      .sticky-cta-bar__form {
+        width: 100%;
+      }
+      
+      .sticky-cta-bar__button {
+        font-size: 16px;
+        padding: 14px 24px;
+        width: 100%;
+        min-width: auto;
+      }
+    }
+    
+    @media screen and (max-width: 480px) {
+      .sticky-cta-bar__product-name {
+        font-size: 16px;
+      }
+      
+      .sticky-cta-bar__button {
+        min-width: 140px;
+        padding: 12px 20px;
+        font-size: 14px;
+      }
+      
+      .sticky-cta-bar__thumbnail {
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    .sticky-cta-visible button.st-wishlist-details-button.st-wishlist-details-button--bottom_right.st-initialized {
+    bottom: 110px!Important;
+}
+
+.sticky-cta-visible .needsclick.kl-teaser-TttQ4C.kl-private-reset-css-Xuajs1 {
+    bottom: 100px!important;
+}
+
+button.sticky-cta-bar__button.btn--add-to-cart {
+    font-size: 16px;
+    padding: 10px!important;
+    min-height: 45px;
+    min-width: 360px;
+    border-radius: 4px;
+}
+.sticky-cta-bar__product-name {
+    font-size: 20px;
+    margin-bottom: 2px;
+}
+
+@media screen and (max-width: 768px) {
+
+.sticky-cta-bar.sticky-cta-bar--visible {
+    padding: 10px 20px;
+    z-index: 999999999999;
+}
+
+    button.sticky-cta-bar__button.btn--add-to-cart {
+  
+    min-width: 300px;
+        width: 100%;
+}
+
+}
+
+@media screen and (max-width: 768px) {
+.sticky-cta-visible button.st-wishlist-details-button.st-wishlist-details-button--bottom_right.st-initialized {
+    bottom: 140px!Important;
+    right: 10px!important
+}
+
+.sticky-cta-visible .needsclick.kl-teaser-TttQ4C.kl-private-reset-css-Xuajs1 {
+    bottom: 120px!important;
+    left: -10px!Important
+}
+
+}
+
+.sticky-cta-bar__content {
+    gap: 7px;
+}
+  </style>
+  
+  <script>
+
+
+
+var ur = window.location.href;
+if(ur.includes('/product')){
+  
+document.addEventListener('DOMContentLoaded', function() {
+  const interval = setInterval(() => {
+    const badges = document.querySelectorAll('span.jdgm-prev-badge__text');
+    const reviews = document.querySelector('.jdgm-all-reviews-widget');
+
+    if (!badges.length || !reviews) return;
+
+    badges.forEach(badge => {
+      badge.addEventListener('click', function(e) {
+        
+        e.preventDefault();
+        reviews.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    clearInterval(interval);
+  }, 300);
+});
+
+ 
+}
+    (function() {
+      const stickyBar = document.querySelector('.sticky-cta-bar');
+      if (!stickyBar) return;
+      
+      // Find the main product form CTA
+      const mainCTA = document.querySelector('[data-buttons-wrapper]') || 
+                      document.querySelector('.product__submit') || 
+                      document.querySelector('.btn--add-to-cart');
+      
+      if (!mainCTA) return;
+      
+      let ticking = false;
+      
+      function checkScrollPosition() {
+        if (ticking) return;
+        
+        ticking = true;
+        requestAnimationFrame(function() {
+          const mainCTABottom = mainCTA.getBoundingClientRect().bottom;
+          const windowHeight = window.innerHeight;
+          const stickyBarHeight = stickyBar.offsetHeight;
+          
+          // Show sticky CTA when main CTA has scrolled past the viewport
+          if (mainCTABottom < 0) {
+            stickyBar.classList.add('sticky-cta-bar--visible');
+            document.body.classList.add('sticky-cta-visible');
+            document.body.style.setProperty('--sticky-cta-height', stickyBarHeight + 'px');
+          } else {
+            stickyBar.classList.remove('sticky-cta-bar--visible');
+            document.body.classList.remove('sticky-cta-visible');
+            document.body.style.removeProperty('--sticky-cta-height');
+          }
+          
+          ticking = false;
+        });
+      }
+      
+      // Check on scroll
+      window.addEventListener('scroll', checkScrollPosition, { passive: true });
+      
+      // Check on resize (in case sticky bar height changes)
+      window.addEventListener('resize', checkScrollPosition, { passive: true });
+      
+      // Initial check
+      checkScrollPosition();
+    })();
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Sticky CTA",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product",
+      "info": "Only used when not on a product page. On product pages, the current product is automatically used."
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 16
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sticky CTA"
+    }
+  ],
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer",
+      "aside"
+    ]
+  }
+}
+{% endschema %}
+
