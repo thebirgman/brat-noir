@@ -209,8 +209,8 @@
       ],
       "name": "Product slider tabs",
       "settings": {
-        "title": "Pre-Curated Bundles",
-        "description": "<p>We make soft-gel press-ons so luxe, they'll swear you spent hours at the salon.</p>",
+        "title": "Pre-Curated Collections",
+        "description": "",
         "description_alignment": "center",
         "wrapper": "wrapper",
         "progress_bar": "hidden",
@@ -262,9 +262,13 @@
         "filter_QiQn7W",
         "filter_wgRijT"
       ],
+      "custom_css": [
+        "p.product__grid__collection-name {font-size: 12px !important; font-weight: 300; font-family: \"Montserrat\"; color: #000; letter-spacing: 0.5px !important; text-align: left;}",
+        "@media screen and (max-width: 768px) {.bundle-products__filters {padding-left: 0; padding-right: 0; } .bundle-products__filter-btn {font-size: 16px !important; }}"
+      ],
       "settings": {
         "collection": "collection-2",
-        "heading": "Bundle Now: Pick Any 5 Sets for the Price of 4. But shhh… don’t tell the salon.",
+        "heading": "Nails",
         "all_label": "All",
         "bundle_content_heading": "GET THE FULL BUNDLE",
         "bundle_content_subheading": "Unlock brat-level savings and score that full bundle deal babe,"
