@@ -155,6 +155,7 @@
         "collection_nUdUnM",
         "collection_XjrDk8"
       ],
+      "disabled": true,
       "custom_css": [
         "p {max-width: 570px; margin: 0 auto 20px;}",
         ".collection-tabs h2:after {display: none;}",
@@ -178,6 +179,96 @@
         "padding_top": 60,
         "padding_bottom": 70
       }
+    },
+    "section_collection_tabs_7FhyYd": {
+      "type": "section-collection-tabs",
+      "blocks": {
+        "collection_Y8434L": {
+          "type": "collection",
+          "settings": {
+            "collection": "bundles",
+            "title": "Brat Halloween Bundle",
+            "grid_large": 4,
+            "grid_medium": 2,
+            "grid_mobile": 1.2
+          }
+        }
+      },
+      "block_order": [
+        "collection_Y8434L"
+      ],
+      "custom_css": [
+        ".scrolling-promo,.tabs,.kicker-flourished:after {display: none;}",
+        "h2 {padding: 0;}",
+        ".product__grid__price {display: flex; flex-direction: column;}",
+        ".bg--neutral {background: transparent;}",
+        ".product__grid__main-info p {text-align: left;}",
+        "@media screen and (min-width: 1080px) {.slide-item.product-grid-slide[data-item] {width: calc(25% - 25px); }}",
+        ".collection-tabs-container {max-width: 100%; margin: 0 auto !important;}",
+        ".product__grid__price {min-width: 70px; text-align: right; align-items: flex-end;}"
+      ],
+      "name": "Product slider tabs",
+      "settings": {
+        "title": "Pre-Curated Bundles",
+        "description": "<p>We make soft-gel press-ons so luxe, they'll swear you spent hours at the salon.</p>",
+        "description_alignment": "center",
+        "wrapper": "wrapper",
+        "progress_bar": "hidden",
+        "grid_large": 3,
+        "grid_medium": 2,
+        "grid_mobile": 1,
+        "limit": 9,
+        "bg": "palette--light bg--neutral",
+        "width": "wrapper",
+        "padding_top": 70,
+        "padding_bottom": 70
+      }
+    },
+    "section_bundle_products_tAiL7K": {
+      "type": "section-bundle-products",
+      "blocks": {
+        "filter_QTwkEy": {
+          "type": "filter",
+          "settings": {
+            "label": "Brat Halloween",
+            "collection": "halloween-collection"
+          }
+        },
+        "filter_ctVMdy": {
+          "type": "filter",
+          "settings": {
+            "label": "Brat Fall",
+            "collection": "fall-collection"
+          }
+        },
+        "filter_QiQn7W": {
+          "type": "filter",
+          "settings": {
+            "label": "Brat Summer",
+            "collection": "fall-collection"
+          }
+        },
+        "filter_wgRijT": {
+          "type": "filter",
+          "settings": {
+            "label": "Brat Classic",
+            "collection": "fall-collection"
+          }
+        }
+      },
+      "block_order": [
+        "filter_QTwkEy",
+        "filter_ctVMdy",
+        "filter_QiQn7W",
+        "filter_wgRijT"
+      ],
+      "settings": {
+        "collection": "collection-2",
+        "heading": "Bundle Now: Pick Any 5 Sets for the Price of 4. But shhh… don’t tell the salon.",
+        "all_label": "All",
+        "bundle_content_heading": "GET THE FULL BUNDLE",
+        "bundle_content_subheading": "Unlock brat-level savings and score that full bundle deal babe,"
+      }
     }
   },
   "order": [
@@ -185,6 +276,8 @@
     "subcollections",
     "main",
     "section_video_z78q6B",
-    "section_collection_tabs_aPxHGE"
+    "section_collection_tabs_aPxHGE",
+    "section_collection_tabs_7FhyYd",
+    "section_bundle_products_tAiL7K"
   ]
 }
