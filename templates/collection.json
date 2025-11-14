@@ -79,7 +79,7 @@
       ],
       "name": "Video banner",
       "settings": {
-        "height": "use_image",
+        "height": "use_pixels_650",
         "color_bg": "palette--light bg--neutral",
         "video_bg": "shopify://files/videos/Desktop - Collection Banner.mp4",
         "object_position": "center-center",
