@@ -94,6 +94,28 @@
         "padding_bottom": 0
       }
     },
+    "section_announcement_XYjiPA": {
+      "type": "section-announcement",
+      "blocks": {
+        "text_YrGUjx": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Buy 5 Sets and Get 20% Off + Free Shipping. Math Can Be Cute</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_YrGUjx"
+      ],
+      "name": "Scrolling promotion",
+      "settings": {
+        "bg_color": "#000000",
+        "color": "#ffffff",
+        "text_size": 7,
+        "padding_top": 18,
+        "padding_bottom": 18
+      }
+    },
     "section_collection_tabs_aPxHGE": {
       "type": "section-collection-tabs",
       "blocks": {
@@ -280,6 +302,7 @@
     "subcollections",
     "main",
     "section_video_z78q6B",
+    "section_announcement_XYjiPA",
     "section_collection_tabs_aPxHGE",
     "section_collection_tabs_7FhyYd",
     "section_bundle_products_tAiL7K"
