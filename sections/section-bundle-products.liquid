@@ -195,7 +195,7 @@
 // Category filter by data-collection
 document.querySelectorAll('.bundle-products__filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    const filter = btn.innerText.trim().toLowerCase().replace('brat ', '');
+    const filter = btn.innerText.trim().toLowerCase().replace('brat ', '').replace('brat-styles' ,'');
     console.log('filter: ' + filter)
 
     // Remove is-active from all, add only to clicked
