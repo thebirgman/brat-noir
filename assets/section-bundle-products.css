@@ -607,6 +607,9 @@ ease;
     flex-wrap: nowrap!important;
     justify-content: flex-start!important;
     gap: 20px!Important;
+    max-width: initial!important;
+    width: auto!important;
+    min-width: 100%!important;
 }
 
 .collection-tabs .slide-item.product-grid-slide[data-item] {
