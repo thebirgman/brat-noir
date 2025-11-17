@@ -211,10 +211,10 @@ document.querySelectorAll('.bundle-products__filter-btn').forEach(btn => {
       console.log(filter);
       if (filter === 'all' || col.includes(filter)) {
         card.classList.remove('hidden');
-        card.parentNode.classList.add(col.replace(' ', ''))
+        card.parentNode.setAttribute('data-grid', col)
       } else {
         card.classList.add('hidden');
-        card.parentNode.classList.add(col.replace(' ', ''))
+        card.parentNode.setAttribute('data-grid', col)
       }
     });
   });
