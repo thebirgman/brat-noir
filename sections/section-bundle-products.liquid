@@ -197,6 +197,7 @@ document.querySelectorAll('.bundle-products__filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const filter = btn.innerText.trim().toLowerCase().replace('brat ', '');
     console.log('filter: ' + filter)
+    document.querySelectorAll('.bundle-products__grid')[0].setAttribute(filter)
 
     // Remove is-active from all, add only to clicked
     document.querySelectorAll('.bundle-products__filter-btn').forEach(b =>
@@ -211,10 +212,8 @@ document.querySelectorAll('.bundle-products__filter-btn').forEach(btn => {
       console.log(filter);
       if (filter === 'all' || col.includes(filter)) {
         card.classList.remove('hidden');
-        card.parentNode.setAttribute('data-grid', col)
       } else {
         card.classList.add('hidden');
-        card.parentNode.setAttribute('data-grid', col)
       }
     });
   });
