@@ -666,3 +666,12 @@ button.bundle-product__atc {
     
 }
 
+
+
+span.bundle-product__title {
+    font-family: 'DM Serif Display';
+}
+
+.bundle-products__filter-btn {
+    font-family: 'DM Serif Display';
+}
