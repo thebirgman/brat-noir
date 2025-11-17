@@ -605,6 +605,8 @@ ease;
 .collection-tabs-container {
     padding: 0!important;
     flex-wrap: nowrap!important;
+    justify-content: flex-start!important;
+    gap: 20px!Important;
 }
 
 .collection-tabs .slide-item.product-grid-slide[data-item] {
