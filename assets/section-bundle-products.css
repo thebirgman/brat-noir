@@ -608,7 +608,9 @@ button.bundle-product__atc {
     color: white;
     border: none;
     border-radius: 4px;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 600;
     letter-spacing: 0;
+    height: 45px;
+    
 }
