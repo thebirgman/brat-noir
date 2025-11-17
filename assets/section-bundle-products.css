@@ -622,6 +622,27 @@ ease;
     scroll-behavior: smooth;
     scroll-snap-align: start;
 }
+
+.collection-tabs-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  -webkit-overflow-scrolling: touch;
+  gap: 12px;
+
+  /* Optional: visible scrollbar on iOS */
+  scrollbar-width: thin;
+}
+
+.collection-tabs-container>* {
+  scroll-snap-align: start; /* or center if you want centered snaps */
+  
+}
+
+
+.slide-item.product-grid-slide {}
 }
 
 @media screen and (min-width: 768px) {
