@@ -601,6 +601,22 @@ ease;
     width: 100%;
     max-width:100%;
 }
+
+.collection-tabs-container {
+    padding: 0!important;
+    flex-wrap: nowrap!important;
+}
+
+.collection-tabs .slide-item.product-grid-slide[data-item] {
+    min-width: 80vw;
+    scroll-snap-align: start;
+}
+
+.collection-tabs-container {
+    overflow: scroll!important;
+    scroll-behavior: smooth;
+    scroll-snap-align: start;
+}
 }
 
 @media screen and (min-width: 768px) {
@@ -623,3 +639,4 @@ button.bundle-product__atc {
     height: 45px;
     
 }
+
