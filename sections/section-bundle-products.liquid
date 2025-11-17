@@ -12,7 +12,7 @@
   <div class="bundle-products__filters" role="tablist" aria-label="Category filters">
     <button
       class="bundle-products__filter-btn is-active"
-      data-filter="all-brat-styles"
+      data-filter="all"
       role="tab"
       aria-selected="true"
       aria-controls="grid-all-{{ section.id }}"
@@ -42,7 +42,7 @@
       {%- comment -%} GRID: ALL (Base Collection) {%- endcomment -%}
       <div
         class="bundle-products__grid"
-        data-grid="all-brat-styles"
+        data-grid="all"
         id="grid-all-{{ section.id }}"
         role="tabpanel"
         data-products="{{  }}"
@@ -195,7 +195,7 @@
 // Category filter by data-collection
 document.querySelectorAll('.bundle-products__filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    const filter = btn.innerText.trim().toLowerCase().replace('brat ', '').replace('brat-styles' ,'');
+    const filter = btn.innerText.trim().toLowerCase().replace('brat ', '');
     console.log('filter: ' + filter)
 
     // Remove is-active from all, add only to clicked
@@ -211,15 +211,17 @@ document.querySelectorAll('.bundle-products__filter-btn').forEach(btn => {
       console.log(filter);
       if (filter === 'all' || col.includes(filter)) {
         card.classList.remove('hidden');
+        card.parentNode.classList.add(col)
       } else {
         card.classList.add('hidden');
+        card.parentNode.classList.add(col)
       }
     });
   });
 });
 
 // Trigger default "All" on load
-document.querySelector('.bundle-products__filter-btn[data-filter="all-brat-styles"]')?.click();
+document.querySelector('.bundle-products__filter-btn[data-filter="all"]')?.click();
 
 </script>
 
