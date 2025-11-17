@@ -675,3 +675,29 @@ span.bundle-product__title {
 .bundle-products__filter-btn {
     font-family: 'DM Serif Display';
 }
+
+a.bundle-product_card_link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    left: 0;
+    top: 0;
+}
+
+.bundle-product__card {
+    position: relative;
+}
+
+.bundle-product__actions {
+    z-index: 2;
+    position: relative;
+}
+
+button.bundle-product__atc:hover {
+    filter: brightness(1.1);
+}
+
+button.bundle-product__atc {
+    transition: .2s ease-in-out;
+}
