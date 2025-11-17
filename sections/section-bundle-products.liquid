@@ -45,6 +45,7 @@
         data-grid="all-brat-styles"
         id="grid-all-{{ section.id }}"
         role="tabpanel"
+        data-products="{{  }}"
         aria-labelledby="tab-all-{{ section.id }}">
         {%- if base_collection != blank -%}
           {%- for product in base_collection.products -%}
