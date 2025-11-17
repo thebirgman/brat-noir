@@ -602,3 +602,13 @@ ease;
     max-width:100%;
 }
 }
+
+button.bundle-product__atc {
+    background: #F06F26;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0;
+}
