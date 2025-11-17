@@ -701,3 +701,7 @@ button.bundle-product__atc:hover {
 button.bundle-product__atc {
     transition: .2s ease-in-out;
 }
+
+button.bundle-products__cart-checkout {
+    font-weight: 600;
+}
