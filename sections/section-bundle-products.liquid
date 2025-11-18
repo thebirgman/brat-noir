@@ -13,6 +13,7 @@
     <button
       class="bundle-products__filter-btn is-active"
       data-filter="all"
+      data-handle="{{ block.settings.label | handleize }}"
       role="tab"
       aria-selected="true"
       aria-controls="grid-all-{{ section.id }}"
@@ -26,6 +27,7 @@
         <button
           class="bundle-products__filter-btn"
           data-filter="{{ block.id }}"
+          data-handle="{{ block.settings.label | handleize }}"
           role="tab"
           aria-selected="false"
           aria-controls="grid-{{ block.id }}"
@@ -221,6 +223,24 @@ document.querySelectorAll('.bundle-products__filter-btn').forEach(btn => {
 
 // Trigger default "All" on load
 document.querySelector('.bundle-products__filter-btn[data-filter="all"]')?.click();
+
+</script>
+
+
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+  const params = new URLSearchParams(window.location.search);
+  const handle = params.get('handle');
+  
+  if (handle) {
+    const tabButton = document.querySelector(`[data-handle="${handle}"]`);
+    if (tabButton) {
+      tabButton.click()
+      setTimeout(() => tabButton.click(), 50);
+    }
+  }
+});
 
 </script>
 
