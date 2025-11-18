@@ -88,3 +88,27 @@
   // variables into the global scope.
 })();
 
+
+
+
+
+(function () {
+  const header = document.querySelector('.js__header__stuck');
+  if (!header) return;
+
+  let lastScroll = window.pageYOffset;
+
+  window.addEventListener('scroll', function () {
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll < lastScroll) {
+      // Scrolling UP
+      header.classList.add('is-visible');
+    } else {
+      // Scrolling DOWN
+      header.classList.remove('is-visible');
+    }
+
+    lastScroll = currentScroll;
+  });
+})();
