@@ -705,3 +705,7 @@ button.bundle-product__atc {
 button.bundle-products__cart-checkout {
     font-weight: 600;
 }
+
+button.bundle-products__cart-checkout {
+    border-radius: 4px;
+}
