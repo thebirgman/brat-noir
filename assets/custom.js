@@ -89,29 +89,4 @@
 })();
 
 
-document.addEventListener("DOMContentLoaded", function() {
-
-
-(function () {
-  const header = document.querySelector('.header__wrapper');
-  if (!header) return;
-
-  let lastScroll = window.pageYOffset;
-
-  window.addEventListener('scroll', function () {
-    const currentScroll = window.pageYOffset;
-
-    if (currentScroll < lastScroll) {
-      // Scrolling UP
-      header.classList.add('is-visible');
-    } else {
-      // Scrolling DOWN
-      header.classList.remove('is-visible');
-    }
-
-    lastScroll = currentScroll;
-  });
-})();
-  
-});
 

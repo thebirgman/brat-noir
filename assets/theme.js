@@ -26658,3 +26658,31 @@ document.dispatchEvent(new CustomEvent('theme:cart:reload', {
     window.Alpine = module_default;
 
 })(themeVendor.AOS, themeVendor.FlickityFade, themeVendor.ScrollLock, themeVendor.Flickity, themeVendor.MicroModal, themeVendor.Rellax, themeVendor.themeCurrency, themeVendor.axios, themeVendor.FlickitySync, themeVendor.themeAddresses, themeVendor.Sqrl);
+
+
+
+
+
+(function () {
+  document.addEventListener("DOMContentLoaded", function() {
+  const header = document.querySelector('.header__wrapper');
+  if (!header) return;
+
+  let lastScroll = window.pageYOffset;
+
+  window.addEventListener('scroll', function () {
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll < lastScroll) {
+      // Scrolling UP
+      header.classList.add('is-visible');
+    } else {
+      // Scrolling DOWN
+      header.classList.remove('is-visible');
+    }
+
+    lastScroll = currentScroll;
+  });
+  });
+})();
+  
