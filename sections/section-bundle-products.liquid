@@ -234,7 +234,7 @@ document.querySelector('.bundle-products__filter-btn[data-filter="all"]')?.click
   const handle = params.get('handle');
   
   if (handle) {
-    const tabButton = document.querySelector(`[data-handle="${handle}"]`);
+    const tabButton = document.querySelector(`.bundle-products__filter-btn[data-handle*="${handle}"]`);
     if (tabButton) {
       tabButton.click()
       setTimeout(() => tabButton.click(), 50);
