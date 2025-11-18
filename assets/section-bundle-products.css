@@ -719,3 +719,7 @@ button.bundle-products__cart-checkout {
 .header__wrapper.js__header__stuck.js__header__stuck__backdrop.is-visible {
     opacity: 1;
 }
+
+.bundle-products__cart.show {
+    z-index: 99999999999!important;
+}
