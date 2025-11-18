@@ -1684,3 +1684,10 @@ button.flickity-button.flickity-prev-next-button.previous {
 .template-collection .needsclick.kl-private-reset-css-Xuajs1 {
     display: none;
 }
+@media screen and (max-width: 768px) {
+.sticky-cta-visible  .needsclick.kl-teaser-XsNUus.undefined.kl-private-reset-css-Xuajs1 {
+    bottom: -100px!Important;
+    opacity: 0;
+    transition: .2s ease-in-out;
+}
+}
