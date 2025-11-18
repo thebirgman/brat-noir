@@ -89,11 +89,11 @@
 })();
 
 
-
+document.addEventListener("DOMContentLoaded", function() {
 
 
 (function () {
-  const header = document.querySelector('.js__header__stuck');
+  const header = document.querySelector('.header__wrapper');
   if (!header) return;
 
   let lastScroll = window.pageYOffset;
@@ -112,3 +112,6 @@
     lastScroll = currentScroll;
   });
 })();
+  
+});
+
