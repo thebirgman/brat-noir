@@ -709,3 +709,13 @@ button.bundle-products__cart-checkout {
 button.bundle-products__cart-checkout {
     border-radius: 4px;
 }
+
+
+.header__wrapper.js__header__stuck.js__header__stuck__backdrop {
+    opacity: 0;
+    transition: .2s ease-in-out;
+}
+
+.header__wrapper.js__header__stuck.js__header__stuck__backdrop.is-visible {
+    opacity: 1;
+}
