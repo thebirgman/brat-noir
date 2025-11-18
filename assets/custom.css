@@ -1676,3 +1676,7 @@ button.flickity-button.flickity-prev-next-button.previous {
 .cart__items__meta p {
     font-size: 12px!important;
 }
+
+.st-wishlist-button[data-type="details"]{
+  display: none!Important;
+}
