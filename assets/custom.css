@@ -1691,3 +1691,9 @@ button.flickity-button.flickity-prev-next-button.previous {
     transition: .2s ease-in-out;
 }
 }
+
+
+.product__badge.product__badge--sale {
+    background: #FF6D6D;
+    color: #Fff;
+}
