@@ -15,18 +15,18 @@
         "image_zcLd7j": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Brat_Noir_3-0_Shopify_Hero_-_Brat_Halloween_16_x_9.png",
-            "mobile_image": "shopify:\/\/shop_images\/Brat_Noir_3-0_Shopify_Hero_-_Brat_Halloween_9_x_16.png",
+            "image": "shopify://shop_images/Brat_Noir_3-0_Shopify_Hero_-_Brat_Halloween_16_x_9.png",
+            "mobile_image": "shopify://shop_images/Brat_Noir_3-0_Shopify_Hero_-_Brat_Halloween_9_x_16.png",
             "overlay_opacity": 0,
             "overlay_color": "#000000",
             "enable_overlay_text": false,
             "kicker": "",
             "title": "Unleash Your Inner Brat.",
-            "richtext": "<p>We make soft-gel press-ons so luxe, they'll swear you spent hours at the salon.<\/p>",
+            "richtext": "<p>We make soft-gel press-ons so luxe, they'll swear you spent hours at the salon.</p>",
             "text_align": "align--middle-left",
             "text_color": "text--white",
             "link_text": "SHOP NOW",
-            "link": "shopify:\/\/collections\/all",
+            "link": "shopify://collections/all",
             "button_color": "btn--black",
             "button_style": "btn"
           }
@@ -34,18 +34,18 @@
         "image_Apy973": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Brat_Noir_3-0_Shopify_Hero_-_Brat_Fall_16_x_9.png",
-            "mobile_image": "shopify:\/\/shop_images\/Brat_Noir_3-0_Shopify_Hero_-_Brat_Fall_9_x_16_ab1c041a-f4df-435f-9605-18159b16cf08.png",
+            "image": "shopify://shop_images/Brat_Noir_3-0_Shopify_Hero_-_Brat_Fall_16_x_9.png",
+            "mobile_image": "shopify://shop_images/Brat_Noir_3-0_Shopify_Hero_-_Brat_Fall_9_x_16_ab1c041a-f4df-435f-9605-18159b16cf08.png",
             "overlay_opacity": 0,
             "overlay_color": "#000000",
             "enable_overlay_text": false,
             "kicker": "",
             "title": "Unleash Your Inner Brat.",
-            "richtext": "<p>We make soft-gel press-ons so luxe, they'll swear you spent hours at the salon.<\/p>",
+            "richtext": "<p>We make soft-gel press-ons so luxe, they'll swear you spent hours at the salon.</p>",
             "text_align": "align--middle-left",
             "text_color": "text--white",
             "link_text": "SHOP NOW",
-            "link": "shopify:\/\/collections\/all",
+            "link": "shopify://collections/all",
             "button_color": "btn--black",
             "button_style": "btn"
           }
@@ -80,7 +80,7 @@
         "text_mkkrnm": {
           "type": "text",
           "settings": {
-            "text": "<p>Buy 5 Sets for $64 + Free Shipping—That's $12.80 Each, Babe. Math Can Be Cute<\/p>"
+            "text": "<p>Buy 5 Sets for $64 + Free Shipping—That's $12.80 Each, Babe. Math Can Be Cute</p>"
           }
         }
       },
@@ -102,7 +102,7 @@
         "image_AA7wyW": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/before-after-brat-noir_101021fd-f603-4a80-9d58-d2ed88f95560.png",
+            "image": "shopify://shop_images/before-after-brat-noir_101021fd-f603-4a80-9d58-d2ed88f95560.png",
             "overlay_opacity": 0,
             "overlay_color": "#000000",
             "enable_overlay_text": false,
@@ -122,12 +122,12 @@
           "settings": {
             "kicker": "",
             "title": "The Brat Difference",
-            "text": "<p>We said goodbye to outdated salon drama and built something better—soft gel nails that press on in minutes and serve main character energy for days.<\/p><p>Crafted with soft gel material that mimics a salon finish (without the toxic glue or UV lamps), Brat Noir nails are designed to hug your nails comfortably and slay effortlessly.  Because your nails should look expensive, not feel exhausting.<\/p>",
+            "text": "<p>We said goodbye to outdated salon drama and built something better—soft gel nails that press on in minutes and serve main character energy for days.</p><p>Crafted with soft gel material that mimics a salon finish (without the toxic glue or UV lamps), Brat Noir nails are designed to hug your nails comfortably and slay effortlessly.  Because your nails should look expensive, not feel exhausting.</p>",
             "font_size": 4,
             "text_columns": 1,
             "align_text": "text-left",
             "button_text": "SHOP NOW",
-            "button_url": "shopify:\/\/collections\/all",
+            "button_url": "shopify://collections/all",
             "button_color": "btn--black",
             "button_style": "btn btn--long",
             "text_color": "text--neutral",
@@ -161,13 +161,13 @@
         "text_DPMRQb": {
           "type": "text",
           "settings": {
-            "text": "<p>SOFT-GEL COMFORT.<\/p>"
+            "text": "<p>SOFT-GEL COMFORT.</p>"
           }
         },
         "text_X8axzE": {
           "type": "text",
           "settings": {
-            "text": "<p>FULL BRAT ATTITUDE.<\/p>"
+            "text": "<p>FULL BRAT ATTITUDE.</p>"
           }
         }
       },
@@ -192,60 +192,60 @@
           "type": "bundle_block",
           "settings": {
             "button_label": "Brat Halloween",
-            "featured_image": "shopify:\/\/shop_images\/BratHalloween-BundleHero.png",
+            "featured_image": "shopify://shop_images/BratHalloween-BundleHero.png",
             "featured_heading": "Ready to Feel the Difference",
             "featured_price": "5 Iconic Sets – Yours for Less Than a Salon Appointment",
-            "featured_description": "<p>Skip the salon horror show—2+ hours trapped in a chair, $$ drained, and nails that never survive the afterparty. Forget flimsy drugstore press-ons that pop off faster than a witch’s hat in the wind.The <strong>Brat Halloween Bundle <\/strong>is your spell for instant glam:<\/p><ul><li><strong>5 hauntingly chic sets<\/strong> in one bundle (switch your claws as fast as your costumes)<\/li><li><strong>Salon-quality in 10 minutes<\/strong>—no drills, no damage, no curse<\/li><li>Durable enough to last through every haunted house, rave, or midnight mischief<\/li><\/ul><p>Why just <em>wear <\/em>a costume when your nails can become part of the illusion? Snag your Halloween Bundle before it disappears at midnight.<\/p>",
+            "featured_description": "<p>Skip the salon horror show—2+ hours trapped in a chair, $$ drained, and nails that never survive the afterparty. Forget flimsy drugstore press-ons that pop off faster than a witch’s hat in the wind.The <strong>Brat Halloween Bundle </strong>is your spell for instant glam:</p><ul><li><strong>5 hauntingly chic sets</strong> in one bundle (switch your claws as fast as your costumes)</li><li><strong>Salon-quality in 10 minutes</strong>—no drills, no damage, no curse</li><li>Durable enough to last through every haunted house, rave, or midnight mischief</li></ul><p>Why just <em>wear </em>a costume when your nails can become part of the illusion? Snag your Halloween Bundle before it disappears at midnight.</p>",
             "featured_button_text": "Shop Now",
-            "featured_button_link": "shopify:\/\/pages\/build-your-own-bundle"
+            "featured_button_link": "shopify://pages/build-your-own-bundle"
           }
         },
         "bundle_block_DaM7E6": {
           "type": "bundle_block",
           "settings": {
             "button_label": "Brat Fall",
-            "featured_image": "shopify:\/\/shop_images\/Brat_Fall-_Bundle_Hero.png",
+            "featured_image": "shopify://shop_images/Brat_Fall-_Bundle_Hero.png",
             "featured_heading": "Ready to Feel the Difference",
             "featured_price": "5 Iconic Sets – Yours for Less Than a Salon Appointment",
-            "featured_description": "<p>Why waste hours (and $$$) at the salon—or settle for press-ons that chip, pop off, and leave you embarrassed mid-pumpkin spice latte?The <strong>Brat Fall Bundle <\/strong>gives you:<\/p><ul><li><strong>5 luxe fall sets<\/strong> in one box (so you’re never caught bare-handed)<\/li><li><strong>10-minute salon look<\/strong> without the damage or drama<\/li><li>Nails that <em>last through real life<\/em>—from apple-picking to late-night haunts<\/li><\/ul><p>Because fall isn’t about fixing broken nails. It’s about showing up flawless. Effortlessly. Bratty. Noir.<\/p><p>Claim your Fall Bundle before it vanishes like Halloween candy.<\/p>",
+            "featured_description": "<p>Why waste hours (and $$$) at the salon—or settle for press-ons that chip, pop off, and leave you embarrassed mid-pumpkin spice latte?The <strong>Brat Fall Bundle </strong>gives you:</p><ul><li><strong>5 luxe fall sets</strong> in one box (so you’re never caught bare-handed)</li><li><strong>10-minute salon look</strong> without the damage or drama</li><li>Nails that <em>last through real life</em>—from apple-picking to late-night haunts</li></ul><p>Because fall isn’t about fixing broken nails. It’s about showing up flawless. Effortlessly. Bratty. Noir.</p><p>Claim your Fall Bundle before it vanishes like Halloween candy.</p>",
             "featured_button_text": "Shop Now",
-            "featured_button_link": "shopify:\/\/pages\/build-your-own-bundle"
+            "featured_button_link": "shopify://pages/build-your-own-bundle"
           }
         },
         "bundle_block_AxHqJ6": {
           "type": "bundle_block",
           "settings": {
             "button_label": "Brat Classic",
-            "featured_image": "shopify:\/\/shop_images\/brat-classic-bundle-fs.png",
+            "featured_image": "shopify://shop_images/brat-classic-bundle-fs.png",
             "featured_heading": "Ready to Feel the Difference",
             "featured_price": "5 Iconic Sets – Yours for Less Than a Salon Appointment",
-            "featured_description": "<p>Classic? Sure. But never basic. The Brat Classic Bundle includes all five of our iconic signature nail sets—the ones that started it all. You’re getting the full lineup of luxe, UV-free slay. It’s the ultimate toolkit for a brat who reinvents herself every night out. No appointments. <br\/><br\/>No compromises. Just nails that always get a double-take.<br\/><br\/><strong>5 signature styles. 0 salon time. 1 brat built for the spotlight.<\/strong><\/p>",
+            "featured_description": "<p>Classic? Sure. But never basic. The Brat Classic Bundle includes all five of our iconic signature nail sets—the ones that started it all. You’re getting the full lineup of luxe, UV-free slay. It’s the ultimate toolkit for a brat who reinvents herself every night out. No appointments. <br/><br/>No compromises. Just nails that always get a double-take.<br/><br/><strong>5 signature styles. 0 salon time. 1 brat built for the spotlight.</strong></p>",
             "featured_button_text": "Shop Now",
-            "featured_button_link": "shopify:\/\/pages\/build-your-own-bundle"
+            "featured_button_link": "shopify://pages/build-your-own-bundle"
           }
         },
         "bundle_block_zhdHTR": {
           "type": "bundle_block",
           "settings": {
             "button_label": "Brat Summer",
-            "featured_image": "shopify:\/\/shop_images\/brat-summer-bundle-fs.png",
+            "featured_image": "shopify://shop_images/brat-summer-bundle-fs.png",
             "featured_heading": "Ready to Feel the Difference",
             "featured_price": "5 Iconic Sets – Yours for Less Than a Salon Appointment",
-            "featured_description": "<p>Why settle for one slay when you can own the whole season? Our Summer Bundle gives you all four limited-edition summer nail sets, plus a free bonus set from our Brat Classic collection—because you deserve options, babe. Whether you're poolside in Positano or just pretending with a spritz in hand, these nails bring the heat with zero salon fuss.<br\/><br\/><strong>5 luxe sets. 0 UV lamps. 1 brat living her best life.<\/strong><\/p>",
+            "featured_description": "<p>Why settle for one slay when you can own the whole season? Our Summer Bundle gives you all four limited-edition summer nail sets, plus a free bonus set from our Brat Classic collection—because you deserve options, babe. Whether you're poolside in Positano or just pretending with a spritz in hand, these nails bring the heat with zero salon fuss.<br/><br/><strong>5 luxe sets. 0 UV lamps. 1 brat living her best life.</strong></p>",
             "featured_button_text": "Shop Now",
-            "featured_button_link": "shopify:\/\/pages\/build-your-own-bundle"
+            "featured_button_link": "shopify://pages/build-your-own-bundle"
           }
         },
         "bundle_block_ULfTYG": {
           "type": "bundle_block",
           "settings": {
             "button_label": "Build Your Own",
-            "featured_image": "shopify:\/\/shop_images\/brat-bundle-fs.png",
+            "featured_image": "shopify://shop_images/brat-bundle-fs.png",
             "featured_heading": "Ready to Feel the Difference",
             "featured_price": "5 Iconic Sets – Yours for Less Than a Salon Appointment",
-            "featured_description": "<p>Why choose just one vibe when you’ve got main character energy in every mood? With Build Your Own, you’re in full control: Pick any 5 nail sets, mix collections, match aesthetics, and craft a bundle that screams you—whether that’s “heiress at brunch” or “villain at midnight.”<br\/><br\/>This isn’t just customization—it’s curation, babe. And obviously, the more you slay, the more you save.<br\/><br\/><strong>Your nails, your rules. Built by you. Approved by your alter ego.<\/strong><\/p>",
+            "featured_description": "<p>Why choose just one vibe when you’ve got main character energy in every mood? With Build Your Own, you’re in full control: Pick any 5 nail sets, mix collections, match aesthetics, and craft a bundle that screams you—whether that’s “heiress at brunch” or “villain at midnight.”<br/><br/>This isn’t just customization—it’s curation, babe. And obviously, the more you slay, the more you save.<br/><br/><strong>Your nails, your rules. Built by you. Approved by your alter ego.</strong></p>",
             "featured_button_text": "Shop Now",
-            "featured_button_link": "shopify:\/\/pages\/build-your-own-bundle"
+            "featured_button_link": "shopify://pages/build-your-own-bundle"
           }
         }
       },
@@ -264,7 +264,7 @@
       "name": "Brat Bundle",
       "settings": {
         "heading": "Experience Our Brat Bundle",
-        "subheading": "<p>Press-ons that look basic? As if. These are the nails your salon wishes they could do—luxe vibes with a bratty twist. Slip them on, strut out, and own your day like the icon you are. You deserve glamour that breaks the rules, not your bank. Shop now and let your inner brat run wild.<\/p>",
+        "subheading": "<p>Press-ons that look basic? As if. These are the nails your salon wishes they could do—luxe vibes with a bratty twist. Slip them on, strut out, and own your day like the icon you are. You deserve glamour that breaks the rules, not your bank. Shop now and let your inner brat run wild.</p>",
         "width": "wrapper"
       }
     },
@@ -274,10 +274,10 @@
         "rich_header_Kq9W6h": {
           "type": "rich_header",
           "settings": {
-            "heading": "<h2>Find Your Perfect Nail Style<\/h2>",
-            "description": "<p>Rule #1 is owning your unapologetic edge. Set the tone. Dare to be everyone’s favorite reference. You’ll always be the one, babe.<\/p>",
+            "heading": "<h2>Find Your Perfect Nail Style</h2>",
+            "description": "<p>Rule #1 is owning your unapologetic edge. Set the tone. Dare to be everyone’s favorite reference. You’ll always be the one, babe.</p>",
             "button_text": "Shop Now",
-            "button_link": "shopify:\/\/collections\/all",
+            "button_link": "shopify://collections/all",
             "button_style": "btn",
             "button_color": "btn--black",
             "max_width": 840,
@@ -288,7 +288,7 @@
           "type": "collection",
           "settings": {
             "collection": "best-sellers-handpicked",
-            "kicker": "<h4>Shop Our Best Sellers<\/h4>",
+            "kicker": "<h4>Shop Our Best Sellers</h4>",
             "align_text": "text-center",
             "text_color": "text--neutral",
             "bg_color": "linear-gradient(198.25deg, rgba(249, 228, 227, 1) 13.06%, rgba(241, 223, 254, 1) 31.86%, rgba(214, 229, 241, 1) 51.39%)",
@@ -298,7 +298,7 @@
         "image_kKCL6A": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_39_2.png",
+            "image": "shopify://shop_images/Rectangle_39_2.png",
             "overlay_opacity": 0,
             "overlay_color": "rgba(0,0,0,0)",
             "enable_overlay_text": false,
@@ -345,7 +345,7 @@
         "text_NWqn33": {
           "type": "text",
           "settings": {
-            "text": "<p>TOO CUTE TO BOOK A NAIL APPOINTMENT 💅<\/p>"
+            "text": "<p>TOO CUTE TO BOOK A NAIL APPOINTMENT 💅</p>"
           }
         }
       },
@@ -367,42 +367,42 @@
         "image_nEzF9w": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_16_1.png",
+            "image": "shopify://shop_images/Rectangle_16_1.png",
             "link": ""
           }
         },
         "image_qeAk6d": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_17_1.png",
+            "image": "shopify://shop_images/Rectangle_17_1.png",
             "link": ""
           }
         },
         "image_cGVci9": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_18_a6a9fcbc-16b8-45c4-9809-4e6bf1151ac4.png",
+            "image": "shopify://shop_images/Rectangle_18_a6a9fcbc-16b8-45c4-9809-4e6bf1151ac4.png",
             "link": ""
           }
         },
         "image_b3wxkm": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_19_2.png",
+            "image": "shopify://shop_images/Rectangle_19_2.png",
             "link": ""
           }
         },
         "image_VkMjxn": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_20_d3eace0f-e380-4229-a145-1ff245af813d.png",
+            "image": "shopify://shop_images/Rectangle_20_d3eace0f-e380-4229-a145-1ff245af813d.png",
             "link": ""
           }
         },
         "image_eyW9q7": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_21_1.png",
+            "image": "shopify://shop_images/Rectangle_21_1.png",
             "link": ""
           }
         }
@@ -430,7 +430,7 @@
         "grid_large": 6,
         "grid_medium": 4,
         "grid_mobile": 2,
-        "heading": "<h2>Watch the Brats Slay irl<\/h2>",
+        "heading": "<h2>Watch the Brats Slay irl</h2>",
         "heading_alignment": "center",
         "width": "wrapper",
         "padding_top": 36,
@@ -450,7 +450,7 @@
         "text_GQqDrN": {
           "type": "text",
           "settings": {
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat<\/p>",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>",
             "text_size": 4,
             "text_columns": 1
           }
@@ -459,7 +459,7 @@
           "type": "button",
           "settings": {
             "link_text_1": "NEW ARRIVAL",
-            "link_1": "shopify:\/\/collections\/all",
+            "link_1": "shopify://collections/all",
             "button_size_1": "btn--medium",
             "button_style_1": "btn-text-thick-line",
             "button_color_1": "btn--neutral",
@@ -517,7 +517,7 @@
       "type": "apps",
       "blocks": {
         "judge_me_reviews_featured_carousel_HVzMKD": {
-          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/featured_carousel\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "type": "shopify://apps/judge-me-reviews/blocks/featured_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
             "maxwidth": 1080
           }
@@ -539,7 +539,7 @@
       "type": "apps",
       "blocks": {
         "gsc_instagram_feed_instafeed_j8P4r3": {
-          "type": "shopify:\/\/apps\/gsc-instagram-feed\/blocks\/instafeed\/96970b1b-b770-454f-b16b-51f47e1aa4ed",
+          "type": "shopify://apps/gsc-instagram-feed/blocks/instafeed/96970b1b-b770-454f-b16b-51f47e1aa4ed",
           "settings": {
             "widget_id": "GSC-uIxMwmNBjDcAIwD"
           }
@@ -565,7 +565,7 @@
         "collection_HeNwWW": {
           "type": "collection",
           "settings": {
-            "collection": "halloween-collection",
+            "collection": "goth-collection",
             "title": "Halloween Collection",
             "grid_large": 3,
             "grid_medium": 2,
@@ -619,7 +619,7 @@
       "name": "Product slider tabs",
       "settings": {
         "title": "Our Best Sellers",
-        "description": "<p>Worried press-ons are a total pain to put on? Bestie, puh-lease—ugh, as if we’d ever recommend a product that’s a clumsy, sweaty mess to apply, leaves your nails looking jagged and fake, and peels off faster than you can say so not cute, babe!<\/p>",
+        "description": "<p>Worried press-ons are a total pain to put on? Bestie, puh-lease—ugh, as if we’d ever recommend a product that’s a clumsy, sweaty mess to apply, leaves your nails looking jagged and fake, and peels off faster than you can say so not cute, babe!</p>",
         "description_alignment": "center",
         "wrapper": "wrapper",
         "progress_bar": "hidden",
@@ -670,7 +670,7 @@
           "type": "icon_block",
           "settings": {
             "icon_name": "icon-basket-return",
-            "icon_alt": "shopify:\/\/shop_images\/Group_153_4cbfdcf1-769c-4e8e-99e1-c122d30f2f18.png",
+            "icon_alt": "shopify://shop_images/Group_153_4cbfdcf1-769c-4e8e-99e1-c122d30f2f18.png",
             "icon_color": "#aaaaaa",
             "title": "5 Minute Application",
             "text": "",
@@ -682,7 +682,7 @@
           "type": "icon_block",
           "settings": {
             "icon_name": "icon-shipment-world",
-            "icon_alt": "shopify:\/\/shop_images\/Group_152_bf4d43c5-c6ee-44a6-8851-a28ffa3a9580.png",
+            "icon_alt": "shopify://shop_images/Group_152_bf4d43c5-c6ee-44a6-8851-a28ffa3a9580.png",
             "icon_color": "#aaaaaa",
             "title": "Salon Quality",
             "text": "",
@@ -694,7 +694,7 @@
           "type": "icon_block",
           "settings": {
             "icon_name": "icon-phone",
-            "icon_alt": "shopify:\/\/shop_images\/Group_151_cdc5ec29-83cd-4b56-8908-1c6967ccdd2c.png",
+            "icon_alt": "shopify://shop_images/Group_151_cdc5ec29-83cd-4b56-8908-1c6967ccdd2c.png",
             "icon_color": "#aaaaaa",
             "title": "Up to 2 Weeks Wear",
             "text": "",
@@ -706,7 +706,7 @@
           "type": "icon_block",
           "settings": {
             "icon_name": "icon-leaf",
-            "icon_alt": "shopify:\/\/shop_images\/Group_150.png",
+            "icon_alt": "shopify://shop_images/Group_150.png",
             "icon_color": "#aaaaaa",
             "title": "Reusable up to 3X",
             "text": "",
@@ -745,7 +745,7 @@
         "text_LEiwBK": {
           "type": "text",
           "settings": {
-            "text": "<p>Why be basic, when you can be brat?<\/p>"
+            "text": "<p>Why be basic, when you can be brat?</p>"
           }
         }
       },
@@ -766,8 +766,8 @@
       "type": "section-image",
       "name": "Image",
       "settings": {
-        "image": "shopify:\/\/shop_images\/Our_Belief_-_2.png",
-        "mobile_image": "shopify:\/\/shop_images\/our-beliefs.png",
+        "image": "shopify://shop_images/Our_Belief_-_2.png",
+        "mobile_image": "shopify://shop_images/our-beliefs.png",
         "max_width": 100,
         "x_align": "center",
         "color_bg": "palette--light bg--neutral",
@@ -789,7 +789,7 @@
         "text_KKpKh4": {
           "type": "text",
           "settings": {
-            "text": "<p>Rule #1 is owning your unapologetic edge, babe. Set the tone. Dare to be everyone’s favorite reference. You’ll always be the one.<\/p>",
+            "text": "<p>Rule #1 is owning your unapologetic edge, babe. Set the tone. Dare to be everyone’s favorite reference. You’ll always be the one.</p>",
             "text_size": 5,
             "text_columns": 1
           }
@@ -798,7 +798,7 @@
           "type": "button",
           "settings": {
             "link_text_1": "SHOP NOW",
-            "link_1": "shopify:\/\/collections\/all",
+            "link_1": "shopify://collections/all",
             "button_size_1": "btn--long",
             "button_style_1": "btn",
             "button_color_1": "btn--black",

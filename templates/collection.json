@@ -152,7 +152,7 @@
         "collection_nUdUnM": {
           "type": "collection",
           "settings": {
-            "collection": "halloween-collection",
+            "collection": "goth-collection",
             "title": "Brat Halloween",
             "grid_large": 3,
             "grid_medium": 2,
@@ -253,7 +253,7 @@
           "type": "filter",
           "settings": {
             "label": "Brat Halloween",
-            "collection": "halloween-collection"
+            "collection": "goth-collection"
           }
         },
         "filter_ctVMdy": {
