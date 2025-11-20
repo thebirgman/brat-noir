@@ -1707,7 +1707,7 @@ body.klaviyo-prevent-body-scrolling.template-collection {
     line-height: 1.3em;
 }
 
-.template-product .product__grid__price.product__grid__price--nowrap {
+body .product__grid__price.product__grid__price--nowrap {
     /* min-width: 130px; */
     flex-wrap: wrap;
     justify-content: flex-end;
