@@ -156,7 +156,7 @@
         "filter_pritAm": {
           "type": "filter",
           "settings": {
-            "label": "Brat Halloween",
+            "label": "Brat Goth",
             "collection": "goth-collection"
           }
         },
