@@ -1697,3 +1697,7 @@ button.flickity-button.flickity-prev-next-button.previous {
     background: #FF6D6D;
     color: #Fff;
 }
+
+body.klaviyo-prevent-body-scrolling.template-collection {
+    overflow: initial!important;
+}
