@@ -1701,3 +1701,14 @@ button.flickity-button.flickity-prev-next-button.previous {
 body.klaviyo-prevent-body-scrolling.template-collection {
     overflow: initial!important;
 }
+
+.product__grid__main-info p {
+    text-align: left;
+    line-height: 1.3em;
+}
+
+.template-product .product__grid__price.product__grid__price--nowrap {
+    /* min-width: 130px; */
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
