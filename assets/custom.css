@@ -1712,3 +1712,11 @@ body.klaviyo-prevent-body-scrolling.template-collection {
     flex-wrap: wrap;
     justify-content: flex-end;
 }
+
+body:not(.template-index).template-collection .header__wrapper:not(.js__header__stuck) button.header__mobile__button svg {
+    filter: invert(1);
+}
+
+body:not(.template-index).template-collection .header__wrapper:not(.js__header__stuck) a.header__mobile__button svg {
+    filter: invert(1);
+}
