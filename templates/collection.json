@@ -249,24 +249,10 @@
     "section_bundle_products_tAiL7K": {
       "type": "section-bundle-products",
       "blocks": {
-        "filter_QTwkEy": {
-          "type": "filter",
-          "settings": {
-            "label": "Brat Goth",
-            "collection": "goth-collection"
-          }
-        },
         "filter_ctVMdy": {
           "type": "filter",
           "settings": {
             "label": "Brat Fall",
-            "collection": "fall-collection"
-          }
-        },
-        "filter_QiQn7W": {
-          "type": "filter",
-          "settings": {
-            "label": "Brat Summer",
             "collection": "fall-collection"
           }
         },
@@ -276,13 +262,27 @@
             "label": "Brat Classic",
             "collection": "fall-collection"
           }
+        },
+        "filter_QTwkEy": {
+          "type": "filter",
+          "settings": {
+            "label": "Brat Goth",
+            "collection": "goth-collection"
+          }
+        },
+        "filter_QiQn7W": {
+          "type": "filter",
+          "settings": {
+            "label": "Brat Summer",
+            "collection": "fall-collection"
+          }
         }
       },
       "block_order": [
-        "filter_QTwkEy",
         "filter_ctVMdy",
-        "filter_QiQn7W",
-        "filter_wgRijT"
+        "filter_wgRijT",
+        "filter_QTwkEy",
+        "filter_QiQn7W"
       ],
       "custom_css": [
         "p.product__grid__collection-name {font-size: 12px !important; font-weight: 300; font-family: \"Montserrat\"; color: #000; letter-spacing: 0.5px !important; text-align: left;}",
