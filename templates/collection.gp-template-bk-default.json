@@ -13,106 +13,172 @@
     "subcollections",
     "main",
     "section_video_z78q6B",
-    "section_collection_tabs_aPxHGE"
+    "section_announcement_XYjiPA",
+    "section_collection_tabs_aPxHGE",
+    "section_collection_tabs_7FhyYd",
+    "section_bundle_products_tAiL7K"
   ],
   "sections": {
     "hero": {
-      "type": "collection-hero",
       "disabled": true,
       "settings": {
-        "text_align": "align--middle-center",
-        "show_title": true,
-        "show_title_below": false,
+        "bg_position": "center-center",
+        "color_bg": "palette--light bg--neutral",
+        "enable_overlay_text": false,
+        "image_height": "use_screen_one_third",
+        "overlay_color": "#000000",
+        "overlay_opacity": 20,
+        "padding_bottom": 0,
+        "padding_bottom_text": 0,
+        "padding_top": 0,
+        "padding_top_text": 36,
         "show_description": true,
         "show_description_below": false,
-        "color_bg": "palette--light bg--neutral",
         "show_image": true,
-        "bg_position": "center-center",
-        "image_height": "use_screen_one_third",
-        "overlay_opacity": 20,
-        "overlay_color": "#000000",
-        "enable_overlay_text": false,
+        "show_title": true,
+        "show_title_below": false,
+        "text_align": "align--middle-center",
         "text_color": "text--white",
         "width": "wrapper--none",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "width_text": "wrapper",
-        "padding_top_text": 36,
-        "padding_bottom_text": 0
-      }
+        "width_text": "wrapper"
+      },
+      "type": "collection-hero"
     },
     "main": {
-      "type": "collection",
       "disabled": true,
       "settings": {
-        "product_limit": 36,
+        "collapse_filters": false,
+        "collection_sorting": true,
+        "color_bg": "palette--light bg--neutral",
+        "enable_layout_toggle": true,
         "grid_large": 3,
         "grid_mobile": "2",
-        "enable_layout_toggle": true,
-        "color_bg": "palette--light bg--neutral",
-        "collection_sorting": true,
         "hide_sidebar": false,
-        "collapse_filters": false,
-        "show_products_count": true,
-        "width": "wrapper",
+        "padding_bottom": 64,
         "padding_top": 20,
-        "padding_bottom": 64
-      }
+        "product_limit": 36,
+        "show_products_count": true,
+        "width": "wrapper"
+      },
+      "type": "collection"
     },
-    "section_collection_tabs_aPxHGE": {
-      "type": "section-collection-tabs",
+    "section_announcement_XYjiPA": {
+      "block_order": [
+        "text_YrGUjx"
+      ],
       "blocks": {
-        "collection_6tJFMg": {
-          "type": "collection",
+        "text_YrGUjx": {
           "settings": {
-            "collection": "best-sellers-all",
-            "title": "All Brat Styles",
-            "grid_large": 3,
-            "grid_medium": 2,
-            "grid_mobile": 1.2
-          }
-        },
-        "collection_XjrDk8": {
-          "type": "collection",
-          "settings": {
-            "collection": "summer-collection",
-            "title": "Brat Summer",
-            "grid_large": 2,
-            "grid_medium": 2,
-            "grid_mobile": 1.2
-          }
-        },
-        "collection_bJFfcq": {
-          "type": "collection",
-          "settings": {
-            "collection": "fall-collection",
-            "title": "Brat Fall",
-            "grid_large": 3,
-            "grid_medium": 2,
-            "grid_mobile": 1.2
-          }
-        },
-        "collection_h6jy8r": {
-          "type": "collection",
-          "settings": {
-            "collection": "classic-collection",
-            "title": "Brat Classic",
-            "grid_large": 3,
-            "grid_medium": 2,
-            "grid_mobile": 1.2
-          }
-        },
-        "collection_nUdUnM": {
-          "type": "collection",
-          "settings": {
-            "collection": "goth-collection",
-            "title": "Brat Halloween",
-            "grid_large": 3,
-            "grid_medium": 2,
-            "grid_mobile": 1.2
-          }
+            "text": "<p>BUY <strong>5 SETS</strong> AND GET <strong>20% OFF + FREE SHIPPING</strong>. MATH CAN BE CUTE</p>"
+          },
+          "type": "text"
         }
       },
+      "name": "Scrolling promotion",
+      "settings": {
+        "bg_color": "#000000",
+        "color": "#ffffff",
+        "padding_bottom": 18,
+        "padding_top": 18,
+        "text_size": 7
+      },
+      "type": "section-announcement"
+    },
+    "section_bundle_products_tAiL7K": {
+      "block_order": [
+        "filter_QTwkEy",
+        "filter_ctVMdy",
+        "filter_QiQn7W",
+        "filter_wgRijT"
+      ],
+      "blocks": {
+        "filter_QTwkEy": {
+          "settings": {
+            "collection": "goth-collection",
+            "label": "Brat Goth"
+          },
+          "type": "filter"
+        },
+        "filter_QiQn7W": {
+          "settings": {
+            "collection": "fall-collection",
+            "label": "Brat Summer"
+          },
+          "type": "filter"
+        },
+        "filter_ctVMdy": {
+          "settings": {
+            "collection": "fall-collection",
+            "label": "Brat Fall"
+          },
+          "type": "filter"
+        },
+        "filter_wgRijT": {
+          "settings": {
+            "collection": "fall-collection",
+            "label": "Brat Classic"
+          },
+          "type": "filter"
+        }
+      },
+      "custom_css": [
+        "p.product__grid__collection-name {font-size: 12px !important; font-weight: 300; font-family: \"Montserrat\"; color: #000; letter-spacing: 0.5px !important; text-align: left;}",
+        "@media screen and (max-width: 768px) {.bundle-products__filters {padding-left: 0; padding-right: 0; } .bundle-products__filter-btn {font-size: 16px !important; }}"
+      ],
+      "settings": {
+        "all_label": "All",
+        "bundle_content_heading": "GET THE FULL BUNDLE",
+        "bundle_content_subheading": "Unlock brat-level savings and score that full bundle deal babe,",
+        "collection": "collection-2",
+        "heading": "Nails"
+      },
+      "type": "section-bundle-products"
+    },
+    "section_collection_tabs_7FhyYd": {
+      "block_order": [
+        "collection_Y8434L"
+      ],
+      "blocks": {
+        "collection_Y8434L": {
+          "settings": {
+            "collection": "bundles",
+            "grid_large": 4,
+            "grid_medium": 2,
+            "grid_mobile": 1.2,
+            "title": "Brat Halloween Bundle"
+          },
+          "type": "collection"
+        }
+      },
+      "custom_css": [
+        ".scrolling-promo,.tabs,.kicker-flourished:after {display: none;}",
+        "h2 {padding: 0;}",
+        ".product__grid__price {display: flex; flex-direction: column;}",
+        ".bg--neutral {background: transparent;}",
+        ".product__grid__main-info p {text-align: left;}",
+        "@media screen and (min-width: 1080px) {.slide-item.product-grid-slide[data-item] {width: calc(25% - 25px); }}",
+        ".collection-tabs-container {max-width: 100%; margin: 0 auto !important;}",
+        ".product__grid__price {min-width: 70px; text-align: right; align-items: flex-end;}"
+      ],
+      "name": "Product slider tabs",
+      "settings": {
+        "bg": "palette--light bg--neutral",
+        "description": "",
+        "description_alignment": "center",
+        "grid_large": 3,
+        "grid_medium": 2,
+        "grid_mobile": 1,
+        "limit": 9,
+        "padding_bottom": 70,
+        "padding_top": 70,
+        "progress_bar": "hidden",
+        "title": "Pre-Curated Collections",
+        "width": "wrapper",
+        "wrapper": "wrapper"
+      },
+      "type": "section-collection-tabs"
+    },
+    "section_collection_tabs_aPxHGE": {
       "block_order": [
         "collection_6tJFMg",
         "collection_bJFfcq",
@@ -120,6 +186,58 @@
         "collection_nUdUnM",
         "collection_XjrDk8"
       ],
+      "blocks": {
+        "collection_6tJFMg": {
+          "settings": {
+            "collection": "best-sellers-all",
+            "grid_large": 3,
+            "grid_medium": 2,
+            "grid_mobile": 1.2,
+            "title": "All Brat Styles"
+          },
+          "type": "collection"
+        },
+        "collection_XjrDk8": {
+          "settings": {
+            "collection": "summer-collection",
+            "grid_large": 2,
+            "grid_medium": 2,
+            "grid_mobile": 1.2,
+            "title": "Brat Summer"
+          },
+          "type": "collection"
+        },
+        "collection_bJFfcq": {
+          "settings": {
+            "collection": "fall-collection",
+            "grid_large": 3,
+            "grid_medium": 2,
+            "grid_mobile": 1.2,
+            "title": "Brat Fall"
+          },
+          "type": "collection"
+        },
+        "collection_h6jy8r": {
+          "settings": {
+            "collection": "classic-collection",
+            "grid_large": 3,
+            "grid_medium": 2,
+            "grid_mobile": 1.2,
+            "title": "Brat Classic"
+          },
+          "type": "collection"
+        },
+        "collection_nUdUnM": {
+          "settings": {
+            "collection": "goth-collection",
+            "grid_large": 3,
+            "grid_medium": 2,
+            "grid_mobile": 1.2,
+            "title": "Brat Halloween"
+          },
+          "type": "collection"
+        }
+      },
       "custom_css": [
         "p {max-width: 570px; margin: 0 auto 20px;}",
         ".collection-tabs h2:after {display: none;}",
@@ -127,65 +245,66 @@
         ".tab-content {margin-top: 30px !important;}",
         "@media screen and (max-width: 768px) {.wrapper {padding-top: 50px; }}"
       ],
+      "disabled": true,
       "name": "Product slider tabs",
       "settings": {
-        "title": "Collections",
+        "bg": "palette--light bg--neutral",
         "description": "<p>We make soft-gel press-ons so luxe, they'll swear you spent hours at the salon.</p>",
         "description_alignment": "center",
-        "wrapper": "wrapper",
-        "progress_bar": "hidden",
         "grid_large": 3,
         "grid_medium": 2,
         "grid_mobile": 1,
         "limit": 20,
-        "bg": "palette--light bg--neutral",
-        "width": "wrapper",
+        "padding_bottom": 70,
         "padding_top": 60,
-        "padding_bottom": 70
-      }
+        "progress_bar": "hidden",
+        "title": "Collections",
+        "width": "wrapper",
+        "wrapper": "wrapper"
+      },
+      "type": "section-collection-tabs"
     },
     "section_video_z78q6B": {
-      "type": "section-video",
-      "disabled": true,
       "custom_css": [
         "@media screen and (max-width: 768px) {.section--image, .image__hero__frame {min-height: 330px !important; height: 330px !important; }}"
       ],
       "name": "Video banner",
       "settings": {
-        "height": "use_pixels_500",
         "color_bg": "palette--light bg--neutral",
-        "video_bg": "shopify://files/videos/b849e9e788de497e9a4f6665f949c637.HD-720p-4.5Mbps.mp4",
+        "enable_overlay_text": false,
+        "height": "use_pixels_650",
         "object_position": "center-center",
+        "overlay_color": "#000000",
+        "overlay_opacity": 15,
+        "padding_bottom": 0,
+        "padding_top": 0,
         "preload_image": false,
         "text_align": "align--middle-center",
         "text_color": "text--white",
-        "overlay_opacity": 15,
-        "overlay_color": "#000000",
-        "enable_overlay_text": false,
-        "width": "wrapper--none",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
+        "video_bg": "shopify://files/videos/Desktop - Collection Banner.mp4",
+        "width": "wrapper--none"
+      },
+      "type": "section-video"
     },
     "subcollections": {
-      "type": "collection-sub",
       "disabled": true,
       "settings": {
-        "subcollections": [],
-        "limit": 6,
-        "color_bg": "palette--light bg--neutral",
-        "text_color": "text--white",
-        "text_align": "align--middle-center",
-        "select_image": "collection",
         "bg_position": "center-center",
-        "wh_ratio": 1.7,
-        "overlay_opacity": 20,
-        "overlay_color": "#000000",
+        "color_bg": "palette--light bg--neutral",
         "grid_mobile": 1.2,
-        "width": "wrapper",
+        "limit": 6,
+        "overlay_color": "#000000",
+        "overlay_opacity": 20,
+        "padding_bottom": 0,
         "padding_top": 20,
-        "padding_bottom": 0
-      }
+        "select_image": "collection",
+        "subcollections": [],
+        "text_align": "align--middle-center",
+        "text_color": "text--white",
+        "wh_ratio": 1.7,
+        "width": "wrapper"
+      },
+      "type": "collection-sub"
     }
   }
 }
