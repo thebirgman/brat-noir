@@ -563,16 +563,6 @@
     "section_collection_tabs_7JVzQA": {
       "type": "section-collection-tabs",
       "blocks": {
-        "collection_HeNwWW": {
-          "type": "collection",
-          "settings": {
-            "collection": "goth-collection",
-            "title": "Halloween Collection",
-            "grid_large": 3,
-            "grid_medium": 2,
-            "grid_mobile": 1.2
-          }
-        },
         "collection_XCEy4A": {
           "type": "collection",
           "settings": {
@@ -593,6 +583,16 @@
             "grid_mobile": 1.2
           }
         },
+        "collection_HeNwWW": {
+          "type": "collection",
+          "settings": {
+            "collection": "goth-collection",
+            "title": "Goth Collection",
+            "grid_large": 3,
+            "grid_medium": 2,
+            "grid_mobile": 1.2
+          }
+        },
         "collection_wGhVQQ": {
           "type": "collection",
           "settings": {
@@ -605,9 +605,9 @@
         }
       },
       "block_order": [
-        "collection_HeNwWW",
         "collection_XCEy4A",
         "collection_YrVM7N",
+        "collection_HeNwWW",
         "collection_wGhVQQ"
       ],
       "custom_css": [
