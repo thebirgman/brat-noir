@@ -34,7 +34,7 @@
       else
         assign difference = product.compare_at_price | minus: product.price
         assign percent_off = difference | times: 1.0 | divided_by: product.compare_at_price | times: 100
-        assign sale_badge_content = percent_off | floor | append: '%'
+        assign sale_badge_content = percent_off | ceil | append: '%'
       endif
       assign save_word = 'products.product.save' | t | append: ' '
       assign sale_badge_content = sale_badge_content | prepend: save_word
