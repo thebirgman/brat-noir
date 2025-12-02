@@ -1698,6 +1698,7 @@ button.flickity-button.flickity-prev-next-button.previous {
     color: #Fff;
 }
 
+
 body.klaviyo-prevent-body-scrolling.template-collection {
     overflow: initial!important;
 }
@@ -1727,4 +1728,12 @@ body:not(.template-index).template-collection .header__wrapper:not(.js__header__
 
 span.bundle-product__price--sale {
     color: #f4a482;
+}
+
+.product__badge.product__badge--sale {
+    border-radius: 5px;
+    top: auto;
+    bottom: 10px;
+    left: 10px;
+    right: auto;
 }
