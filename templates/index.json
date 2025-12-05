@@ -210,7 +210,7 @@
             "featured_image": "shopify://shop_images/fall-bundle-1.png",
             "featured_heading": "The Fall Edit. 100% Soft Gel.",
             "featured_price": "5 Sets. $65 Flat ($13/set). Zero Plastic Feel.",
-            "featured_description": "<p>Stop settling for drugstore plastic that pops off in an hour. We curated the ultimate autumn rotation using our signature Soft Gel formula—flexible, durable material that actually molds to your nail bed for an unclockable fit.</p>",
+            "featured_description": "<p>Stop settling for drugstore plastic that pops off in an hour. We curated the ultimate autumn rotation using our signature Soft Gel formula—flexible, durable material that actually molds to your nail bed for an unclockable fit.</p><ul><li><strong>Better Materials:</strong> Soft gel that feels like a natural extension.</li><li><strong>Better Design:</strong> Edgy, curated art. No \"cheugy\" patterns.</li><li><strong>Better Value:</strong> Get $90 worth of nails for $65.</li></ul>",
             "featured_button_text": "Shop Now",
             "featured_button_link": "shopify://products/brat-fall-bundle"
           }
@@ -220,9 +220,9 @@
           "settings": {
             "button_label": "Brat Classic",
             "featured_image": "shopify://shop_images/classic-bundle-1.png",
-            "featured_heading": "The Icon Edit.",
-            "featured_price": "5 Essential Sets. $65 Flat ($13/set).",
-            "featured_description": "<p>Trends fade. These 5 sets are forever. We bundled our absolute best-sellers into one \"Daily Driver\" rotation—from the perfect glazed pearl to the sharpest onyx stiletto. It’s the foundation of your nail wardrobe. Immaculate, expensive-looking, and ready for anything.</p>",
+            "featured_heading": "Clean Girl. Dark Side.",
+            "featured_price": "The 5 Sets You Actually Need.",
+            "featured_description": "<p>Trends fade. These 5 sets are forever. We bundled our absolute best-sellers into one \"Daily Driver\" rotation—from the perfect glazed pearl to the sharpest onyx stiletto. It’s the foundation of your nail wardrobe. Immaculate, expensive-looking, and ready for anything.</p><ul><li><strong>Zero Plastic Feel:</strong> Molds to your cuticle for a seamless fit.</li><li><strong>Instant Polish:</strong> The \"I have my life together\" look, in 10 minutes.</li><li><strong>Smart Math:</strong> 5 manicures for less than the price of one refill.</li></ul>",
             "featured_button_text": "Shop Now",
             "featured_button_link": "shopify://products/brat-classic-bundle-1"
           }
