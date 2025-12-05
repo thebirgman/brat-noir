@@ -289,9 +289,9 @@
         "rich_header_Kq9W6h": {
           "type": "rich_header",
           "settings": {
-            "heading": "<h2>Find Your Perfect Nail Style</h2>",
-            "description": "<p>Rule #1 is owning your unapologetic edge. Set the tone. Dare to be everyone’s favorite reference. You’ll always be the one, babe.</p>",
-            "button_text": "Shop Now",
+            "heading": "<h2>The Brat Standard.</h2>",
+            "description": "<p>We don’t do filler tracks. We curate specific, high-impact edits for the girl who refuses to look generic. From the sharpest Onyx stiletto to the cleanest Glazed finish, every set is vetted for maximum impact and zero cringe. This isn't just a catalog; it's the new standard for soft gel.</p>",
+            "button_text": "SHOP THE EDIT",
             "button_link": "shopify://collections/all",
             "button_style": "btn",
             "button_color": "btn--black",
@@ -303,7 +303,7 @@
           "type": "collection",
           "settings": {
             "collection": "best-sellers-handpicked",
-            "kicker": "<h4>Shop Our Best Sellers</h4>",
+            "kicker": "<h4>Current Obsessions</h4>",
             "align_text": "text-center",
             "text_color": "text--neutral",
             "bg_color": "linear-gradient(198.25deg, rgba(249, 228, 227, 1) 13.06%, rgba(241, 223, 254, 1) 31.86%, rgba(214, 229, 241, 1) 51.39%)",
