@@ -162,19 +162,12 @@
         "text_DPMRQb": {
           "type": "text",
           "settings": {
-            "text": "<p>SOFT-GEL COMFORT.</p>"
-          }
-        },
-        "text_X8axzE": {
-          "type": "text",
-          "settings": {
-            "text": "<p>FULL BRAT ATTITUDE.</p>"
+            "text": "<p>DAMAGE FREE. • SALON GRADE. • INSTANT MANICURE. • BETTER THAN YOUR TECH. •</p>"
           }
         }
       },
       "block_order": [
-        "text_DPMRQb",
-        "text_X8axzE"
+        "text_DPMRQb"
       ],
       "custom_css": [],
       "name": "Scrolling promotion",
