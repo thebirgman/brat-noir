@@ -736,3 +736,11 @@ button.bundle-products__cart-checkout {
 
   text-align: right;
 }
+
+.bundle-products h2 {
+    margin-bottom: 20px!Important;
+}
+
+.bundle-products__subheading.rte {
+    margin-bottom: 30px;
+}
