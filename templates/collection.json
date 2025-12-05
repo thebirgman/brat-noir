@@ -242,8 +242,8 @@
         "limit": 9,
         "bg": "palette--light bg--neutral",
         "width": "wrapper",
-        "padding_top": 70,
-        "padding_bottom": 70
+        "padding_top": 50,
+        "padding_bottom": 30
       }
     },
     "section_collection_tabs_y8FR4V": {
@@ -286,7 +286,7 @@
         "limit": 9,
         "bg": "palette--light bg--neutral",
         "width": "wrapper",
-        "padding_top": 70,
+        "padding_top": 30,
         "padding_bottom": 70
       }
     },
