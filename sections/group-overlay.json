@@ -46,7 +46,6 @@
         },
         "newsletter_signup": {
           "type": "newsletter",
-          "disabled": true,
           "settings": {
             "title": "Get 10% Discount!",
             "text": "<p>Hey Babe, sign up now and get 10% OFF on your first order!</p>",
