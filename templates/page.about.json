@@ -423,7 +423,7 @@
         "text_BQnmNM": {
           "type": "text",
           "settings": {
-            "text": "<p>TOO CUTE TO BOOK A NAIL APPOINTMENT 💅</p>"
+            "text": "<p>BETTER THINGS TO DO THAN SIT IN A SALON CHAIR. 🖤</p>"
           }
         }
       },
@@ -445,14 +445,14 @@
         "heading_FdMBCE": {
           "type": "heading",
           "settings": {
-            "heading": "Dare Step Into Your Icon Era Babe. Grab Brat Noir Now and Reign Forever.",
+            "heading": "Stop Renting Your Nails. Own Them.",
             "text_size": 8
           }
         },
         "button_BHbmG8": {
           "type": "button",
           "settings": {
-            "link_text_1": "EXPLORE THE BRAT NOIR LIFESTYLE",
+            "link_text_1": "BUILD YOUR STASH",
             "link_1": "shopify://collections/all",
             "button_size_1": "btn--small",
             "button_style_1": "btn",
