@@ -573,6 +573,9 @@
       "block_order": [
         "text_wpFwkD"
       ],
+      "custom_css": [
+        "{margin-bottom: 30px;}"
+      ],
       "name": "Scrolling promotion",
       "settings": {
         "bg_color": "#000000",
@@ -634,6 +637,7 @@
       ],
       "custom_css": [
         ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
+        ".scrolling-promo {display: none;}",
         "p {max-width: 820px; margin: 30px auto;}",
         ".collection-tabs h2:after {display: none;}",
         "h2 {padding: 0;}",
