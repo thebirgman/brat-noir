@@ -204,14 +204,21 @@
         "heading_AHyjKm": {
           "type": "heading",
           "settings": {
-            "heading": "From Ordinary to Iconic: Unleash Your Rebellious Glam",
+            "heading": "The 10-Minute Power Move.",
             "text_size": 8
+          }
+        },
+        "heading_BPNUr8": {
+          "type": "heading",
+          "settings": {
+            "heading": "Stop Waiting For A \"Special Occasion.\"",
+            "text_size": 7
           }
         },
         "text_9YLUGg": {
           "type": "text",
           "settings": {
-            "text": "<p>Feeling stuck in the everyday grind, babe? Let Brat Noir transform you from that boardroom basic into a mysterious, untouchable icon. Dare to step into your dream. Slip these on and own every gala, rooftop party, or power lunch with a sultry, rebellious glow that leaves ‘em guessing. Shop now and let Brat Noir redefine you, no drama—just pure, polished rebellion that turns heads and sets the rules, babe.</p>",
+            "text": "<p>Real luxury isn't a once-a-month appointment; it's your daily standard. We engineered Brat Noir to bridge the gap between \"I wish I had time\" and \"I look expensive.\" Transform your entire vibe in the time it takes to brew coffee. No salon chair. No small talk. Just the immediate, bulletproof confidence of a fresh set.</p>",
             "text_size": 4,
             "text_columns": 1
           }
@@ -219,6 +226,7 @@
       },
       "block_order": [
         "heading_AHyjKm",
+        "heading_BPNUr8",
         "text_9YLUGg"
       ],
       "custom_css": [
