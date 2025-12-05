@@ -127,7 +127,7 @@
             "font_size": 4,
             "text_columns": 1,
             "align_text": "text-left",
-            "button_text": "SHOP NOW",
+            "button_text": "SECURE THE STASH",
             "button_url": "shopify://collections/all",
             "button_color": "btn--black",
             "button_style": "btn btn--long",
