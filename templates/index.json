@@ -162,12 +162,33 @@
         "text_DPMRQb": {
           "type": "text",
           "settings": {
-            "text": "<p>DAMAGE FREE. • SALON GRADE. • INSTANT MANICURE. • BETTER THAN YOUR TECH. •</p>"
+            "text": "<p>DAMAGE FREE.</p>"
+          }
+        },
+        "text_fAehJg": {
+          "type": "text",
+          "settings": {
+            "text": "<p>SALON GRADE. </p>"
+          }
+        },
+        "text_3KGJcG": {
+          "type": "text",
+          "settings": {
+            "text": "<p>INSTANT MANICURE. </p>"
+          }
+        },
+        "text_HzXXyd": {
+          "type": "text",
+          "settings": {
+            "text": "<p>BETTER THAN YOUR TECH.</p>"
           }
         }
       },
       "block_order": [
-        "text_DPMRQb"
+        "text_DPMRQb",
+        "text_fAehJg",
+        "text_3KGJcG",
+        "text_HzXXyd"
       ],
       "custom_css": [],
       "name": "Scrolling promotion",
