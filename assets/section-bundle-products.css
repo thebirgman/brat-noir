@@ -723,3 +723,16 @@ button.bundle-products__cart-checkout {
 .bundle-products__cart.show {
     z-index: 99999999999!important;
 }
+
+.bundle-products__subheading.rte {
+  text-align: center;
+}
+
+.bundle-products__subheading.rte strong {
+  font-weight: 700;
+}
+
+.bundle-products__cart-progress-text {
+
+  text-align: right;
+}

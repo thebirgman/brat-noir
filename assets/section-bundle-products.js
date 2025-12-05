@@ -68,9 +68,29 @@
 
         const remaining = document.querySelector('.bundle-products__cart-progress-text');
         if (remaining) {
-          remaining.innerHTML = data.item_count < 5
-            ? `You are ${5 - data.item_count} more products away from a bundle!`
-            : 'Your bundle is complete!';
+          const itemCount = data.item_count;
+          const remainingCount = 5 - itemCount;
+          let progressText = '';
+          
+          // Get text templates from data attributes
+          const textDefault = remaining.dataset.progressTextDefault || 'You are [X] sets away from 20% OFF';
+          const textTwoMore = remaining.dataset.progressTextTwoMore || 'Just 2 more sets to unlock 20% OFF';
+          const textOneMore = remaining.dataset.progressTextOneMore || 'Just 1 more set to unlock 20% OFF';
+          const textComplete = remaining.dataset.progressTextComplete || 'We love to see it. 20% OFF applied.';
+          
+          // Apply conditional logic matching the Liquid template
+          if (itemCount >= 5) {
+            progressText = textComplete;
+          } else if (itemCount === 4) {
+            progressText = textOneMore;
+          } else if (itemCount === 3) {
+            progressText = textTwoMore;
+          } else {
+            // Replace [X] with remaining count
+            progressText = textDefault.replace('[X]', remainingCount);
+          }
+          
+          remaining.innerHTML = progressText;
         }
       });
   }
