@@ -339,10 +339,10 @@
         "all_label": "All",
         "bundle_content_heading": "SECURE THE STASH (SAVE $25)",
         "bundle_content_subheading": "Why choose? Build your full rotation. Grab 5 sets for a flat $65 — just $13 each.",
-        "progress_text_default": "You are [X] sets away from 20% OFF",
-        "progress_text_two_more": "Just 2 more sets to unlock 20% OFF",
-        "progress_text_one_more": "Just 1 more set to unlock 20% OFF",
-        "progress_text_complete": "We love to see it. 20% OFF applied."
+        "progress_text_default": "Add [X] more sets to unlock the $13/set insider rate.",
+        "progress_text_two_more": "Getting closer. Add 2 more sets to save $25 instantly.",
+        "progress_text_one_more": "So close. Add 1 more set to secure the $65 Stash.",
+        "progress_text_complete": "Vault unlocked. Insider rate ($13/set) secured. The math is mathing."
       }
     }
   },
