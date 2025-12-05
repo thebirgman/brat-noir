@@ -256,10 +256,10 @@
           "settings": {
             "button_label": "Build Your Own",
             "featured_image": "shopify://shop_images/brat-bundle-fs.png",
-            "featured_heading": "Ready to Feel the Difference",
-            "featured_price": "5 Iconic Sets – Yours for Less Than a Salon Appointment",
-            "featured_description": "<p>Why choose just one vibe when you’ve got main character energy in every mood? With Build Your Own, you’re in full control: Pick any 5 nail sets, mix collections, match aesthetics, and craft a bundle that screams you—whether that’s “heiress at brunch” or “villain at midnight.”<br/><br/>This isn’t just customization—it’s curation, babe. And obviously, the more you slay, the more you save.<br/><br/><strong>Your nails, your rules. Built by you. Approved by your alter ego.</strong></p>",
-            "featured_button_text": "Shop Now",
+            "featured_heading": "Total Control.",
+            "featured_price": "5 Sets. Any Vibe. $65 Flat ($13/set).",
+            "featured_description": "<p>We opened the vault. You curate the lineup. Whether you want 5 sets of Onyx Black or a chaotic mix of Summer Chrome and Goth Skulls, this is your chance to build a rotation that actually matches your life. No fillers. Just the 5 sets you’re obsessed with.</p><ul><li><strong>Full Access:</strong> Choose from every collection on the site.</li><li><strong>The Math:</strong> You pay $13 per set. You save $25 instantly.</li><li><strong>The Look:</strong> Soft gel perfection, tailored by you.</li></ul>",
+            "featured_button_text": "BUILD YOUR LOOK",
             "featured_button_link": "shopify://collections/all"
           }
         }
