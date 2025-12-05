@@ -659,8 +659,8 @@
       ],
       "name": "Product slider tabs",
       "settings": {
-        "title": "Our Best Sellers",
-        "description": "<p>Worried press-ons are a total pain to put on? Bestie, puh-lease—ugh, as if we’d ever recommend a product that’s a clumsy, sweaty mess to apply, leaves your nails looking jagged and fake, and peels off faster than you can say so not cute, babe!</p>",
+        "title": "The Heavy Hitters.",
+        "description": "<p>Why are these our top-rated sets? Because they don't look like press-ons. While other brands sell you rigid plastic that pops off, these best-sellers are crafted from flexible Soft Gel that molds to your nail for a seamless, unclockable fit. It’s the $120 salon look, engineered for real life.</p>",
         "description_alignment": "center",
         "wrapper": "wrapper",
         "progress_bar": "hidden",
