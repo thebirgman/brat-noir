@@ -244,19 +244,12 @@
         "text_kfwLaj": {
           "type": "text",
           "settings": {
-            "text": "<p>FULL BRAT ATTITUDE.</p>"
-          }
-        },
-        "text_giNKHw": {
-          "type": "text",
-          "settings": {
-            "text": "<p>SOFT-GEL COMFORT.</p>"
+            "text": "<p><strong>5 SETS. $65 FLAT ($13/EACH). FREE SHIPPING. 💸 THE MATH IS MATHING.</strong></p>"
           }
         }
       },
       "block_order": [
-        "text_kfwLaj",
-        "text_giNKHw"
+        "text_kfwLaj"
       ],
       "name": "Scrolling promotion",
       "settings": {
