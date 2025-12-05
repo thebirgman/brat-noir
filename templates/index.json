@@ -680,7 +680,7 @@
         "heading_PqdxAQ": {
           "type": "heading",
           "settings": {
-            "heading": "Why Brat Noir?",
+            "heading": "The Noir Standard",
             "text_size": 10
           }
         }
@@ -713,7 +713,7 @@
             "icon_name": "icon-basket-return",
             "icon_alt": "shopify://shop_images/Group_153_4cbfdcf1-769c-4e8e-99e1-c122d30f2f18.png",
             "icon_color": "#aaaaaa",
-            "title": "5 Minute Application",
+            "title": "10 Minutes Flat.",
             "text": "",
             "link_text": "",
             "link_url": ""
@@ -725,7 +725,7 @@
             "icon_name": "icon-shipment-world",
             "icon_alt": "shopify://shop_images/Group_152_bf4d43c5-c6ee-44a6-8851-a28ffa3a9580.png",
             "icon_color": "#aaaaaa",
-            "title": "Salon Quality",
+            "title": "100% Soft Gel.",
             "text": "",
             "link_text": "",
             "link_url": ""
@@ -737,7 +737,7 @@
             "icon_name": "icon-phone",
             "icon_alt": "shopify://shop_images/Group_151_cdc5ec29-83cd-4b56-8908-1c6967ccdd2c.png",
             "icon_color": "#aaaaaa",
-            "title": "Up to 2 Weeks Wear",
+            "title": "14-Day Wear.",
             "text": "",
             "link_text": "",
             "link_url": ""
@@ -749,7 +749,7 @@
             "icon_name": "icon-leaf",
             "icon_alt": "shopify://shop_images/Group_150.png",
             "icon_color": "#aaaaaa",
-            "title": "Reusable up to 3X",
+            "title": "Reusable 3x.",
             "text": "",
             "link_text": "",
             "link_url": ""
@@ -786,7 +786,7 @@
         "text_LEiwBK": {
           "type": "text",
           "settings": {
-            "text": "<p>Why be basic, when you can be brat?</p>"
+            "text": "<p>UNCLOCKABLE FIT. </p><p>SOFT GEL TECHNOLOGY. </p><p>THE ANTI-SALON.</p><p>SAVE YOUR MONEY.</p>"
           }
         }
       },
