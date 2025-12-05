@@ -335,9 +335,14 @@
       "settings": {
         "collection": "collection-2",
         "heading": "Build Your Own Collection",
+        "subheading": "<p>Curate your own look. <strong>Pro Tip: </strong>Unlock VIP Pricing by adding 5+ sets to cart for $13 per set + FREE SHIPPING</p>",
         "all_label": "All",
         "bundle_content_heading": "SECURE THE STASH (SAVE $25)",
-        "bundle_content_subheading": "Why choose? Build your full rotation. Grab 5 sets for a flat $65 — just $13 each."
+        "bundle_content_subheading": "Why choose? Build your full rotation. Grab 5 sets for a flat $65 — just $13 each.",
+        "progress_text_default": "You are [X] sets away from 20% OFF",
+        "progress_text_two_more": "Just 2 more sets to unlock 20% OFF",
+        "progress_text_one_more": "Just 1 more set to unlock 20% OFF",
+        "progress_text_complete": "We love to see it. 20% OFF applied."
       }
     }
   },
