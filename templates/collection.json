@@ -100,7 +100,7 @@
         "text_YrGUjx": {
           "type": "text",
           "settings": {
-            "text": "<p>✨ <strong>FREE SHIPPING</strong> on orders $60+ ✈️ <strong>PRO TIP:</strong> Add 5 sets to cart for 20% OFF.</p>"
+            "text": "<p>✨ <strong>UNLOCK THE VAULT:</strong> 5 sets for $13/each. (That’s $25 off + Free Shipping) ✈️. The math is mathing.</p>"
           }
         }
       },
@@ -336,8 +336,8 @@
         "collection": "collection-2",
         "heading": "Build Your Own Collection",
         "all_label": "All",
-        "bundle_content_heading": "SECURE THE STASH (20% OFF)",
-        "bundle_content_subheading": "Why choose? Build your rotation. Add 5 sets to bag and we’ll drop the price by 20%."
+        "bundle_content_heading": "SECURE THE STASH (SAVE $25)",
+        "bundle_content_subheading": "Why choose? Build your full rotation. Grab 5 sets for a flat $65 ($13/ea)."
       }
     }
   },
