@@ -842,9 +842,9 @@ a.brat-featured-button {
   letter-spacing:  0;
 }
 button.btn--outline.btn--full.btn--primary.btn--add-to-cart:hover {
-  background: #FF7222;
+  background: #61150F;
   color: #fff;
-  border: solid #FF7222 1px;
+  border: solid #61150F 1px;
 }
 @media screen and (max-width: 768px) {
 .grid__item.product__media__wrapper.large-up--five-eighths.medium--one-half.product__mobile--carousel {
