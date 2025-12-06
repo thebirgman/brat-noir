@@ -833,7 +833,7 @@ a.btn--black.btn.hero__btn.btn--long.aos-init.aos-animate,
 a.standard__cta,
 a.btn.btn--black,
 a.brat-featured-button {
-  background:#F06F26;
+  background:#61150F;
   color: white;
   border: none;
   border-radius: 4px;
@@ -842,9 +842,9 @@ a.brat-featured-button {
   letter-spacing:  0;
 }
 button.btn--outline.btn--full.btn--primary.btn--add-to-cart:hover {
-  background: #61150F;
+  background: #7E1A12;
   color: #fff;
-  border: solid #61150F 1px;
+  border: solid #7E1A12 1px;
 }
 @media screen and (max-width: 768px) {
 .grid__item.product__media__wrapper.large-up--five-eighths.medium--one-half.product__mobile--carousel {
