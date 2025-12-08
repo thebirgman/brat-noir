@@ -1,7 +1,12 @@
 (function () {
-  async function addToCart(variantId, sellingPlanId, quantity) {
+  async function addToCart(variantId, sellingPlanId, quantity, productData) {
     console.log('variantId:', variantId);
     console.log('sellingPlanId:', sellingPlanId);
+
+    // Optimistically update bundle cart UI immediately
+    if (productData) {
+      optimisticallyAddToBundleCart(variantId, productData, quantity);
+    }
 
     const item = {
       id: parseInt(variantId),
@@ -12,6 +17,7 @@
       item.selling_plan = parseInt(sellingPlanId);
     }
     
+    // Add to cart in background
     await fetch('/cart/add.js', {
       method: 'POST',
       headers: {
@@ -22,21 +28,71 @@
       })
     });
 
-    // Update bundle cart UI and get cart data
-    const cartData = await refreshCart();
-    
-    // Update theme's cart drawer
-    if (cartData) {
-      document.dispatchEvent(new CustomEvent('theme:cart:change', {
-        detail: {
-          cart: cartData
-        },
-        bubbles: true
-      }));
+    // Update bundle cart UI with real data and update cart drawer in background
+    refreshCart().then(cartData => {
+      // Update theme's cart drawer in background (non-blocking)
+      if (cartData) {
+        document.dispatchEvent(new CustomEvent('theme:cart:change', {
+          detail: {
+            cart: cartData
+          },
+          bubbles: true
+        }));
+      }
+    });
+  }
+
+  function optimisticallyAddToBundleCart(variantId, productData, quantity) {
+    const template = document.querySelector('#bundle-cart-item');
+    if (!template) return;
+
+    const cartContainer = document.querySelector('.bundle-products__cart-items');
+    if (!cartContainer) return;
+
+    // Check if item already exists (for quantity updates)
+    const existingItem = cartContainer.querySelector(`[data-remove-from-cart="${variantId}"]`)?.closest('.bundle-products__cart-item');
+    if (existingItem) {
+      // Update existing item quantity
+      const titleElement = existingItem.querySelector('.bundle-products__cart-item-title');
+      if (titleElement) {
+        const currentQty = parseInt(titleElement.textContent.match(/x\s*(\d+)/)?.[1] || '1');
+        const newQty = currentQty + quantity;
+        titleElement.textContent = titleElement.textContent.replace(/x\s*\d+/, `x ${newQty}`);
+      }
+    } else {
+      // Create and add new optimistic cart item
+      const itemHtml = template.innerHTML
+        .replace(/%ID%/g, variantId)
+        .replace(/%TITLE%/g, productData.title)
+        .replace(/%IMAGE%/g, productData.image || 'default-image-url.jpg')
+        .replace(/%QUANTITY%/g, quantity);
+
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = itemHtml;
+      const newItem = tempDiv.firstElementChild;
+      
+      // Add to the beginning of cart items
+      cartContainer.insertBefore(newItem, cartContainer.firstChild);
+    }
+
+    // Optimistically update progress (total will be corrected by refreshCart)
+    const progress = document.querySelector('.bundle-products__cart-progress-bar');
+    if (progress) {
+      const currentItems = cartContainer.querySelectorAll('.bundle-products__cart-item').length;
+      progress.style.setProperty('--progress', (currentItems / 5) * 100 + '%');
     }
   }
 
   async function removeFromCart(variantId) {
+    // Optimistically remove from bundle cart UI immediately
+    const cartContainer = document.querySelector('.bundle-products__cart-items');
+    if (cartContainer) {
+      const itemToRemove = cartContainer.querySelector(`[data-remove-from-cart="${variantId}"]`)?.closest('.bundle-products__cart-item');
+      if (itemToRemove) {
+        itemToRemove.remove();
+      }
+    }
+
     await fetch(`/cart/change.js`, {
       method: 'POST',
       headers: {
@@ -48,18 +104,18 @@
       })
     });
 
-    // Update bundle cart UI and get cart data
-    const cartData = await refreshCart();
-    
-    // Update theme's cart drawer
-    if (cartData) {
-      document.dispatchEvent(new CustomEvent('theme:cart:change', {
-        detail: {
-          cart: cartData
-        },
-        bubbles: true
-      }));
-    }
+    // Update bundle cart UI with real data and update cart drawer in background
+    refreshCart().then(cartData => {
+      // Update theme's cart drawer in background (non-blocking)
+      if (cartData) {
+        document.dispatchEvent(new CustomEvent('theme:cart:change', {
+          detail: {
+            cart: cartData
+          },
+          bubbles: true
+        }));
+      }
+    });
   }
 
   async function refreshCart() {
@@ -128,9 +184,22 @@
         const variantId = button.getAttribute('data-variant-id') || null;
         const sellingPlanID = button.getAttribute('data-selling-plan') || null;
 
-        await addToCart(variantId, 0, 1); // 🛠 missing await before
+        // Get product data from the card for optimistic update
+        const card = button.closest('.bundle-product__card');
+        const productData = card ? {
+          title: card.querySelector('.bundle-product__title')?.textContent?.trim() || '',
+          image: card.querySelector('.bundle-product__image')?.src || '',
+          price: card.querySelector('.bundle-product__price--sale, .bundle-product__price--regular')?.textContent || '0'
+        } : null;
 
-        button.classList.remove('loading');
+        // Don't await - let it run in background after optimistic update
+        addToCart(variantId, 0, 1, productData).then(() => {
+          button.classList.remove('loading');
+        }).catch(() => {
+          button.classList.remove('loading');
+          // If add fails, refresh cart to show correct state
+          refreshCart();
+        });
       });
     });
 
@@ -143,8 +212,14 @@
       if (button) {
         button.classList.add('loading');
         const variantId = button.dataset.removeFromCart;
-        await removeFromCart(variantId);
-        button.classList.remove('loading');
+        // Don't await - let it run in background after optimistic update
+        removeFromCart(variantId).then(() => {
+          button.classList.remove('loading');
+        }).catch(() => {
+          button.classList.remove('loading');
+          // If remove fails, refresh cart to show correct state
+          refreshCart();
+        });
       }
     });
 
