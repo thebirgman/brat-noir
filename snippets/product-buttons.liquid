@@ -23,34 +23,7 @@
  {%- comment -%}
                 Quantity selector beside the Add to Cart button
               {%- endcomment -%}
-              <div
-                class="quantity__wrapper"
-                data-quantity-selector
-                style="border-radius: 4px 0 0 4px; border-right: none; height: 52px;"
-              >
-             
-                <button
-                  type="button" class="quantity__button quantity__button--minus" data-decrease-quantity
-                >
-                  &minus;
-                </button>
-                <input
-                  data-quantity-input
-                  aria-label="{{ 'cart.label.quantity' | t }}"
-                  class="quantity__input"
-                  type="number"
-                  min="1"
-                  name="quantity"
-                  form="{{ uniq_id }}"
-                  value="1"
-                  style="height: 100%;"
-                />
-                <button
-                  type="button" class="quantity__button quantity__button--plus" data-increase-quantit
-                >
-                  +
-                </button>
-              </div>
+              
 <product-form
   x-data="productAddButtonForm()"
   class="product__block__buttons"
