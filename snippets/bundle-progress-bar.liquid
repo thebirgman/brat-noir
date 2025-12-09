@@ -1,4 +1,4 @@
-{%- assign free_shipping_dollars = section.settings.free_shipping_amount | default: 60 -%}
+{%- assign free_shipping_dollars = settings.free_shipping_limit | default: 60 -%}
 {%- assign free_shipping_target = free_shipping_dollars | times: 100 -%}  <!-- Convert to cents -->
 
 {%- assign current_amount = cart.total_price | default: 0 -%}
@@ -10,6 +10,7 @@
 {%- if remaining_amount < 0 -%}
   {%- assign remaining_amount = 0 -%}
 {%- endif -%}
+
 
 <style>
 <style>
