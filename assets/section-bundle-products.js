@@ -79,7 +79,7 @@
     const progress = document.querySelector('.bundle-products__cart-progress-bar');
     if (progress) {
       const currentItems = cartContainer.querySelectorAll('.bundle-products__cart-item').length;
-      progress.style.setProperty('--progress', (currentItems / 3) * 100 + '%');
+      progress.style.setProperty('--progress', (currentItems / 5) * 100 + '%');
     }
   }
 
@@ -142,12 +142,12 @@
     if (total) total.innerHTML = '$' + ((data.total_price || 0) / 100).toFixed(2);
 
     const progress = document.querySelector('.bundle-products__cart-progress-bar');
-    if (progress) progress.style.setProperty('--progress', (data.item_count / 3) * 100 + '%');
+    if (progress) progress.style.setProperty('--progress', (data.item_count / 5) * 100 + '%');
 
     const remaining = document.querySelector('.bundle-products__cart-progress-text');
     if (remaining) {
       const itemCount = data.item_count;
-      const remainingCount = 3 - itemCount;
+      const remainingCount = 5 - itemCount;
       let progressText = '';
       
       // Get text templates from data attributes
@@ -157,11 +157,11 @@
       const textComplete = remaining.dataset.progressTextComplete || 'We love to see it. 20% OFF applied.';
       
       // Apply conditional logic matching the Liquid template
-      if (itemCount >= 3) {
+      if (itemCount >= 5) {
         progressText = textComplete;
-      } else if (itemCount === 2) {
+      } else if (itemCount === 4) {
         progressText = textOneMore;
-      } else if (itemCount === 1) {
+      } else if (itemCount === 3) {
         progressText = textTwoMore;
       } else {
         // Replace [X] with remaining count
