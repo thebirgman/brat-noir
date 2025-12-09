@@ -112,18 +112,18 @@
       <div class="bundle-products__cart-progress">
         <p class="bundle-products__cart-progress-heading">{{ section.settings.bundle_content_heading }}</p>
         <p class="bundle-products__cart-progress-subheading">{{ section.settings.bundle_content_subheading }} </p>
-        {%- assign remaining = 3 | minus: cart.item_count -%}
-        {%- assign progress = 100 | times: cart.item_count | divided_by: 3 -%}
+        {%- assign remaining = 5 | minus: cart.item_count -%}
+        {%- assign progress = 100 | times: cart.item_count | divided_by: 5 -%}
         <div class="bundle-products__cart-progress-bar" style="--progress: {{ progress }}%">
           <div class="bundle-products__cart-progress-fill"></div>
         </div>
         {%- liquid
           assign progress_text = ''
-          if cart.item_count >= 3
+          if cart.item_count >= 5
             assign progress_text = section.settings.progress_text_complete | default: 'We love to see it. 20% OFF applied.'
-          elsif cart.item_count == 2
+          elsif cart.item_count == 4
             assign progress_text = section.settings.progress_text_one_more | default: 'Just 1 more set to unlock 20% OFF'
-          elsif cart.item_count == 1
+          elsif cart.item_count == 3
             assign progress_text = section.settings.progress_text_two_more | default: 'Just 2 more sets to unlock 20% OFF'
           else
             assign default_text = section.settings.progress_text_default | default: 'You are [X] sets away from 20% OFF'
