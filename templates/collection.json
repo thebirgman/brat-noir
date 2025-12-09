@@ -246,50 +246,6 @@
         "padding_bottom": 30
       }
     },
-    "section_collection_tabs_y8FR4V": {
-      "type": "section-collection-tabs",
-      "blocks": {
-        "collection_Vgf4KT": {
-          "type": "collection",
-          "settings": {
-            "collection": "bundles",
-            "title": "Brat Halloween Bundle",
-            "grid_large": 4,
-            "grid_medium": 2,
-            "grid_mobile": 1.2
-          }
-        }
-      },
-      "block_order": [
-        "collection_Vgf4KT"
-      ],
-      "custom_css": [
-        ".scrolling-promo,.tabs,.kicker-flourished:after {display: none;}",
-        "h2 {padding: 0;}",
-        ".product__grid__price {display: flex; flex-direction: column;}",
-        ".bg--neutral {background: transparent;}",
-        ".product__grid__main-info p {text-align: left;}",
-        "@media screen and (min-width: 1080px) {.slide-item.product-grid-slide[data-item] {width: calc(25% - 25px); }}",
-        ".collection-tabs-container {max-width: 100%; margin: 0 auto !important;}",
-        ".product__grid__price {min-width: 70px; text-align: right; align-items: flex-end;}"
-      ],
-      "name": "Product slider tabs",
-      "settings": {
-        "title": "The Vaults",
-        "description": "<p>5-Set Collections. Maximum value + Instant Free Shipping.</p>",
-        "description_alignment": "center",
-        "wrapper": "wrapper",
-        "progress_bar": "hidden",
-        "grid_large": 3,
-        "grid_medium": 2,
-        "grid_mobile": 1,
-        "limit": 9,
-        "bg": "palette--light bg--neutral",
-        "width": "wrapper",
-        "padding_top": 30,
-        "padding_bottom": 20
-      }
-    },
     "section_bundle_products_tAiL7K": {
       "type": "section-bundle-products",
       "blocks": {
@@ -335,14 +291,58 @@
       "settings": {
         "collection": "collection-2",
         "heading": "Build Your Own Collection",
-        "subheading": "<p>Curate your own look. <strong>Pro Tip: </strong>Unlock VIP Pricing by adding 5+ sets to cart for $13 per set + FREE SHIPPING</p>",
+        "subheading": "<p>Curate your own look. <strong>Pro Tip: </strong>Unlock VIP Pricing by adding 3+ sets to cart for $15 per set + FREE SHIPPING</p>",
         "all_label": "All",
-        "bundle_content_heading": "SECURE THE STASH (SAVE $25)",
-        "bundle_content_subheading": "Why choose? Build your full rotation. Grab 5 sets for a flat $65 — just $13 each.",
-        "progress_text_default": "Add [X] more sets to unlock the $13/set insider rate.",
-        "progress_text_two_more": "Getting closer. Add 2 more sets to save $25 instantly.",
+        "bundle_content_heading": "BUNDLE & SAVE: 3 FOR $45",
+        "bundle_content_subheading": "Why choose? Build your full rotation. Grab 3 sets for a flat $45 — just $15 each.",
+        "progress_text_default": "Add [X] more sets to unlock the $15/set insider rate.",
+        "progress_text_two_more": "Getting closer. Add 2 more sets to save $15 instantly.",
         "progress_text_one_more": "So close. Add 1 more set to secure the $65 Stash.",
         "progress_text_complete": "Vault unlocked. Insider rate ($13/set) secured. The math is mathing."
+      }
+    },
+    "section_collection_tabs_y8FR4V": {
+      "type": "section-collection-tabs",
+      "blocks": {
+        "collection_Vgf4KT": {
+          "type": "collection",
+          "settings": {
+            "collection": "bundles",
+            "title": "Brat Halloween Bundle",
+            "grid_large": 4,
+            "grid_medium": 2,
+            "grid_mobile": 1.2
+          }
+        }
+      },
+      "block_order": [
+        "collection_Vgf4KT"
+      ],
+      "custom_css": [
+        ".scrolling-promo,.tabs,.kicker-flourished:after {display: none;}",
+        "h2 {padding: 0;}",
+        ".product__grid__price {display: flex; flex-direction: column;}",
+        ".bg--neutral {background: transparent;}",
+        ".product__grid__main-info p {text-align: left;}",
+        "@media screen and (min-width: 1080px) {.slide-item.product-grid-slide[data-item] {width: calc(25% - 25px); }}",
+        ".collection-tabs-container {max-width: 100%; margin: 0 auto !important;}",
+        ".product__grid__price {min-width: 70px; text-align: right; align-items: flex-end;}"
+      ],
+      "name": "Product slider tabs",
+      "settings": {
+        "title": "The Vaults",
+        "description": "<p>5-Set Collections. Maximum value + Instant Free Shipping.</p>",
+        "description_alignment": "center",
+        "wrapper": "wrapper",
+        "progress_bar": "hidden",
+        "grid_large": 3,
+        "grid_medium": 2,
+        "grid_mobile": 1,
+        "limit": 9,
+        "bg": "palette--light bg--neutral",
+        "width": "wrapper",
+        "padding_top": 30,
+        "padding_bottom": 20
       }
     }
   },
@@ -354,7 +354,7 @@
     "section_announcement_XYjiPA",
     "section_collection_tabs_aPxHGE",
     "section_collection_tabs_7FhyYd",
-    "section_collection_tabs_y8FR4V",
-    "section_bundle_products_tAiL7K"
+    "section_bundle_products_tAiL7K",
+    "section_collection_tabs_y8FR4V"
   ]
 }
