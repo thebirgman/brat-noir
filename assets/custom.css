@@ -860,6 +860,10 @@ body:not(#build-your-own-bundle):not(.template-index) .header__wrapper:not(.mega
     top: 0;
 }
 
+body:not(#build-your-own-bundle):not(.template-index) .header__backfill{
+  display: none;
+}
+
 
 
 body:not(.template-index):not(#build-your-own-bundle) [data-header-transparent=true]:not(.meganav--visible):not(.js__header__stuck) span.navtext {
