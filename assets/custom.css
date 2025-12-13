@@ -854,9 +854,10 @@ button.btn--outline.btn--full.btn--primary.btn--add-to-cart:hover {
 
 /*product page end*/
 
-body:not(#build-your-own-bundle):not(.template-index) [data-header-transparent=true]:not(.meganav--visible) {
+body:not(#build-your-own-bundle):not(.template-index) .header__wrapper:not(.meganav--visible) {
     position: fixed;
     width: 100%;
+    top: 0;
 }
 
 
@@ -1736,4 +1737,9 @@ span.bundle-product__price--sale {
     bottom: 10px;
     left: 10px;
     right: auto;
+}
+
+.template-index a.standard__cta.btn.btn--long.btn--black.aos-init.aos-animate {
+  padding-left: 20px;
+  padding-right: 20px;
 }
