@@ -10,7 +10,7 @@
     <div class="bundle-product__price">
       {% if product.compare_at_price > product.price %}
         <span class="bundle-product__price--sale">{{ product.price | money_without_trailing_zeros }}</span>
-        <span class="bundle-product__price--compare">{{ product.compare_at_price | money }}</span>
+        <span class="bundle-product__price--compare">{{ product.compare_at_price | money_without_trailing_zeros }}</span>
       {% else %}
         <span class="bundle-product__price--regular">{{ product.price | money_without_trailing_zeros }}</span>
       {% endif %}

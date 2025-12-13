@@ -377,7 +377,7 @@ assign placeholder = placeholder | default: false
         {%- if settings.currency_code_enable -%}
           {{ product.compare_at_price | money_with_currency }}
         {%- else -%}
-          {{ product.compare_at_price | money }}
+          {{ product.compare_at_price | money_without_trailing_zeros }}
         {%- endif -%}
       </span>
     {% endif %}
