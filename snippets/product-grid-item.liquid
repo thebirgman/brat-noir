@@ -369,7 +369,7 @@ assign placeholder = placeholder | default: false
       {%- if settings.currency_code_enable -%}
         {{ product.price | money_with_currency }}
       {%- else -%}
-        {{ product.price | money }}
+        {{ product.price | money_without_trailing_zeros }}
       {%- endif -%}
     </span>
     {% if on_sale %}
