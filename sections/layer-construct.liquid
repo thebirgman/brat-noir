@@ -3,15 +3,10 @@
 
     <!-- LEFT CARD -->
     <div class="layer-card main-card">
-      <div
-        class="layer-bg desktop"
-        style="background-image:url('{{ section.settings.left_image_desktop | image_url }}')">
-      </div>
-
-      <div
-        class="layer-bg mobile"
-        style="background-image:url('{{ section.settings.left_image_mobile | image_url }}')">
-      </div>
+      <div class="layer-bg desktop"
+        style="background-image:url('{{ section.settings.left_image_desktop | image_url }}')"></div>
+      <div class="layer-bg mobile"
+        style="background-image:url('{{ section.settings.left_image_mobile | image_url }}')"></div>
 
       <div class="layer-content">
         <h3>{{ section.settings.left_heading }}</h3>
@@ -22,11 +17,9 @@
     <!-- RIGHT GRID (DESKTOP) -->
     <div class="layer-right desktop-only">
       {% for block in section.blocks %}
-        <div class="layer-card image-card">
-          <div
-            class="layer-bg"
-            style="background-image:url('{{ block.settings.image_desktop | image_url }}')">
-          </div>
+        <div class="layer-card image-card {% if forloop.first %}landscape{% endif %}">
+          <div class="layer-bg"
+            style="background-image:url('{{ block.settings.image_desktop | image_url }}')"></div>
 
           <div class="layer-overlay">
             <h4>{{ block.settings.heading }}</h4>
@@ -42,11 +35,8 @@
 
         <!-- LEFT CARD AS FIRST SLIDE -->
         <div class="carousel-slide">
-          <div
-            class="layer-bg"
-            style="background-image:url('{{ section.settings.left_image_mobile | image_url }}')">
-          </div>
-
+          <div class="layer-bg"
+            style="background-image:url('{{ section.settings.left_image_mobile | image_url }}')"></div>
           <div class="layer-overlay light">
             <h4>{{ section.settings.left_heading }}</h4>
             <p>{{ section.settings.left_text }}</p>
@@ -55,11 +45,8 @@
 
         {% for block in section.blocks %}
           <div class="carousel-slide">
-            <div
-              class="layer-bg"
-              style="background-image:url('{{ block.settings.image_mobile | image_url }}')">
-            </div>
-
+            <div class="layer-bg"
+              style="background-image:url('{{ block.settings.image_mobile | image_url }}')"></div>
             <div class="layer-overlay">
               <h4>{{ block.settings.heading }}</h4>
               <p>{{ block.settings.text }}</p>
@@ -80,11 +67,13 @@
 </section>
 
 <style>
+/* SECTION */
 .layer-construct {
   background: linear-gradient(180deg, #f3eefe, #f6f7fb);
   padding: 80px 20px;
 }
 
+/* LAYOUT */
 .layer-wrapper {
   max-width: 1200px;
   margin: auto;
@@ -98,9 +87,22 @@
   position: relative;
   border-radius: 28px;
   overflow: hidden;
-  min-height: 420px;
 }
 
+.main-card {
+  min-height: 520px;
+}
+
+.image-card {
+  min-height: 240px;
+}
+
+.image-card.landscape {
+  grid-column: span 2;
+  min-height: 200px;
+}
+
+/* BACKGROUNDS */
 .layer-bg {
   position: absolute;
   inset: 0;
@@ -110,17 +112,18 @@
 
 .layer-bg.mobile { display: none; }
 
+/* CONTENT */
 .layer-content {
   position: relative;
-  z-index: 2;
   padding: 40px;
+  z-index: 2;
   color: #111;
 }
 
 .layer-overlay {
   position: relative;
   z-index: 2;
-  padding: 32px;
+  padding: 28px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -130,7 +133,7 @@
 }
 
 .layer-overlay.light {
-  background: linear-gradient(to top, rgba(0,0,0,.15), transparent);
+  background: linear-gradient(to top, rgba(255,255,255,.85), transparent);
   color: #111;
 }
 
@@ -154,13 +157,15 @@
 .layer-right {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: auto;
   gap: 24px;
 }
 
-/* MOBILE */
+/* VISIBILITY */
 .mobile-only { display: none; }
 .desktop-only { display: grid; }
 
+/* MOBILE */
 @media (max-width: 900px) {
   .layer-wrapper {
     grid-template-columns: 1fr;
@@ -179,10 +184,9 @@
 
   .carousel-track {
     display: flex;
+    gap: 20px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    gap: 20px;
-    padding-bottom: 10px;
   }
 
   .carousel-slide {
