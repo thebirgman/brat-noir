@@ -176,6 +176,30 @@
     window.isRTL = document.documentElement.getAttribute('dir') === 'rtl';
   </script>
 
+  <script>
+(function () {
+  function stripTrailingZeros() {
+    document.querySelectorAll(
+      '[data-product-price], [data-compare-price], [data-product-unit-price]'
+    ).forEach(el => {
+      if (!el || !el.textContent) return;
+      el.textContent = el.textContent.replace(/(\.00)(?!\d)/g, '');
+    });
+  }
+
+  // Run on load
+  document.addEventListener('DOMContentLoaded', stripTrailingZeros);
+
+  // Run after variant changes (most themes dispatch this)
+  document.addEventListener('variant:change', stripTrailingZeros);
+
+  // Fallback: observe DOM changes
+  const observer = new MutationObserver(stripTrailingZeros);
+  observer.observe(document.body, { childList: true, subtree: true });
+})();
+</script>
+
+
   {%- if request.page_type contains 'customers/' -%}
     <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script>
   {%- endif -%}
