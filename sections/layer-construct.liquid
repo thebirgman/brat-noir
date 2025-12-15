@@ -55,185 +55,155 @@
 </section>
 
 <style>
-.artisan-section {
+.layer-construct {
+  background: linear-gradient(180deg, #f3eefe, #f6f7fb);
   padding: 80px 20px;
-  background: linear-gradient(#f3e9f6, #eef2f7);
 }
 
-.artisan-grid {
-  max-width: 1300px;
-  margin: 0 auto;
+.layer-wrapper {
+  max-width: 1200px;
+  margin: auto;
   display: grid;
-  grid-template-columns: 1.15fr 1fr 1fr;
-  grid-template-rows: auto auto;
+  grid-template-columns: 1fr 1.4fr;
   gap: 24px;
 }
 
-.artisan-card {
+/* CARDS */
+.layer-card {
   position: relative;
-  border-radius: 28px;
+  border-radius: 24px;
   overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  min-height: 300px;
-  display: flex;
-  align-items: flex-end;
+  min-height: 420px;
 }
 
-.artisan-card.large {
-  grid-row: span 2;
-  align-items: flex-start;
-  padding: 40px;
-}
-
-.artisan-overlay {
+.layer-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0) 0%,
-    rgba(0,0,0,0.55) 100%
-  );
+  background-size: cover;
+  background-position: center;
 }
 
-.artisan-card.large .artisan-overlay {
-  background: none;
+.layer-bg.mobile {
+  display: none;
 }
 
-.artisan-content {
+.layer-content,
+.layer-overlay {
   position: relative;
+  padding: 32px;
   z-index: 2;
+}
+
+.layer-overlay {
+  background: linear-gradient(to top, rgba(0,0,0,.65), transparent);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   color: #fff;
-  padding: 24px;
 }
 
-.artisan-card.large .artisan-content {
-  color: #1a1a1a;
-  padding: 0;
+/* TYPOGRAPHY */
+.layer-card h3,
+.layer-card h4 {
+  font-size: 22px;
+  margin-bottom: 8px;
 }
 
-.artisan-content h3 {
-  font-size: 26px;
-  margin-bottom: 12px;
-}
-
-.artisan-content p {
-  font-size: 16px;
+.layer-card p {
+  font-size: 14px;
   line-height: 1.5;
 }
 
-/* MOBILE CAROUSEL */
+/* RIGHT GRID */
+.layer-right {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+/* MOBILE */
+.mobile-only { display: none; }
+.desktop-only { display: grid; }
+
 @media (max-width: 900px) {
-  .artisan-grid {
-    display: none;
+  .layer-wrapper {
+    grid-template-columns: 1fr;
   }
 
-  .artisan-carousel {
+  .desktop-only { display: none; }
+  .mobile-only { display: block; }
+
+  .layer-bg.desktop { display: none; }
+  .layer-bg.mobile { display: block; }
+
+  .layer-carousel {
     max-width: 380px;
-    margin: 0 auto;
-    overflow: hidden;
+    margin: auto;
   }
 
-  .artisan-track {
+  .carousel-track {
     display: flex;
-    transition: transform 0.4s ease;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
   }
 
-  .artisan-slide {
-    min-width: 100%;
-    padding: 0 12px;
-  }
-
-  .artisan-card {
+  .carousel-slide {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
     min-height: 420px;
   }
 
-  .artisan-dots {
+  .carousel-dots {
     display: flex;
     justify-content: center;
     gap: 8px;
     margin-top: 16px;
   }
 
-  .artisan-dot {
+  .dot {
     width: 8px;
     height: 8px;
+    background: #ccc;
     border-radius: 50%;
-    background: #d9cfd8;
-    cursor: pointer;
   }
 
-  .artisan-dot.active {
-    background: #7b2c3b;
+  .dot.active {
+    background: #000;
   }
 }
 </style>
 
-<section class="artisan-section">
-  <!-- DESKTOP -->
-  <div class="artisan-grid">
-    {% for block in section.blocks %}
-      <div
-        class="artisan-card {% if forloop.first %}large{% endif %}"
-        style="background-image:url('{{ block.settings.desktop_image | image_url }}')"
-      >
-        <div class="artisan-overlay"></div>
-        <div class="artisan-content">
-          <h3>{{ block.settings.heading }}</h3>
-          <p>{{ block.settings.text }}</p>
-        </div>
-      </div>
-    {% endfor %}
-  </div>
-
-  <!-- MOBILE -->
-  <div class="artisan-carousel">
-    <div class="artisan-track">
-      {% for block in section.blocks %}
-        <div class="artisan-slide">
-          <div
-            class="artisan-card"
-            style="background-image:url('{{ block.settings.mobile_image | image_url }}')"
-          >
-            <div class="artisan-overlay"></div>
-            <div class="artisan-content">
-              <h3>{{ block.settings.heading }}</h3>
-              <p>{{ block.settings.text }}</p>
-            </div>
-          </div>
-        </div>
-      {% endfor %}
-    </div>
-
-    <div class="artisan-dots">
-      {% for block in section.blocks %}
-        <span class="artisan-dot {% if forloop.first %}active{% endif %}"></span>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-<script>
-(function () {
-  const track = document.querySelector('.artisan-track');
-  const dots = document.querySelectorAll('.artisan-dot');
-  let index = 0;
-
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => {
-      index = i;
-      track.style.transform = `translateX(-${index * 100}%)`;
-      dots.forEach(d => d.classList.remove('active'));
-      dot.classList.add('active');
-    });
-  });
-})();
-</script>
-
 {% schema %}
 {
-  "name": "Artisan Feature Grid",
-  "max_blocks": 4,
+  "name": "Layer Construct",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "left_image_desktop",
+      "label": "Left Image (Desktop)"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_image_mobile",
+      "label": "Left Image (Mobile)"
+    },
+    {
+      "type": "text",
+      "id": "left_heading",
+      "label": "Left Heading",
+      "default": "The 4-Layer Salon Construct"
+    },
+    {
+      "type": "textarea",
+      "id": "left_text",
+      "label": "Left Text"
+    }
+  ],
   "blocks": [
     {
       "type": "card",
@@ -241,32 +211,35 @@
       "settings": [
         {
           "type": "image_picker",
-          "id": "desktop_image",
-          "label": "Desktop background image"
+          "id": "image_desktop",
+          "label": "Image (Desktop)"
         },
         {
           "type": "image_picker",
-          "id": "mobile_image",
-          "label": "Mobile background image"
+          "id": "image_mobile",
+          "label": "Image (Mobile)"
         },
         {
           "type": "text",
           "id": "heading",
-          "label": "Heading",
-          "default": "Artisan Design"
+          "label": "Heading"
         },
         {
           "type": "textarea",
           "id": "text",
-          "label": "Text",
-          "default": "No pixelated prints. Crisp lines and rich textures."
+          "label": "Text"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Artisan Feature Grid"
+      "name": "Layer Construct Section",
+      "blocks": [
+        { "type": "card" },
+        { "type": "card" },
+        { "type": "card" }
+      ]
     }
   ]
 }
