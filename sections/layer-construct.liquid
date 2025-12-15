@@ -10,7 +10,11 @@
 
       <div class="layer-content">
         <h3>{{ section.settings.left_heading }}</h3>
-        <p>{{ section.settings.left_text }}</p>
+
+        <!-- TEXT + LIST FIX -->
+        <div class="layer-text">
+          {{ section.settings.left_text }}
+        </div>
       </div>
     </div>
 
@@ -91,7 +95,7 @@
 
 /* LEFT CONTENT — BOTTOM ALIGNED */
 .layer-content {
-  margin-top: auto; /* pushes text to bottom */
+  margin-top: auto;
   position: relative;
   z-index: 2;
 }
@@ -101,9 +105,23 @@
   margin-bottom: 12px;
 }
 
-.layer-content p {
-  font-size: 16px !important; 
+/* TEXT + LIST FIX */
+.layer-text {
+  font-size: 16px;
   line-height: 1.6;
+}
+
+.layer-text p {
+  margin-bottom: 10px;
+}
+
+.layer-text ol {
+  margin: 10px 0;
+  padding-left: 18px;
+}
+
+.layer-text li {
+  margin-bottom: 6px;
 }
 
 /* RIGHT COLUMN */
@@ -148,7 +166,7 @@
 }
 
 .layer-overlay p {
-  font-size: 16px !important;
+  font-size: 16px;
   line-height: 1.5;
 }
 
@@ -189,7 +207,8 @@
     {
       "type": "textarea",
       "id": "left_text",
-      "label": "Left Text"
+      "label": "Left Text",
+      "info": "You can use HTML (p, ol, li)"
     }
   ],
   "blocks": [
