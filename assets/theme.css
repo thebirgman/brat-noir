@@ -26317,6 +26317,6 @@ body  .product__grid__actions .product-buttons-container {
     width: 100%;
 }
 
-span.price {
+span.price,span.product__price.accent-size-4 {
   color: #61150F;
 }
