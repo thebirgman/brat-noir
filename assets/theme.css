@@ -26316,3 +26316,7 @@ body  .product__grid__actions .product-buttons-container {
     padding: 0;
     width: 100%;
 }
+
+span.price {
+  color: #969696 !important;
+}
