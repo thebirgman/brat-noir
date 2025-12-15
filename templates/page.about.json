@@ -139,6 +139,86 @@
         "padding_bottom": 30
       }
     },
+    "section_richtext_NUcft8": {
+      "type": "section-richtext",
+      "blocks": {
+        "heading_rzjXxH": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Beliefs",
+            "text_size": 10
+          }
+        }
+      },
+      "block_order": [
+        "heading_rzjXxH"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "align_text": "text-center",
+        "text_color": "text--neutral",
+        "bg": "palette--light bg--neutral",
+        "content_width": 2000,
+        "width": "wrapper",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "section_double_tfrQmn": {
+      "type": "section-double",
+      "blocks": {
+        "image_nMBchr": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_171.png",
+            "overlay_opacity": 0,
+            "overlay_color": "#000000",
+            "enable_overlay_text": false,
+            "kicker": "",
+            "title": "",
+            "richtext": "",
+            "text_align": "align--middle-center",
+            "text_color": "text--white",
+            "link_text": "",
+            "link": "",
+            "button_color": "btn--white",
+            "button_style": "btn"
+          }
+        },
+        "text_qWmprA": {
+          "type": "text",
+          "settings": {
+            "kicker": "",
+            "title": "",
+            "text": "<p><strong>High Maintenance is a Compliment.</strong></p><p>We believe knowing what you want (and getting it) is a power move, not a personality flaw. “Basic” isn’t in our vocabulary, and settling isn’t in our nature. If that makes us brats, we’ll wear the label.</p><p><strong><br/>Time is the Ultimate Luxury.</strong></p><p>We refuse to spend three hours in a salon chair for a look that lasts two weeks. We press on luxury in minutes—because your calendar is full, your time is expensive, and your standards are non-negotiable.</p><p><strong><br/>Fake Nails, Real Impact.</strong></p><p>We believe in the \"unclockable\" manicures. No UV damage. No plastic look. Just flawless, hand-painted soft gel designs that look like you spent a fortune (and leave you enough money to buy the champagne).</p>",
+            "font_size": 5,
+            "text_columns": 1,
+            "align_text": "text-left",
+            "button_text": "",
+            "button_url": "",
+            "button_color": "btn--neutral",
+            "button_style": "btn-text-thick-line",
+            "text_color": "text--neutral",
+            "bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_nMBchr",
+        "text_qWmprA"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "height": "use_image",
+        "brick_gutter": 0,
+        "borders": false,
+        "bg_color": "",
+        "preload_image": false,
+        "width": "wrapper",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "section_double_CaJAtf": {
       "type": "section-double",
       "blocks": {
@@ -501,6 +581,8 @@
     "main",
     "section_richtext_36xnMX",
     "section_double_QYarBJ",
+    "section_richtext_NUcft8",
+    "section_double_tfrQmn",
     "section_double_CaJAtf",
     "section_richtext_R7DWUw",
     "section_announcement_JxCeh6",
