@@ -281,11 +281,11 @@
       ],
       "custom_css": [
         "p {font-size: 48px !important;}",
-        "@media screen and (max-width: 768px) {p {font-size: 34px !important;}}"
+        "@media screen and (max-width: 768px) {p {font-size: 34px !important; }}"
       ],
       "name": "Video banner",
       "settings": {
-        "height": "use_image",
+        "height": "use_pixels_500",
         "color_bg": "palette--light bg--neutral",
         "video_bg": "shopify://files/videos/Desktop - Collection Banner.mp4",
         "object_position": "center-center",
