@@ -265,6 +265,69 @@
         "padding_bottom": 60
       }
     },
+    "section_richtext_kWQYTm": {
+      "type": "section-richtext",
+      "blocks": {
+        "heading_mttpnB": {
+          "type": "heading",
+          "settings": {
+            "heading": "What Sets Us Apart",
+            "text_size": 8
+          }
+        }
+      },
+      "block_order": [
+        "heading_mttpnB"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "align_text": "text-center",
+        "text_color": "text--neutral",
+        "bg": "palette--light bg--neutral",
+        "content_width": 2000,
+        "width": "wrapper",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "layer_construct_wkNw6a": {
+      "type": "layer-construct",
+      "blocks": {
+        "card_Tftm6Y": {
+          "type": "card",
+          "settings": {
+            "heading": "",
+            "text": ""
+          }
+        },
+        "card_p7hngU": {
+          "type": "card",
+          "settings": {
+            "heading": "",
+            "text": ""
+          }
+        },
+        "card_wCrciP": {
+          "type": "card",
+          "settings": {
+            "heading": "",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_Tftm6Y",
+        "card_p7hngU",
+        "card_wCrciP"
+      ],
+      "name": "Layer Construct Section",
+      "settings": {
+        "left_image_desktop": "shopify://shop_images/4-layer-web.png",
+        "left_image_mobile": "shopify://shop_images/4-layer-mobile.png",
+        "left_heading": "The 4-Layer Salon Construct",
+        "left_text": "We don't print nails; we build them. \n1. Base Primer. \n2. Soft Gel Core. \n3. High-Pigment Polish. \n4. UV-Hardened Top Coat. Indestructible structure, glass-like finish."
+      }
+    },
     "section_video_pyfFWD": {
       "type": "section-video",
       "blocks": {
@@ -604,7 +667,7 @@
         "mobile_image": "shopify://shop_images/Group_302.png",
         "height": "use_image",
         "overlay_opacity": 0,
-        "overlay_color": "#000",
+        "overlay_color": "#000000",
         "enable_overlay_text": false,
         "preload_image": false,
         "content_width": 2000,
@@ -629,6 +692,8 @@
   "order": [
     "main",
     "apps_JAWzRj",
+    "section_richtext_kWQYTm",
+    "layer_construct_wkNw6a",
     "section_video_pyfFWD",
     "section_announcement_rPaTn7",
     "1753078667aa1c7b10",
