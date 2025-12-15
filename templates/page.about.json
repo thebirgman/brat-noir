@@ -153,6 +153,10 @@
       "block_order": [
         "heading_rzjXxH"
       ],
+      "custom_css": [
+        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
+        "p {font-size: 48px !important;}"
+      ],
       "name": "Rich text",
       "settings": {
         "align_text": "text-center",
