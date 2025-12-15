@@ -32,7 +32,7 @@
         </div>
       {% endif %}
 
-      <!-- BOTTOM FEATURES (395x380 each) -->
+      <!-- BOTTOM FEATURES (395x380) -->
       <div class="feature-grid">
         {% for block in section.blocks offset:1 limit:2 %}
           <div class="layer-card feature-square">
@@ -53,13 +53,11 @@
 </section>
 
 <style>
-/* SECTION BACKGROUND */
 .layer-construct {
   background: linear-gradient(180deg, #f3eefe, #f6f7fb);
   padding: 80px 20px;
 }
 
-/* MAIN GRID */
 .layer-wrapper {
   max-width: 1200px;
   margin: auto;
@@ -75,7 +73,7 @@
   overflow: hidden;
 }
 
-/* IMAGE HANDLING */
+/* IMAGE */
 .layer-bg {
   position: absolute;
   inset: 0;
@@ -83,17 +81,19 @@
   background-position: center;
 }
 
-/* LEFT CARD (400x800) */
+/* LEFT CARD */
 .main-card {
   aspect-ratio: 1 / 2;
-  background: #e9e2d8;
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
 }
 
+/* LEFT CONTENT — BOTTOM ALIGNED */
 .layer-content {
+  margin-top: auto; /* pushes text to bottom */
   position: relative;
   z-index: 2;
-  padding: 32px;
-  color: #111;
 }
 
 .layer-content h3 {
@@ -102,8 +102,8 @@
 }
 
 .layer-content p {
-  font-size: 15px;
-  line-height: 1.5;
+  font-size: 16px; /* FIXED */
+  line-height: 1.6;
 }
 
 /* RIGHT COLUMN */
@@ -113,7 +113,7 @@
   gap: 24px;
 }
 
-/* TOP FEATURE (800x400) */
+/* TOP FEATURE */
 .feature-wide {
   aspect-ratio: 2 / 1;
 }
@@ -148,18 +148,14 @@
 }
 
 .layer-overlay p {
-  font-size: 14px;
-  line-height: 1.45;
+  font-size: 16px; /* match body */
+  line-height: 1.5;
 }
 
 /* MOBILE */
 @media (max-width: 900px) {
   .layer-wrapper {
     grid-template-columns: 1fr;
-  }
-
-  .layer-right {
-    grid-template-rows: none;
   }
 
   .feature-grid {
