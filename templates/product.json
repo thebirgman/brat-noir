@@ -296,22 +296,28 @@
         "card_Tftm6Y": {
           "type": "card",
           "settings": {
-            "heading": "",
-            "text": ""
+            "image_desktop": "shopify://shop_images/artisan-fall-web.png",
+            "image_mobile": "shopify://shop_images/artisan-fall-mobile.png",
+            "heading": "Artisan Design",
+            "text": "No pixelated prints. Crisp lines and rich textures that pass the 'inch-away' test. If they can tell they're fake, we failed."
           }
         },
         "card_p7hngU": {
           "type": "card",
           "settings": {
-            "heading": "",
-            "text": ""
+            "image_desktop": "shopify://shop_images/flexible-fit-web.png",
+            "image_mobile": "shopify://shop_images/flexible-tech-mobile.png",
+            "heading": "Flexible-Fit Technology",
+            "text": "Rigid plastic pops off. Our Soft-Gel flexes with your natural nail bed for a vacuum-seal fit that lasts 2+ weeks."
           }
         },
         "card_wCrciP": {
           "type": "card",
           "settings": {
-            "heading": "",
-            "text": ""
+            "image_desktop": "shopify://shop_images/vanishing-cuticle-web.png",
+            "image_mobile": "shopify://shop_images/vanishing-cuticle-mobile.png",
+            "heading": "The 'Vanishing' Cuticle Line",
+            "text": "A bulky cuticle line is a dead giveaway. Our 'Zero-Edge' taper melts into your nail bed. 100% seamless. 0% hair snagging."
           }
         }
       },
