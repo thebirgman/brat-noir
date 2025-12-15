@@ -3,9 +3,9 @@
 
     <!-- LEFT CARD -->
     <div class="layer-card main-card">
-      <div class="layer-bg desktop"
+      <div class="layer-bg desktop contain"
         style="background-image:url('{{ section.settings.left_image_desktop | image_url }}')"></div>
-      <div class="layer-bg mobile"
+      <div class="layer-bg mobile contain"
         style="background-image:url('{{ section.settings.left_image_mobile | image_url }}')"></div>
 
       <div class="layer-content">
@@ -18,7 +18,7 @@
     <div class="layer-right desktop-only">
       {% for block in section.blocks %}
         <div class="layer-card image-card {% if forloop.first %}landscape{% endif %}">
-          <div class="layer-bg"
+          <div class="layer-bg cover"
             style="background-image:url('{{ block.settings.image_desktop | image_url }}')"></div>
 
           <div class="layer-overlay">
@@ -32,20 +32,9 @@
     <!-- MOBILE CAROUSEL -->
     <div class="layer-carousel mobile-only">
       <div class="carousel-track">
-
-        <!-- LEFT CARD AS FIRST SLIDE -->
-        <div class="carousel-slide">
-          <div class="layer-bg"
-            style="background-image:url('{{ section.settings.left_image_mobile | image_url }}')"></div>
-          <div class="layer-overlay light">
-            <h4>{{ section.settings.left_heading }}</h4>
-            <p>{{ section.settings.left_text }}</p>
-          </div>
-        </div>
-
         {% for block in section.blocks %}
           <div class="carousel-slide">
-            <div class="layer-bg"
+            <div class="layer-bg cover"
               style="background-image:url('{{ block.settings.image_mobile | image_url }}')"></div>
             <div class="layer-overlay">
               <h4>{{ block.settings.heading }}</h4>
@@ -55,9 +44,8 @@
         {% endfor %}
       </div>
 
-      {% assign total_slides = section.blocks.size | plus: 1 %}
       <div class="carousel-dots">
-        {% for i in (1..total_slides) %}
+        {% for block in section.blocks %}
           <span class="dot {% if forloop.first %}active{% endif %}"></span>
         {% endfor %}
       </div>
@@ -67,13 +55,11 @@
 </section>
 
 <style>
-/* SECTION */
 .layer-construct {
   background: linear-gradient(180deg, #f3eefe, #f6f7fb);
   padding: 80px 20px;
 }
 
-/* LAYOUT */
 .layer-wrapper {
   max-width: 1200px;
   margin: auto;
@@ -85,67 +71,56 @@
 /* CARDS */
 .layer-card {
   position: relative;
-  border-radius: 28px;
+  border-radius: 24px;
   overflow: hidden;
 }
 
+/* MAIN LEFT CARD — FULL IMAGE */
 .main-card {
   min-height: 520px;
 }
 
-.image-card {
-  min-height: 240px;
-}
-
-.image-card.landscape {
-  grid-column: span 2;
-  min-height: 200px;
-}
-
-/* BACKGROUNDS */
 .layer-bg {
   position: absolute;
   inset: 0;
-  background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
 }
 
-.layer-bg.mobile { display: none; }
+.layer-bg.cover {
+  background-size: cover;
+}
 
-/* CONTENT */
-.layer-content {
+.layer-bg.contain {
+  background-size: contain;
+}
+
+/* TEXT */
+.layer-content,
+.layer-overlay {
   position: relative;
-  padding: 40px;
+  padding: 32px;
   z-index: 2;
-  color: #111;
+}
+
+.layer-content {
+  max-width: 420px;
 }
 
 .layer-overlay {
-  position: relative;
-  z-index: 2;
-  padding: 28px;
+  background: linear-gradient(to top, rgba(0,0,0,.65), transparent);
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   color: #fff;
-  background: linear-gradient(to top, rgba(0,0,0,.65), transparent);
-}
-
-.layer-overlay.light {
-  background: linear-gradient(to top, rgba(255,255,255,.85), transparent);
-  color: #111;
 }
 
 /* TYPOGRAPHY */
-.layer-card h3 {
-  font-size: 26px;
-  margin-bottom: 12px;
-}
-
+.layer-card h3,
 .layer-card h4 {
-  font-size: 20px;
-  margin-bottom: 6px;
+  font-size: 22px;
+  margin-bottom: 8px;
 }
 
 .layer-card p {
@@ -157,15 +132,26 @@
 .layer-right {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: auto;
   gap: 24px;
 }
 
-/* VISIBILITY */
+/* FIRST FEATURE CARD — LANDSCAPE */
+.layer-card.landscape {
+  grid-column: span 2;
+  min-height: 260px;
+}
+
+/* OTHER FEATURE CARDS */
+.layer-card.image-card:not(.landscape) {
+  min-height: 260px;
+}
+
+/* MOBILE */
 .mobile-only { display: none; }
 .desktop-only { display: grid; }
 
-/* MOBILE */
+.layer-bg.mobile { display: none; }
+
 @media (max-width: 900px) {
   .layer-wrapper {
     grid-template-columns: 1fr;
@@ -184,15 +170,15 @@
 
   .carousel-track {
     display: flex;
-    gap: 20px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    gap: 20px;
   }
 
   .carousel-slide {
     flex: 0 0 100%;
     scroll-snap-align: center;
-    border-radius: 28px;
+    border-radius: 24px;
     overflow: hidden;
     position: relative;
     min-height: 420px;
