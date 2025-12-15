@@ -280,7 +280,8 @@
         "heading_jQxf8i"
       ],
       "custom_css": [
-        "p {font-size: 48px !important;}"
+        "p {font-size: 48px !important;}",
+        "@media screen and (max-width: 768px) {p {font-size: 34px !important;}}"
       ],
       "name": "Video banner",
       "settings": {
