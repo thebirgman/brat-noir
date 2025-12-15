@@ -265,6 +265,37 @@
         "padding_bottom": 60
       }
     },
+    "section_video_pyfFWD": {
+      "type": "section-video",
+      "blocks": {
+        "heading_jQxf8i": {
+          "type": "heading",
+          "settings": {
+            "title": "Stop Renting Your Nails. Own Them.",
+            "text_size": 15
+          }
+        }
+      },
+      "block_order": [
+        "heading_jQxf8i"
+      ],
+      "name": "Video banner",
+      "settings": {
+        "height": "use_image",
+        "color_bg": "palette--light bg--neutral",
+        "video_bg": "shopify://files/videos/Desktop - Collection Banner.mp4",
+        "object_position": "center-center",
+        "preload_image": false,
+        "text_align": "align--middle-center",
+        "text_color": "text--white",
+        "overlay_opacity": 20,
+        "overlay_color": "#000",
+        "enable_overlay_text": false,
+        "width": "wrapper--none",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "section_announcement_rPaTn7": {
       "type": "section-announcement",
       "blocks": {
@@ -559,6 +590,7 @@
   "order": [
     "main",
     "apps_JAWzRj",
+    "section_video_pyfFWD",
     "section_announcement_rPaTn7",
     "1753078667aa1c7b10",
     "17576513510ada6ccb",
