@@ -83,7 +83,7 @@
         "image_kFydUx": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/brat-noir-soft-gel-press-on-nails-about-us.png",
+            "image": "shopify://shop_images/Rectangle_200.png",
             "overlay_opacity": 0,
             "overlay_color": "#000000",
             "enable_overlay_text": false,
@@ -182,6 +182,7 @@
         "text_TEN6qE",
         "image_gaqJhn"
       ],
+      "disabled": true,
       "custom_css": [
         ".brick__block__image {border-radius: 20px;}",
         "@media screen and (max-width: 768px) {.brick__block__text .text__standard {padding-bottom: 0px; }}"
@@ -229,6 +230,7 @@
         "heading_BPNUr8",
         "text_9YLUGg"
       ],
+      "disabled": true,
       "custom_css": [
         ".text__standard.text-center {padding: 57px 102px; background: white; border-radius: 20px; background: rgba(255, 255, 255, 0.4);}",
         ".standard__heading.heading-size-8.aos-init.aos-animate {max-width: 700px; margin: 0 auto 20px auto; font-size: 48px !important;}",
@@ -259,6 +261,7 @@
       "block_order": [
         "text_kfwLaj"
       ],
+      "disabled": true,
       "name": "Scrolling promotion",
       "settings": {
         "bg_color": "#000000",
@@ -291,6 +294,7 @@
         "heading_Ntcw3W",
         "text_9AYcxM"
       ],
+      "disabled": true,
       "custom_css": [
         "p {max-width: 1044px; margin: 0 auto;}"
       ],
@@ -365,6 +369,7 @@
         "text_block_HYzhkt",
         "text_block_DhftBf"
       ],
+      "disabled": true,
       "custom_css": [
         ".accent-title-large.strong.mb-r4 {font-size: 18px !important; font-weight: bold; max-width: 300px; margin: 0 auto 30px auto;}",
         ".brat-bundle {background: transparent;}",
