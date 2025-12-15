@@ -212,6 +212,9 @@
         "image_nMBchr",
         "text_qWmprA"
       ],
+      "custom_css": [
+        "strong {font-family: \"DM Serif Display\"; font-size: 24px;}"
+      ],
       "name": "Image with text",
       "settings": {
         "height": "use_image",
