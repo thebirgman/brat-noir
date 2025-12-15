@@ -613,7 +613,7 @@
         "color_bg": "hero__content--transparent",
         "width": "wrapper--none",
         "padding_top": 0,
-        "padding_bottom": 0
+        "padding_bottom": 60
       }
     },
     "section_sticky_cta_74ycWW": {
