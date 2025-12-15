@@ -1,3 +1,59 @@
+<section class="layer-construct">
+  <div class="layer-wrapper">
+
+    <!-- LEFT CARD -->
+    <div class="layer-card main-card">
+      <div class="layer-bg desktop"
+        style="background-image:url('{{ section.settings.left_image_desktop | image_url }}')"></div>
+      <div class="layer-bg mobile"
+        style="background-image:url('{{ section.settings.left_image_mobile | image_url }}')"></div>
+
+      <div class="layer-content">
+        <h3>{{ section.settings.left_heading }}</h3>
+        <p>{{ section.settings.left_text }}</p>
+      </div>
+    </div>
+
+    <!-- RIGHT GRID (DESKTOP) -->
+    <div class="layer-right desktop-only">
+      {% for block in section.blocks %}
+        <div class="layer-card image-card">
+          <div class="layer-bg"
+            style="background-image:url('{{ block.settings.image_desktop | image_url }}')"></div>
+
+          <div class="layer-overlay">
+            <h4>{{ block.settings.heading }}</h4>
+            <p>{{ block.settings.text }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- MOBILE CAROUSEL -->
+    <div class="layer-carousel mobile-only">
+      <div class="carousel-track">
+        {% for block in section.blocks %}
+          <div class="carousel-slide">
+            <div class="layer-bg"
+              style="background-image:url('{{ block.settings.image_mobile | image_url }}')"></div>
+            <div class="layer-overlay">
+              <h4>{{ block.settings.heading }}</h4>
+              <p>{{ block.settings.text }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="carousel-dots">
+        {% for block in section.blocks %}
+          <span class="dot {% if forloop.first %}active{% endif %}"></span>
+        {% endfor %}
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <style>
 .artisan-section {
   padding: 80px 20px;
