@@ -149,7 +149,7 @@
         "height": "use_image",
         "brick_gutter": 0,
         "borders": false,
-        "bg_color": "linear-gradient(84.53deg, rgba(245, 216, 183, 1), rgba(249, 199, 197, 1) 50.06%, rgba(206, 217, 241, 1) 100.11%)",
+        "bg_color": "",
         "preload_image": false,
         "width": "wrapper",
         "padding_top": 50,
