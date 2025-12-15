@@ -285,6 +285,7 @@
         "text_RB7gai",
         "text_68jJtT"
       ],
+      "disabled": true,
       "name": "Scrolling promotion",
       "settings": {
         "bg_color": "#000000",
