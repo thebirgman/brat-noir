@@ -1,0 +1,246 @@
+<section class="layer-construct">
+  <div class="layer-wrapper">
+
+    <!-- LEFT CARD -->
+    <div class="layer-card main-card">
+      <div class="layer-bg desktop"
+        style="background-image:url('{{ section.settings.left_image_desktop | image_url }}')"></div>
+      <div class="layer-bg mobile"
+        style="background-image:url('{{ section.settings.left_image_mobile | image_url }}')"></div>
+
+      <div class="layer-content">
+        <h3>{{ section.settings.left_heading }}</h3>
+        <p>{{ section.settings.left_text }}</p>
+      </div>
+    </div>
+
+    <!-- RIGHT GRID (DESKTOP) -->
+    <div class="layer-right desktop-only">
+      {% for block in section.blocks %}
+        <div class="layer-card image-card">
+          <div class="layer-bg"
+            style="background-image:url('{{ block.settings.image_desktop | image_url }}')"></div>
+
+          <div class="layer-overlay">
+            <h4>{{ block.settings.heading }}</h4>
+            <p>{{ block.settings.text }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- MOBILE CAROUSEL -->
+    <div class="layer-carousel mobile-only">
+      <div class="carousel-track">
+        {% for block in section.blocks %}
+          <div class="carousel-slide">
+            <div class="layer-bg"
+              style="background-image:url('{{ block.settings.image_mobile | image_url }}')"></div>
+            <div class="layer-overlay">
+              <h4>{{ block.settings.heading }}</h4>
+              <p>{{ block.settings.text }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="carousel-dots">
+        {% for block in section.blocks %}
+          <span class="dot {% if forloop.first %}active{% endif %}"></span>
+        {% endfor %}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.layer-construct {
+  background: linear-gradient(180deg, #f3eefe, #f6f7fb);
+  padding: 80px 20px;
+}
+
+.layer-wrapper {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 24px;
+}
+
+/* CARDS */
+.layer-card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  min-height: 420px;
+}
+
+.layer-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.layer-bg.mobile {
+  display: none;
+}
+
+.layer-content,
+.layer-overlay {
+  position: relative;
+  padding: 32px;
+  z-index: 2;
+}
+
+.layer-overlay {
+  background: linear-gradient(to top, rgba(0,0,0,.65), transparent);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #fff;
+}
+
+/* TYPOGRAPHY */
+.layer-card h3,
+.layer-card h4 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.layer-card p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* RIGHT GRID */
+.layer-right {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+/* MOBILE */
+.mobile-only { display: none; }
+.desktop-only { display: grid; }
+
+@media (max-width: 900px) {
+  .layer-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .desktop-only { display: none; }
+  .mobile-only { display: block; }
+
+  .layer-bg.desktop { display: none; }
+  .layer-bg.mobile { display: block; }
+
+  .layer-carousel {
+    max-width: 380px;
+    margin: auto;
+  }
+
+  .carousel-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+  }
+
+  .carousel-slide {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    min-height: 420px;
+  }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    background: #ccc;
+    border-radius: 50%;
+  }
+
+  .dot.active {
+    background: #000;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Layer Construct",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "left_image_desktop",
+      "label": "Left Image (Desktop)"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_image_mobile",
+      "label": "Left Image (Mobile)"
+    },
+    {
+      "type": "text",
+      "id": "left_heading",
+      "label": "Left Heading",
+      "default": "The 4-Layer Salon Construct"
+    },
+    {
+      "type": "textarea",
+      "id": "left_text",
+      "label": "Left Text"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Feature Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_desktop",
+          "label": "Image (Desktop)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Image (Mobile)"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Layer Construct Section",
+      "blocks": [
+        { "type": "card" },
+        { "type": "card" },
+        { "type": "card" }
+      ]
+    }
+  ]
+}
+{% endschema %}
