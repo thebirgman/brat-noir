@@ -293,7 +293,7 @@
         "text_align": "align--middle-center",
         "text_color": "text--white",
         "overlay_opacity": 20,
-        "overlay_color": "#000",
+        "overlay_color": "#000000",
         "enable_overlay_text": false,
         "width": "wrapper--none",
         "padding_top": 0,
@@ -364,7 +364,6 @@
       "blocks": {
         "judge_me_reviews_review_widget_XLfkab": {
           "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "disabled": true,
           "settings": {
             "review_data": "sample_data",
             "max_width": 1200,
@@ -374,6 +373,7 @@
         },
         "judge_me_reviews_all_reviews_page_4hkCHK": {
           "type": "shopify://apps/judge-me-reviews/blocks/all_reviews_page/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "disabled": true,
           "settings": {}
         }
       },
