@@ -681,7 +681,7 @@
         "heading_PqdxAQ": {
           "type": "heading",
           "settings": {
-            "heading": "The Noir Standard",
+            "heading": "Our Beliefs",
             "text_size": 10
           }
         }
@@ -689,7 +689,6 @@
       "block_order": [
         "heading_PqdxAQ"
       ],
-      "disabled": true,
       "custom_css": [
         ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
         ".standard__heading p {font-size: 48px !important; line-height: 48px;}",
