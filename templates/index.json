@@ -713,7 +713,7 @@
           "settings": {
             "image": "shopify://shop_images/Rectangle_171.png",
             "overlay_opacity": 0,
-            "overlay_color": "#000",
+            "overlay_color": "#000000",
             "enable_overlay_text": false,
             "kicker": "",
             "title": "",
@@ -747,6 +747,9 @@
       "block_order": [
         "image_6EqqDB",
         "text_Wxb4eU"
+      ],
+      "custom_css": [
+        "strong {font-family: \"DM Serif Display\"; font-size: 24px;}"
       ],
       "name": "Image with text",
       "settings": {
