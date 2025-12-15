@@ -939,6 +939,13 @@
         "padding_top": 70,
         "padding_bottom": 70
       }
+    },
+    "section_liquid_Bbxrxz": {
+      "type": "section-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "custom_liquid": "<style>\n  .why-brat-noir {\n    background: #f6e9ee;\n    border-radius: 28px;\n    padding: 60px 40px;\n    max-width: 1200px;\n    margin: 80px auto;\n    position: relative;\n    overflow: hidden;\n  }\n\n  .why-brat-inner {\n    display: grid;\n    grid-template-columns: 1fr 2fr 1fr;\n    align-items: center;\n    gap: 40px;\n  }\n\n  .why-brat-image img {\n    width: 100%;\n    border-radius: 20px;\n    object-fit: cover;\n  }\n\n  .why-brat-content {\n    text-align: center;\n  }\n\n  .why-brat-content h2 {\n    font-size: 42px;\n    font-weight: 500;\n    margin-bottom: 40px;\n  }\n\n  .why-brat-icons {\n    display: grid;\n    grid-template-columns: repeat(4, 1fr);\n    gap: 32px;\n  }\n\n  .why-brat-icon {\n    text-align: center;\n    font-size: 16px;\n  }\n\n  .why-brat-icon svg {\n    width: 34px;\n    height: 34px;\n    margin-bottom: 12px;\n  }\n\n  .why-brat-icon strong {\n    display: block;\n    margin-top: 6px;\n  }\n\n  /* MOBILE */\n  @media (max-width: 900px) {\n    .why-brat-inner {\n      grid-template-columns: 1fr;\n      text-align: center;\n    }\n\n    .why-brat-icons {\n      grid-template-columns: repeat(2, 1fr);\n    }\n\n    .why-brat-content h2 {\n      font-size: 32px;\n    }\n\n    .why-brat-image {\n      margin-bottom: 30px;\n    }\n  }\n</style>\n\n<section class=\"why-brat-noir\">\n  <div class=\"why-brat-inner\">\n\n    <!-- LEFT IMAGE -->\n    <div class=\"why-brat-image\">\n      <img src=\"https://cdn.shopify.com/s/files/PLACEHOLDER_LEFT.jpg\" alt=\"Brat Noir model\">\n    </div>\n\n    <!-- CENTER CONTENT -->\n    <div class=\"why-brat-content\">\n      <h2>Why Brat Noir</h2>\n\n      <div class=\"why-brat-icons\">\n\n        <div class=\"why-brat-icon\">\n          <!-- Clock -->\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\">\n            <circle cx=\"12\" cy=\"12\" r=\"10\"/>\n            <path d=\"M12 6v6l4 2\"/>\n          </svg>\n          <strong>10-minute<br>application</strong>\n        </div>\n\n        <div class=\"why-brat-icon\">\n          <!-- Leaf -->\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\">\n            <path d=\"M12 2C7 7 5 10 5 14a7 7 0 0014 0c0-4-2-7-7-12z\"/>\n          </svg>\n          <strong>Salon Quality<br>Nails</strong>\n        </div>\n\n        <div class=\"why-brat-icon\">\n          <!-- Calendar -->\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\">\n            <rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\"/>\n            <path d=\"M16 2v4M8 2v4M3 10h18\"/>\n          </svg>\n          <strong>Up to 3 Weeks<br>Wear</strong>\n        </div>\n\n        <div class=\"why-brat-icon\">\n          <!-- Recycle -->\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\">\n            <path d=\"M21 12l-4-4v3H7\"/>\n            <path d=\"M3 12l4 4v-3h10\"/>\n          </svg>\n          <strong>Reusable<br>up to 3x</strong>\n        </div>\n\n      </div>\n    </div>\n\n    <!-- RIGHT IMAGE -->\n    <div class=\"why-brat-image\">\n      <img src=\"https://cdn.shopify.com/s/files/PLACEHOLDER_RIGHT.jpg\" alt=\"Brat Noir model\">\n    </div>\n\n  </div>\n</section>"
+      }
     }
   },
   "order": [
@@ -961,6 +968,7 @@
     "section_icons_YdAWAL",
     "section_announcement_WDdjGr",
     "section_image_DgdWbc",
-    "section_richtext_Gt8mwq"
+    "section_richtext_Gt8mwq",
+    "section_liquid_Bbxrxz"
   ]
 }
