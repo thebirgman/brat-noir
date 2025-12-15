@@ -3,9 +3,9 @@
 
     <!-- LEFT CARD -->
     <div class="layer-card main-card">
-      <div class="layer-bg desktop contain"
+      <div class="layer-bg desktop"
         style="background-image:url('{{ section.settings.left_image_desktop | image_url }}')"></div>
-      <div class="layer-bg mobile contain"
+      <div class="layer-bg mobile"
         style="background-image:url('{{ section.settings.left_image_mobile | image_url }}')"></div>
 
       <div class="layer-content">
@@ -14,11 +14,11 @@
       </div>
     </div>
 
-    <!-- RIGHT GRID (DESKTOP) -->
+    <!-- RIGHT GRID -->
     <div class="layer-right desktop-only">
       {% for block in section.blocks %}
-        <div class="layer-card image-card {% if forloop.first %}landscape{% endif %}">
-          <div class="layer-bg cover"
+        <div class="layer-card image-card {% if forloop.first %}landscape{% else %}square{% endif %}">
+          <div class="layer-bg"
             style="background-image:url('{{ block.settings.image_desktop | image_url }}')"></div>
 
           <div class="layer-overlay">
@@ -34,7 +34,7 @@
       <div class="carousel-track">
         {% for block in section.blocks %}
           <div class="carousel-slide">
-            <div class="layer-bg cover"
+            <div class="layer-bg"
               style="background-image:url('{{ block.settings.image_mobile | image_url }}')"></div>
             <div class="layer-overlay">
               <h4>{{ block.settings.heading }}</h4>
@@ -68,43 +68,61 @@
   gap: 24px;
 }
 
-/* CARDS */
+/* BASE CARD */
 .layer-card {
   position: relative;
   border-radius: 24px;
   overflow: hidden;
+  background: #eee;
 }
 
-/* MAIN LEFT CARD — FULL IMAGE */
+/* LEFT CARD — FULL IMAGE HEIGHT */
 .main-card {
-  min-height: 520px;
+  min-height: 100%;
 }
 
+.main-card .layer-bg {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* RIGHT GRID */
+.layer-right {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+/* LANDSCAPE FEATURE */
+.image-card.landscape {
+  grid-column: span 2;
+  aspect-ratio: 16 / 7;
+}
+
+/* SQUARE FEATURES */
+.image-card.square {
+  aspect-ratio: 1 / 1;
+}
+
+/* BACKGROUNDS */
 .layer-bg {
   position: absolute;
   inset: 0;
-  background-repeat: no-repeat;
+  background-size: cover;
   background-position: center;
 }
 
-.layer-bg.cover {
-  background-size: cover;
+.layer-bg.mobile {
+  display: none;
 }
 
-.layer-bg.contain {
-  background-size: contain;
-}
-
-/* TEXT */
+/* CONTENT */
 .layer-content,
 .layer-overlay {
   position: relative;
-  padding: 32px;
   z-index: 2;
-}
-
-.layer-content {
-  max-width: 420px;
+  padding: 32px;
 }
 
 .layer-overlay {
@@ -128,29 +146,9 @@
   line-height: 1.5;
 }
 
-/* RIGHT GRID */
-.layer-right {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
-
-/* FIRST FEATURE CARD — LANDSCAPE */
-.layer-card.landscape {
-  grid-column: span 2;
-  min-height: 260px;
-}
-
-/* OTHER FEATURE CARDS */
-.layer-card.image-card:not(.landscape) {
-  min-height: 260px;
-}
-
 /* MOBILE */
 .mobile-only { display: none; }
 .desktop-only { display: grid; }
-
-.layer-bg.mobile { display: none; }
 
 @media (max-width: 900px) {
   .layer-wrapper {
@@ -181,7 +179,7 @@
     border-radius: 24px;
     overflow: hidden;
     position: relative;
-    min-height: 420px;
+    aspect-ratio: 1 / 1;
   }
 
   .carousel-dots {
