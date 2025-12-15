@@ -279,6 +279,9 @@
       "block_order": [
         "heading_jQxf8i"
       ],
+      "custom_css": [
+        "p {font-size: 48px !important;}"
+      ],
       "name": "Video banner",
       "settings": {
         "height": "use_image",
