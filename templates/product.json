@@ -327,7 +327,8 @@
         "card_wCrciP"
       ],
       "custom_css": [
-        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}"
+        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
+        "p {font-size: 16px !important;}"
       ],
       "name": "Layer Construct Section",
       "settings": {
