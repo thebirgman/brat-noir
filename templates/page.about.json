@@ -195,7 +195,7 @@
           "type": "text",
           "settings": {
             "kicker": "",
-            "title": "",
+            "title": "Our Beliefs",
             "text": "<p><strong>High Maintenance is a Compliment.</strong></p><p>We believe knowing what you want (and getting it) is a power move, not a personality flaw. “Basic” isn’t in our vocabulary, and settling isn’t in our nature. If that makes us brats, we’ll wear the label.</p><p><strong><br/>Time is the Ultimate Luxury.</strong></p><p>We refuse to spend three hours in a salon chair for a look that lasts two weeks. We press on luxury in minutes—because your calendar is full, your time is expensive, and your standards are non-negotiable.</p><p><strong><br/>Fake Nails, Real Impact.</strong></p><p>We believe in the \"unclockable\" manicures. No UV damage. No plastic look. Just flawless, hand-painted soft gel designs that look like you spent a fortune (and leave you enough money to buy the champagne).</p>",
             "font_size": 5,
             "text_columns": 1,
@@ -214,7 +214,9 @@
         "text_qWmprA"
       ],
       "custom_css": [
-        "strong {font-family: \"DM Serif Display\"; font-size: 24px;}"
+        "strong {font-family: \"DM Serif Display\"; font-size: 24px;}",
+        "@media screen and (min-width: 769px) {h2.standard__heading.heading-size-9.aos-init.aos-animate {display: none; }}",
+        "@media screen and (max-width: 768px) {h2, p {text-align: center; }}"
       ],
       "name": "Image with text",
       "settings": {
