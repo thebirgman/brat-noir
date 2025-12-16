@@ -255,6 +255,22 @@
     background: #000;
   }
 }
+
+@media (max-width: 900px) {
+
+  /* Make each slide a column */
+  .layer-slide {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Push text to bottom for FIRST SLIDE (left image) */
+  .layer-slide .layer-content {
+    margin-top: auto;
+  }
+
+}
+
 </style>
 
 <script>
