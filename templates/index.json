@@ -142,7 +142,8 @@
       ],
       "custom_css": [
         ".relative img {object-fit: contain;}",
-        "@media screen and (max-width: 767px) {a.standard__cta {margin-top: 30px !important; margin-bottom: 30px !important; } .brick__section {flex-direction: column-reverse; } .brick__section {flex-direction: column-reverse; } .text__standard {text-align: center !important; padding: 0 !important; } .standard__cta {margin: auto !important; } .wrapper.section-padding {padding-top: 30px; }}"
+        "@media screen and (max-width: 767px) {a.standard__cta {margin-top: 30px !important; margin-bottom: 30px !important; } .brick__section {flex-direction: column-reverse; } .brick__section {flex-direction: column-reverse; } .text__standard {text-align: center !important; padding: 0 !important; } .standard__cta {margin: auto !important; } .wrapper.section-padding {padding-top: 30px; }}",
+        ".standard__cta, .hero__cta__wrapper a, .header-button a {width: 300px;}"
       ],
       "name": "Image with text",
       "settings": {
@@ -956,7 +957,7 @@
         "mobile_image": "shopify://shop_images/Group_302.png",
         "height": "use_image",
         "overlay_opacity": 0,
-        "overlay_color": "#000",
+        "overlay_color": "#000000",
         "enable_overlay_text": false,
         "preload_image": false,
         "content_width": 2000,
