@@ -290,7 +290,7 @@
         "content_width": 2000,
         "width": "wrapper",
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 0
       }
     },
     "layer_construct_wkNw6a": {
