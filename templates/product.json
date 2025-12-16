@@ -509,6 +509,7 @@
         "image_mKNfhG",
         "text_3ktbGB"
       ],
+      "disabled": true,
       "custom_css": [
         ".brick__block__image,img {border-radius: 20px;}",
         ".brat-bundle {background: transparent;}",

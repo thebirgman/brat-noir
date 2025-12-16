@@ -1738,3 +1738,10 @@ span.bundle-product__price--sale {
     left: 10px;
     right: auto;
 }
+
+span.price {
+  color: #000;
+}
+span.price.on-sale {
+  color: #61150f;
+}
