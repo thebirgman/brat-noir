@@ -279,6 +279,9 @@
       "block_order": [
         "heading_mttpnB"
       ],
+      "custom_css": [
+        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}"
+      ],
       "name": "Rich text",
       "settings": {
         "align_text": "text-center",
@@ -322,6 +325,9 @@
         "card_Tftm6Y",
         "card_p7hngU",
         "card_wCrciP"
+      ],
+      "custom_css": [
+        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}"
       ],
       "name": "Layer Construct Section",
       "settings": {
