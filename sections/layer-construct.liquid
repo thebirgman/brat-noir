@@ -54,6 +54,50 @@
 
     </div>
   </div>
+
+  <!-- MOBILE SLIDER -->
+<div class="layer-mobile-slider mobile-only">
+  <div class="layer-slider-track">
+
+    <!-- SLIDE 1 — LEFT CARD -->
+    <div class="layer-slide">
+      <div
+        class="layer-bg"
+        style="background-image:url('{{ section.settings.left_image_desktop | image_url }}')">
+      </div>
+
+      <div class="layer-content">
+        <h3>{{ section.settings.left_heading }}</h3>
+        <p>{{ section.settings.left_text }}</p>
+      </div>
+    </div>
+
+    <!-- SLIDES 2–4 — FEATURE CARDS -->
+    {% for block in section.blocks %}
+      <div class="layer-slide">
+        <div
+          class="layer-bg"
+          style="background-image:url('{{ block.settings.image_desktop | image_url }}')">
+        </div>
+
+        <div class="layer-overlay">
+          <h4>{{ block.settings.heading }}</h4>
+          <p>{{ block.settings.text }}</p>
+        </div>
+      </div>
+    {% endfor %}
+
+  </div>
+
+  <!-- DOTS -->
+  <div class="layer-slider-dots">
+    <span class="dot active"></span>
+    {% for block in section.blocks %}
+      <span class="dot"></span>
+    {% endfor %}
+  </div>
+</div>
+
 </section>
 
 <style>
