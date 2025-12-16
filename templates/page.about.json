@@ -520,13 +520,16 @@
     },
     "section_hero_YVgFTV": {
       "type": "section-hero",
+      "custom_css": [
+        "img {max-width: 1276px; margin: auto; object-fit: contain;}"
+      ],
       "name": "Image banner",
       "settings": {
         "image": "shopify://shop_images/Group_303.png",
         "mobile_image": "shopify://shop_images/Group_302.png",
         "height": "use_image",
         "overlay_opacity": 0,
-        "overlay_color": "#000",
+        "overlay_color": "#000000",
         "enable_overlay_text": false,
         "preload_image": false,
         "content_width": 2000,
