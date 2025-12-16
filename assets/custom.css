@@ -486,13 +486,14 @@ p.cart__footer__itemtotal,
   }
 
 
-.collection-tabs .tabs {
-    overflow-x: unset;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+@media (max-width: 768px) {
+  .collection-tabs .tabs {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px; /* adjust spacing if needed */
+  }
 }
+
 
 .collection-tabs .tabs .tab-link {
     margin: 5px!important;
