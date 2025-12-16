@@ -663,6 +663,9 @@
     },
     "section_hero_MVe3pU": {
       "type": "section-hero",
+      "custom_css": [
+        "img {max-width: 1276px; margin: auto; object-fit: contain;}"
+      ],
       "name": "Image banner",
       "settings": {
         "image": "shopify://shop_images/Group_303.png",
