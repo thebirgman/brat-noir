@@ -157,7 +157,7 @@
       "custom_css": [
         ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
         ".standard__heading p {font-size: 48px !important; line-height: 48px;}",
-        "@media screen and (max-width: 768px) {.standard__heading p {font-size: 40px !important; line-height: 40px; }}"
+        "@media screen and (max-width: 768px) {.standard__heading p {display: none; }}"
       ],
       "name": "Rich text",
       "settings": {
