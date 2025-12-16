@@ -143,7 +143,7 @@
       "custom_css": [
         ".relative img {object-fit: contain;}",
         "@media screen and (max-width: 767px) {a.standard__cta {margin-top: 30px !important; margin-bottom: 30px !important; } .brick__section {flex-direction: column-reverse; } .brick__section {flex-direction: column-reverse; } .text__standard {text-align: center !important; padding: 0 !important; } .standard__cta {margin: auto !important; } .wrapper.section-padding {padding-top: 30px; }}",
-        ".standard__cta, .hero__cta__wrapper a, .header-button a {width: 300px;}"
+        ".standard__cta,.hero__cta__wrapper a,.header-button a {width: 300px;}"
       ],
       "name": "Image with text",
       "settings": {
@@ -369,6 +369,7 @@
       "block_order": [
         "text_NWqn33"
       ],
+      "disabled": true,
       "name": "Scrolling promotion",
       "settings": {
         "bg_color": "#000000",
