@@ -966,7 +966,7 @@
         "text_align": "align--middle-center",
         "text_color": "text--white",
         "color_bg": "hero__content--transparent",
-        "width": "wrapper--none",
+        "width": "wrapper",
         "padding_top": 0,
         "padding_bottom": 60
       }
