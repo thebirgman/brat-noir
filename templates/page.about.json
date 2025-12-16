@@ -125,7 +125,8 @@
         "@media screen and (max-width: 768px) {img {max-width: 100%; height: auto; }}",
         ".brat-bundle {background: transparent;}",
         ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
-        "@media screen and (max-width: 768px) {.brick__block__text .text__standard {padding-bottom: 0px; }}"
+        "@media screen and (max-width: 768px) {.brick__block__text .text__standard {padding-bottom: 0px; }}",
+        "@media screen and (max-width: 768px) {h2, p {text-align: center; }}"
       ],
       "name": "Image with text",
       "settings": {
