@@ -1,5 +1,7 @@
 <section class="layer-construct">
-  <div class="layer-wrapper">
+
+  <!-- DESKTOP LAYOUT -->
+  <div class="layer-wrapper desktop-only">
 
     <!-- LEFT COLUMN (400x800) -->
     <div class="layer-card main-card">
@@ -10,8 +12,6 @@
 
       <div class="layer-content">
         <h3>{{ section.settings.left_heading }}</h3>
-
-        <!-- TEXT + LIST FIX -->
         <div class="layer-text">
           {{ section.settings.left_text }}
         </div>
@@ -29,7 +29,7 @@
             class="layer-bg"
             style="background-image:url('{{ first.settings.image_desktop | image_url }}')">
           </div>
-          <div class="layer-overlay">
+          <div class="layer-overlay dark-text">
             <h4>{{ first.settings.heading }}</h4>
             <p>{{ first.settings.text }}</p>
           </div>
@@ -56,56 +56,62 @@
   </div>
 
   <!-- MOBILE SLIDER -->
-<div class="layer-mobile-slider mobile-only">
-  <div class="layer-slider-track">
+  <div class="layer-mobile-slider mobile-only">
+    <div class="layer-slider-track" id="layerSlider">
 
-    <!-- SLIDE 1 — LEFT CARD -->
-    <div class="layer-slide">
-      <div
-        class="layer-bg"
-        style="background-image:url('{{ section.settings.left_image_desktop | image_url }}')">
-      </div>
-
-      <div class="layer-content">
-        <h3>{{ section.settings.left_heading }}</h3>
-        <p>{{ section.settings.left_text }}</p>
-      </div>
-    </div>
-
-    <!-- SLIDES 2–4 — FEATURE CARDS -->
-    {% for block in section.blocks %}
+      <!-- SLIDE 1 — LEFT CARD -->
       <div class="layer-slide">
         <div
           class="layer-bg"
-          style="background-image:url('{{ block.settings.image_desktop | image_url }}')">
+          style="background-image:url('{{ section.settings.left_image_mobile | image_url }}')">
         </div>
 
-        <div class="layer-overlay">
-          <h4>{{ block.settings.heading }}</h4>
-          <p>{{ block.settings.text }}</p>
+        <div class="layer-content">
+          <h3>{{ section.settings.left_heading }}</h3>
+          <div class="layer-text">
+            {{ section.settings.left_text }}
+          </div>
         </div>
       </div>
-    {% endfor %}
 
-  </div>
+      <!-- SLIDES 2+ — FEATURES -->
+      {% for block in section.blocks %}
+        <div class="layer-slide">
+          <div
+            class="layer-bg"
+            style="background-image:url('{{ block.settings.image_mobile | image_url }}')">
+          </div>
 
-  <!-- DOTS -->
-  <div class="layer-slider-dots">
-    <span class="dot active"></span>
-    {% for block in section.blocks %}
-      <span class="dot"></span>
-    {% endfor %}
+          <div class="layer-overlay">
+            <h4>{{ block.settings.heading }}</h4>
+            <p>{{ block.settings.text }}</p>
+          </div>
+        </div>
+      {% endfor %}
+
+    </div>
+
+    <!-- DOTS -->
+    <div class="layer-slider-dots" id="layerDots">
+      {% assign total_slides = section.blocks.size | plus: 1 %}
+      {% for i in (1..total_slides) %}
+        <span class="dot {% if forloop.first %}active{% endif %}"></span>
+      {% endfor %}
+    </div>
   </div>
-</div>
 
 </section>
 
 <style>
 .layer-construct {
-  
   padding: 80px 20px;
 }
 
+/* VISIBILITY */
+.desktop-only { display: block; }
+.mobile-only { display: none; }
+
+/* DESKTOP GRID */
 .layer-wrapper {
   max-width: 1200px;
   margin: auto;
@@ -114,14 +120,12 @@
   gap: 24px;
 }
 
-/* BASE CARD */
 .layer-card {
   position: relative;
   border-radius: 28px;
   overflow: hidden;
 }
 
-/* IMAGE */
 .layer-bg {
   position: absolute;
   inset: 0;
@@ -137,7 +141,6 @@
   padding: 32px;
 }
 
-/* LEFT CONTENT — BOTTOM ALIGNED */
 .layer-content {
   margin-top: auto;
   position: relative;
@@ -149,48 +152,27 @@
   margin-bottom: 12px;
 }
 
-/* TEXT + LIST FIX */
 .layer-text {
-  font-size: 16px !important;
+  font-size: 16px;
   line-height: 1.6;
 }
 
-.layer-text p {
-  margin-bottom: 10px;
-  font-size: 16px !important;
-}
-
-.layer-text ol {
-  margin: 10px 0;
-  padding-left: 18px;
-}
-
-.layer-text li {
-  margin-bottom: 6px;
-}
-
-/* RIGHT COLUMN */
+/* RIGHT SIDE */
 .layer-right {
   display: grid;
   grid-template-rows: auto 1fr;
   gap: 24px;
 }
 
-/* TOP FEATURE */
-.feature-wide {
-  aspect-ratio: 2 / 1;
-}
+.feature-wide { aspect-ratio: 2 / 1; }
 
-/* BOTTOM FEATURES */
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
 }
 
-.feature-square {
-  aspect-ratio: 1 / 1;
-}
+.feature-square { aspect-ratio: 1 / 1; }
 
 /* OVERLAY */
 .layer-overlay {
@@ -201,69 +183,30 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  /* background: linear-gradient(to top, rgba(0,0,0,0.65), transparent); */
+  background: linear-gradient(to top, rgba(0,0,0,.65), transparent);
   color: #fff;
 }
 
-.layer-card.feature-wide .layer-overlay {
+.layer-overlay.dark-text {
+  background: none;
   color: #000;
 }
 
-
-
-.layer-overlay h4 {
-  font-size: 20px;
-  margin-bottom: 8px;
-}
-
-.layer-overlay p {
-  font-size: 16px !important;
-  line-height: 1.5;
-}
-
-/* MOBILE */
-@media (max-width: 900px) {
-  .layer-wrapper {
-    grid-template-columns: 1fr;
-  }
-
-  .feature-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .main-card,
-  .feature-wide,
-  .feature-square {
-    aspect-ratio: auto;
-    min-height: 420px;
-  }
-}
-
 /* MOBILE SLIDER */
-.mobile-only {
-  display: none;
-}
-
 @media (max-width: 900px) {
-  .desktop-only {
-    display: none;
-  }
-
-  .mobile-only {
-    display: block;
-  }
+  .desktop-only { display: none; }
+  .mobile-only { display: block; }
 
   .layer-mobile-slider {
     max-width: 380px;
-    margin: 0 auto;
+    margin: auto;
   }
 
   .layer-slider-track {
     display: flex;
-    gap: 20px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    gap: 20px;
   }
 
   .layer-slide {
@@ -273,42 +216,22 @@
     border-radius: 28px;
     overflow: hidden;
     min-height: 520px;
-    background: #eee;
   }
 
   .layer-slide .layer-bg {
-    position: absolute;
-    inset: 0;
-    background-size: contain; /* IMPORTANT: prevents cropping */
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: top center;
   }
 
-  /* Bottom fade */
   .layer-slide::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      to top,
-      rgba(0,0,0,0.65),
-      rgba(0,0,0,0) 55%
-    );
+    background: linear-gradient(to top, rgba(0,0,0,.65), transparent 55%);
     z-index: 1;
   }
 
-  .layer-content,
-  .layer-overlay {
-    position: relative;
-    z-index: 2;
-    padding: 28px;
-  }
-
-  .layer-content {
-    margin-top: auto;
-  }
-
-  /* DOTS */
   .layer-slider-dots {
     display: flex;
     justify-content: center;
@@ -316,19 +239,46 @@
     margin-top: 16px;
   }
 
-  .layer-slider-dots .dot {
+  .dot {
     width: 8px;
     height: 8px;
-    background: #cfcfcf;
+    background: #ccc;
     border-radius: 50%;
+    cursor: pointer;
   }
 
-  .layer-slider-dots .dot.active {
+  .dot.active {
     background: #000;
   }
 }
-
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const track = document.getElementById('layerSlider');
+  const dots = document.querySelectorAll('#layerDots .dot');
+
+  if (!track || !dots.length) return;
+
+  track.addEventListener('scroll', () => {
+    const slideWidth = track.offsetWidth;
+    const index = Math.round(track.scrollLeft / slideWidth);
+
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+  });
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      track.scrollTo({
+        left: track.offsetWidth * i,
+        behavior: 'smooth'
+      });
+    });
+  });
+});
+</script>
 
 {% schema %}
 {
@@ -338,6 +288,11 @@
       "type": "image_picker",
       "id": "left_image_desktop",
       "label": "Left Image (Desktop)"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_image_mobile",
+      "label": "Left Image (Mobile)"
     },
     {
       "type": "text",
@@ -360,7 +315,12 @@
         {
           "type": "image_picker",
           "id": "image_desktop",
-          "label": "Image"
+          "label": "Image (Desktop)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Image (Mobile)"
         },
         {
           "type": "text",
