@@ -573,6 +573,7 @@
         "text_nGLtQL",
         "text_qnNGGt"
       ],
+      "disabled": true,
       "name": "Scrolling promotion",
       "settings": {
         "bg_color": "#000000",
