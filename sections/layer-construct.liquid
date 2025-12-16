@@ -238,6 +238,96 @@
     min-height: 420px;
   }
 }
+
+/* MOBILE SLIDER */
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+
+  .layer-mobile-slider {
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .layer-slider-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .layer-slide {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    position: relative;
+    border-radius: 28px;
+    overflow: hidden;
+    min-height: 520px;
+    background: #eee;
+  }
+
+  .layer-slide .layer-bg {
+    position: absolute;
+    inset: 0;
+    background-size: contain; /* IMPORTANT: prevents cropping */
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+
+  /* Bottom fade */
+  .layer-slide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0,0,0,0.65),
+      rgba(0,0,0,0) 55%
+    );
+    z-index: 1;
+  }
+
+  .layer-content,
+  .layer-overlay {
+    position: relative;
+    z-index: 2;
+    padding: 28px;
+  }
+
+  .layer-content {
+    margin-top: auto;
+  }
+
+  /* DOTS */
+  .layer-slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .layer-slider-dots .dot {
+    width: 8px;
+    height: 8px;
+    background: #cfcfcf;
+    border-radius: 50%;
+  }
+
+  .layer-slider-dots .dot.active {
+    background: #000;
+  }
+}
+
 </style>
 
 {% schema %}
