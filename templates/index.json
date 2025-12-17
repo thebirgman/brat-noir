@@ -956,7 +956,8 @@
     "section_hero_Q7T3y9": {
       "type": "section-hero",
       "custom_css": [
-        ".image-overlay, .image__hero__frame noscript, .image__hero__pane {max-width: 1276px; width: 100%; left: 50%; transform: translateX(-50%); padding-left: 20px; padding-right: 20px;}"
+        ".image-overlay,.image__overlay,.image_hero_frame {max-width: 1276px; width: 100%; margin-left: auto; margin-right: auto; left: 50%; transform: translateX(-50%);}",
+        ".image_hero,.image_hero_pane,.image_hero_frame {overflow: visible !important;}"
       ],
       "name": "Image banner",
       "settings": {
