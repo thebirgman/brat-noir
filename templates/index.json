@@ -960,7 +960,7 @@
       "settings": {
         "image": "shopify://shop_images/Group_303.png",
         "mobile_image": "shopify://shop_images/Group_302.png",
-        "height": "use_pixels_500",
+        "height": "use_screen_one_third",
         "overlay_opacity": 0,
         "overlay_color": "#000000",
         "enable_overlay_text": false,
