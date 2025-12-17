@@ -763,3 +763,7 @@ button.bundle-products__cart-checkout {
   align-self: left !important;
 } 
 }
+
+.bundle-product__price {
+  align-self: center;
+}
