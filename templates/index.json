@@ -955,7 +955,9 @@
     },
     "section_hero_Q7T3y9": {
       "type": "section-hero",
-      "custom_css": [],
+      "custom_css": [
+        ".image-overlay {max-width: 1276px; width: 100%; margin: 0 auto;}"
+      ],
       "name": "Image banner",
       "settings": {
         "image": "shopify://shop_images/Group_303.png",
