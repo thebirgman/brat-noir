@@ -759,4 +759,7 @@ button.bundle-products__cart-checkout {
     gap: 16px; /* adjust spacing as needed */
     justify-items: center; /* optional: centers items inside each column */
   }
+  .bundle-product__price {
+  align-self: left !important;
+} 
 }
