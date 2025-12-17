@@ -760,7 +760,7 @@ button.bundle-products__cart-checkout {
     justify-items: center; /* optional: centers items inside each column */
   }
   .bundle-product__price {
-  align-self: left !important;
+  align-items: left !important;
 } 
 }
 
