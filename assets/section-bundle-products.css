@@ -778,3 +778,7 @@ button.bundle-products__cart-checkout {
     margin-top: 10px;
   }
 }
+
+.bundle-product__title {
+  font-size: 15px;
+}
