@@ -149,7 +149,7 @@
       "settings": {
         "height": "use_image",
         "brick_gutter": 0,
-        "borders": false,
+        "borders": true,
         "bg_color": "",
         "preload_image": false,
         "width": "wrapper",
