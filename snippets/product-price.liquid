@@ -2,96 +2,88 @@
 {%- liquid
   assign current_variant = product.selected_or_first_available_variant
 
+  assign on_sale = false
+  if current_variant.compare_at_price > current_variant.price
+    assign on_sale = true
+  endif
+
   if block.settings.price_size
     assign price_size_class = block.settings.price_size | prepend: 'accent-size-'
     assign price_small_class = block.settings.price_size | minus: 1 | prepend: 'accent-size-'
   endif
 -%}
 
-<div class="product__block__price" style="--PB: {{ block.settings.padding_bottom }}px;" {{ block.shopify_attributes }}>
-  <div class="product__price__wrap {% if product.tags contains "glow_in_the_dark" %} glow-in-the-dark {% endif %}">
+<div
+  class="product__block__price"
+  style="--PB: {{ block.settings.padding_bottom }}px;"
+  {{ block.shopify_attributes }}
+>
+  <div class="product__price__wrap">
     <div class="product__price__main" data-price-wrapper>
+
+      <!-- CURRENT PRICE -->
       <span class="product__price {{ price_size_class }}">
         <span
           data-product-price
-          {% if current_variant.compare_at_price > current_variant.price %}
-            class="product__price--sale"
-          {% endif %}
+          class="product__price-current {% if on_sale %}is-sale{% endif %}"
         >
-          {%- if settings.currency_code_enable -%}
+          {% if settings.currency_code_enable %}
             {{ current_variant.price | money_without_trailing_zeros | append: ' ' | append: shop.currency }}
-          {%- else -%}
+          {% else %}
             {{ current_variant.price | money_without_trailing_zeros }}
-          {%- endif -%}
+          {% endif %}
         </span>
       </span>
 
-      {% if settings.badge_sale_type == 'strike' %}
-        <span data-compare-price class="product__price--compare {{ price_size_class }}">
-          {%- if settings.currency_code_enable -%}
+      <!-- COMPARE PRICE -->
+      {% if on_sale %}
+        <span
+          data-compare-price
+          class="product__price--compare {{ price_size_class }}"
+        >
+          {% if settings.currency_code_enable %}
             {{ current_variant.compare_at_price | money_without_trailing_zeros | append: ' ' | append: shop.currency }}
-          {%- else -%}
+          {% else %}
             {{ current_variant.compare_at_price | money_without_trailing_zeros }}
-          {%- endif -%}
-        </span>
-      {% else %}
-        <span data-price-off class="product__price--off hide">
-          <span data-price-off-type>{{ 'products.product.sale' | t }}</span>
-          <em>•</em>
-          {{ 'products.product.save' | t }}
-          <span data-price-off-amount></span>
+          {% endif %}
         </span>
       {% endif %}
 
+      <!-- UNIT PRICE (UNCHANGED) -->
       {% liquid
         assign units = product.variants | map: 'unit_price' | compact
-        if units[0]
-          assign has_units = true
-        else
-          assign has_units = false
-        endif
+        assign has_units = units.size > 0
       %}
+
       {% if has_units %}
-        {% capture show_units %}
-          {%- unless current_variant.unit_price -%}style="display: none;"{%- endunless -%}
-        {% endcapture %}
-        {% capture unit_price_separator %}
-          <span aria-hidden="true">/</span>
-          <span class="visually-hidden">{{ 'general.accessibility.unit_price_separator' | t }}&nbsp;</span>
-        {% endcapture %}
-        {% capture unit_price_base_unit %}
-          <span>
-            {% if current_variant.unit_price_measurement %}
-              {% if current_variant.unit_price_measurement.reference_value != 1 %}
-                {{ current_variant.unit_price_measurement.reference_value }}
-              {%- endif -%}
-              {{ current_variant.unit_price_measurement.reference_unit }}
-            {% endif %}
-          </span>
-        {% endcapture %}
         <div class="product__price--unit {{ price_small_class }}">
-          <span data-product-unit {{ show_units }}>
+          <span data-product-unit {% unless current_variant.unit_price %}style="display:none"{% endunless %}>
             <span class="visually-hidden visually-hidden--inline">
               {{ 'products.product.unit_price_label' | t }}
             </span>
-            <span data-product-unit-price id="unit-price-{{ block.id }}">
-              {%- if settings.currency_code_enable -%}
+            <span data-product-unit-price>
+              {% if settings.currency_code_enable %}
                 {{ current_variant.unit_price | money_without_trailing_zeros | append: ' ' | append: shop.currency }}
-              {%- else -%}
+              {% else %}
                 {{ current_variant.unit_price | money_without_trailing_zeros }}
-              {%- endif -%}
+              {% endif %}
             </span>
-            {{ unit_price_separator }}
-            <span data-product-base id="unit-price-base-{{ block.id }}">
-              {{ unit_price_base_unit }}
+            <span aria-hidden="true">/</span>
+            <span class="visually-hidden">
+              {{ 'general.accessibility.unit_price_separator' | t }}
             </span>
-          </span>
-          <span data-price-each class="hide">
-            {{ 'products.product.each' | t }}
-            <span data-price-each-amount></span>
+            <span>
+              {% if current_variant.unit_price_measurement %}
+                {% if current_variant.unit_price_measurement.reference_value != 1 %}
+                  {{ current_variant.unit_price_measurement.reference_value }}
+                {% endif %}
+                {{ current_variant.unit_price_measurement.reference_unit }}
+              {% endif %}
+            </span>
           </span>
         </div>
       {% endif %}
+
     </div>
   </div>
 </div>
