@@ -1754,3 +1754,7 @@ span.compare-at {
   color: #969696 !important;
   font-weight: 400;
 }
+
+.product__price__main {
+  color: #000;
+}
