@@ -1855,3 +1855,13 @@ span.appstle_subscription_amount.transcy-money {}
 .appstle_sub_widget input[name=selling_plan] {
     cursor: pointer;
 }
+
+label.appstle_select_label {
+    font-size: 16px!important;
+}
+
+@media screen and (max-width: 768px) {
+#appstle_subscription_widget0 .appstle_subscription_wrapper .appstle_select {
+font-size: 16px!Important;
+}
+}
