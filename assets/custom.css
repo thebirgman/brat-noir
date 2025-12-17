@@ -1,4 +1,4 @@
-header.theme__header {
+  header.theme__header {
   background: transparent;
   top: 0;
   border: 0;
@@ -1864,4 +1864,38 @@ label.appstle_select_label {
 #appstle_subscription_widget0 .appstle_subscription_wrapper .appstle_select {
 font-size: 16px!Important;
 }
+}
+
+
+.appstle_subscription_wrapper_option:not(.appstle-active-option) .appstle_subscription_radio_wrapper {
+    position: static;
+}
+
+.appstle_subscription_wrapper_option .appstle_subscription_radio_wrapper {
+    border-bottom: 1px solid #fff;
+    padding-bottom: 16px;
+    margin-bottom: 12px;
+}
+
+#appstle_subscription_widget0 .appstle_subscribe_option {
+    opacity: 1;
+    height: 100% !important;
+    grid-template-rows: auto !important;
+    /* margin-top: 20px !important; */
+}
+
+.appstle_subscription_wrapper_option input[type=radio]:focus + label .appstle_circle:before {
+    display: none;
+}
+
+span.appstle_dot {}
+
+span.appstle-save-badge {
+    background: #FF6D6D!important;
+    color: #Fff;
+    border-radius: 4px!Important;
+}
+
+.appstle_one_time_price_wrapper {
+    font-weight: 500;
 }
