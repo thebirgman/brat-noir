@@ -775,5 +775,6 @@ button.bundle-products__cart-checkout {
   }
   .bundle-product__details .bundle-product__price {
     align-self: flex-start;
+    margin-top: 10px;
   }
 }
