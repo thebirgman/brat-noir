@@ -955,15 +955,12 @@
     },
     "section_hero_Q7T3y9": {
       "type": "section-hero",
-      "custom_css": [
-        ".image-overlay,.image__overlay,.image_hero_frame {max-width: 1276px; width: 100%; margin-left: auto; margin-right: auto; left: 50%; transform: translateX(-50%);}",
-        ".image_hero,.image_hero_pane,.image_hero_frame {overflow: visible !important;}"
-      ],
+      "custom_css": [],
       "name": "Image banner",
       "settings": {
         "image": "shopify://shop_images/Group_303.png",
         "mobile_image": "shopify://shop_images/Group_302.png",
-        "height": "use_image",
+        "height": "use_pixels_500",
         "overlay_opacity": 0,
         "overlay_color": "#000000",
         "enable_overlay_text": false,
