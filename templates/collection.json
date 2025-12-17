@@ -224,7 +224,7 @@
       "custom_css": [
         ".scrolling-promo,.tabs,.kicker-flourished:after {display: none;}",
         "h2 {padding: 0;}",
-        ".product__grid__price {display: flex; flex-direction: column;}",
+        ".product__grid__price {display: flex;}",
         ".bg--neutral {background: transparent;}",
         ".product__grid__main-info p {text-align: left;}",
         "@media screen and (min-width: 1080px) {.slide-item.product-grid-slide[data-item] {width: calc(33% - 25px); }}",
