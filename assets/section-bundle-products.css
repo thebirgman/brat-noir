@@ -767,3 +767,13 @@ button.bundle-products__cart-checkout {
 .bundle-product__price {
   align-self: center;
 }
+
+@media (max-width: 768px) {
+  .bundle-product__details {
+    align-items: flex-start;   /* left-align children horizontally */
+    text-align: left;          /* ensure text aligns left */
+  }
+  .bundle-product__details .bundle-product__price {
+    align-self: flex-start;
+  }
+}
