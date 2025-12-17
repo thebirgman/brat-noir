@@ -74,7 +74,6 @@
     },
     "section_video_z78q6B": {
       "type": "section-video",
-      "disabled": true,
       "custom_css": [
         "@media screen and (max-width: 768px) {.section--image, .image__hero__frame {min-height: 330px !important; height: 330px !important; }}"
       ],
@@ -108,7 +107,6 @@
       "block_order": [
         "text_YrGUjx"
       ],
-      "disabled": true,
       "name": "Scrolling promotion",
       "settings": {
         "bg_color": "#000000",
@@ -288,8 +286,7 @@
       ],
       "custom_css": [
         "p.product__grid__collection-name {font-size: 12px !important; font-weight: 300; font-family: \"Montserrat\"; color: #000; letter-spacing: 0.5px !important; text-align: left;}",
-        "@media screen and (max-width: 768px) {.bundle-products__filters {padding-left: 0; padding-right: 0; } .bundle-products__filter-btn {font-size: 16px !important; }}",
-        ".bundle-product__price {align-self: center;}"
+        "@media screen and (max-width: 768px) {.bundle-products__filters {padding-left: 0; padding-right: 0; } .bundle-products__filter-btn {font-size: 16px !important; }}"
       ],
       "settings": {
         "collection": "collection-2",
