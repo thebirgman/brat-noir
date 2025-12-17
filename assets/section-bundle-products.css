@@ -744,3 +744,12 @@ button.bundle-products__cart-checkout {
 .bundle-products__subheading.rte {
     margin-bottom: 30px;
 }
+
+@media (max-width: 768px) {
+  .bundle-products__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px; /* adjust spacing as needed */
+    justify-items: center; /* optional: centers items inside each column */
+  }
+}
