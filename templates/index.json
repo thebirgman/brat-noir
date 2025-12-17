@@ -956,7 +956,7 @@
     "section_hero_Q7T3y9": {
       "type": "section-hero",
       "custom_css": [
-        "img {width: 1276px; margin: auto;}"
+        "img {width: 1276px; height: auto; margin: auto;}"
       ],
       "name": "Image banner",
       "settings": {
