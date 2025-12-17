@@ -74,6 +74,7 @@
     },
     "section_video_z78q6B": {
       "type": "section-video",
+      "disabled": true,
       "custom_css": [
         "@media screen and (max-width: 768px) {.section--image, .image__hero__frame {min-height: 330px !important; height: 330px !important; }}"
       ],
@@ -107,6 +108,7 @@
       "block_order": [
         "text_YrGUjx"
       ],
+      "disabled": true,
       "name": "Scrolling promotion",
       "settings": {
         "bg_color": "#000000",
