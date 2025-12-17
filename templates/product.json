@@ -86,6 +86,10 @@
             "padding_bottom": 0
           }
         },
+        "appstle_subscription_appstle_subscription_product_page_widget_DYYWjm": {
+          "type": "shopify://apps/appstle-subscription/blocks/appstle-subscription-product-page-widget/fe257d39-6f88-4f35-ab08-bd437e3aa94e",
+          "settings": {}
+        },
         "buttons": {
           "type": "add-buttons",
           "settings": {
@@ -205,6 +209,7 @@
         "subscriptions",
         "quantity",
         "sizes-remaining",
+        "appstle_subscription_appstle_subscription_product_page_widget_DYYWjm",
         "buttons",
         "liquid_Ra8HMc",
         "icon_row_z3rT6C",
@@ -338,7 +343,13 @@
         },
         "judge_me_reviews_all_reviews_page_4hkCHK": {
           "type": "shopify://apps/judge-me-reviews/blocks/all_reviews_page/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
+          "settings": {
+            "max_width": 1200,
+            "review_source": "all",
+            "show_tabs": false,
+            "show_first": "product",
+            "empty_state": "empty_widget"
+          }
         }
       },
       "block_order": [
