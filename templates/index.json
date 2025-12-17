@@ -955,14 +955,12 @@
     },
     "section_hero_Q7T3y9": {
       "type": "section-hero",
-      "custom_css": [
-        "img {max-width: 1276px; height: auto; margin: 0 auto;}"
-      ],
+      "custom_css": [],
       "name": "Image banner",
       "settings": {
         "image": "shopify://shop_images/Group_303.png",
         "mobile_image": "shopify://shop_images/Group_302.png",
-        "height": "use_image",
+        "height": "use_pixels_500",
         "overlay_opacity": 0,
         "overlay_color": "#000000",
         "enable_overlay_text": false,
