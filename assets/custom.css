@@ -1758,3 +1758,21 @@ span.compare-at {
 .product__price__main {
   color: #000;
 }
+
+/* Base price (no sale) */
+.product__block__price .product__price-current {
+  color: #000;
+}
+
+/* On sale */
+.product__block__price.is-on-sale .product__price-current {
+  color: #61150F;
+}
+
+/* Compare price */
+.product__price--compare {
+  margin-left: 8px;
+  color: #969696;
+  text-decoration: line-through;
+  font-weight: 400;
+}
