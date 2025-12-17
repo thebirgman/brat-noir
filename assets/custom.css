@@ -1745,3 +1745,7 @@ span.price {
 span.price.on-sale {
   color: #61150f;
 }
+
+a.standard__cta.btn.btn--long.btn--black.aos-init.aos-animate {
+  margin: 30px 0px !important;
+}
