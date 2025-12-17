@@ -659,7 +659,8 @@
         ".collection-tabs h2:after {display: none;}",
         "h2 {padding: 0;}",
         "@media screen and (max-width: 768px) {.collection-tabs .tabs .tab-link {max-width: 160px !important; width: 100% !important; font-size: 15px !important; }}",
-        "span.price {color: #000 !important;}"
+        "span.price {color: #000 !important;}",
+        "@media screen and (max-width: 768px) {.slide-item.product-grid-slide {margin: 0px 40px !important; }}"
       ],
       "name": "Product slider tabs",
       "settings": {
