@@ -1,0 +1,187 @@
+<section
+  class="image-text-custom"
+  style="
+    --image-width: {{ section.settings.image_width }}%;
+    --section-padding: {{ section.settings.padding }}px;
+  "
+>
+  <div class="image-text-custom__inner">
+
+    {% if section.settings.image_position == 'left' %}
+      {% if section.settings.image != blank %}
+        <div class="image-text-custom__image">
+          {{ section.settings.image | image_url: width: 1600 | image_tag }}
+        </div>
+      {% endif %}
+
+      <div class="image-text-custom__text">
+        {% if section.settings.heading != blank %}
+          <h2 class="image-text-custom__heading">
+            {{ section.settings.heading }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.text != blank %}
+          <div class="image-text-custom__rte rte">
+            {{ section.settings.text }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+          <a href="{{ section.settings.button_link }}" class="image-text-custom__button btn">
+            {{ section.settings.button_label }}
+          </a>
+        {% endif %}
+      </div>
+    {% else %}
+      <div class="image-text-custom__text">
+        {% if section.settings.heading != blank %}
+          <h2 class="image-text-custom__heading">
+            {{ section.settings.heading }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.text != blank %}
+          <div class="image-text-custom__rte rte">
+            {{ section.settings.text }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+          <a href="{{ section.settings.button_link }}" class="image-text-custom__button btn">
+            {{ section.settings.button_label }}
+          </a>
+        {% endif %}
+      </div>
+
+      {% if section.settings.image != blank %}
+        <div class="image-text-custom__image">
+          {{ section.settings.image | image_url: width: 1600 | image_tag }}
+        </div>
+      {% endif %}
+    {% endif %}
+
+  </div>
+</section>
+
+<style>
+/* Wrapper */
+.image-text-custom {
+  padding: var(--section-padding) 20px;
+}
+
+/* Max width container */
+.image-text-custom__inner {
+  max-width: 1276px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+/* Image */
+.image-text-custom__image {
+  flex: 0 0 var(--image-width);
+}
+
+.image-text-custom__image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Text */
+.image-text-custom__text {
+  flex: 1;
+}
+
+.image-text-custom__heading {
+  margin-bottom: 16px;
+}
+
+.image-text-custom__rte {
+  margin-bottom: 24px;
+}
+
+/* Mobile */
+@media (max-width: 989px) {
+  .image-text-custom__inner {
+    flex-direction: column;
+  }
+
+  .image-text-custom__image,
+  .image-text-custom__text {
+    flex: 100%;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Image with text custom",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "default": "left",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "label": "Image width",
+      "min": 30,
+      "max": 70,
+      "step": 5,
+      "unit": "%",
+      "default": 50
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Image with text"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Add your text here.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "range",
+      "id": "padding",
+      "label": "Section padding",
+      "min": 20,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image with text (custom width)"
+    }
+  ]
+}
+{% endschema %}
