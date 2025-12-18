@@ -194,7 +194,7 @@
         "strong {font-family: \"DM Serif Display\"; font-size: 24px;}",
         "img {border-radius: 30px;}",
         "@media screen and (min-width: 769px) {h2.image-text-custom__heading {display: none; }}",
-        "@media screen and (max-width: 768px) {h2, p {text-align: center; }}"
+        "@media screen and (max-width: 768px) {h2, p {text-align: center; } section.image-text-custom {padding: 0 20px 20px 20px; }}"
       ],
       "name": "Image with text (custom width)",
       "settings": {
