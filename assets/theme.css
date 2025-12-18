@@ -17599,7 +17599,7 @@ Collection grid item
 }
 @media only screen and (max-width: 767px) {
   .brick__collection {
-    padding: 0 0 0 var(--outer);
+    padding: 0 0 0 0;
     scroll-padding: 0 0 0 var(--outer);
     width: calc(100% + var(--outer) * 2);
     margin-left: var(--outer-offset);
