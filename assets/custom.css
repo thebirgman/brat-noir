@@ -1,3 +1,4 @@
+
 header.theme__header {
   background: transparent;
   top: 0;
@@ -1788,4 +1789,25 @@ span.compare-at {
     letter-spacing: 0!important;
 }
 
+}
+
+
+
+.product__grid__price.product__grid__price--nowrap {
+    gap: 7px;
+}
+
+span.product__grid__cutline {
+    display: none;
+}
+
+.product__grid__price--nowrap .compare-at {
+    font-weight: 500;
+}
+
+.product__grid__price.product__grid__price--nowrap {
+    flex-wrap: nowrap!important;
+    min-width: 100px!Important;
+    justify-content: flex-start!Important;
+    align-items: flex-start!important;
 }
