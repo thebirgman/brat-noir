@@ -342,7 +342,7 @@
         ".brick__block {min-height: 0 !important;}",
         ".kicker__line {display: none;}",
         ".brick__block__image {display: flex;}",
-        "@media screen and (max-width: 768px) {.brick__section {flex-direction: column-reverse; } .text__standard {padding-top: 0; }}"
+        "@media screen and (max-width: 768px) {.brick__section {flex-direction: column-reverse; } .text__standard, .wrapper {padding-top: 0; padding-bottom: 0; }}"
       ],
       "name": "Custom content",
       "settings": {
@@ -777,7 +777,7 @@
         "strong {font-family: \"DM Serif Display\"; font-size: 24px;}",
         "img {border-radius: 30px;}",
         "@media screen and (min-width: 769px) {h2.image-text-custom__heading {display: none; }}",
-        "@media screen and (max-width: 768px) {.image-text-custom{padding-top: 20px; } h2, p {text-align: center; }}"
+        "@media screen and (max-width: 768px) {.image-text-custom {padding-top: 20px; } h2, p {text-align: center; }}"
       ],
       "name": "Image with text (custom width)",
       "settings": {
