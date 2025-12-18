@@ -74,7 +74,7 @@
         "content_width": 2000,
         "width": "wrapper",
         "padding_top": 86,
-        "padding_bottom": 30
+        "padding_bottom": 0
       }
     },
     "section_double_QYarBJ": {
@@ -144,7 +144,7 @@
     "image_text_custom_Eaaeaj": {
       "type": "image-text-custom",
       "custom_css": [
-        "@media screen and (max-width: 768px) {h2, p {text-align: center; } h2 {font-size: 34px !important; }}"
+        "@media screen and (max-width: 768px) {h2, p {text-align: center; } h2 {font-size: 34px !important; } img {width: 350px; height: auto; }}"
       ],
       "name": "Image with text (custom width)",
       "settings": {
@@ -155,7 +155,7 @@
         "text": "<p>I loved having my nails done. I hated the logistics of getting them done. The time, the cost, the commitment to one color for three weeks—it felt like a trap. I wanted the \"fresh set\" feeling without the salon sentence.</p><p>But everything on the market was rigid plastic. It hurt, it lifted, and it looked \"cheap.\" So I created the solution I couldn't find.</p><p>Brat Noir is the middle finger to the old way of doing things. It’s for the girl who wants high-concept art and high-gloss finishes, but has better things to do than sit in a salon chair. This is beauty on <em>your</em> terms.</p>",
         "button_label": "",
         "button_link": "",
-        "padding": 60
+        "padding": 40
       }
     },
     "section_richtext_NUcft8": {
