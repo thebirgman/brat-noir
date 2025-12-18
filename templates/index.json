@@ -696,7 +696,7 @@
       "custom_css": [
         ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
         ".standard__heading p {font-size: 48px !important; line-height: 48px;}",
-        "@media screen and (max-width: 768px) {.standard__heading p {display: none; }}"
+        "@media screen and (max-width: 768px) {.standard__heading p {display: none; } {display: none; }}"
       ],
       "name": "Rich text",
       "settings": {
@@ -777,7 +777,7 @@
         "strong {font-family: \"DM Serif Display\"; font-size: 24px;}",
         "img {border-radius: 30px;}",
         "@media screen and (min-width: 769px) {h2.image-text-custom__heading {display: none; }}",
-        "@media screen and (max-width: 768px) {h2, p {text-align: center; }}"
+        "@media screen and (max-width: 768px) {.image-text-custom{padding-top: 20px; } h2, p {text-align: center; }}"
       ],
       "name": "Image with text (custom width)",
       "settings": {
