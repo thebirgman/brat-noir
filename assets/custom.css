@@ -1776,3 +1776,16 @@ span.compare-at {
   text-decoration: line-through;
   font-weight: 400;
 }
+@media screen and (max-width: 768px) {
+
+.collection-tabs .tabs .tab-link span {
+    font-size: 16px!important;
+    font-weight: 700;
+}
+
+:not(#s) .collection-tabs .tabs .tab-link:not(#s) {
+    font-size: 16px!Important;
+    letter-spacing: 0!important;
+}
+
+}
