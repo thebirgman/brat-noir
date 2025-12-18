@@ -897,7 +897,7 @@ body:not(.template-index)  .header__wrapper:not(.js__header__stuck) a.header__mo
     justify-content: flex-start;
 }
 .shopify-section.shopify-section-group-group-header {
-    z-index: 99999;
+    z-index: 10000;
 }
 }
 
