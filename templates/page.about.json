@@ -144,7 +144,7 @@
     "image_text_custom_Eaaeaj": {
       "type": "image-text-custom",
       "custom_css": [
-        "@media screen and (max-width: 768px) {h2, p {text-align: center; } h2 {font-size: 34px !important; } img {width: 350px; height: auto; }}"
+        "@media screen and (max-width: 768px) {h2, p {text-align: center; } h2 {font-size: 34px !important; } img {width: 350px; height: auto; } section.image-text-custom {padding: 20px; }}"
       ],
       "name": "Image with text (custom width)",
       "settings": {
