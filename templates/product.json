@@ -537,7 +537,8 @@
       "custom_css": [
         ".brat-bundle {background: transparent;}",
         ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
-        ".kicker-flourished:after {display: none;}"
+        ".kicker-flourished:after {display: none;}",
+        ".wrapper.section-padding.flickity-force-arrows-top {padding-left: 40px !important; padding-right: 40px !important;}"
       ],
       "settings": {
         "heading": "Frequently Bought Together",
