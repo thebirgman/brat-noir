@@ -877,6 +877,10 @@
         "padding_top": 70,
         "padding_bottom": 70
       }
+    },
+    "1766072058c2a028b9": {
+      "type": "_blocks",
+      "settings": {}
     }
   },
   "order": [
@@ -898,6 +902,7 @@
     "section_icons_YdAWAL",
     "section_announcement_WDdjGr",
     "section_image_DgdWbc",
-    "section_richtext_Gt8mwq"
+    "section_richtext_Gt8mwq",
+    "1766072058c2a028b9"
   ]
 }

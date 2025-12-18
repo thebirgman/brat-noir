@@ -152,7 +152,7 @@
         "use_icons": true,
         "icons_type": "classic",
         "cart_icon": "bag",
-        "header_sticky": "sticky",
+        "header_sticky": "directional",
         "transparent_home": true,
         "transparent_collection": true,
         "transparent_blog": true,
