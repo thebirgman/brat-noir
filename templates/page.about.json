@@ -74,7 +74,7 @@
         "content_width": 2000,
         "width": "wrapper",
         "padding_top": 86,
-        "padding_bottom": 30
+        "padding_bottom": 0
       }
     },
     "section_double_QYarBJ": {
@@ -83,7 +83,7 @@
         "image_kFydUx": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/brat-noir-soft-gel-press-on-nails-about-us.png",
+            "image": "shopify://shop_images/Rectangle_200.png",
             "overlay_opacity": 0,
             "overlay_color": "#000000",
             "enable_overlay_text": false,
@@ -120,12 +120,14 @@
         "image_kFydUx",
         "text_rBjtpA"
       ],
+      "disabled": true,
       "custom_css": [
         ".brick__block__image {border-radius: 20px;}",
         "@media screen and (max-width: 768px) {img {max-width: 100%; height: auto; }}",
         ".brat-bundle {background: transparent;}",
         ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
-        "@media screen and (max-width: 768px) {.brick__block__text .text__standard {padding-bottom: 0px; }}"
+        "@media screen and (max-width: 768px) {.brick__block__text .text__standard {padding-bottom: 0px; }}",
+        "@media screen and (max-width: 768px) {h2, p {text-align: center; }}"
       ],
       "name": "Image with text",
       "settings": {
@@ -137,6 +139,134 @@
         "width": "wrapper",
         "padding_top": 0,
         "padding_bottom": 30
+      }
+    },
+    "image_text_custom_Eaaeaj": {
+      "type": "image-text-custom",
+      "custom_css": [
+        "@media screen and (max-width: 768px) {h2, p {text-align: center; } h2 {font-size: 34px !important; } img {width: 350px; height: auto; } section.image-text-custom {padding: 20px; }}"
+      ],
+      "name": "Image with text (custom width)",
+      "settings": {
+        "image": "shopify://shop_images/Rectangle_200.png",
+        "image_position": "left",
+        "image_width": 45,
+        "heading": "Why I built Brat Noir.",
+        "text": "<p>I loved having my nails done. I hated the logistics of getting them done. The time, the cost, the commitment to one color for three weeks—it felt like a trap. I wanted the \"fresh set\" feeling without the salon sentence.</p><p>But everything on the market was rigid plastic. It hurt, it lifted, and it looked \"cheap.\" So I created the solution I couldn't find.</p><p>Brat Noir is the middle finger to the old way of doing things. It’s for the girl who wants high-concept art and high-gloss finishes, but has better things to do than sit in a salon chair. This is beauty on <em>your</em> terms.</p>",
+        "button_label": "",
+        "button_link": "",
+        "padding": 40
+      }
+    },
+    "section_richtext_NUcft8": {
+      "type": "section-richtext",
+      "blocks": {
+        "heading_rzjXxH": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Beliefs",
+            "text_size": 10
+          }
+        }
+      },
+      "block_order": [
+        "heading_rzjXxH"
+      ],
+      "custom_css": [
+        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
+        ".standard__heading p {font-size: 48px !important; line-height: 48px;}",
+        "@media screen and (max-width: 768px) {.standard__heading p {display: none; }}"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "align_text": "text-center",
+        "text_color": "text--neutral",
+        "bg": "palette--light bg--neutral",
+        "content_width": 2000,
+        "width": "wrapper",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_text_custom_DaMDdk": {
+      "type": "image-text-custom",
+      "custom_css": [
+        "strong {font-family: \"DM Serif Display\"; font-size: 24px;}",
+        "img {border-radius: 30px;}",
+        "@media screen and (min-width: 769px) {h2.image-text-custom__heading {display: none; }}",
+        "@media screen and (max-width: 768px) {h2, p {text-align: center; } section.image-text-custom {padding: 0 20px 20px 20px; }}"
+      ],
+      "name": "Image with text (custom width)",
+      "settings": {
+        "image": "shopify://shop_images/Rectangle_171.png",
+        "image_position": "left",
+        "image_width": 60,
+        "heading": "Our Beliefs",
+        "text": "<p><strong>High Maintenance is a Compliment.</strong></p><p>We believe knowing what you want (and getting it) is a power move, not a personality flaw. “Basic” isn’t in our vocabulary, and settling isn’t in our nature. If that makes us brats, we’ll wear the label.</p><p><strong><br/>Time is the Ultimate Luxury.</strong></p><p>We refuse to spend three hours in a salon chair for a look that lasts two weeks. We press on luxury in minutes—because your calendar is full, your time is expensive, and your standards are non-negotiable.</p><p><strong><br/>Fake Nails, Real Impact.</strong></p><p>We believe in the \"unclockable\" manicures. No UV damage. No plastic look. Just flawless, hand-painted soft gel designs that look like you spent a fortune (and leave you enough money to buy the champagne).</p>",
+        "button_label": "",
+        "button_link": "",
+        "padding": 60
+      }
+    },
+    "section_double_tfrQmn": {
+      "type": "section-double",
+      "blocks": {
+        "image_nMBchr": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_171.png",
+            "overlay_opacity": 0,
+            "overlay_color": "#000000",
+            "enable_overlay_text": false,
+            "kicker": "",
+            "title": "",
+            "richtext": "",
+            "text_align": "align--middle-center",
+            "text_color": "text--white",
+            "link_text": "",
+            "link": "",
+            "button_color": "btn--white",
+            "button_style": "btn"
+          }
+        },
+        "text_qWmprA": {
+          "type": "text",
+          "settings": {
+            "kicker": "",
+            "title": "Our Beliefs",
+            "text": "<p><strong>High Maintenance is a Compliment.</strong></p><p>We believe knowing what you want (and getting it) is a power move, not a personality flaw. “Basic” isn’t in our vocabulary, and settling isn’t in our nature. If that makes us brats, we’ll wear the label.</p><p><strong><br/>Time is the Ultimate Luxury.</strong></p><p>We refuse to spend three hours in a salon chair for a look that lasts two weeks. We press on luxury in minutes—because your calendar is full, your time is expensive, and your standards are non-negotiable.</p><p><strong><br/>Fake Nails, Real Impact.</strong></p><p>We believe in the \"unclockable\" manicures. No UV damage. No plastic look. Just flawless, hand-painted soft gel designs that look like you spent a fortune (and leave you enough money to buy the champagne).</p>",
+            "font_size": 5,
+            "text_columns": 1,
+            "align_text": "text-left",
+            "button_text": "",
+            "button_url": "",
+            "button_color": "btn--neutral",
+            "button_style": "btn-text-thick-line",
+            "text_color": "text--neutral",
+            "bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_nMBchr",
+        "text_qWmprA"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "strong {font-family: \"DM Serif Display\"; font-size: 24px;}",
+        "@media screen and (min-width: 769px) {h2.standard__heading.heading-size-9.aos-init.aos-animate {display: none; }}",
+        "@media screen and (max-width: 768px) {h2, p {text-align: center; }}"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "height": "use_image",
+        "brick_gutter": 0,
+        "borders": false,
+        "bg_color": "",
+        "preload_image": false,
+        "width": "wrapper",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "section_double_CaJAtf": {
@@ -182,6 +312,7 @@
         "text_TEN6qE",
         "image_gaqJhn"
       ],
+      "disabled": true,
       "custom_css": [
         ".brick__block__image {border-radius: 20px;}",
         "@media screen and (max-width: 768px) {.brick__block__text .text__standard {padding-bottom: 0px; }}"
@@ -229,6 +360,7 @@
         "heading_BPNUr8",
         "text_9YLUGg"
       ],
+      "disabled": true,
       "custom_css": [
         ".text__standard.text-center {padding: 57px 102px; background: white; border-radius: 20px; background: rgba(255, 255, 255, 0.4);}",
         ".standard__heading.heading-size-8.aos-init.aos-animate {max-width: 700px; margin: 0 auto 20px auto; font-size: 48px !important;}",
@@ -259,6 +391,7 @@
       "block_order": [
         "text_kfwLaj"
       ],
+      "disabled": true,
       "name": "Scrolling promotion",
       "settings": {
         "bg_color": "#000000",
@@ -291,6 +424,7 @@
         "heading_Ntcw3W",
         "text_9AYcxM"
       ],
+      "disabled": true,
       "custom_css": [
         "p {max-width: 1044px; margin: 0 auto;}"
       ],
@@ -365,6 +499,7 @@
         "text_block_HYzhkt",
         "text_block_DhftBf"
       ],
+      "disabled": true,
       "custom_css": [
         ".accent-title-large.strong.mb-r4 {font-size: 18px !important; font-weight: bold; max-width: 300px; margin: 0 auto 30px auto;}",
         ".brat-bundle {background: transparent;}",
@@ -415,6 +550,31 @@
         "width": "wrapper",
         "padding_top": 6,
         "padding_bottom": 6
+      }
+    },
+    "section_liquid_BHGDEr": {
+      "type": "section-liquid",
+      "disabled": true,
+      "name": "Custom Liquid",
+      "settings": {
+        "custom_liquid": "<style>\n  .why-brat-noir {\n    background: #f6e9ee;\n    border-radius: 28px;\n    max-width: 1300px;\n    margin: 80px auto;\n    overflow: hidden;\n  }\n\n  .why-brat-inner {\n    display: grid;\n    grid-template-columns: 1.2fr 2fr 1.2fr;\n    align-items: stretch;\n  }\n\n  /* IMAGE COLUMNS */\n  .why-brat-image {\n    position: relative;\n  }\n\n  .why-brat-image img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    display: block;\n  }\n\n  /* Fade overlays */\n  .why-brat-image::after {\n    content: '';\n    position: absolute;\n    inset: 0;\n    pointer-events: none;\n  }\n\n  .why-brat-image.left::after {\n    background: linear-gradient(\n      to right,\n      rgba(246,233,238,0) 70%,\n      rgba(246,233,238,1) 100%\n    );\n  }\n\n  .why-brat-image.right::after {\n    background: linear-gradient(\n      to left,\n      rgba(246,233,238,0) 70%,\n      rgba(246,233,238,1) 100%\n    );\n  }\n\n  /* CENTER CONTENT */\n  .why-brat-content {\n    text-align: center;\n    padding: 80px 60px;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n  }\n\n  .why-brat-content h2 {\n    font-size: 44px;\n    font-weight: 500;\n    margin-bottom: 48px;\n  }\n\n  /* ICON GRID */\n  .why-brat-icons {\n    display: grid;\n    grid-template-columns: repeat(4, 125px);\n    gap: 48px;\n    justify-content: center;\n    align-items: start;\n  }\n\n  .why-brat-icon {\n    font-family: 'DM Sans', sans-serif;\n    font-weight: 700;\n    font-size: 18px;\n    line-height: 1.3;\n    text-align: center;\n  }\n\n  .why-brat-icon svg {\n    width: 34px;\n    height: 34px;\n    margin: 0 auto 14px;\n    display: block;\n    stroke-width: 1.75;\n  }\n\n  /* MOBILE */\n  @media (max-width: 900px) {\n    .why-brat-noir {\n      max-width: 380px;\n      margin: 60px auto;\n    }\n\n    .why-brat-inner {\n      grid-template-columns: 1fr;\n    }\n\n    /* Hide left image */\n    .why-brat-image.left {\n      display: none;\n    }\n\n    /* Image on top */\n    .why-brat-image.right {\n      order: -1;\n      height: 460px;\n    }\n\n    .why-brat-image.right img {\n      object-position: center top;\n    }\n\n    /* Bottom fade */\n    .why-brat-image.right::after {\n      background: linear-gradient(\n        to bottom,\n        rgba(246,233,238,0) 60%,\n        rgba(246,233,238,1) 100%\n      );\n    }\n\n    .why-brat-content {\n      padding: 48px 24px 56px;\n    }\n\n    .why-brat-content h2 {\n      font-size: 32px;\n      margin-bottom: 32px;\n    }\n\n    .why-brat-icons {\n      grid-template-columns: repeat(2, 125px);\n      gap: 32px 24px;\n      justify-content: center;\n    }\n  }\n</style>\n\n<section class=\"why-brat-noir\">\n  <div class=\"why-brat-inner\">\n\n    <!-- LEFT IMAGE -->\n    <div class=\"why-brat-image left\">\n      <img\n        src=\"https://cdn.shopify.com/s/files/1/0729/8845/9031/files/freepik__create-a-highend-beauty-portrait-of-a-different-af__35915_1.png?v=1765786732\"\n        alt=\"Brat Noir portrait left\"\n      >\n    </div>\n\n    <!-- CENTER CONTENT -->\n    <div class=\"why-brat-content\">\n      <h2>Why Brat Noir</h2>\n\n      <div class=\"why-brat-icons\">\n        <div class=\"why-brat-icon\">\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\">\n            <circle cx=\"12\" cy=\"12\" r=\"10\"/>\n            <path d=\"M12 6v6l4 2\"/>\n          </svg>\n          10-minute<br>application\n        </div>\n\n        <div class=\"why-brat-icon\">\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\">\n            <path d=\"M12 2C7 7 5 10 5 14a7 7 0 0014 0c0-4-2-7-7-12z\"/>\n          </svg>\n          Salon Quality<br>Nails\n        </div>\n\n        <div class=\"why-brat-icon\">\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\">\n            <rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\"/>\n            <path d=\"M16 2v4M8 2v4M3 10h18\"/>\n          </svg>\n          Up to 3 Weeks<br>Wear\n        </div>\n\n        <div class=\"why-brat-icon\">\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\">\n            <path d=\"M21 12l-4-4v3H7\"/>\n            <path d=\"M3 12l4 4v-3h10\"/>\n          </svg>\n          Reusable up<br>to 3x\n        </div>\n      </div>\n    </div>\n\n    <!-- RIGHT IMAGE -->\n    <div class=\"why-brat-image right\">\n      <img\n        src=\"https://cdn.shopify.com/s/files/1/0729/8845/9031/files/image_34.png?v=1765786732\"\n        alt=\"Brat Noir portrait right\"\n      >\n    </div>\n\n  </div>\n</section>"
+      }
+    },
+    "section_image_dpLETd": {
+      "type": "section-image",
+      "custom_css": [
+        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}"
+      ],
+      "name": "Image",
+      "settings": {
+        "image": "shopify://shop_images/Group_303.png",
+        "mobile_image": "shopify://shop_images/Group_302.png",
+        "max_width": 100,
+        "x_align": "center",
+        "color_bg": "palette--light bg--neutral",
+        "width": "wrapper",
+        "padding_top": 0,
+        "padding_bottom": 36
       }
     },
     "section_announcement_mjE43F": {
@@ -496,12 +656,18 @@
     "main",
     "section_richtext_36xnMX",
     "section_double_QYarBJ",
+    "image_text_custom_Eaaeaj",
+    "section_richtext_NUcft8",
+    "image_text_custom_DaMDdk",
+    "section_double_tfrQmn",
     "section_double_CaJAtf",
     "section_richtext_R7DWUw",
     "section_announcement_JxCeh6",
     "section_richtext_3bwnWt",
     "section_columns_EyEp7P",
     "section_richtext_eEWxzd",
+    "section_liquid_BHGDEr",
+    "section_image_dpLETd",
     "section_announcement_mjE43F",
     "section_richtext_b6WxXa"
   ]

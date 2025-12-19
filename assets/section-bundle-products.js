@@ -139,7 +139,7 @@
     if (cartContainer) cartContainer.innerHTML = html;
 
     const total = document.querySelector('.bundle-products__cart-total-price');
-    if (total) total.innerHTML = '$' + ((data.total_price || 0) / 100).toFixed(2);
+    if (total) total.innerHTML = '$' + ((data.total_price || 0) / 100);
 
     const progress = document.querySelector('.bundle-products__cart-progress-bar');
     if (progress) progress.style.setProperty('--progress', (data.item_count / 3) * 100 + '%');

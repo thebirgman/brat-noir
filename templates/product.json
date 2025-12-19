@@ -270,6 +270,118 @@
         "padding_bottom": 60
       }
     },
+    "section_richtext_kWQYTm": {
+      "type": "section-richtext",
+      "blocks": {
+        "heading_mttpnB": {
+          "type": "heading",
+          "settings": {
+            "heading": "What Sets Us Apart",
+            "text_size": 8
+          }
+        }
+      },
+      "block_order": [
+        "heading_mttpnB"
+      ],
+      "custom_css": [
+        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "align_text": "text-center",
+        "text_color": "text--neutral",
+        "bg": "palette--light bg--neutral",
+        "content_width": 2000,
+        "width": "wrapper",
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "layer_construct_wkNw6a": {
+      "type": "layer-construct",
+      "blocks": {
+        "card_Tftm6Y": {
+          "type": "card",
+          "settings": {
+            "image_desktop": "shopify://shop_images/artisan-fall-web.png",
+            "image_mobile": "shopify://shop_images/artisan-fall-mobile.png",
+            "heading": "Artisan Design",
+            "text": "No pixelated prints. Crisp lines and rich textures that pass the 'inch-away' test. If they can tell they're fake, we failed."
+          }
+        },
+        "card_p7hngU": {
+          "type": "card",
+          "settings": {
+            "image_desktop": "shopify://shop_images/flexible-fit-web.png",
+            "image_mobile": "shopify://shop_images/flexible-tech-mobile.png",
+            "heading": "Flexible-Fit Technology",
+            "text": "Rigid plastic pops off. Our Soft-Gel flexes with your natural nail bed for a vacuum-seal fit that lasts 2+ weeks."
+          }
+        },
+        "card_wCrciP": {
+          "type": "card",
+          "settings": {
+            "image_desktop": "shopify://shop_images/vanishing-cuticle-web.png",
+            "image_mobile": "shopify://shop_images/vanishing-cuticle-mobile.png",
+            "heading": "The 'Vanishing' Cuticle Line",
+            "text": "A bulky cuticle line is a dead giveaway. Our 'Zero-Edge' taper melts into your nail bed. 100% seamless. 0% hair snagging."
+          }
+        }
+      },
+      "block_order": [
+        "card_Tftm6Y",
+        "card_p7hngU",
+        "card_wCrciP"
+      ],
+      "custom_css": [
+        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
+        "p {font-size: 16px !important;}",
+        "@media screen and (max-width: 768px) {p,li {font-size: 14px !important; }}"
+      ],
+      "name": "Layer Construct Section",
+      "settings": {
+        "left_image_desktop": "shopify://shop_images/4-layer-web.png",
+        "left_image_mobile": "shopify://shop_images/4-layer-mobile.png",
+        "left_heading": "The 4-Layer Salon Construct",
+        "left_text": "<p>We don't print nails; we build them.</p>\n<ol>\n  <li>Base Primer.</li>\n  <li>Soft Gel Core.</li>\n  <li>High-Pigment Polish.</li>\n  <li>UV-Hardened Top Coat.</li>\n</ol>\n<p>Indestructible structure, glass-like finish.</p>"
+      }
+    },
+    "section_video_pyfFWD": {
+      "type": "section-video",
+      "blocks": {
+        "heading_jQxf8i": {
+          "type": "heading",
+          "settings": {
+            "title": "Stop Renting Your Nails. Own Them.",
+            "text_size": 15
+          }
+        }
+      },
+      "block_order": [
+        "heading_jQxf8i"
+      ],
+      "custom_css": [
+        "p {font-size: 48px !important;}",
+        "@media screen and (max-width: 768px) {p {font-size: 34px !important; }}"
+      ],
+      "name": "Video banner",
+      "settings": {
+        "height": "use_pixels_500",
+        "color_bg": "palette--light bg--neutral",
+        "video_bg": "shopify://files/videos/Desktop - Collection Banner.mp4",
+        "object_position": "center-center",
+        "preload_image": false,
+        "text_align": "align--middle-center",
+        "text_color": "text--white",
+        "overlay_opacity": 20,
+        "overlay_color": "#000000",
+        "enable_overlay_text": false,
+        "width": "wrapper--none",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "section_announcement_rPaTn7": {
       "type": "section-announcement",
       "blocks": {
@@ -290,6 +402,7 @@
         "text_RB7gai",
         "text_68jJtT"
       ],
+      "disabled": true,
       "name": "Scrolling promotion",
       "settings": {
         "bg_color": "#000000",
@@ -333,7 +446,6 @@
       "blocks": {
         "judge_me_reviews_review_widget_XLfkab": {
           "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "disabled": true,
           "settings": {
             "review_data": "sample_data",
             "max_width": 1200,
@@ -343,6 +455,7 @@
         },
         "judge_me_reviews_all_reviews_page_4hkCHK": {
           "type": "shopify://apps/judge-me-reviews/blocks/all_reviews_page/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "disabled": true,
           "settings": {
             "max_width": 1200,
             "review_source": "all",
@@ -407,6 +520,7 @@
         "image_mKNfhG",
         "text_3ktbGB"
       ],
+      "disabled": true,
       "custom_css": [
         ".brick__block__image,img {border-radius: 20px;}",
         ".brat-bundle {background: transparent;}",
@@ -429,7 +543,8 @@
       "custom_css": [
         ".brat-bundle {background: transparent;}",
         ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
-        ".kicker-flourished:after {display: none;}"
+        ".kicker-flourished:after {display: none;}",
+        ".wrapper.section-padding.flickity-force-arrows-top {padding-left: 30px !important; padding-right: 30px !important;}"
       ],
       "settings": {
         "heading": "Frequently Bought Together",
@@ -470,6 +585,7 @@
         "text_nGLtQL",
         "text_qnNGGt"
       ],
+      "disabled": true,
       "name": "Scrolling promotion",
       "settings": {
         "bg_color": "#000000",
@@ -537,6 +653,7 @@
         "icon_block_6WWj69",
         "icon_block_3QwPEk"
       ],
+      "disabled": true,
       "custom_css": [
         "p {font-weight: 700;}",
         ".kicker-flourished:after {display: none;}",
@@ -556,6 +673,31 @@
         "padding_bottom": 80
       }
     },
+    "section_liquid_PCbnmP": {
+      "type": "section-liquid",
+      "disabled": true,
+      "name": "Custom Liquid",
+      "settings": {
+        "custom_liquid": "<style>\n  .why-brat-noir {\n    background: #f6e9ee;\n    border-radius: 28px;\n    max-width: 1300px;\n    margin: 80px auto;\n    overflow: hidden;\n  }\n\n  .why-brat-inner {\n    display: grid;\n    grid-template-columns: 1.2fr 2fr 1.2fr;\n    align-items: stretch;\n  }\n\n  /* IMAGE COLUMNS */\n  .why-brat-image {\n    position: relative;\n  }\n\n  .why-brat-image img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    display: block;\n  }\n\n  /* Fade overlays */\n  .why-brat-image::after {\n    content: '';\n    position: absolute;\n    inset: 0;\n    pointer-events: none;\n  }\n\n  .why-brat-image.left::after {\n    background: linear-gradient(\n      to right,\n      rgba(246,233,238,0) 70%,\n      rgba(246,233,238,1) 100%\n    );\n  }\n\n  .why-brat-image.right::after {\n    background: linear-gradient(\n      to left,\n      rgba(246,233,238,0) 70%,\n      rgba(246,233,238,1) 100%\n    );\n  }\n\n  /* CENTER CONTENT */\n  .why-brat-content {\n    text-align: center;\n    padding: 80px 60px;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n  }\n\n  .why-brat-content h2 {\n    font-size: 44px;\n    font-weight: 500;\n    margin-bottom: 48px;\n  }\n\n  /* ICON GRID */\n  .why-brat-icons {\n    display: grid;\n    grid-template-columns: repeat(4, 125px);\n    gap: 48px;\n    justify-content: center;\n    align-items: start;\n  }\n\n  .why-brat-icon {\n    font-family: 'DM Sans', sans-serif;\n    font-weight: 700;\n    font-size: 18px;\n    line-height: 1.3;\n    text-align: center;\n  }\n\n  .why-brat-icon svg {\n    width: 34px;\n    height: 34px;\n    margin: 0 auto 14px;\n    display: block;\n    stroke-width: 1.75;\n  }\n\n  /* MOBILE */\n  @media (max-width: 900px) {\n    .why-brat-noir {\n      max-width: 380px;\n      margin: 60px auto;\n    }\n\n    .why-brat-inner {\n      grid-template-columns: 1fr;\n    }\n\n    /* Hide left image */\n    .why-brat-image.left {\n      display: none;\n    }\n\n    /* Image on top */\n    .why-brat-image.right {\n      order: -1;\n      height: 460px;\n    }\n\n    .why-brat-image.right img {\n      object-position: center top;\n    }\n\n    /* Bottom fade */\n    .why-brat-image.right::after {\n      background: linear-gradient(\n        to bottom,\n        rgba(246,233,238,0) 60%,\n        rgba(246,233,238,1) 100%\n      );\n    }\n\n    .why-brat-content {\n      padding: 48px 24px 56px;\n    }\n\n    .why-brat-content h2 {\n      font-size: 32px;\n      margin-bottom: 32px;\n    }\n\n    .why-brat-icons {\n      grid-template-columns: repeat(2, 125px);\n      gap: 32px 24px;\n      justify-content: center;\n    }\n  }\n</style>\n\n<section class=\"why-brat-noir\">\n  <div class=\"why-brat-inner\">\n\n    <!-- LEFT IMAGE -->\n    <div class=\"why-brat-image left\">\n      <img\n        src=\"https://cdn.shopify.com/s/files/1/0729/8845/9031/files/freepik__create-a-highend-beauty-portrait-of-a-different-af__35915_1.png?v=1765786732\"\n        alt=\"Brat Noir portrait left\"\n      >\n    </div>\n\n    <!-- CENTER CONTENT -->\n    <div class=\"why-brat-content\">\n      <h2>Why Brat Noir</h2>\n\n      <div class=\"why-brat-icons\">\n        <div class=\"why-brat-icon\">\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\">\n            <circle cx=\"12\" cy=\"12\" r=\"10\"/>\n            <path d=\"M12 6v6l4 2\"/>\n          </svg>\n          10-minute<br>application\n        </div>\n\n        <div class=\"why-brat-icon\">\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\">\n            <path d=\"M12 2C7 7 5 10 5 14a7 7 0 0014 0c0-4-2-7-7-12z\"/>\n          </svg>\n          Salon Quality<br>Nails\n        </div>\n\n        <div class=\"why-brat-icon\">\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\">\n            <rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\"/>\n            <path d=\"M16 2v4M8 2v4M3 10h18\"/>\n          </svg>\n          Up to 3 Weeks<br>Wear\n        </div>\n\n        <div class=\"why-brat-icon\">\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\">\n            <path d=\"M21 12l-4-4v3H7\"/>\n            <path d=\"M3 12l4 4v-3h10\"/>\n          </svg>\n          Reusable up<br>to 3x\n        </div>\n      </div>\n    </div>\n\n    <!-- RIGHT IMAGE -->\n    <div class=\"why-brat-image right\">\n      <img\n        src=\"https://cdn.shopify.com/s/files/1/0729/8845/9031/files/image_34.png?v=1765786732\"\n        alt=\"Brat Noir portrait right\"\n      >\n    </div>\n\n  </div>\n</section>"
+      }
+    },
+    "section_image_UdpBbw": {
+      "type": "section-image",
+      "custom_css": [
+        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}"
+      ],
+      "name": "Image",
+      "settings": {
+        "image": "shopify://shop_images/Group_303.png",
+        "mobile_image": "shopify://shop_images/Group_302.png",
+        "max_width": 100,
+        "x_align": "center",
+        "color_bg": "palette--light bg--neutral",
+        "width": "wrapper",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
     "section_sticky_cta_74ycWW": {
       "type": "section-sticky-cta",
       "name": "Sticky CTA",
@@ -569,6 +711,9 @@
   "order": [
     "main",
     "apps_JAWzRj",
+    "section_richtext_kWQYTm",
+    "layer_construct_wkNw6a",
+    "section_video_pyfFWD",
     "section_announcement_rPaTn7",
     "1753078667aa1c7b10",
     "17576513510ada6ccb",
@@ -576,6 +721,8 @@
     "related",
     "section_announcement_CPdLLn",
     "section_icons_qHDaQL",
+    "section_liquid_PCbnmP",
+    "section_image_UdpBbw",
     "section_sticky_cta_74ycWW"
   ]
 }
