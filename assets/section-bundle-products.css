@@ -364,8 +364,9 @@ div#PBarNextFrameWrapper {
     flex-direction: row;
     align-items: center;
     padding: 5px;
-        padding-right: 7px;
+    padding-right: 7px;
     gap: 7px;
+    min-width: 174px;
 }
 
 .footer-box .label {
