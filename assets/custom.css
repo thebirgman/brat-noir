@@ -1824,3 +1824,7 @@ span.product__grid__cutline {
     gap: 5px;
     letter-spacing: 0;
 }
+
+.bundle-products__cart-progress-fill {
+    max-width: 100%;
+}
