@@ -198,6 +198,7 @@
   setInterval(function () {
     const source = document.querySelector('span.bundle-products__cart-total-price');
     const target = document.querySelector('.footer-box.total .value');
+    console.log(source.textContent)
     if (source && target) target.textContent = source.textContent;
   }, 500);
 
