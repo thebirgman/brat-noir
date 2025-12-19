@@ -298,7 +298,7 @@ iframe#PBarNextFrame {
   flex-direction: column;
   justify-content: center;
   min-width: 110px;
-  text-align: center;
+  text-align: left;
   border-radius: 10px 0 0 10px;
 }
 
