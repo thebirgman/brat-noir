@@ -108,6 +108,7 @@
       "block_order": [
         "text_YrGUjx"
       ],
+      "disabled": true,
       "name": "Scrolling promotion",
       "settings": {
         "bg_color": "#000000",
@@ -221,14 +222,14 @@
         "collection_Y8434L"
       ],
       "custom_css": [
-        ".scrolling-promo,.tabs,.kicker-flourished:after {display: none;}",
+        ".scrolling-promo,.tabs,.kicker-flourished:after {display: none !important;}",
         "h2 {padding: 0;}",
-        ".product__grid__price {display: flex; flex-direction: column;}",
+        ".product__grid__price {display: flex;}",
         ".bg--neutral {background: transparent;}",
         ".product__grid__main-info p {text-align: left;}",
         "@media screen and (min-width: 1080px) {.slide-item.product-grid-slide[data-item] {width: calc(33% - 25px); }}",
         ".collection-tabs-container {max-width: 100%; margin: 0 auto !important;}",
-        ".product__grid__price {min-width: 70px; text-align: right; align-items: flex-end;}"
+        ".product__grid__price {min-width: 70px; text-align: right; align-items: flex-end; flex-direction: row-reverse;}"
       ],
       "name": "Product slider tabs",
       "settings": {
@@ -287,7 +288,8 @@
       ],
       "custom_css": [
         "p.product__grid__collection-name {font-size: 12px !important; font-weight: 300; font-family: \"Montserrat\"; color: #000; letter-spacing: 0.5px !important; text-align: left;}",
-        "@media screen and (max-width: 768px) {.bundle-products__filters {padding-left: 0; padding-right: 0; } .bundle-products__filter-btn {font-size: 16px !important; }}"
+        "@media screen and (max-width: 768px) {.bundle-products__filters {padding-left: 0; padding-right: 0; } .bundle-products__filter-btn {font-size: 16px !important; }}",
+        ".bundle-product__title {font-size: 15px;}"
       ],
       "settings": {
         "collection": "collection-2",
@@ -320,14 +322,14 @@
         "collection_Vgf4KT"
       ],
       "custom_css": [
-        ".scrolling-promo,.tabs,.kicker-flourished:after {display: none;}",
+        ".scrolling-promo,.tabs,.kicker-flourished:after {display: none !important;}",
         "h2 {padding: 0;}",
         ".product__grid__price {display: flex; flex-direction: column;}",
         ".bg--neutral {background: transparent;}",
         ".product__grid__main-info p {text-align: left;}",
         "@media screen and (min-width: 1080px) {.slide-item.product-grid-slide[data-item] {width: calc(25% - 25px); }}",
         ".collection-tabs-container {max-width: 100%; margin: 0 auto !important;}",
-        ".product__grid__price {min-width: 70px; text-align: right; align-items: flex-end;}"
+        ".product__grid__price {min-width: 70px; text-align: right; align-items: flex-end; flex-direction: row-reverse;}"
       ],
       "name": "Product slider tabs",
       "settings": {

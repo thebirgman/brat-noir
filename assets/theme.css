@@ -17599,7 +17599,7 @@ Collection grid item
 }
 @media only screen and (max-width: 767px) {
   .brick__collection {
-    padding: 0 0 0 var(--outer);
+    padding: 0 0 0 0;
     scroll-padding: 0 0 0 var(--outer);
     width: calc(100% + var(--outer) * 2);
     margin-left: var(--outer-offset);
@@ -26315,4 +26315,8 @@ body .product__grid__actions .product-buttons-container .quantity__wrapper {
 body  .product__grid__actions .product-buttons-container {
     padding: 0;
     width: 100%;
+}
+
+span.price,span.product__price.accent-size-4 {
+  color: #000;
 }
