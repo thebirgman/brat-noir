@@ -370,7 +370,7 @@ div#PBarNextFrameWrapper {
 
 .footer-box .label {
     text-align: left;
-    font-size: 11px;
+    font-size: 14px;
 }
 
 .footer-box.saved {
@@ -380,7 +380,7 @@ div#PBarNextFrameWrapper {
 .footer-box.saved .label {
     empty-cells: ;
     text-align: center;
-    font-size: 11px;
+    font-size: 14px;
 }
 
 .footer-box.open-bundle .icon {
