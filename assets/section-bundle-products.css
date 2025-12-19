@@ -303,7 +303,7 @@ iframe#PBarNextFrame {
 }
 
 .footer-box.total .label {
-  color: #5f5f5f important;
+  color: #5f5f5f !important;
 }
 
 .footer-box.total .value {
