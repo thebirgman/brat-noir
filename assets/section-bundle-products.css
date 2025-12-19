@@ -311,13 +311,14 @@ iframe#PBarNextFrame {
 
 .footer-box.saved {
   background: rgba(255, 255, 255, .3);
-  color: white;
+  color: #5F5F5F;
   font-weight: 700;
   border-radius: 10px;
 }
 
 .footer-box.saved .value {
   font-size: 16px;
+  color: #FF5e5e;
 }
 span.bundle-products__cart-total-price {
     margin: 5px 0;
