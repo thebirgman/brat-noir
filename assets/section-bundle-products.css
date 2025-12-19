@@ -381,6 +381,7 @@ div#PBarNextFrameWrapper {
     empty-cells: ;
     text-align: center;
     font-size: 14px;
+    font-weight: 400;
 }
 
 .footer-box.open-bundle .icon {
