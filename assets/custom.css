@@ -1811,3 +1811,16 @@ span.compare-at {
     justify-content: flex-start!Important;
     align-items: flex-start!important;
 }
+
+span.price.on-sale {
+    order: 2;
+}
+
+span.product__grid__cutline {
+    display: none!important;
+}
+
+.product__grid__price.product__grid__price--nowrap {
+    gap: 5px;
+    letter-spacing: 0;
+}
