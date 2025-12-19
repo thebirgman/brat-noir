@@ -856,9 +856,14 @@ button.btn--outline.btn--full.btn--primary.btn--add-to-cart:hover {
 
 /*product page end*/
 
-body:not(#build-your-own-bundle):not(.template-index) [data-header-transparent=true]:not(.meganav--visible) {
+body:not(#build-your-own-bundle):not(.template-index) .header__wrapper:not(.meganav--visible) {
     position: fixed;
     width: 100%;
+    top: 0;
+}
+
+body:not(#build-your-own-bundle):not(.template-index) .header__backfill{
+  display: none;
 }
 
 
@@ -1831,4 +1836,8 @@ span.product__grid__cutline {
 
 .bundle-product__details {
     align-items: center;
+}
+.template-index a.standard__cta.btn.btn--long.btn--black.aos-init.aos-animate {
+  padding-left: 20px;
+  padding-right: 20px;
 }
