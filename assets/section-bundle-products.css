@@ -312,7 +312,7 @@ iframe#PBarNextFrame {
 .footer-box.saved {
   background: rgba(255, 255, 255, .3);
   color: #5F5F5F;
-  font-weight: 700;
+  font-weight: 400;
   border-radius: 10px 0px 0px 10px;
 }
 
@@ -381,7 +381,7 @@ div#PBarNextFrameWrapper {
     empty-cells: ;
     text-align: center;
     font-size: 14px;
-    font-weight: 400;
+    
 }
 
 .footer-box.open-bundle .icon {
