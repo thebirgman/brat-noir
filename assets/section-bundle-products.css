@@ -419,7 +419,7 @@ div#PBarNextFrameWrapper {
 .bundle-products__cart-total-icon {
     width: 60px;
     height: 60px;
-    background: rgba(255, 255, 255, .3);
+    background: rgba(255, 255, 255, .3) !important;
 }
 
 .bundle-products__cart-total-icon svg {
