@@ -209,8 +209,8 @@
         const discountTotal = cart.total_discount / 100;
         const savedAmountEl = document.querySelector('span.saved-amount');
         const savedAmountEl2 = document.querySelector('.footer-box.saved .value');
-        if (savedAmountEl) savedAmountEl.textContent = `$${discountTotal.toFixed(2)}`;
-        if (savedAmountEl2) savedAmountEl2.textContent = `$${discountTotal.toFixed(2)}`;
+        if (savedAmountEl) savedAmountEl.textContent = `$${discountTotal}`;
+        if (savedAmountEl2) savedAmountEl2.textContent = `$${discountTotal}`;
       })
       .catch(console.error);
   }, 500);
