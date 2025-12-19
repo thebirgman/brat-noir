@@ -89,8 +89,8 @@
         </div>
         <div class="bundle-products__cart-total-text">
           <span class="bundle-products__cart-total-label">Your Current Total</span>
-          <span class="bundle-products__cart-total-price">{{ cart.total_price | money }}</span>
-          <span class="bundle-products__cart-total-saved">YOU SAVED <span class="saved-amount">{{ cart.total_discount | money }}</span></span>
+          <span class="bundle-products__cart-total-price">{{ cart.total_price | money_without_trailing_zeros }}</span>
+          <span class="bundle-products__cart-total-saved">YOU SAVED <span class="saved-amount">{{ cart.total_discount | money_without_trailing_zeros }}</span></span>
         </div>
       </div>
 
@@ -170,7 +170,7 @@
 
   <div class="footer-box saved">
     <div class="label">Saved</div>
-    <div class="value">{{ cart.total_discount | money }}</div>
+    <div class="value">{{ cart.total_discount | money_without_trailing_zeros }}</div>
   </div>
 
   <div class="footer-box open-bundle">
