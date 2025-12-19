@@ -310,7 +310,7 @@ iframe#PBarNextFrame {
 }
 
 .footer-box.saved {
-  background: #ff5e5e;
+  background: rgba(255, 255, 255, .3);
   color: white;
   font-weight: 700;
   border-radius: 10px;
