@@ -1,5 +1,4 @@
-
-header.theme__header {
+  header.theme__header {
   background: transparent;
   top: 0;
   border: 0;
@@ -1842,6 +1841,157 @@ span.product__grid__cutline {
   padding-right: 20px;
 }
 
+
+
+.product__block__text {}
+
+div#appstle_subscription_widget0 {
+    margin-top: 0;
+}
+
+.appstle_widget_title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.appstle-tootltip-parent {
+    display: none;
+}
+
+.appstle_subscribe_option_grid {
+    display: flex;
+    gap: 10px;
+}
+
+.appstle_subscription_wrapper_option {
+    background: #FFFFFF1A!important;
+    border-color: #fff!important;
+    cursor: pointer;
+}
+
+span.appstle_one_time_text {
+    /* font-size: 16px; */
+    /* font-family: 'DM Sans'; */
+}
+
+span.appstle_dot {
+    background: #0B97F6!important;
+    width: 16px;
+    height: 16px;
+}
+
+:not(#s) .appstle_circle {
+    border-color: #fff!Important;
+    border-width: 1px!important;
+    width: 22px;
+    height: 22px;
+}
+
+:not(#s) .appstle-active-option .appstle_circle {
+    border-color: #0B97F6!important;
+}
+
+span.appstle-save-badge {
+    letter-spacing: 0!important;
+    font-size: 10px!important;
+}
+
+div#appstle_subscription_widget0 * {
+    letter-spacing: 0!important;
+}
+
+#appstle_subscription_widget0 .appstle_subscription_wrapper .appstle_select {
+    font-size: 14px;
+    letter-spacing: 0!important;
+    border: 0!Important;
+    background: #fff;
+    padding: 9px 12px!Important;
+    padding-right: 30px!Important;
+}
+
+.appstle_custom_select {
+    border: 0!important;
+}
+
+span.appstle_subscription_compare_amount.transcy-money {
+    color: #969696;
+}
+
+span.appstle_subscription_amount.transcy-money {
+    order: 2;
+    position: relative;
+}
+
+#appstle_subscription_widget0 .appstle_subscription_amount_wrapper {
+    display: flex;
+    gap: 8px;
+}
+
+span.appstle_subscription_amount.transcy-money {}
+
+.appstle_include_dropdown span.appstle_subscription_amount.transcy-money {
+    color: #61150F;
+    font-weight: 600;
+}
+
+#appstle_subscription_widget0 .appstle_subscription_wrapper_option.appstle-active-option {
+    border-color: #CD9E9C!important;
+    background: #F9E4E3!important;
+}
+
+.appstle_subscription_wrapper_option.appstle-active-option .appstle_subscription_radio_wrapper {
+    border-bottom: 1px solid #CD9E9C;
+    padding-bottom: 16px;
+    margin-bottom: 12px;
+}
+
+.appstle_sub_widget input[name=selling_plan] {
+    cursor: pointer;
+}
+
+label.appstle_select_label {
+    font-size: 16px!important;
+}
+
+@media screen and (max-width: 768px) {
+#appstle_subscription_widget0 .appstle_subscription_wrapper .appstle_select {
+font-size: 16px!Important;
+}
+}
+
+
+.appstle_subscription_wrapper_option:not(.appstle-active-option) .appstle_subscription_radio_wrapper {
+    position: static;
+}
+
+.appstle_subscription_wrapper_option .appstle_subscription_radio_wrapper {
+    border-bottom: 1px solid #fff;
+    padding-bottom: 16px;
+    margin-bottom: 12px;
+}
+
+#appstle_subscription_widget0 .appstle_subscribe_option {
+    opacity: 1!important;
+    height: 100% !important;
+    grid-template-rows: auto !important;
+    /* margin-top: 20px !important; */
+}
+
+.appstle_subscription_wrapper_option input[type=radio]:focus + label .appstle_circle:before {
+    display: none;
+}
+
+span.appstle_dot {}
+
+span.appstle-save-badge {
+    background: #FF6D6D!important;
+    color: #Fff;
+    border-radius: 4px!Important;
+}
+
+.appstle_one_time_price_wrapper {
+    font-weight: 500;
+}
 span.product__grid__cutline {
     display: none!important;
 }
