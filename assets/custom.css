@@ -1828,3 +1828,7 @@ span.product__grid__cutline {
 .bundle-products__cart-progress-fill {
     max-width: 100%;
 }
+
+.bundle-product__details {
+    align-items: center;
+}
