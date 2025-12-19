@@ -1793,19 +1793,19 @@ span.compare-at {
 
 
 
-.product__grid__price.product__grid__price--nowrap {
+.template-collection .product__grid__price.product__grid__price--nowrap {
     gap: 7px;
 }
 
-span.product__grid__cutline {
+.template-collection  span.product__grid__cutline {
     display: none;
 }
 
-.product__grid__price--nowrap .compare-at {
+.template-collection  .product__grid__price--nowrap .compare-at {
     font-weight: 500;
 }
 
-.product__grid__price.product__grid__price--nowrap {
+.template-collection  .product__grid__price.product__grid__price--nowrap {
     flex-wrap: nowrap!important;
     min-width: 100px!Important;
     justify-content: flex-start!Important;
