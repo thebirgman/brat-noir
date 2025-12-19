@@ -1841,3 +1841,15 @@ span.product__grid__cutline {
   padding-left: 20px;
   padding-right: 20px;
 }
+
+span.product__grid__cutline {
+    display: none!important;
+}
+
+.template-collection .product__grid__price.product__grid__price--nowrap {
+    justify-content: flex-end!important;
+    flex-direction: row!important;
+    align-items: center!Important;
+}
+
+span.price.on-sale {}
