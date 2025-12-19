@@ -383,7 +383,7 @@ div#PBarNextFrameWrapper {
 }
 
 .footer-box.open-bundle .icon {
-    background: #ffffff7d;
+    background: rgba(255, 255, 255, .2);
     padding: 5px;
     height: 100%;
     width: 50px;
