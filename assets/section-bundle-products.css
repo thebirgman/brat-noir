@@ -364,11 +364,10 @@ div#PBarNextFrameWrapper {
 .footer-box.open-bundle {
     flex-direction: row;
     align-items: center;
-    padding: 5px;
-        padding-right: 7px;
+    padding: 10px 18px;
     gap: 7px;
-background:#FF5E5E;
-color: white;
+    background:#FF5E5E;
+    color: white;
 
 .footer-box .label {
     text-align: left;
