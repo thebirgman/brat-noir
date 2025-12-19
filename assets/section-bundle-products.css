@@ -363,7 +363,7 @@ div#PBarNextFrameWrapper {
 
 .footer-box.open-bundle {
     flex-direction: row;
-    align-items: initial;
+    align-items: center;
     padding: 5px;
         padding-right: 7px;
     gap: 7px;
