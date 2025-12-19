@@ -379,7 +379,7 @@ div#PBarNextFrameWrapper {
 
 .footer-box.saved .label {
     empty-cells: ;
-    text-align: center;
+    text-align: left;
     font-size: 11px;
 }
 
