@@ -331,7 +331,7 @@ span.bundle-products__cart-total-saved {
   display: flex;
   align-items: center;
   gap: 10px;
-  border-radius: 10px;
+  border-radius: 0 10px 10px 0;
   padding: 12px 18px;
   background: #FF5E5E;
 }
