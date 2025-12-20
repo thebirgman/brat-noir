@@ -2003,3 +2003,12 @@ span.product__grid__cutline {
 }
 
 span.price.on-sale {}
+
+
+.needsclick.kl-teaser-VaSdGV.kl-private-reset-css-Xuajs1 {
+    z-index: 1000!important;
+}
+
+.sticky-cta-bar.sticky-cta-bar--visible {
+    z-index: 9999!important;
+}
