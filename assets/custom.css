@@ -2018,3 +2018,7 @@ span.price.on-sale {}
   border-radius: 0px !important;
   font-weight: 600;
 }
+
+p.footer__title {
+  font-weight: 600;
+}
