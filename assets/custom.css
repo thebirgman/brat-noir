@@ -2602,6 +2602,7 @@ footer.footer {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 16px;
+  padding: 20px 22.5px 0px 22.5px !important;
 }
 
 .cart__discount__label {
