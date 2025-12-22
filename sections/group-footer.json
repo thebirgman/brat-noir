@@ -14,19 +14,19 @@
     "footer": {
       "type": "footer",
       "blocks": {
+        "linklist_nYzkab": {
+          "type": "linklist",
+          "settings": {
+            "linklist": "main-menu",
+            "title": "",
+            "accordion_default": ""
+          }
+        },
         "linklist-2": {
           "type": "linklist",
           "settings": {
             "linklist": "footer-menu-2",
             "title": "POLICIES",
-            "accordion_default": ""
-          }
-        },
-        "linklist_Fbakp6": {
-          "type": "linklist",
-          "settings": {
-            "linklist": "main-menu",
-            "title": "",
             "accordion_default": ""
           }
         },
@@ -48,8 +48,8 @@
         }
       },
       "block_order": [
+        "linklist_nYzkab",
         "linklist-2",
-        "linklist_Fbakp6",
         "newsletter"
       ],
       "settings": {
