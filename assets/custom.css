@@ -2079,35 +2079,6 @@ form.needsclick.klaviyo-form.klaviyo-form-version-cid_1.go3279073480.kl-private-
   }
 }
 
-/* ============================= */
-/* CART SUBTOTAL LAYOUT */
-/* ============================= */
-
-.cart__footer__itemtotal,
-.cart__footer__discount {
-  display: flex;
-  justify-content: space-between; /* pushes text to sides */
-  align-items: center;
-  width: 100%;
-  text-align: left; /* override centering */
-  padding: 20px 22.5px 0px 22.5px !important;
-}
-
-/* Optional: font consistency */
-.cart__footer__label {
-  font-weight: 500;
-}
-
-.cart__footer__value {
-  font-weight: 600;
-  text-align: right;
-}
-
-
-
-
-
-
 
 .appstleSelectedSellingPlanOptionDescription ul {
     margin-bottom: 0;
@@ -2594,7 +2565,32 @@ p.footer__title svg {
 footer.footer {
     padding-bottom: 40px;
 }
+
+
+/* ============================= */
+/* CART SUBTOTAL LAYOUT */
+/* ============================= */
+
+.cart__footer__itemtotal,
+.cart__footer__discount {
+  display: flex;
+  justify-content: space-between; /* pushes text to sides */
+  align-items: center;
+  width: 100%;
+  text-align: left; /* override centering */
+  padding: 20px 22.5px 0px 22.5px !important;
 }
+
+/* Optional: font consistency */
+.cart__footer__label {
+  font-weight: 500;
+}
+
+.cart__footer__value {
+  font-weight: 600;
+  text-align: right;
+}
+
 
 /* ============================= */
 /* CART DISCOUNT INPUT */
@@ -2636,3 +2632,4 @@ footer.footer {
 .cart__discount__apply:hover {
   opacity: 0.9;
 }
+
