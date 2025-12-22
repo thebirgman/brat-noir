@@ -2029,32 +2029,37 @@ form.needsclick.klaviyo-form.klaviyo-form-version-cid_1.go3279073480.kl-private-
 }
 
 /* ============================= */
-/* FOOTER — STOP BLOCK OVERLAP */
+/* FOOTER COLUMN LAYOUT FIX */
 /* ============================= */
 
-/* Kill legacy float grid */
+/* Main footer content wrapper */
+.footer__content__inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 80px;
+}
+
+/* Logo column */
+.footer__logo__wrapper {
+  flex: 0 0 220px; /* fixed logo column */
+}
+
+/* Menu + blocks container */
+.footer__content__inner > .float-grid {
+  flex: 1;
+}
+
+/* Inside the menu grid → columns */
 .footer .float-grid {
   display: flex;
   gap: 64px;
-  flex-wrap: nowrap;
 }
 
-/* Each footer block = its own column */
+/* Each menu block = its own column */
 .footer .grid__item {
-  float: none !important;
+  flex: 1;
   width: auto !important;
-  max-width: 100%;
-  flex: 1;
-}
-
-/* Logo column slightly wider */
-.footer__logo__wrapper {
-  flex: 1.2;
-}
-
-/* Link columns */
-.footer__block {
-  flex: 1;
+  float: none !important;
 }
 
 /* Newsletter column wider */
@@ -2062,15 +2067,16 @@ form.needsclick.klaviyo-form.klaviyo-form-version-cid_1.go3279073480.kl-private-
   flex: 1.5;
 }
 
-/* Prevent stacked accordion spacing */
-.footer__quicklinks {
-  margin-top: 12px;
-}
-
 /* Mobile fallback */
 @media (max-width: 768px) {
+  .footer__content__inner {
+    flex-direction: column;
+    gap: 32px;
+  }
+
   .footer .float-grid {
     display: block;
   }
 }
+
 
