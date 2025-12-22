@@ -2090,7 +2090,7 @@ form.needsclick.klaviyo-form.klaviyo-form-version-cid_1.go3279073480.kl-private-
   align-items: center;
   width: 100%;
   text-align: left; /* override centering */
-  margin: 22.5px !important;
+  padding: 22.5px !important;
 }
 
 /* Optional: font consistency */
