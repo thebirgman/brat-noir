@@ -295,6 +295,99 @@
 
 
   <!-- And above this comment line ================================================== -->
+  {% render 'subscription-info-popup' %}
+
+  <script>
+    (function() {
+      // Function to add subscription info icon
+      function addSubscriptionInfoIcon() {
+        const radioLabel = document.querySelector('.appstle_include_dropdown .appstle_radio_label');
+        
+        if (radioLabel && !radioLabel.querySelector('.subscription-info-icon')) {
+          // Create info icon
+          const infoIcon = document.createElement('span');
+          infoIcon.className = 'subscription-info-icon';
+          infoIcon.setAttribute('role', 'button');
+          infoIcon.setAttribute('tabindex', '0');
+          infoIcon.setAttribute('aria-label', 'Learn more about subscription benefits');
+          infoIcon.innerHTML = '<span class="subscription-info-icon__circle">i</span>';
+          
+          // Add click handler
+          infoIcon.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            openSubscriptionPopup();
+          });
+          
+          // Add keyboard support
+          infoIcon.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              e.stopPropagation();
+              openSubscriptionPopup();
+            }
+          });
+          
+          // Append after the label
+          radioLabel.appendChild(infoIcon);
+        }
+      }
+
+      // Function to open subscription popup
+      function openSubscriptionPopup() {
+        const popup = document.getElementById('subscription-info-popup');
+        if (popup) {
+          // Check if MicroModal is available
+          if (typeof MicroModal !== 'undefined') {
+            MicroModal.show('subscription-info-popup', {
+              onShow: function(modal) {
+                document.body.style.overflow = 'hidden';
+              },
+              onClose: function(modal) {
+                document.body.style.overflow = '';
+              }
+            });
+          } else {
+            // Fallback: manually show the modal
+            popup.setAttribute('aria-hidden', 'false');
+            popup.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+          }
+        }
+      }
+
+      // Wait for Appstle subscription widget to load
+      function waitForAppstleWidget() {
+        const maxAttempts = 50;
+        let attempts = 0;
+        
+        const checkInterval = setInterval(function() {
+          attempts++;
+          const radioLabel = document.querySelector('.appstle_include_dropdown .appstle_radio_label');
+          
+          if (radioLabel) {
+            clearInterval(checkInterval);
+            addSubscriptionInfoIcon();
+          } else if (attempts >= maxAttempts) {
+            clearInterval(checkInterval);
+            console.warn('Appstle subscription widget not found after maximum attempts');
+          }
+        }, 200);
+      }
+
+      // Initialize when DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', waitForAppstleWidget);
+      } else {
+        waitForAppstleWidget();
+      }
+
+      // Also check after page fully loads (in case Appstle loads dynamically)
+      window.addEventListener('load', function() {
+        setTimeout(waitForAppstleWidget, 500);
+      });
+    })();
+  </script>
 
 </body>
 </html>
