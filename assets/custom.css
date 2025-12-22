@@ -2003,3 +2003,38 @@ span.product__grid__cutline {
 }
 
 span.price.on-sale {}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.appstle_subscribe_option_grid {
+    flex-wrap: wrap;
+}
+
+.appstleSelectedSellingPlanOptionDescription li:before {
+    content: "";
+    background: url(/cdn/shop/files/verified.png?v=1755091608);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 18px;
+    height: 18px;
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: 2px;
+}
+
+.appstleSelectedSellingPlanOptionDescription li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 5px;
+}
