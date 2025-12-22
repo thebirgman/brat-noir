@@ -45,21 +45,12 @@
             "title": "POLICIES",
             "accordion_default": ""
           }
-        },
-        "social_KczYAe": {
-          "type": "social",
-          "settings": {
-            "title": "",
-            "text_size": 8,
-            "enable_follow_on_shop": false
-          }
         }
       },
       "block_order": [
         "newsletter",
         "linklist-1",
-        "linklist-2",
-        "social_KczYAe"
+        "linklist-2"
       ],
       "settings": {
         "menu_position": "left",
