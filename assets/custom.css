@@ -2542,4 +2542,32 @@ footer .wrapper--full.section-padding-custom {
 .footer__newsletter__body {
     padding: 0;
 }
+.footer__quicklinks {
+    display: block!important;
+}
+
+.grid__item.medium-up--one-half.footer__block > *:not(ul) {
+    display: none;
+}
+
+p.footer__title {
+    display: block!important;
+    pointer-events: none;
+    padding: 0!important;
+    border: 0!Important;
+    font-size: 15px!Important;
+    color: #666;
+}
+
+.float-grid.grid--uniform {
+    display: flex;
+}
+
+p.footer__title svg {
+    display: none!important;
+}
+
+footer.footer {
+    padding-bottom: 40px;
+}
 }
