@@ -2519,7 +2519,7 @@ a.footer__icon.footer__icon--social {
 }
 
 footer div.needsclick.kl-private-reset-css-Xuajs1 {
-    flex-direction: column!important;
+    flex-wrap: wrap!important;
 }
 
 a.footer__logo {
