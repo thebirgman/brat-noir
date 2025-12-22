@@ -11,7 +11,7 @@
 
 {%- capture footer_logo_html -%}
   {% if section.settings.footer_image %}
-    <div class="footer__logo__wrapper">
+    
       <a href="{{ routes.root_url }}"
         class="footer__logo"
         style="width: {{ section.settings.logo_max_limit }}px;"
@@ -28,7 +28,7 @@
           | image_url: width: section.settings.logo_max_limit
           | image_tag: alt: alt, loading: 'lazy', sizes: sizes, srcset: srcset }}
       </a>
-    </div>
+    
   {% endif %}
 {%- endcapture -%}
 
@@ -402,11 +402,13 @@
           {%- if logo_in_content or content_html != '' -%}
             <div class="footer__content__inner">
               {%- if logo_in_content -%}
+                <div class="footer__logo__wrapper">
                 {{ footer_logo_html }}
                 <div class="socials-container">
                   <div class="lifhg-gray-text">Follow us on</div>
                 {{ socials_html }}
                 </div>
+              </div>
               {%- endif -%}
 
               {%- if content_html != '' -%}
