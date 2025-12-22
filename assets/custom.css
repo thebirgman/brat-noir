@@ -2346,3 +2346,23 @@ span.appstle-save-badge:empty {
     color: #61150F;
     font-style: normal;
 }
+
+
+span.appstle-save-badge:empty {
+    display: none!important;
+}
+
+.subscription-info-icon__circle {
+    border: 1.5px solid #61150F;
+    background: transparent;
+    color: #61150F;
+    font-style: normal;
+}
+
+.product__grid__price--nowrap span.price.appstle_subscription_final_price {
+    display: none;
+}
+
+.product__grid__price--nowrap .price[style*="line-through"] {
+    text-decoration: none!important;
+}
