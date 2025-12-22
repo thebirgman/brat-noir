@@ -2012,3 +2012,9 @@ span.price.on-sale {}
 .sticky-cta-bar.sticky-cta-bar--visible {
     z-index: 9999!important;
 }
+
+.drawer__bottom .btn--primary
+{
+  border-radius: 0px !important;
+  font-weight: 600;
+}
