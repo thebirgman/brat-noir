@@ -2443,3 +2443,21 @@ footer div.needsclick.kl-private-reset-css-Xuajs1:empty {
     margin-left: auto;
     margin-right: auto;
 }
+
+
+.lifhg-gray-text {
+    opacity: .5;
+    font-size: 14px;
+    margin-top: 40px;
+    font-weight: 500;
+}
+
+a.footer__icon.footer__icon--social {
+    margin-right: 5px;
+    border: 1px solid #fff;
+    padding: 4px;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    max-width: 100%;
+}
