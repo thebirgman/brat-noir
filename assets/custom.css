@@ -2593,72 +2593,93 @@ footer.footer {
 }
 
 
-/* ===== CART DRAWER DISCOUNT + SUBTOTAL FIX ===== */
+/* ===== CART DRAWER – DISCOUNT + SUBTOTAL WIREFRAME FIX ===== */
 
+/* Discount input container padding */
 .cart__discount {
+  padding-left: 22.5px;
+  padding-right: 22.5px;
   margin-bottom: 16px;
 }
 
+/* Discount row layout */
 .cart__discount__row {
-  display: flex;
+  display: flex !important;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
 }
 
+/* Discount label */
 .cart__discount__label {
-  font-size: 14px;
+  font-size: 15px;
   color: #000;
-  white-space: nowrap;
+  flex-shrink: 0;
 }
 
+/* Input + button wrapper */
 .cart__discount__form {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   flex: 1;
   justify-content: flex-end;
 }
 
+/* Discount input */
 .cart__discount__input {
-  height: 44px;
-  padding: 0 12px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  max-width: 160px;
+  height: 46px;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.15);
+  background: transparent;
+  font-size: 15px;
+  max-width: 200px;
 }
 
+/* Apply button */
 .cart__discount__apply {
-  height: 44px;
-  padding: 0 16px;
-  border-radius: 8px;
-  background: #e9ddff; /* light lavender like wireframe */
+  height: 46px;
+  padding: 0 22px;
+  border-radius: 10px;
+  background: #e9ddff;
   border: none;
+  font-size: 15px;
   font-weight: 500;
   cursor: pointer;
 }
 
+/* Divider under discount */
 .cart__divider {
   border: none;
   height: 1px;
-  background: rgba(0,0,0,0.08);
-  margin: 16px 0;
+  background: rgba(0,0,0,0.12);
+  margin: 18px 22.5px;
 }
 
-/* Subtotal rows */
+/* FORCE subtotal row layout */
 .cart__footer__itemtotal,
 .cart__footer__discount {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 15px;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 0 22.5px;
 }
 
-/* Discount line style */
+/* Subtotal typography */
+.cart__footer__itemtotal {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Applied discount row */
 .cart__footer__discount {
-  color: #f4a261; /* peach/orange like wireframe */
-  margin-top: 8px;
+  margin-top: 10px;
+  font-size: 15px;
+  color: #f4a261; /* wireframe peach */
 }
 
-.cart__footer__discount .cart__footer__value {
+/* Value alignment */
+.cart__footer__value {
+  text-align: right !important;
   font-weight: 500;
 }
