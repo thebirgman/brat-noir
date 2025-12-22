@@ -2437,3 +2437,9 @@ footer input.needsclick.kl-private-reset-css-Xuajs1 {
 footer div.needsclick.kl-private-reset-css-Xuajs1:empty {
     display: none!important;
 }
+
+.footer__holder {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
