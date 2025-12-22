@@ -107,26 +107,29 @@
 
             <p class="drawer__bottom__meta body-size-3"><em>{% render 'taxes-included-cart' %}</em></p>
 
-           <div class="cart__discount">
-  <label class="cart__discount__label">Discount:</label>
+ <div class="cart__discount">
+  <div class="cart__discount__row">
+    <span class="cart__discount__label">Discount:</span>
 
-  <div class="cart__discount__form">
-    <input
-      type="text"
-      placeholder="Enter code"
-      class="cart__discount__input"
-      id="CartDiscountCode"
-    />
-
-    <button
-      type="button"
-      class="cart__discount__apply"
-      onclick="applyCartDiscount()"
-    >
-      Apply
-    </button>
+    <div class="cart__discount__form">
+      <input
+        type="text"
+        placeholder="Enter code"
+        class="cart__discount__input"
+        id="CartDiscountCode"
+      />
+      <button
+        type="button"
+        class="cart__discount__apply"
+        onclick="applyCartDiscount()"
+      >
+        Apply
+      </button>
+    </div>
   </div>
 </div>
+
+<hr class="cart__divider">
 
 
 
