@@ -2477,6 +2477,7 @@ a.footer__icon.footer__icon--social {
     width: 24px;
     height: 24px;
     max-width: 100%;
+        background: #FFFFFF1A;
 }
 
 .subfooter__item.subfooter__item--copyright {
