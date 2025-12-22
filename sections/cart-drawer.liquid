@@ -107,26 +107,7 @@
 
             <p class="drawer__bottom__meta body-size-3"><em>{% render 'taxes-included-cart' %}</em></p>
 
-            <div class="cart__discount">
-  <label class="cart__discount__label">Discount:</label>
-
-  <div class="cart__discount__form">
-    <input
-      type="text"
-      placeholder="Enter code"
-      class="cart__discount__input"
-      id="CartDiscountCode"
-    />
-
-    <button
-      type="button"
-      class="cart__discount__apply"
-      onclick="applyCartDiscount()"
-    >
-      Apply
-    </button>
-  </div>
-</div>
+           
 
 
             <div class="drawer__footer__subtotal" data-cart-subtotal>
@@ -158,15 +139,6 @@
     </section>
   {%- endif -%}
 {%- endif -%}
-
-<script>
-  function applyCartDiscount() {
-    var code = document.getElementById('CartDiscountCode').value.trim();
-    if (!code) return;
-
-    window.location.href = '/discount/' + encodeURIComponent(code) + '?redirect=/cart';
-  }
-</script>
 
 
 {% schema %}
