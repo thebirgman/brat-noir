@@ -2331,3 +2331,7 @@ h2.subscription-info-modal__title {
 }
 }
 
+
+span.appstle-save-badge:empty {
+    display: none!important;
+}
