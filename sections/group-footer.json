@@ -18,7 +18,7 @@
           "type": "linklist",
           "settings": {
             "linklist": "main-menu",
-            "title": "",
+            "title": "Quick Links",
             "accordion_default": ""
           }
         },
