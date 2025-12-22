@@ -2488,3 +2488,58 @@ a.footer__icon.footer__icon--social {
     padding-bottom: 10px;
     font-size: 15px;
 }
+
+@media screen and (max-width: 768px) {
+.footer__block.footer__aside {
+    width: 100%;
+}
+
+.footer__content {
+    width: 100%;
+    display: block;
+}
+
+.footer__logo__wrapper {
+    flex: auto;
+    width: 100%;
+}
+
+.footer__content__inner {
+    width: 100%;
+}
+
+.float-grid.grid--uniform {
+    width: 100%;
+}
+
+.socials-container {
+    /* justify-content: center; */
+    /* display: flex; */
+    text-align: center;
+}
+
+footer div.needsclick.kl-private-reset-css-Xuajs1 {
+    flex-direction: column!important;
+}
+
+a.footer__logo {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    top: 40px;
+}
+
+footer.footer {
+    padding-top: 150px;
+}
+
+footer .wrapper--full.section-padding-custom {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.footer__newsletter__body {
+    padding: 0;
+}
+}
