@@ -1845,4 +1845,5 @@ span.product__grid__cutline {
 .drawer__bottom .btn--primary
 {
   border-radius: 0px !important;
+  font-weight: 600;
 }
