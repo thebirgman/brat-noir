@@ -2029,50 +2029,48 @@ form.needsclick.klaviyo-form.klaviyo-form-version-cid_1.go3279073480.kl-private-
 }
 
 /* ============================= */
-/* FOOTER — DESKTOP GRID LAYOUT */
+/* FOOTER — STOP BLOCK OVERLAP */
 /* ============================= */
 
-@media (min-width: 769px) {
+/* Kill legacy float grid */
+.footer .float-grid {
+  display: flex;
+  gap: 64px;
+  flex-wrap: nowrap;
+}
 
-  /* Main footer content grid */
-  .footer__content__inner {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr 1fr 1.5fr;
-    gap: 64px;
-    align-items: start;
+/* Each footer block = its own column */
+.footer .grid__item {
+  float: none !important;
+  width: auto !important;
+  max-width: 100%;
+  flex: 1;
+}
+
+/* Logo column slightly wider */
+.footer__logo__wrapper {
+  flex: 1.2;
+}
+
+/* Link columns */
+.footer__block {
+  flex: 1;
+}
+
+/* Newsletter column wider */
+.footer__aside {
+  flex: 1.5;
+}
+
+/* Prevent stacked accordion spacing */
+.footer__quicklinks {
+  margin-top: 12px;
+}
+
+/* Mobile fallback */
+@media (max-width: 768px) {
+  .footer .float-grid {
+    display: block;
   }
-
-  /* Reset legacy float/grid behavior */
-  .footer__content__inner > * {
-    float: none !important;
-    width: auto !important;
-    max-width: 100%;
-  }
-
-  /* Logo column */
-  .footer__logo__wrapper {
-    grid-column: 1;
-  }
-
-  /* Footer blocks (Quick Links, Policies) */
-  .footer__block {
-    margin: 0;
-  }
-
-  /* QUICK LINKS → column 2 */
-  .footer__block:has(.footer__quicklinks):nth-of-type(1) {
-    grid-column: 2;
-  }
-
-  /* POLICIES → column 3 */
-  .footer__block:has(.footer__quicklinks):nth-of-type(2) {
-    grid-column: 3;
-  }
-
-  /* NEWSLETTER → column 4 */
-  .footer__aside {
-    grid-column: 4;
-  }
-
 }
 
