@@ -2335,3 +2335,14 @@ h2.subscription-info-modal__title {
 span.appstle-save-badge:empty {
     display: none!important;
 }
+
+span.appstle-save-badge:empty {
+    display: none!important;
+}
+
+.subscription-info-icon__circle {
+    border: 1.5px solid #61150F;
+    background: transparent;
+    color: #61150F;
+    font-style: normal;
+}
