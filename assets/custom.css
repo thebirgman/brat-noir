@@ -2080,3 +2080,254 @@ form.needsclick.klaviyo-form.klaviyo-form-version-cid_1.go3279073480.kl-private-
 }
 
 
+
+
+
+
+
+.appstleSelectedSellingPlanOptionDescription ul {
+    margin-bottom: 0;
+}
+
+.appstle_subscribe_option_grid {
+    flex-wrap: wrap;
+}
+
+.appstleSelectedSellingPlanOptionDescription li:before {
+    content: "";
+    background: url(/cdn/shop/files/verified.png?v=1755091608);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 18px;
+    height: 18px;
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: 2px;
+}
+
+.appstleSelectedSellingPlanOptionDescription li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 5px;
+}
+
+/* Subscription Info Icon */
+.subscription-info-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.subscription-info-icon__circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #61150F;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1;
+    font-family: serif;
+    transition: opacity 0.2s ease;
+}
+
+.subscription-info-icon:hover .subscription-info-icon__circle {
+    opacity: 0.8;
+}
+
+.subscription-info-icon:focus {
+    outline: 2px solid #61150F;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Subscription Info Popup Modal */
+.subscription-info-modal {
+    background: #fff;
+    padding: 40px;
+    max-width: 700px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 8px;
+}
+
+.subscription-info-modal__title {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 30px 0;
+    color: #000;
+    text-align: center;
+}
+
+.subscription-info-modal__table-wrapper {
+    overflow-x: auto;
+}
+
+.subscription-info-modal__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+}
+
+.subscription-info-modal__table thead {
+    background-color: #f5f5f5;
+}
+
+.subscription-info-modal__table th {
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 16px;
+    border-bottom: 2px solid #ddd;
+    color: #000;
+}
+
+.subscription-info-modal__table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+    color: #333;
+}
+
+.subscription-info-modal__table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.subscription-info-modal__table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.subscription-info-modal__discount {
+    color: #61150F;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 768px) {
+    .subscription-info-modal {
+        padding: 30px 20px;
+        width: 95%;
+    }
+    
+    .subscription-info-modal__title {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .subscription-info-modal__table th,
+    .subscription-info-modal__table td {
+        padding: 10px 8px;
+        font-size: 14px;
+    }
+}
+
+
+span.subscription-info-icon {
+  z-index: 9999;
+}
+
+h2.subscription-info-modal__title {
+  font-size: 22px!important;
+  text-align: left;
+  letter-spacing: 0.5px!important;
+}
+
+.modal__container.subscription-info-modal {
+  border-radius: 20px;
+}
+
+table.subscription-info-modal__table tr > td:nth-child(1),
+.subscription-info-modal__table th:nth-child(1){
+  background: #FFF2F1;
+  font-weight: 600;
+}
+
+
+table.subscription-info-modal__table tr > td:nth-child(2),
+.subscription-info-modal__table th:nth-child(2){
+  background: #ffebea;
+}
+
+
+table.subscription-info-modal__table tr > td:nth-child(3),
+.subscription-info-modal__table th:nth-child(3){
+  background: #ffe0de;
+}
+
+.subscription-info-modal__table td {
+  border: 0;
+  padding: 8px 20px;
+  font-size: 14px;
+}
+
+.subscription-info-modal__table th {
+  border: 0;
+  padding: 10px 20px;
+  padding-top: 30px;
+  font-size: 14px;
+  /* min-width: 210px; */
+  /* text-align: center; */
+}
+
+span.subscription-info-modal__discount {
+  color: #FF6E6E;
+  font-weight: 700;
+}
+
+table.subscription-info-modal__table {
+  border-radius: 10px;
+}
+
+table.subscription-info-modal__table thead {
+  border-radius: 10px;
+}
+
+.subscription-info-modal {
+  max-width: 800px;
+}
+@media screen and (min-width: 768px) {
+.subscription-info-modal__table th {
+  min-width: 200px;
+  font-size: 14px;
+}
+
+}
+.subscription-info-modal__table tr:last-child td {
+  padding-bottom: 30px;
+}
+
+@media screen and (max-width: 768px) {
+.subscription-info-modal__table th {
+  padding: 10px;
+  padding-top: 20px;
+  width: 33%;
+}
+
+.subscription-info-modal__table td {
+  padding: 7px 10px;
+  font-size: 13px;
+  line-height: 1.3em;
+}
+
+.subscription-info-modal__table tr:last-child td {
+  padding-bottom: 20px;
+}
+
+h2.subscription-info-modal__title {
+  text-align: center;
+  font-weight: 500;
+  max-width: 310px;
+  margin-left: auto;
+  margin-right: auto;
+}
+}
+
