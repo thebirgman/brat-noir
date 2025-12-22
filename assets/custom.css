@@ -1841,3 +1841,8 @@ span.product__grid__cutline {
   padding-left: 20px;
   padding-right: 20px;
 }
+
+.drawer__bottom .btn--primary
+{
+  border-radius: 0px !important;
+}
