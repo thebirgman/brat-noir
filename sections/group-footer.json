@@ -17,7 +17,7 @@
         "linklist_nYzkab": {
           "type": "linklist",
           "settings": {
-            "linklist": "main-menu",
+            "linklist": "quick-links",
             "title": "Quick Links",
             "accordion_default": ""
           }
@@ -25,7 +25,7 @@
         "linklist-2": {
           "type": "linklist",
           "settings": {
-            "linklist": "footer-menu-2",
+            "linklist": "footer-menu-1",
             "title": "POLICIES",
             "accordion_default": ""
           }
