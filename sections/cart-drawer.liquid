@@ -165,9 +165,14 @@
     var code = document.getElementById('CartDiscountCode').value.trim();
     if (!code) return;
 
-    window.location.href = '/discount/' + encodeURIComponent(code) + '?redirect=/cart';
+    var redirectUrl = window.location.pathname + window.location.search;
+
+    window.location.href =
+      '/discount/' + encodeURIComponent(code) +
+      '?redirect=' + encodeURIComponent(redirectUrl);
   }
 </script>
+
 
 
 
