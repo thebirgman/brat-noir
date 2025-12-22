@@ -2683,3 +2683,58 @@ footer.footer {
   text-align: right !important;
   font-weight: 500;
 }
+
+/* Discount input container */
+.cart__discount {
+  padding: 0 22.5px;
+  margin-bottom: 16px;
+}
+
+.cart__discount__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cart__discount__label {
+  font-weight: 500;
+}
+
+/* Input + button */
+.cart__discount__form {
+  display: flex;
+  gap: 10px;
+}
+
+.cart__discount__input {
+  height: 44px;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 1px solid #d5d5d5;
+  min-width: 160px;
+}
+
+.cart__discount__apply {
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 10px;
+  background: #e9dcff;
+  border: none;
+  font-weight: 500;
+}
+
+/* Applied discount row */
+.cart__footer__discount {
+  padding: 12px 22.5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart__footer__badge {
+  background: #e9dcff;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-weight: 500;
+}
