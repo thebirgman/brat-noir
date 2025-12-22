@@ -2014,7 +2014,9 @@ span.price.on-sale {}
 
 
 
-
+.appstleSelectedSellingPlanOptionDescription ul {
+    margin-bottom: 0;
+}
 
 .appstle_subscribe_option_grid {
     flex-wrap: wrap;
