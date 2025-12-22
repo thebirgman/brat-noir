@@ -14,22 +14,6 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "newsletter": {
-          "type": "newsletter",
-          "settings": {
-            "show_image": false,
-            "image": "shopify://shop_images/Brat_Noir_Logo_1.png",
-            "wh_ratio": 1,
-            "newsletter_enable": true,
-            "recaptcha_enabled": false,
-            "kicker": "Unlock Your Brat Privilege. Get 10% Off Your First Order.",
-            "heading": "",
-            "richtext": "<p>Join our email list and never miss a drop, a deal, or a dangerously pretty nail set.</p>",
-            "text_size": 4,
-            "background_color": "#000000",
-            "text_color_value": "#ffffff"
-          }
-        },
         "linklist-1": {
           "type": "linklist",
           "settings": {
@@ -53,16 +37,32 @@
             "text_size": 8,
             "enable_follow_on_shop": false
           }
+        },
+        "newsletter": {
+          "type": "newsletter",
+          "settings": {
+            "show_image": false,
+            "image": "shopify://shop_images/Brat_Noir_Logo_1.png",
+            "wh_ratio": 1,
+            "newsletter_enable": true,
+            "recaptcha_enabled": false,
+            "kicker": "Unlock Your Brat Privilege. Get 10% Off Your First Order.",
+            "heading": "",
+            "richtext": "<p>Join our email list and never miss a drop, a deal, or a dangerously pretty nail set.</p>",
+            "text_size": 4,
+            "background_color": "#000000",
+            "text_color_value": "#ffffff"
+          }
         }
       },
       "block_order": [
-        "newsletter",
         "linklist-1",
         "linklist-2",
-        "social_KczYAe"
+        "social_KczYAe",
+        "newsletter"
       ],
       "settings": {
-        "menu_position": "right",
+        "menu_position": "left",
         "footer_image": "shopify://shop_images/Brat_Noir_Logo_1.png",
         "logo_max_limit": 125,
         "width": "wrapper--full",
