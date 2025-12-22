@@ -2366,3 +2366,74 @@ span.appstle-save-badge:empty {
 .product__grid__price--nowrap .price[style*="line-through"] {
     text-decoration: none!important;
 }
+
+
+
+
+
+.footer__block.footer__aside {
+    width: 30%;
+    flex: auto;
+    margin-left: 0;
+}
+
+.footer__content {
+    flex: auto;
+    width: 60%;
+    align-items: flex-start;
+}
+
+.footer__content__inner {
+    padding: 0;
+}
+
+.footer__content__inner {align-self: initial!important;}
+
+.footer__holder {}
+
+.subfooter .section-padding.wrapper--full {
+    padding: 0;
+}
+
+footer.footer {
+    padding: 60px 0;
+}
+
+.footer__quicklinks a {
+    font-size: 14px;
+    text-transform: initial;
+}
+
+.footer__quicklinks li {
+    margin-bottom: 3px;
+}
+
+label.footer__title.footer__accordion__head.no-js {
+    display: block;
+    margin-left: 0;
+    margin-bottom: 0;
+    color:  #FFFFFF80;
+    font-size: 15px;
+    letter-spacing: 0;
+}
+
+footer div.needsclick.kl-private-reset-css-Xuajs1 {
+    flex-direction: row!important;
+    width: 100%!important;
+    gap: 10px;
+}
+
+footer button.needsclick.go443571185.kl-private-reset-css-Xuajs1 {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+footer input.needsclick.kl-private-reset-css-Xuajs1 {
+    width: 100%!important;
+    background: #FFFFFF4D!important;
+    border-radius: 5px!important;
+}
+
+footer div.needsclick.kl-private-reset-css-Xuajs1:empty {
+    display: none!important;
+}
