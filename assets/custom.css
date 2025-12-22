@@ -2028,3 +2028,33 @@ form.needsclick.klaviyo-form.klaviyo-form-version-cid_1.go3279073480.kl-private-
   
 }
 
+/* ============================= */
+/* FOOTER — LOGO IN ITS OWN COLUMN */
+/* ============================= */
+
+@media (min-width: 769px) {
+
+  /* Make footer content a grid */
+  .footer__content__inner {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr 1.5fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  /* Force logo into column 1 */
+  .footer__logo__wrapper {
+    grid-column: 1;
+  }
+
+  /* Quick Links block → column 2 */
+  .footer__block:has(.footer__quicklinks):nth-of-type(1) {
+    grid-column: 2;
+  }
+
+  /* Policies block → column 3 */
+  .footer__block:has(.footer__quicklinks):nth-of-type(2) {
+    grid-column: 3;
+  }
+
+}
