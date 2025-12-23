@@ -1,3 +1,4 @@
+<!-- /snippets/cart-subtotal.liquid -->
 {%- if cart.cart_level_discount_applications.size > 0 -%}
   {%- for discount in cart.cart_level_discount_applications -%}
     <p class="cart__footer__discount">
@@ -16,3 +17,15 @@
     </p>
   {%- endfor -%}
 {%- endif -%}
+
+
+<p class="cart__footer__itemtotal">
+  <span class="cart__footer__label">
+    {{ 'cart.general.subtotal' | t | capitalize }}:
+  </span>
+  <span class="cart__footer__value" data-cart-final>
+    {{ cart.total_price | money }}
+  </span>
+</p>
+
+
