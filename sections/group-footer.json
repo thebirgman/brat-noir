@@ -14,6 +14,22 @@
     "footer": {
       "type": "footer",
       "blocks": {
+        "linklist_nYzkab": {
+          "type": "linklist",
+          "settings": {
+            "linklist": "quick-links",
+            "title": "Quick Links",
+            "accordion_default": ""
+          }
+        },
+        "linklist-2": {
+          "type": "linklist",
+          "settings": {
+            "linklist": "footer-menu-1",
+            "title": "Policies",
+            "accordion_default": ""
+          }
+        },
         "newsletter": {
           "type": "newsletter",
           "settings": {
@@ -29,40 +45,15 @@
             "background_color": "#000000",
             "text_color_value": "#ffffff"
           }
-        },
-        "linklist-1": {
-          "type": "linklist",
-          "settings": {
-            "linklist": "footer-menu-1",
-            "title": "QUICK LINKS",
-            "accordion_default": ""
-          }
-        },
-        "linklist-2": {
-          "type": "linklist",
-          "settings": {
-            "linklist": "footer-menu-2",
-            "title": "POLICIES",
-            "accordion_default": ""
-          }
-        },
-        "social_KczYAe": {
-          "type": "social",
-          "settings": {
-            "title": "",
-            "text_size": 8,
-            "enable_follow_on_shop": false
-          }
         }
       },
       "block_order": [
-        "newsletter",
-        "linklist-1",
+        "linklist_nYzkab",
         "linklist-2",
-        "social_KczYAe"
+        "newsletter"
       ],
       "settings": {
-        "menu_position": "right",
+        "menu_position": "left",
         "footer_image": "shopify://shop_images/Brat_Noir_Logo_1.png",
         "logo_max_limit": 125,
         "width": "wrapper--full",

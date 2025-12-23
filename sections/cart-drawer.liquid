@@ -3,7 +3,6 @@
 {% comment %}
   * The AJAX cart drawer called by layouts/cart.drawer.liquid
   * cart {object} - the cart
-  {% render 'cart-drawer', cart: cart %}
 {% endcomment %}
 
 {%- liquid
@@ -17,125 +16,220 @@
     assign pop_style = 'drawer--pop'
   endif
 -%}
+
 {%- if settings.cart_style == "drawer" or settings.cart_style == "pop" -%}
-  {%- if template.name != 'cart' -%}
-    <section
-      data-section-id="{{ section.id }}"
-      data-section-type="cart-drawer"
-    >
-      <div class="drawer cart__drawer {{ pop_style }} {{ hide_quantity }} {{ section.settings.cart_color_bg }}"
-        data-cart-message-container
-        data-drawer="drawer-cart"
-        id="drawer-cart">
-        <div class="drawer__content" aria-label="{{ 'layout.cart.title' | t }}">
-          <div class="drawer__top">
+{%- if template.name != 'cart' -%}
 
-            <div class="drawer__top__left">
-              <p class="cart__drawer__title">{{ 'layout.cart.title' | t }}</p>
-            </div>
+<section
+  data-section-id="{{ section.id }}"
+  data-section-type="cart-drawer"
+>
+  <div
+    class="drawer cart__drawer {{ pop_style }} {{ hide_quantity }} {{ section.settings.cart_color_bg }}"
+    data-cart-message-container
+    data-drawer="drawer-cart"
+    id="drawer-cart"
+  >
+    <div class="drawer__content" aria-label="{{ 'layout.cart.title' | t }}">
 
-            <button class="drawer__button drawer__close"
-              data-first-focus
-              data-drawer-toggle="drawer-cart"
-              aria-label="{{ 'general.accessibility.close' | t }}">
-              {% render 'icon-core-x' %}
-            </button>
+      <!-- HEADER -->
+      <div class="drawer__top">
+        <div class="drawer__top__left">
+          <p class="cart__drawer__title">{{ 'layout.cart.title' | t }}</p>
+        </div>
+
+        <button
+          class="drawer__button drawer__close"
+          data-first-focus
+          data-drawer-toggle="drawer-cart"
+          aria-label="{{ 'general.accessibility.close' | t }}"
+        >
+          {% render 'icon-core-x' %}
+        </button>
+      </div>
+
+      {% render "bundle-progress-bar" %}
+
+      <!-- BODY -->
+      <div class="drawer__body" data-drawer-scrolls>
+
+        {% if section.settings.cart_custom_message_enable and section.settings.cart_custom_message_text != blank %}
+          <div class="cart__message cart__message--custom cart--hidden" data-cart-bar>
+            {{ section.settings.cart_custom_message_text }}
           </div>
+        {% endif %}
 
-          {% render "bundle-progress-bar" %}
+        {% if section.settings.show_free_shipping_message %}
+          {% render 'cart-shipping-message', message: section.settings.message, show_wheel: true %}
+        {% endif %}
 
-          
-          <div class="drawer__body" data-drawer-scrolls>
+        <div class="errors" data-form-errors style="display:none;"></div>
 
-            {% if section.settings.cart_custom_message_enable and section.settings.cart_custom_message_text != blank %}
-              <div class="cart__message cart__message--custom cart--hidden" data-cart-bar>
-                {{ section.settings.cart_custom_message_text }}
-              </div>
-            {% endif %}
+        <!-- EMPTY CART -->
+        <div class="cart--hidden" data-cart-empty>
+          {% render 'cart-empty' %}
+        </div>
 
-            {%- if section.settings.show_free_shipping_message -%}
-              {% render 'cart-shipping-message', message: section.settings.message, show_wheel: true %}
-            {%- endif -%}
-
-            <div class="errors" data-form-errors style="display: none;"></div>
-
-            {% comment %}Shown if cart is empty{% endcomment %}
-            <div class="cart--hidden" data-cart-empty >
-              {% render 'cart-empty' %}
-            </div>
-
-            {% comment %}Shown if cart has contents{% endcomment %}
-            <div data-cart-form data-cart-loading>
-              <div data-line-items>
-                <div class="cart__items cart__items--blankstate">
-                  <div class="cart__items__row">
-                    <div class="item--loadbar" data-item-loadbar></div>
-                    <div class="cart__items__grid">
-                      <div class="cart__items__image">
-                        <span class="cart__items__img empty-content"></span>
-                      </div>
-                      <div class="cart__items__title empty-content"></div>
-                      <div class="cart__items__price empty-content"></div>
-                    </div>
+        <!-- CART ITEMS -->
+        <div data-cart-form data-cart-loading>
+          <div data-line-items>
+            <div class="cart__items cart__items--blankstate">
+              <div class="cart__items__row">
+                <div class="item--loadbar" data-item-loadbar></div>
+                <div class="cart__items__grid">
+                  <div class="cart__items__image">
+                    <span class="cart__items__img empty-content"></span>
                   </div>
+                  <div class="cart__items__title empty-content"></div>
+                  <div class="cart__items__price empty-content"></div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="drawer__bottom cart--hidden" data-cart-bottom data-accordion-group>
-            {%- if section.settings.cart_notes_enable -%}
-              <div class="drawer__bottom__notes drawer__accordion">
-                <button class="accordion__title"
-                  data-accordion-trigger="accordion-cart-notes"
-                  aria-controls="accordion-cart-notes"
-                  aria-haspopup="true"
-                  aria-expanded="false">
-                  {{ 'cart.general.note' | t }}
-                </button>
-                <div class="accordion__body drawer__accordion__body"
-                  data-accordion-body
-                  id="accordion-cart-notes">
-                  <label class="visually-hidden" for="CartSpecialInstructions">{{ 'cart.general.note' | t }}</label>
-                  <textarea form="cart-form" name="note" placeholder="{{ 'cart.general.note' | t }}" class="drawer__notes__input input-full" id="CartSpecialInstructions" data-cart-note>{{ cart.note }}</textarea>
-                </div>
-              </div>
-            {%- endif -%}
-
-            {%- if section.settings.cart_shipping_enable -%}
-              {% render 'cart-shipping-estimate' %}
-            {%- endif -%}
-
-            <p class="drawer__bottom__meta body-size-3"><em>{% render 'taxes-included-cart' %}</em></p>
-
-            <div class="drawer__footer__subtotal" data-cart-subtotal>
-              {% render 'cart-subtotal' %}
-            </div>
-
-            <form id='cart-form' action="{{ routes.cart_url }}" method="post" novalidate class="cart">
-            <button type="submit" name="checkout" class="btn btn--primary btn--large btn--full checkout__button">
-              {{ 'cart.general.checkout' | t }}
-            </button>
-          </form>
-            {% if additional_checkout_buttons and section.settings.cart_show_additional_buttons %}
-              <div class="drawer__checkout__additional">
-                <div class="additional-checkout-buttons additional-checkout-buttons--vertical">
-                  {{ content_for_additional_checkout_buttons }}
-                </div>
-              </div>
-            {% endif %}
-            <button type="button" class="drawer__continue-shopping" data-drawer-toggle="drawer-cart">
-              Continue Shopping
-            </button>
           </div>
         </div>
-        <span class="drawer__underlay" data-drawer-underlay>
-          <span class="drawer__underlay__fill"></span>
-          <span class="drawer__underlay__blur"></span>
-        </span>
+
       </div>
-    </section>
-  {%- endif -%}
+
+      <!-- FOOTER -->
+      <div class="drawer__bottom cart--hidden" data-cart-bottom data-accordion-group>
+
+        {% if section.settings.cart_notes_enable %}
+          <div class="drawer__bottom__notes drawer__accordion">
+            <button
+              class="accordion__title"
+              data-accordion-trigger="accordion-cart-notes"
+              aria-controls="accordion-cart-notes"
+              aria-expanded="false"
+            >
+              {{ 'cart.general.note' | t }}
+            </button>
+
+            <div
+              class="accordion__body drawer__accordion__body"
+              data-accordion-body
+              id="accordion-cart-notes"
+            >
+              <label class="visually-hidden" for="CartSpecialInstructions">
+                {{ 'cart.general.note' | t }}
+              </label>
+              <textarea
+                form="cart-form"
+                name="note"
+                class="drawer__notes__input input-full"
+                id="CartSpecialInstructions"
+                data-cart-note
+              >{{ cart.note }}</textarea>
+            </div>
+          </div>
+        {% endif %}
+
+        {% if section.settings.cart_shipping_enable %}
+          {% render 'cart-shipping-estimate' %}
+        {% endif %}
+
+        <p class="drawer__bottom__meta body-size-3">
+          <em>{% render 'taxes-included-cart' %}</em>
+        </p>
+{% comment %}
+        {%- if cart.cart_level_discount_applications.size == 0 -%}
+          <!-- DISCOUNT INPUT (ONLY WHEN NO DISCOUNT APPLIED) -->
+          <div class="cart__discount">
+            <div class="cart__discount__row">
+              <span class="cart__discount__label">Discount:</span>
+
+              <div class="cart__discount__form">
+                <input
+                  type="text"
+                  placeholder="Enter code"
+                  class="cart__discount__input"
+                  id="CartDiscountCode"
+                />
+                <button
+                  type="button"
+                  class="cart__discount__apply"
+                  onclick="applyCartDiscount()"
+                >
+                  Apply
+                </button>
+              </div>
+            </div>
+          </div>
+          
+
+          <hr class="cart__divider">
+        {%- endif -%}
+         {% endcomment %}
+
+        <!-- SUBTOTAL + APPLIED DISCOUNT -->
+        <div class="drawer__footer__subtotal" data-cart-subtotal>
+          {% render 'cart-subtotal' %}
+        </div>
+
+        <!-- CHECKOUT -->
+        <form
+          id="cart-form"
+          action="{{ routes.cart_url }}"
+          method="post"
+          novalidate
+          class="cart"
+        >
+          <button
+            type="submit"
+            name="checkout"
+            class="btn btn--primary btn--large btn--full checkout__button"
+          >
+            {{ 'cart.general.checkout' | t }}
+          </button>
+        </form>
+
+        {% if additional_checkout_buttons and section.settings.cart_show_additional_buttons %}
+          <div class="drawer__checkout__additional">
+            <div class="additional-checkout-buttons additional-checkout-buttons--vertical">
+              {{ content_for_additional_checkout_buttons }}
+            </div>
+          </div>
+        {% endif %}
+
+        <button
+          type="button"
+          class="drawer__continue-shopping"
+          data-drawer-toggle="drawer-cart"
+        >
+          Continue Shopping
+        </button>
+
+      </div>
+    </div>
+
+    <span class="drawer__underlay" data-drawer-underlay>
+      <span class="drawer__underlay__fill"></span>
+      <span class="drawer__underlay__blur"></span>
+    </span>
+  </div>
+</section>
+
 {%- endif -%}
+{%- endif -%}
+
+<script>
+  function applyCartDiscount() {
+    var input = document.getElementById('CartDiscountCode');
+    if (!input) return;
+
+    var code = input.value.trim();
+    if (!code) return;
+
+    var redirectUrl = window.location.pathname + window.location.search;
+
+    window.location.href =
+      '/discount/' + encodeURIComponent(code) +
+      '?redirect=' + encodeURIComponent(redirectUrl);
+  }
+</script>
+
+
+
+
 
 {% schema %}
 {

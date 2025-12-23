@@ -1,4 +1,23 @@
 <!-- /snippets/cart-subtotal.liquid -->
+{%- if cart.cart_level_discount_applications.size > 0 -%}
+  {%- for discount in cart.cart_level_discount_applications -%}
+    <p class="cart__footer__discount">
+      <span class="cart__footer__label">
+        Discount:
+      </span>
+
+      <span class="cart__footer__discount-badge">
+        <span class="cart__footer__discount-name">
+          {{ discount.title }}
+        </span>
+        <span class="cart__footer__discount-value">
+          -{{ discount.total_allocated_amount | money }}
+        </span>
+      </span>
+    </p>
+  {%- endfor -%}
+{%- endif -%}
+
 
 <p class="cart__footer__itemtotal">
   <span class="cart__footer__label">
@@ -9,11 +28,4 @@
   </span>
 </p>
 
-{%- if cart.cart_level_discount_applications.size > 0 -%}
-  {%- for discount in cart.cart_level_discount_applications -%}
-    <p class="cart__footer__discount">
-      <span class="cart__footer__label">{{ discount.title }}:</span>
-      <span class="cart__footer__value">-{{ discount.total_allocated_amount | money }}</span>
-    </p>
-  {%- endfor -%}
-{%- endif -%}
+

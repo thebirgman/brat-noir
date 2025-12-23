@@ -2012,3 +2012,765 @@ span.price.on-sale {}
 .sticky-cta-bar.sticky-cta-bar--visible {
     z-index: 9999!important;
 }
+
+.drawer__bottom .btn--primary
+{
+  border-radius: 0px !important;
+  font-weight: 600;
+}
+
+p.footer__title {
+  font-weight: 600;
+}
+
+form.needsclick.klaviyo-form.klaviyo-form-version-cid_1.go3279073480.kl-private-reset-css-Xuajs1 {
+  padding: 10px 0px !important;
+  
+}
+
+/* ============================= */
+/* FOOTER COLUMN LAYOUT FIX */
+/* ============================= */
+
+/* Main footer content wrapper */
+.footer__content__inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 80px;
+}
+
+/* Logo column */
+.footer__logo__wrapper {
+  flex: 0 0 220px; /* fixed logo column */
+}
+
+/* Menu + blocks container */
+.footer__content__inner > .float-grid {
+  flex: 1;
+}
+
+/* Inside the menu grid → columns */
+.footer .float-grid {
+  display: flex;
+  gap: 64px;
+}
+
+/* Each menu block = its own column */
+.footer .grid__item {
+  flex: 1;
+  width: auto !important;
+  float: none !important;
+}
+
+/* Newsletter column wider */
+.footer__aside {
+  flex: 1.5;
+}
+
+/* Mobile fallback */
+@media (max-width: 768px) {
+  .footer__content__inner {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .footer .float-grid {
+    display: block;
+  }
+}
+
+
+.appstleSelectedSellingPlanOptionDescription ul {
+    margin-bottom: 0;
+}
+
+.appstle_subscribe_option_grid {
+    flex-wrap: wrap;
+}
+
+.appstleSelectedSellingPlanOptionDescription li:before {
+    content: "";
+    background: url(/cdn/shop/files/verified.png?v=1755091608);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 18px;
+    height: 18px;
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: 2px;
+}
+
+.appstleSelectedSellingPlanOptionDescription li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 5px;
+}
+
+/* Subscription Info Icon */
+.subscription-info-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.subscription-info-icon__circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #61150F;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1;
+    font-family: serif;
+    transition: opacity 0.2s ease;
+}
+
+.subscription-info-icon:hover .subscription-info-icon__circle {
+    opacity: 0.8;
+}
+
+.subscription-info-icon:focus {
+    outline: 2px solid #61150F;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Subscription Info Popup Modal */
+.subscription-info-modal {
+    background: #fff;
+    padding: 40px;
+    max-width: 700px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 8px;
+}
+
+.subscription-info-modal__title {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 30px 0;
+    color: #000;
+    text-align: center;
+}
+
+.subscription-info-modal__table-wrapper {
+    overflow-x: auto;
+}
+
+.subscription-info-modal__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+}
+
+.subscription-info-modal__table thead {
+    background-color: #f5f5f5;
+}
+
+.subscription-info-modal__table th {
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 16px;
+    border-bottom: 2px solid #ddd;
+    color: #000;
+}
+
+.subscription-info-modal__table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+    color: #333;
+}
+
+.subscription-info-modal__table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.subscription-info-modal__table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.subscription-info-modal__discount {
+    color: #61150F;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 768px) {
+    .subscription-info-modal {
+        padding: 30px 20px;
+        width: 95%;
+    }
+    
+    .subscription-info-modal__title {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .subscription-info-modal__table th,
+    .subscription-info-modal__table td {
+        padding: 10px 8px;
+        font-size: 14px;
+    }
+}
+
+
+span.subscription-info-icon {
+  z-index: 9999;
+}
+
+h2.subscription-info-modal__title {
+  font-size: 22px!important;
+  text-align: left;
+  letter-spacing: 0.5px!important;
+}
+
+.modal__container.subscription-info-modal {
+  border-radius: 20px;
+}
+
+table.subscription-info-modal__table tr > td:nth-child(1),
+.subscription-info-modal__table th:nth-child(1){
+  background: #FFF2F1;
+  font-weight: 600;
+}
+
+
+table.subscription-info-modal__table tr > td:nth-child(2),
+.subscription-info-modal__table th:nth-child(2){
+  background: #ffebea;
+}
+
+
+table.subscription-info-modal__table tr > td:nth-child(3),
+.subscription-info-modal__table th:nth-child(3){
+  background: #ffe0de;
+}
+
+.subscription-info-modal__table td {
+  border: 0;
+  padding: 8px 20px;
+  font-size: 14px;
+}
+
+.subscription-info-modal__table th {
+  border: 0;
+  padding: 10px 20px;
+  padding-top: 30px;
+  font-size: 14px;
+  /* min-width: 210px; */
+  /* text-align: center; */
+}
+
+span.subscription-info-modal__discount {
+  color: #FF6E6E;
+  font-weight: 700;
+}
+
+table.subscription-info-modal__table {
+  border-radius: 10px;
+}
+
+table.subscription-info-modal__table thead {
+  border-radius: 10px;
+}
+
+.subscription-info-modal {
+  max-width: 800px;
+}
+@media screen and (min-width: 768px) {
+.subscription-info-modal__table th {
+  min-width: 200px;
+  font-size: 14px;
+}
+
+}
+.subscription-info-modal__table tr:last-child td {
+  padding-bottom: 30px;
+}
+
+@media screen and (max-width: 768px) {
+.subscription-info-modal__table th {
+  padding: 10px;
+  padding-top: 20px;
+  width: 33%;
+}
+
+.subscription-info-modal__table td {
+  padding: 7px 10px;
+  font-size: 13px;
+  line-height: 1.3em;
+}
+
+.subscription-info-modal__table tr:last-child td {
+  padding-bottom: 20px;
+}
+
+h2.subscription-info-modal__title {
+  text-align: center;
+  font-weight: 500;
+  max-width: 310px;
+  margin-left: auto;
+  margin-right: auto;
+}
+}
+
+
+span.appstle-save-badge:empty {
+    display: none!important;
+}
+
+span.appstle-save-badge:empty {
+    display: none!important;
+}
+
+.subscription-info-icon__circle {
+    border: 1.5px solid #61150F;
+    background: transparent;
+    color: #61150F;
+    font-style: normal;
+}
+
+
+span.appstle-save-badge:empty {
+    display: none!important;
+}
+
+.subscription-info-icon__circle {
+    border: 1.5px solid #61150F;
+    background: transparent;
+    color: #61150F;
+    font-style: normal;
+}
+
+.product__grid__price--nowrap span.price.appstle_subscription_final_price {
+    display: none;
+}
+
+.product__grid__price--nowrap .price[style*="line-through"] {
+    text-decoration: none!important;
+}
+
+
+
+
+
+.footer__block.footer__aside {
+    width: 30%;
+    flex: auto;
+    margin-left: 0;
+}
+
+.footer__content {
+    flex: auto;
+    width: 60%;
+    align-items: flex-start;
+}
+
+.footer__content__inner {
+    padding: 0;
+}
+
+.footer__content__inner {align-self: initial!important;}
+
+.footer__holder {}
+
+.subfooter .section-padding.wrapper--full {
+    padding: 0;
+}
+
+footer.footer {
+    padding: 60px 0;
+}
+
+.footer__quicklinks a {
+    font-size: 14px;
+    text-transform: initial;
+}
+
+.footer__quicklinks li {
+    margin-bottom: 3px;
+}
+
+label.footer__title.footer__accordion__head.no-js {
+    display: block;
+    margin-left: 0;
+    margin-bottom: 0;
+    color:  #FFFFFF80;
+    font-size: 15px;
+    letter-spacing: 0;
+}
+
+footer div.needsclick.kl-private-reset-css-Xuajs1 {
+    flex-direction: row!important;
+    width: 100%!important;
+    gap: 10px;
+}
+
+footer button.needsclick.go443571185.kl-private-reset-css-Xuajs1 {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+footer input.needsclick.kl-private-reset-css-Xuajs1 {
+    width: 100%!important;
+    background: #FFFFFF4D!important;
+    border-radius: 5px!important;
+}
+
+footer div.needsclick.kl-private-reset-css-Xuajs1:empty {
+    display: none!important;
+}
+
+.footer__holder {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.lifhg-gray-text {
+    opacity: .5;
+    font-size: 14px;
+    margin-top: 40px;
+    font-weight: 500;
+}
+
+a.footer__icon.footer__icon--social {
+    margin-right: 5px;
+    border: 1px solid #fff;
+    padding: 4px;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    max-width: 100%;
+}
+
+.lifhg-gray-text {
+    opacity: .5;
+    font-size: 14px;
+    margin-top: 40px;
+    font-weight: 500;
+}
+
+a.footer__icon.footer__icon--social {
+    margin-right: 5px;
+    border: 1px solid #fff;
+    padding: 4px;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    max-width: 100%;
+        background: #FFFFFF1A;
+}
+
+.subfooter__item.subfooter__item--copyright {
+    text-align: center;
+    justify-content: center;
+    border-top: 1px solid #222;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    font-size: 15px;
+}
+
+@media screen and (max-width: 768px) {
+.footer__block.footer__aside {
+    width: 100%;
+}
+
+.footer__content {
+    width: 100%;
+    display: block;
+}
+
+.footer__logo__wrapper {
+    flex: auto;
+    width: 100%;
+}
+
+.footer__content__inner {
+    width: 100%;
+}
+
+.float-grid.grid--uniform {
+    width: 100%;
+}
+
+.socials-container {
+    /* justify-content: center; */
+    /* display: flex; */
+    text-align: center;
+}
+
+footer div.needsclick.kl-private-reset-css-Xuajs1 {
+    flex-wrap: wrap!important;
+}
+
+a.footer__logo {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    top: 40px;
+}
+
+footer.footer {
+    padding-top: 150px;
+}
+
+footer .wrapper--full.section-padding-custom {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.footer__newsletter__body {
+    padding: 0;
+}
+.footer__quicklinks {
+    display: block!important;
+}
+
+.grid__item.medium-up--one-half.footer__block > *:not(ul) {
+    display: none;
+}
+
+p.footer__title {
+    display: block!important;
+    pointer-events: none;
+    padding: 0!important;
+    border: 0!Important;
+    font-size: 15px!Important;
+    color: #666;
+}
+
+.float-grid.grid--uniform {
+    display: flex;
+}
+
+p.footer__title svg {
+    display: none!important;
+}
+
+footer.footer {
+    padding-bottom: 40px;
+}
+}
+
+
+/* ============================= */
+/* CART SUBTOTAL LAYOUT */
+/* ============================= */
+
+.cart__footer__itemtotal,
+.cart__footer__discount {
+  display: flex;
+  justify-content: space-between; /* pushes text to sides */
+  align-items: center;
+  width: 100%;
+  text-align: left; /* override centering */
+  padding: 16px 22.5px 0px 22.5px !important;
+}
+
+/* Optional: font consistency */
+.cart__footer__label {
+  font-weight: 500;
+}
+
+.cart__footer__value {
+  font-weight: 600;
+  text-align: right;
+}
+
+
+/* ===== CART DRAWER – DISCOUNT + SUBTOTAL WIREFRAME FIX ===== */
+
+/* Discount input container padding */
+.cart__discount {
+  padding-left: 22.5px;
+  padding-right: 22.5px;
+  margin-bottom: 16px;
+}
+
+/* Discount row layout */
+.cart__discount__row {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* Discount label */
+.cart__discount__label {
+  font-size: 15px;
+  color: #000;
+  flex-shrink: 0;
+}
+
+/* Input + button wrapper */
+.cart__discount__form {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+/* Discount input */
+.cart__discount__input {
+  height: 46px;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.15);
+  background: transparent;
+  font-size: 15px;
+  max-width: 200px;
+}
+
+/* Apply button */
+.cart__discount__apply {
+  height: 46px;
+  padding: 0 22px;
+  border-radius: 10px;
+  background: #e9ddff;
+  border: none;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* Divider under discount */
+.cart__divider {
+  border: none;
+  height: 1px;
+  background: rgba(0,0,0,0.12);
+  margin: 18px 22.5px;
+}
+
+/* FORCE subtotal row layout */
+.cart__footer__itemtotal,
+.cart__footer__discount {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 0 22.5px;
+}
+
+/* Subtotal typography */
+.cart__footer__itemtotal {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Applied discount row */
+.cart__footer__discount {
+  margin-top: 10px;
+  font-size: 15px;
+  color: #f4a261; /* wireframe peach */
+}
+
+/* Value alignment */
+.cart__footer__value {
+  text-align: right !important;
+  font-weight: 500;
+}
+
+/* Discount input container */
+.cart__discount {
+  padding: 0 22.5px;
+  margin-bottom: 16px;
+}
+
+.cart__discount__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cart__discount__label {
+  font-weight: 500;
+}
+
+/* Input + button */
+.cart__discount__form {
+  display: flex;
+  gap: 10px;
+}
+
+.cart__discount__input {
+  height: 44px;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 1px solid #d5d5d5;
+  min-width: 160px;
+}
+
+.cart__discount__apply {
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 10px;
+  background: #e9dcff;
+  border: none;
+  font-weight: 500;
+}
+
+/* Applied discount row */
+.cart__footer__discount {
+  padding: 12px 22.5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart__footer__badge {
+  background: #e9dcff;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.cart__footer__discount {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cart__footer__discount-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  background-color: #E5BAFE ; 
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.cart__footer__discount-name {
+  font-size: 0.95rem;
+}
+
+.cart__footer__discount-value {
+  font-size: 0.95rem;
+}
+
+span.cart__footer__label {
+  font-size: 16px !important;
+  color: #000 !important;
+}
+
+.drawer__footer__subtotal {
+  border-top: solid 1px #FFFFFF;
+  padding-top: 29px;
+}

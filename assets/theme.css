@@ -22298,16 +22298,19 @@ a.product__form__link:after {
   line-height: var(--leading-normal);
   padding: var(--space-6) var(--gutter);
   margin: 0;
-  border-top: 1px solid var(--border);
+
 }
 .drawer__footer__subtotal .cart__footer__itemtotal .cart__footer__value,
 .drawer__footer__subtotal .cart__footer__discount .cart__footer__value {
   font-weight: var(--FONT-WEIGHT-BODY-BOLD);
 }
 .drawer__footer__subtotal .cart__footer__discount {
-  background-color: var(--primary-fade);
-  color: var(--primary);
+  color: #000;
 }
+span.cart__footer__value {
+  background-color: ##E5BAFE !important;
+}
+
 .drawer__checkout__additional .additional-checkout-buttons {
   border-left: none;
   border-right: none;
