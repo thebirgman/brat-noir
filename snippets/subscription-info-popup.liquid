@@ -19,11 +19,14 @@
               <td>Cost Per Set</td>
               <td>$18.00</td>
               {% if product.title contains "Bundle" %}
-              <td>$15.00 <span class="subscription-info-modal__discount">(17% Off)</span></td>
+                <td>$11.00 <span class="subscription-info-modal__discount">(38% Off)</span></td>
+              
               {% elsif product.tags contains "trio-bundle" %}
-              <td>$13.00 <span class="subscription-info-modal__discount">(26% Off)</span></td>
+                <td>$13.00 <span class="subscription-info-modal__discount">(26% Off)</span></td>
+                
+              
               {% else %}
-              <td>$11.00 <span class="subscription-info-modal__discount">(38% Off)</span></td>
+              <td>$15.00 <span class="subscription-info-modal__discount">(17% Off)</span></td>
               {% endif %}
             </tr>
             <tr>
