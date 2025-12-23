@@ -2579,7 +2579,7 @@ footer.footer {
   align-items: center;
   width: 100%;
   text-align: left; /* override centering */
-  padding: 20px 22.5px 0px 22.5px !important;
+  padding: 16px 22.5px 0px 22.5px !important;
 }
 
 /* Optional: font consistency */
@@ -2772,5 +2772,5 @@ span.cart__footer__label {
 
 .drawer__footer__subtotal {
   border-top: solid 1px #FFFFFF;
-  padding-top: 25px;
+  padding-top: 29px;
 }
