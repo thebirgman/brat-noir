@@ -2764,3 +2764,7 @@ footer.footer {
 .cart__footer__discount-value {
   font-size: 0.95rem;
 }
+
+span.cart__footer__label {
+  font-size: 16px !important;
+}
