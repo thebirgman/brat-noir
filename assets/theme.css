@@ -22305,7 +22305,7 @@ a.product__form__link:after {
   font-weight: var(--FONT-WEIGHT-BODY-BOLD);
 }
 .drawer__footer__subtotal .cart__footer__discount {
-  background-color: var(--primary-fade);
+  
   color: var(--primary);
 }
 .drawer__checkout__additional .additional-checkout-buttons {
