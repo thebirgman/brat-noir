@@ -2769,3 +2769,7 @@ span.cart__footer__label {
   font-size: 16px !important;
   color: #000 !important;
 }
+
+.drawer__footer__subtotal {
+  border-top: solid 1px #FFFFFF;
+}
