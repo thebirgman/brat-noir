@@ -2774,3 +2774,9 @@ span.cart__footer__label {
   border-top: solid 1px #FFFFFF;
   padding-top: 29px;
 }
+
+@media screen and (max-width: 768px) {
+.footer .grid__item {
+    min-width: 110px;
+}
+}
