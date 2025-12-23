@@ -747,3 +747,29 @@ button.bundle-products__cart-checkout {
 .bundle-products__subheading.rte {
     margin-bottom: 30px;
 }
+
+@media screen and (max-width: 768px) {
+.bundle-products__grid {
+    padding: 16px!Important;
+    gap: 8px;
+}
+
+.bundle-product__card {
+    width: calc(50% - 4px);
+}
+
+.bundle-product__details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.bundle-product__info {
+    gap: 10px;
+}
+
+button.bundle-product__atc {
+    font-size: 14px;
+    font-weight: 700;
+}
+}
