@@ -22305,9 +22305,12 @@ a.product__form__link:after {
   font-weight: var(--FONT-WEIGHT-BODY-BOLD);
 }
 .drawer__footer__subtotal .cart__footer__discount {
-  
   color: #000;
 }
+span.cart__footer__value {
+  background: ##E5BAFE;
+}
+
 .drawer__checkout__additional .additional-checkout-buttons {
   border-left: none;
   border-right: none;
