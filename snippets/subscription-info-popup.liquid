@@ -1,3 +1,4 @@
+
 <!-- /snippets/subscription-info-popup.liquid -->
 <div class="modal micromodal-slide" id="subscription-info-popup" data-modal aria-hidden="true">
   <div class="modal__overlay" tabindex="-1" data-micromodal-close>
@@ -17,7 +18,13 @@
             <tr>
               <td>Cost Per Set</td>
               <td>$18.00</td>
+              {% if product.title contains "Bundle" %}
               <td>$15.00 <span class="subscription-info-modal__discount">(17% Off)</span></td>
+              {% elsif product.tags contains "trio-bundle" %}
+              <td>$13.00 <span class="subscription-info-modal__discount">(26% Off)</span></td>
+              {% else %}
+              <td>$11.00 <span class="subscription-info-modal__discount">(38% Off)</span></td>
+              {% endif %}
             </tr>
             <tr>
               <td>Free Shipping Threshold</td>
