@@ -2780,3 +2780,9 @@ span.cart__footer__label {
     min-width: 110px;
 }
 }
+
+@media screen and (min-width: 768px) {
+.appstleSelectedSellingPlanOptionDescription li {
+    font-size: 15px;
+}
+}
