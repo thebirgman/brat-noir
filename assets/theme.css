@@ -22308,7 +22308,7 @@ a.product__form__link:after {
   color: #000;
 }
 span.cart__footer__value {
-  background: ##E5BAFE;
+  background-color: ##E5BAFE !important;
 }
 
 .drawer__checkout__additional .additional-checkout-buttons {
