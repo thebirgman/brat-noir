@@ -130,7 +130,7 @@
         <p class="drawer__bottom__meta body-size-3">
           <em>{% render 'taxes-included-cart' %}</em>
         </p>
-
+{% comment %}
         {%- if cart.cart_level_discount_applications.size == 0 -%}
           <!-- DISCOUNT INPUT (ONLY WHEN NO DISCOUNT APPLIED) -->
           <div class="cart__discount">
@@ -154,9 +154,11 @@
               </div>
             </div>
           </div>
+          
 
           <hr class="cart__divider">
         {%- endif -%}
+         {% endcomment %}
 
         <!-- SUBTOTAL + APPLIED DISCOUNT -->
         <div class="drawer__footer__subtotal" data-cart-subtotal>
