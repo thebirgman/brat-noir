@@ -208,9 +208,9 @@
         "bundle_block_DaM7E6": {
           "type": "bundle_block",
           "settings": {
-            "button_label": "Brat Fall",
+            "button_label": "Brat Ombré",
             "featured_image": "shopify://shop_images/fall-bundle-1.png",
-            "featured_heading": "The Fall Edit. 100% Soft Gel.",
+            "featured_heading": "The Ombré Edit. 100% Soft Gel.",
             "featured_price": "5 Sets. $65 Flat ($13/set). Zero Plastic Feel.",
             "featured_description": "<p>Stop settling for drugstore plastic that pops off in an hour. We curated the ultimate autumn rotation using our signature Soft Gel formula—flexible, durable material that actually molds to your nail bed for an unclockable fit.</p><ul><li><strong>Better Materials:</strong> Soft gel that feels like a natural extension.</li><li><strong>Better Design:</strong> Edgy, curated art. No \"cheugy\" patterns.</li><li><strong>Better Value:</strong> Get $90 worth of nails for $65.</li></ul>",
             "featured_button_text": "SHOP THE EDIT",
@@ -609,7 +609,7 @@
           "type": "collection",
           "settings": {
             "collection": "fall-collection",
-            "title": "Fall Collection",
+            "title": "Ombré Collection",
             "grid_large": 3,
             "grid_medium": 2,
             "grid_mobile": 1.2
