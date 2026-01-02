@@ -124,7 +124,14 @@
 {%- endcapture -%}
 
 {%- liquid
-  assign first_image = product.media[0].preview_image
+  assign collection_featured_image = product.metafields.custom.collection_page_featured_image.value
+  if collection_featured_image != blank
+    assign first_image = collection_featured_image
+  elsif product.media.size > 0
+    assign first_image = product.media[0].preview_image
+  else
+    assign first_image = null
+  endif
   assign container_wh_ratio = settings.product_card_wh_ratio
   assign image_cover = true
 
@@ -206,7 +213,11 @@
                 endif
               endif
 
-              assign img_object = media.preview_image
+              if forloop.first and collection_featured_image != blank
+                assign img_object = collection_featured_image
+              else
+                assign img_object = media.preview_image
+              endif
               assign class = "product-grid-item__image"
               assign loading = 'lazy'
               assign fetchpriority = "low"
