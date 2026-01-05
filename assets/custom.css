@@ -2939,3 +2939,9 @@ span.product__price--off {
     /* padding-top: 10px; */
     /* padding-bottom: 25px; */
 }
+
+
+.appstle_subscription_amount_wrapper {
+    font-size: 16px;
+    font-weight: 700;
+}
