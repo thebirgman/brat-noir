@@ -2902,3 +2902,14 @@ span.asterisk-text-bullet {
     margin-top: 5px;
     display: block;
 }
+
+.product__price--compare {
+    order: -1;
+}
+
+span.product__price--off {
+    background: #FF6E6E;
+    color: #fff;
+    border: 0;
+    
+}
