@@ -2870,3 +2870,19 @@ table.subscription-info-modal__table tr > td:nth-child(1), .subscription-info-mo
     margin-top: 20px;
     font-size: 14px;
 }
+
+@media screen and (max-width: 768px) {
+span.subscription-info-modal__discount {
+    display: block;
+    font-size: 12px;
+}
+
+.subscription-info-modal__table td {
+    padding: 10px;
+}
+
+.modal__container.subscription-info-modal {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+}
