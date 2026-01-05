@@ -2913,3 +2913,29 @@ span.product__price--off {
     border: 0;
     
 }
+
+
+
+
+.trio-bundle .appstle_one_time_price_wrapper.has-compare-price:after {
+    content: "+ FREE SHIPPING";
+    position: absolute;
+    right: 14px;
+    color: #24B500;
+    font-weight: 600;
+    font-size: 14px;
+    bottom: 8px;
+    width: 100%;
+    min-width: 130px;
+    letter-spacing: -.6px;
+}
+
+.appstle_one_time_price_wrapper.has-compare-price {
+    font-size: 16px;
+    margin-top: -8px;
+}
+
+#appstle_subscription_widget0 .appstle_subscription_wrapper_option:not(.appstle_include_dropdown) {
+    /* padding-top: 10px; */
+    /* padding-bottom: 25px; */
+}
