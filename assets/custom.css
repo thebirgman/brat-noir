@@ -2895,3 +2895,10 @@ span.subscription-info-modal__discount.purple-text.br {
     color: #C603F2;
     display: block;
 }
+
+
+span.asterisk-text-bullet {
+    font-size: 13px;
+    margin-top: 5px;
+    display: block;
+}
