@@ -2790,7 +2790,7 @@ span.cart__footer__label {
 
 
 
-.appstle_subscription_radio_wrapper:after {
+.appstle_subscription_radio_wrapper .appstle_subscription_amount_wrapper:after {
     content: "+ FREE SHIPPING";
     position: absolute;
     right: 0;
