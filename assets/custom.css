@@ -2955,7 +2955,8 @@ span.product__price--off {
     letter-spacing: -.6px;
 }
 
-.appstle_one_time_price_wrapper.has-compare-price {
+.trio-bundle .appstle_one_time_price_wrapper.has-compare-price,
+.bundle .appstle_one_time_price_wrapper.has-compare-price {
     font-size: 16px;
     margin-top: -8px;
 }
