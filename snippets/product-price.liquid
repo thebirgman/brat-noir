@@ -34,13 +34,15 @@
             {{ current_variant.compare_at_price | money_without_trailing_zeros }}
           {%- endif -%}
         </span>
+         <span data-price-off class="product__price--off">
+          {{ 'products.product.save' | t }} {{ current_variant.compare_at_price | minus: current_variant.price | money_without_trailing_zeros }}
+        </span>
       {% else %}
-        <span data-price-off class="product__price--off">
-        
-          
+        <span data-price-off class="product__price--off hide">
+          <span data-price-off-type>{{ 'products.product.sale' | t }}</span>
+          <em>•</em>
           {{ 'products.product.save' | t }}
-          {{ current_variant.compare_at_price | money_without_trailing_zeros }}
-          
+          <span data-price-off-amount></span>
         </span>
       {% endif %}
 
