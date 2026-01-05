@@ -17,35 +17,37 @@
           <tbody>
             <tr>
               <td>Cost Per Set</td>
-              <td>$18.00</td>
+              
               {% if product.title contains "Bundle" %}
-                <td>$11.00 <span class="subscription-info-modal__discount">(38% Off)</span></td>
+                <td>$75 <span class="subscription-info-modal__discount green-text">+ FREE SHIPPING</span></td>
+                <td>$65 <span class="subscription-info-modal__discount green-text">+ FREE SHIPPING</span></td>
               
               {% elsif product.tags contains "trio-bundle" %}
-                <td>$13.00 <span class="subscription-info-modal__discount">(26% Off)</span></td>
-                
-              
+                <td>$45 <span class="subscription-info-modal__discount green-text">+ FREE SHIPPING</span></td>
+                <td>$45 <span class="subscription-info-modal__discount green-text">+ FREE SHIPPING</span> <span class="subscription-info-modal__discount purple-text br">+ FREE MYSTERY SET*</span></td>
               {% else %}
-              <td>$15.00 <span class="subscription-info-modal__discount">(17% Off)</span></td>
+                <td>$18 + SHIPPING</td>
+              <td>$18 <span class="subscription-info-modal__discount green-text">+ FREE SHIPPING</span></td>
               {% endif %}
             </tr>
             <tr>
               <td>Free Shipping Threshold</td>
-              <td>Orders over $45</td>
-              <td>Orders over $30</td>
-            </tr>
-            <tr>
-              <td>Minimum Sets for Free Ship</td>
-              <td>Must buy 3 Sets</td>
-              <td>Must buy 2 Sets</td>
+              <td>Orders <b>$45+</b></td>
+              <td>Single Subscription</td>
             </tr>
             <tr>
               <td>Commitment</td>
-              <td>None</td>
-              <td>Zero (Pause or Cancel anytime)</td>
+              <td>Just a Situationship: No labels, no strings. If we don't vibe within 30 days, get a full refund and ghost us. We can handle rejection.</td>
+              <td>Official Status: Reliable, consistent, but never toxic. Pause or break up with us anytime. Still backed by our 30-Day Happiness Guarantee if the spark fades.</td>
             </tr>
           </tbody>
         </table>
+        {% if product.tags contains "trio-bundle" %}
+          <div class="asterisk-description">*Free Mystery Set Every Subscription Period</div>
+        {% else %}
+
+        <div class="asterisk-description">*Pro Tip: Unlock VIP Pricing of $15 per set by adding 3 or more sets to your cart.</div>
+        {% endif %}
       </div>
     </div>
   </div>
