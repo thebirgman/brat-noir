@@ -2800,6 +2800,7 @@ span.cart__footer__label {
     bottom: -18px;
     width: 100%;
     min-width: 130px;
+    letter-spacing: -.6px;
 }
 
 .appstle_subscription_radio_wrapper{
