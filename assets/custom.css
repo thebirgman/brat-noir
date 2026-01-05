@@ -2914,6 +2914,18 @@ span.product__price--off {
     
 }
 
+.trio-bundle  .appstle_subscription_radio_wrapper:after{
+ content: "+ FREE MYSTERY SET*";
+    position: absolute;
+    right: 14px;
+    color: #C603F2;
+    font-weight: 600;
+    font-size: 14px;
+    bottom: 8px;
+    width: 100%;
+    min-width: 130px;
+    letter-spacing: -.6px;
+}
 
 
 
