@@ -2829,3 +2829,42 @@ span.subscription-info-modal__discount.green-text {
 table.subscription-info-modal__table tr > td:nth-child(1), .subscription-info-modal__table th:nth-child(1) {
     font-weight: 700;
 }
+
+.appstle_subscription_amount_wrapper {
+    position: relative;
+}
+
+span.subscription-info-modal__discount.green-text {
+    color: #24B500;
+}
+
+.subscription-info-modal__table th {
+    font-weight: 700;
+}
+
+table.subscription-info-modal__table tr > td:nth-child(1), .subscription-info-modal__table th:nth-child(1) {
+    font-weight: 700;
+}
+
+table.subscription-info-modal__table {}
+
+table.subscription-info-modal__table tbody > tr:nth-child(1), table.subscription-info-modal__table tbody > tr:nth-child(2) {
+    border-bottom: 1px solid #FCD2CF;
+}
+
+.subscription-info-modal__table td {
+    padding: 15px 20px;
+    letter-spacing: -0.5px;
+    vertical-align: top;
+}
+
+table.subscription-info-modal__table tr > td:nth-child(1), .subscription-info-modal__table th:nth-child(1) {
+    min-width: 210px;
+}
+
+.asterisk-description {
+    letter-spacing: -.5px;
+    font-style: italic;
+    margin-top: 20px;
+    font-size: 14px;
+}
