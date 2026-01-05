@@ -2861,6 +2861,10 @@ table.subscription-info-modal__table tbody > tr:nth-child(1), table.subscription
 table.subscription-info-modal__table tr > td:nth-child(1), .subscription-info-modal__table th:nth-child(1) {
     min-width: 210px;
 }
+
+span.subscription-info-modal__discount.purple-text.br {
+    margin-left: 28px;
+}
 }
 
 
@@ -2885,4 +2889,9 @@ span.subscription-info-modal__discount {
     padding-left: 10px;
     padding-right: 10px;
 }
+}
+
+span.subscription-info-modal__discount.purple-text.br {
+    color: #C603F2;
+    display: block;
 }
