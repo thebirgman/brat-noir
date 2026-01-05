@@ -2942,6 +2942,19 @@ span.product__price--off {
     letter-spacing: -.6px;
 }
 
+.bundle .appstle_one_time_price_wrapper.has-compare-price:after {
+    content: "+ FREE SHIPPING";
+    position: absolute;
+    right: 14px;
+    color: #24B500;
+    font-weight: 600;
+    font-size: 14px;
+    bottom: 8px;
+    width: 100%;
+    min-width: 130px;
+    letter-spacing: -.6px;
+}
+
 .appstle_one_time_price_wrapper.has-compare-price {
     font-size: 16px;
     margin-top: -8px;
