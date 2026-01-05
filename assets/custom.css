@@ -2791,13 +2791,15 @@ span.cart__footer__label {
 
 
 .appstle_subscription_radio_wrapper .appstle_subscription_amount_wrapper:after {
-    content: "+ FREE SHIPPING";
+   content: "+ FREE SHIPPING";
     position: absolute;
     right: 0;
     color: #24B500;
     font-weight: 600;
     font-size: 14px;
-    bottom: 20px;
+    bottom: -18px;
+    width: 100%;
+    min-width: 130px;
 }
 
 .appstle_subscription_radio_wrapper{
@@ -2805,4 +2807,6 @@ span.cart__footer__label {
     ;
 }
 
-.appstle_subscription_amount_wrapper {}
+.appstle_subscription_amount_wrapper {
+  position: relative;
+}
