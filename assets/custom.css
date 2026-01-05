@@ -2786,3 +2786,23 @@ span.cart__footer__label {
     font-size: 15px;
 }
 }
+
+
+
+
+.appstle_subscription_radio_wrapper:after {
+    content: "+ FREE SHIPPING";
+    position: absolute;
+    right: 0;
+    color: #24B500;
+    font-weight: 600;
+    font-size: 14px;
+    bottom: 20px;
+}
+
+.appstle_subscription_radio_wrapper{
+    padding-bottom: 40px!important
+    ;
+}
+
+.appstle_subscription_amount_wrapper {}
