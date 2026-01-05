@@ -27,6 +27,7 @@
       </span>
 
       {% if settings.badge_sale_type == 'strike' %}
+        {% if current_variant.compare_at_price > current_variant.price %}
         <span data-compare-price class="product__price--compare {{ price_size_class }}">
           {%- if settings.currency_code_enable -%}
             {{ current_variant.compare_at_price | money_without_trailing_zeros | append: ' ' | append: shop.currency }}
@@ -37,6 +38,7 @@
          <span data-price-off class="product__price--off">
           {{ 'products.product.save' | t }} {{ current_variant.compare_at_price | minus: current_variant.price | money_without_trailing_zeros }}
         </span>
+      {% endif %}
       {% else %}
         <span data-price-off class="product__price--off hide">
           <span data-price-off-type>{{ 'products.product.sale' | t }}</span>
