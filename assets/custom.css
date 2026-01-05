@@ -3013,3 +3013,7 @@ span.appstle_subscription_amount.transcy-money {
 .appstle_one_time_details_wrapper span.appstle_subscription_amount.transcy-money {
     font-weight: 600!important;
 }
+
+.appstle_one_time_price_wrapper {
+    font-size: 16px;
+}
