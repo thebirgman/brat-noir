@@ -36,10 +36,11 @@
         </span>
       {% else %}
         <span data-price-off class="product__price--off">
-          <span data-price-off-type>{{ 'products.product.sale' | t }}</span>
-          <em>•</em>
+        
+          
           {{ 'products.product.save' | t }}
-          <span data-price-off-amount></span>
+          {{ current_variant.compare_at_price | money_without_trailing_zeros }}
+          
         </span>
       {% endif %}
 
