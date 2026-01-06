@@ -3017,3 +3017,29 @@ span.appstle_subscription_amount.transcy-money {
 .appstle_one_time_price_wrapper {
     font-size: 16px;
 }
+
+
+@media screen and (min-width: 768px) {
+
+  .appstle_subscription_radio_wrapper label.appstle_radio_label {
+    margin-top: 10px!important;
+}
+
+.appstle_subscription_radio_wrapper {
+    padding-bottom: 25px!Important;
+}
+
+.trio-bundle .appstle_subscription_radio_wrapper label.appstle_radio_label {
+    margin-top: 20px!important;
+}
+
+
+.trio-bundle  .appstle_subscription_radio_wrapper {
+    padding-bottom: 40px!Important;
+}
+
+.trio-bundle .appstle_subscription_radio_wrapper:after {
+    bottom: 25px;
+}
+}
+
