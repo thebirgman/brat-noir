@@ -3076,3 +3076,7 @@ table.subscription-info-modal__table thead {
 .subscription-info-modal__table tbody tr:last-child td:nth-child(3) {
     border-radius: 0 0 8px 0px !important;
 }
+
+span.product__price--sale {
+    color: #61150F;
+}
