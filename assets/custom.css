@@ -3043,3 +3043,10 @@ span.appstle_subscription_amount.transcy-money {
 }
 }
 
+
+
+.subscription-info-modal button.modal__close {
+    color: #000;
+    box-shadow: none;
+    text-shadow: none;
+}
