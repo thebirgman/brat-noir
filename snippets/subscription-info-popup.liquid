@@ -18,7 +18,7 @@
           <tbody>
             <tr>
 
-              {% if product.title contains "Bundle" %}
+              {% if product.title contains "Bundle" or product.title contains "Collection" %}
                 <td>Cost Per Collection</td>
               {% elsif product.tags contains "trio-bundle" %}
                 <td>Cost Per Bundle</td>
@@ -27,7 +27,7 @@
 
               {% endif %}
               
-              {% if product.title contains "Bundle" %}
+              {% if product.title contains "Bundle" or product.title contains "Collection" %}
                 <td><strong>$75</strong> <span class="subscription-info-modal__discount green-text">+ FREE SHIPPING</span></td>
                 <td><strong style="color: #61150F">$65</strong> <span class="subscription-info-modal__discount green-text">+ FREE SHIPPING</span></td>
               
