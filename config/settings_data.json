@@ -54,7 +54,7 @@
     "swatches_enable": true,
     "swatches_collection_enable": false,
     "badge_sale_discount": true,
-    "badge_sale_type": "dollar",
+    "badge_sale_type": "strike",
     "cart_style": "drawer",
     "free_shipping_limit": "45",
     "social_instagram_link": "https://www.instagram.com/thebratnoir/",

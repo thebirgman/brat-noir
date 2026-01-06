@@ -2,8 +2,9 @@
 <!-- /snippets/subscription-info-popup.liquid -->
 <div class="modal micromodal-slide" id="subscription-info-popup" data-modal aria-hidden="true">
   <div class="modal__overlay" tabindex="-1" data-micromodal-close>
-    <button data-micromodal-close class="modal__close" aria-label="Close"></button>
+    
     <div class="modal__container subscription-info-modal" data-modal-content role="dialog" aria-modal="true" aria-label="Why Subscribe?">
+      <button data-micromodal-close class="modal__close" aria-label="Close"></button>
       <h2 class="subscription-info-modal__title">Why Subscribe? Let's look at the Numbers.</h2>
       <div class="subscription-info-modal__table-wrapper">
         <table class="subscription-info-modal__table">
@@ -17,35 +18,37 @@
           <tbody>
             <tr>
               <td>Cost Per Set</td>
-              <td>$18.00</td>
+              
               {% if product.title contains "Bundle" %}
-                <td>$11.00 <span class="subscription-info-modal__discount">(38% Off)</span></td>
+                <td><strong>$75</strong> <span class="subscription-info-modal__discount green-text">+ FREE SHIPPING</span></td>
+                <td><strong style="color: #61150F">$65</strong> <span class="subscription-info-modal__discount green-text">+ FREE SHIPPING</span></td>
               
               {% elsif product.tags contains "trio-bundle" %}
-                <td>$13.00 <span class="subscription-info-modal__discount">(26% Off)</span></td>
-                
-              
+                <td><strong>$45</strong>  <span class="subscription-info-modal__discount green-text">+ FREE SHIPPING</span></td>
+                <td><strong style="color: #61150F">$45</strong> <span class="subscription-info-modal__discount green-text">+ FREE SHIPPING</span> <span class="subscription-info-modal__discount purple-text br">+ FREE MYSTERY SET*</span></td>
               {% else %}
-              <td>$15.00 <span class="subscription-info-modal__discount">(17% Off)</span></td>
+                <td><strong>$18 + SHIPPING</strong></td>
+              <td><strong style="color: #61150F">$18</strong> <span class="subscription-info-modal__discount green-text">+ FREE SHIPPING</span></td>
               {% endif %}
             </tr>
             <tr>
               <td>Free Shipping Threshold</td>
-              <td>Orders over $45</td>
-              <td>Orders over $30</td>
-            </tr>
-            <tr>
-              <td>Minimum Sets for Free Ship</td>
-              <td>Must buy 3 Sets</td>
-              <td>Must buy 2 Sets</td>
+              <td>Orders <b>$45+</b></td>
+              <td>Single Subscription</td>
             </tr>
             <tr>
               <td>Commitment</td>
-              <td>None</td>
-              <td>Zero (Pause or Cancel anytime)</td>
+              <td>Just a Situationship: No labels, no strings. If we don't vibe within 30 days, get a full refund and ghost us. We can handle rejection.</td>
+              <td>Official Status: Reliable, consistent, but never toxic. Pause or break up with us anytime. Still backed by our 30-Day Happiness Guarantee if the spark fades.</td>
             </tr>
           </tbody>
         </table>
+        {% if product.tags contains "trio-bundle" %}
+          <div class="asterisk-description">*Free Mystery Set Every Subscription Period</div>
+        {% else %}
+
+        <div class="asterisk-description">*Pro Tip: Unlock VIP Pricing of $15 per set by adding 3 or more sets to your cart.</div>
+        {% endif %}
       </div>
     </div>
   </div>
