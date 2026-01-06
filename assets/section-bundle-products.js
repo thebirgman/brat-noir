@@ -225,4 +225,26 @@
 
     refreshCart();
   });
+
+  function handleCartChange() {
+    if (typeof refreshCart === 'function') {
+      refreshCart();
+    }
+  }
+
+  // 1️⃣ Shopify / theme cart events (documented + common)
+  document.addEventListener('cart:updated', handleCartChange);
+  document.addEventListener('theme:cart:change', handleCartChange);
+
+  // 2️⃣ Fallback: after any add-to-cart form submit
+  document.addEventListener('submit', function (event) {
+    const form = event.target;
+
+    if (
+      form?.action?.includes('/cart/add')
+    ) {
+      // Wait for Shopify to finish adding
+      setTimeout(handleCartChange, 300);
+    }
+  });
 })();
