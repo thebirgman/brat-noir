@@ -25,7 +25,7 @@
     assign sale_badge = true
     assign sale_badge_content = 'products.product.sale' | t
     if settings.badge_sale_discount
-      if settings.badge_sale_type == 'dollar'
+      if true
         if settings.currency_code_enable
           assign sale_badge_content = product.compare_at_price | minus: product.price | money_with_currency
         else
