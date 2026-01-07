@@ -125,6 +125,45 @@
     console.log('Cart data:', data);
     const template = document.querySelector('#bundle-cart-item');
 
+    // Check for products with special tags (trio-bundle or collection)
+    let hasSpecialTag = false;
+    if (data.items && data.items.length > 0) {
+      // Fetch product data to check tags
+      const productChecks = data.items.map(async (item) => {
+        try {
+          // Extract product handle from URL if available, or use product_id as fallback
+          let productHandle = item.handle;
+          if (!productHandle && item.url) {
+            // Extract handle from URL like /products/handle or /products/handle?variant=...
+            const urlMatch = item.url.match(/\/products\/([^\/\?]+)/);
+            if (urlMatch) {
+              productHandle = urlMatch[1];
+            }
+          }
+          
+          if (productHandle) {
+            const productResponse = await fetch(`/products/${productHandle}.js`);
+            if (productResponse.ok) {
+              const productData = await productResponse.json();
+              if (productData.tags) {
+                const tags = Array.isArray(productData.tags) ? productData.tags : productData.tags.split(',');
+                return tags.some(tag => 
+                  tag.trim().toLowerCase() === 'trio-bundle' || 
+                  tag.trim().toLowerCase() === 'collection'
+                );
+              }
+            }
+          }
+        } catch (e) {
+          console.warn('Could not fetch product tags for item:', item.product_id);
+        }
+        return false;
+      });
+      
+      const tagResults = await Promise.all(productChecks);
+      hasSpecialTag = tagResults.some(result => result === true);
+    }
+
     let html = '';
     data.items.forEach(item => {
       const itemHtml = template.innerHTML
@@ -142,7 +181,14 @@
     if (total) total.innerHTML = '$' + ((data.total_price || 0) / 100);
 
     const progress = document.querySelector('.bundle-products__cart-progress-bar');
-    if (progress) progress.style.setProperty('--progress', (data.item_count / 3) * 100 + '%');
+    if (progress) {
+      // Mark complete if 3+ items OR has special tag
+      if (data.item_count >= 3 || hasSpecialTag) {
+        progress.style.setProperty('--progress', '100%');
+      } else {
+        progress.style.setProperty('--progress', (data.item_count / 3) * 100 + '%');
+      }
+    }
 
     const remaining = document.querySelector('.bundle-products__cart-progress-text');
     if (remaining) {
@@ -157,7 +203,7 @@
       const textComplete = remaining.dataset.progressTextComplete || 'We love to see it. 20% OFF applied.';
       
       // Apply conditional logic matching the Liquid template
-      if (itemCount >= 3) {
+      if (itemCount >= 3 || hasSpecialTag) {
         progressText = textComplete;
       } else if (itemCount === 2) {
         progressText = textOneMore;

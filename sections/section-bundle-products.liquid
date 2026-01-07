@@ -112,14 +112,29 @@
       <div class="bundle-products__cart-progress">
         <p class="bundle-products__cart-progress-heading">{{ section.settings.bundle_content_heading }}</p>
         <p class="bundle-products__cart-progress-subheading">{{ section.settings.bundle_content_subheading }} </p>
+        {%- liquid
+          assign has_special_tag = false
+          for item in cart.items
+            if item.product.tags contains 'trio-bundle' or item.product.tags contains 'collection'
+              assign has_special_tag = true
+              break
+            endif
+          endfor
+        -%}
         {%- assign remaining = 3 | minus: cart.item_count -%}
-        {%- assign progress = 100 | times: cart.item_count | divided_by: 3 -%}
+        {%- liquid
+          if cart.item_count >= 3 or has_special_tag
+            assign progress = 100
+          else
+            assign progress = 100 | times: cart.item_count | divided_by: 3
+          endif
+        -%}
         <div class="bundle-products__cart-progress-bar" style="--progress: {{ progress }}%">
           <div class="bundle-products__cart-progress-fill"></div>
         </div>
         {%- liquid
           assign progress_text = ''
-          if cart.item_count >= 3
+          if cart.item_count >= 3 or has_special_tag
             assign progress_text = section.settings.progress_text_complete | default: 'We love to see it. 20% OFF applied.'
           elsif cart.item_count == 2
             assign progress_text = section.settings.progress_text_one_more | default: 'Just 1 more set to unlock 20% OFF'
