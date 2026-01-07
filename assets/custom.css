@@ -1693,7 +1693,7 @@ button.flickity-button.flickity-prev-next-button.previous {
 
 
 @media screen and (max-width: 768px) {
-.sticky-cta-visible  .needsclick.kl-teaser-YAdY4b.kl-private-reset-css-Xuajs1 {
+.sticky-cta-visible  .needsclick.kl-private-reset-css-Xuajs1[class*="kl-teaser"] {
     bottom: -100px!Important;
     opacity: 0;
     transition: .2s ease-in-out;
