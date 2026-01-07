@@ -15,8 +15,8 @@
         "image_zcLd7j": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/desktop-holiday-banner-3.0.png",
-            "mobile_image": "shopify://shop_images/mobile-holiday-hero-banner-3.0.png",
+            "image": "shopify://shop_images/January-Banner-Web-2026.png",
+            "mobile_image": "shopify://shop_images/January-Banner-Mobile-2026.png",
             "overlay_opacity": 0,
             "overlay_color": "#000000",
             "enable_overlay_text": false,
