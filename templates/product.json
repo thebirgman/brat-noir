@@ -304,7 +304,7 @@
         "card_Tftm6Y": {
           "type": "card",
           "settings": {
-            "image_desktop": "shopify://shop_images/artisan-fall-web.png",
+            "image_desktop": "{{ product.metafields.custom.artisan_design_image.value }}",
             "image_mobile": "shopify://shop_images/artisan-fall-mobile.png",
             "heading": "Artisan Design",
             "text": "No pixelated prints. Crisp lines and rich textures that pass the 'inch-away' test. If they can tell they're fake, we failed."
@@ -337,7 +337,7 @@
       "custom_css": [
         ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
         "p {font-size: 16px !important;}",
-        "@media screen and (max-width: 768px) {p,li {font-size: 14px !important; }}"
+        "@media screen and (max-width: 768px) {p, li {font-size: 14px !important; }}"
       ],
       "name": "Layer Construct Section",
       "settings": {
