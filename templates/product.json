@@ -305,7 +305,7 @@
           "type": "card",
           "settings": {
             "image_desktop": "{{ product.metafields.custom.artisan_design_image.value }}",
-            "image_mobile": "shopify://shop_images/artisan-fall-mobile.png",
+            "image_mobile": "{{ product.metafields.custom.artisan_design_image_mobile.value }}",
             "heading": "Artisan Design",
             "text": "No pixelated prints. Crisp lines and rich textures that pass the 'inch-away' test. If they can tell they're fake, we failed."
           }
