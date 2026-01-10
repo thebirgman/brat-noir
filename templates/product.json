@@ -336,7 +336,8 @@
       ],
       "custom_css": [
         ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
-        "h4, p{color: #222;}",
+        "h4{margin-bottom: 7px;}",
+        "h4,p {color: #222;}",
         "p {font-size: 16px !important;}",
         "@media screen and (max-width: 768px) {p, li {font-size: 14px !important; }}"
       ],
