@@ -313,8 +313,8 @@
         "card_p7hngU": {
           "type": "card",
           "settings": {
-            "image_desktop": "shopify://shop_images/flexible-fit-web.png",
-            "image_mobile": "shopify://shop_images/flexible-tech-mobile.png",
+            "image_desktop": "shopify://shop_images/flexible-fit-web_d7e10b9e-48b8-4fb7-8652-d89ed27c074c.png",
+            "image_mobile": "shopify://shop_images/flexible-fit-mobile.png",
             "heading": "Flexible-Fit Technology",
             "text": "Rigid plastic pops off. Our Soft-Gel flexes with your natural nail bed for a vacuum-seal fit that lasts 2+ weeks."
           }
@@ -322,8 +322,8 @@
         "card_wCrciP": {
           "type": "card",
           "settings": {
-            "image_desktop": "shopify://shop_images/vanishing-cuticle-web.png",
-            "image_mobile": "shopify://shop_images/vanishing-cuticle-mobile.png",
+            "image_desktop": "shopify://shop_images/vanishing-cuticle-web_71d5e346-2efb-4d65-bd0e-d91eac7fb5ad.png",
+            "image_mobile": "shopify://shop_images/vanishing-cuticle-mobile_0c4dc32f-9b94-46e5-b06e-0e899df93daa.png",
             "heading": "The 'Vanishing' Cuticle Line",
             "text": "A bulky cuticle line is a dead giveaway. Our 'Zero-Edge' taper melts into your nail bed. 100% seamless. 0% hair snagging."
           }
@@ -341,8 +341,8 @@
       ],
       "name": "Layer Construct Section",
       "settings": {
-        "left_image_desktop": "shopify://shop_images/4-layer-web.png",
-        "left_image_mobile": "shopify://shop_images/4-layer-mobile.png",
+        "left_image_desktop": "shopify://shop_images/4-layer-web_d4c0c53e-95d9-4b6e-9899-5cdc2c6b7f92.png",
+        "left_image_mobile": "shopify://shop_images/4-layer-mobile_12b2c9b2-c4bb-42ef-832e-96f061284183.png",
         "left_heading": "The 4-Layer Salon Construct",
         "left_text": "<p>We don't print nails; we build them.</p>\n<ol>\n  <li>Base Primer.</li>\n  <li>Soft Gel Core.</li>\n  <li>High-Pigment Polish.</li>\n  <li>UV-Hardened Top Coat.</li>\n</ol>\n<p>Indestructible structure, glass-like finish.</p>"
       }
