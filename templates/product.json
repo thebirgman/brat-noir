@@ -337,10 +337,10 @@
       "custom_css": [
         ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
         "h4 {margin-bottom: 7px;}",
-        ".layer-card.main-card{}",
+        ".layer-card.main-card p,.layer-card.main-card li,.layer-card.feature-wide p{font-size: 17px;}",
         "h4,p {color: #222;}",
-        "p {font-size: 15px !important;}",
-        "@media screen and (max-width: 768px) {p, li {font-size: 14px !important; }}"
+        "p {font-size: 15px;}",
+        "@media screen and (max-width: 768px) {p, li {font-size: 14px; }}"
       ],
       "name": "Layer Construct Section",
       "settings": {
