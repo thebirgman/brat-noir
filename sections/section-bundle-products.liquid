@@ -246,24 +246,62 @@
       .then(cart => {
         // Calculate total saved amount (discounts + compare_at_price savings)
         let totalSaved = cart.total_discount || 0;
-        if (cart.items && cart.items.length > 0) {
-          cart.items.forEach(item => {
-            // Check if item has compare_at_price and it's greater than the final price
-            if (item.variant && item.variant.compare_at_price && item.variant.compare_at_price > item.final_price) {
-              const compareAtPrice = item.variant.compare_at_price;
-              const finalPrice = item.final_price;
-              const quantity = item.quantity || 1;
-              const savingsPerItem = compareAtPrice - finalPrice;
-              totalSaved += savingsPerItem * quantity;
-            }
-          });
-        }
         
-        const savedTotal = totalSaved / 100;
-        const savedAmountEl = document.querySelector('span.saved-amount');
-        const savedAmountEl2 = document.querySelector('.footer-box.saved .value');
-        if (savedAmountEl) savedAmountEl.textContent = `$${savedTotal.toFixed(2)}`;
-        if (savedAmountEl2) savedAmountEl2.textContent = `$${savedTotal.toFixed(2)}`;
+        if (cart.items && cart.items.length > 0) {
+          // Fetch product data for all items to get compare_at_price
+          const productPromises = cart.items.map(async (item) => {
+            try {
+              let productHandle = item.handle;
+              if (!productHandle && item.url) {
+                const urlMatch = item.url.match(/\/products\/([^\/\?]+)/);
+                if (urlMatch) {
+                  productHandle = urlMatch[1];
+                }
+              }
+              
+              if (productHandle) {
+                const productResponse = await fetch(`/products/${productHandle}.js`);
+                console.log('response' + productResponse)
+                if (productResponse.ok) {
+                  const productData = await productResponse.json();
+                  if (productData.variants) {
+                    const variant = productData.variants.find(v => v.id === item.variant_id);
+                    if (variant && variant.compare_at_price && variant.compare_at_price > variant.price) {
+                      const compareAtPrice = variant.compare_at_price;
+                      const finalPrice = item.final_price;
+                      const quantity = item.quantity || 1;
+                      const savingsPerItem = compareAtPrice - finalPrice;
+                      return savingsPerItem * quantity;
+                    }
+                  }
+                }
+              }
+            } catch (e) {
+              console.warn('Could not fetch product data for item:', item.product_id);
+            }
+            return 0;
+          });
+          
+          // Wait for all product fetches to complete and sum up savings
+          Promise.all(productPromises).then(savings => {
+            savings.forEach(saving => {
+              totalSaved += saving;
+            });
+            
+            const savedTotal = totalSaved / 100;
+            const savedAmountEl = document.querySelector('span.saved-amount');
+            const savedAmountEl2 = document.querySelector('.footer-box.saved .value');
+            if (savedAmountEl) savedAmountEl.textContent = `$${savedTotal.toFixed(2)}`;
+            if (savedAmountEl2) savedAmountEl2.textContent = `$${savedTotal.toFixed(2)}`;
+          });
+        } else {
+          // No items, just update with discount
+          const savedTotal = totalSaved / 100;
+          const savedAmountEl = document.querySelector('span.saved-amount');
+          const savedAmountEl2 = document.querySelector('.footer-box.saved .value');
+          if (savedAmountEl) savedAmountEl.textContent = `$${savedTotal.toFixed(2)}`;
+          if (savedAmountEl2) savedAmountEl2.textContent = `$${savedTotal.toFixed(2)}`;
+        }
       })
       .catch(console.error);
   }, 500);
