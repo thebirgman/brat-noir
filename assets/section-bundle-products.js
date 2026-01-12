@@ -1,328 +1,467 @@
-(function () {
-  async function addToCart(variantId, sellingPlanId, quantity, productData) {
-    console.log('variantId:', variantId);
-    console.log('sellingPlanId:', sellingPlanId);
+{{ 'section-bundle-products.css' | asset_url | stylesheet_tag }}
+{{ 'component-bundle-product-card.css' | asset_url | stylesheet_tag }}
 
-    // Optimistically update bundle cart UI immediately
-    if (productData) {
-      optimisticallyAddToBundleCart(variantId, productData, quantity);
-    }
+{%- assign base_collection = section.settings.collection -%}
 
-    const item = {
-      id: parseInt(variantId),
-      quantity: quantity
-    };
+<section class="bundle-products" id="bundle-products-{{ section.id }}">
+  <h2>{{ section.settings.heading }}</h2>
+  
+  {%- if section.settings.subheading != blank -%}
+    <div class="bundle-products__subheading rte">
+      {{ section.settings.subheading }}
+    </div>
+  {%- endif -%}
 
-    if (sellingPlanId) {
-      item.selling_plan = parseInt(sellingPlanId);
-    }
-    
-    // Add to cart in background
-    await fetch('/cart/add.js', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        items: [item]
-      })
+  {%- comment -%}
+    FILTER BUTTONS
+  {%- endcomment -%}
+  <div class="bundle-products__filters" role="tablist" aria-label="Category filters">
+    <button
+      class="bundle-products__filter-btn is-active"
+      data-filter="all"
+      data-handle="all"
+      role="tab"
+      aria-selected="true"
+      aria-controls="grid-all-{{ section.id }}"
+      id="tab-all-{{ section.id }}"
+      type="button">
+      {{ section.settings.all_label | default: 'All Brat Styles' }}
+    </button>
+
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'filter' -%}
+        <button
+          class="bundle-products__filter-btn"
+          data-filter="{{ block.id }}"
+          data-handle="{{ block.settings.label | handleize }}"
+          role="tab"
+          aria-selected="false"
+          aria-controls="grid-{{ block.id }}"
+          id="tab-{{ block.id }}"
+          type="button">
+          {{ block.settings.label }}
+        </button>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  <div class="bundle-products__container">
+    <div class="bundle-products__grids">
+      {%- comment -%} GRID: ALL (Base Collection) {%- endcomment -%}
+      <div
+        class="bundle-products__grid"
+        data-grid="all"
+        id="grid-all-{{ section.id }}"
+        role="tabpanel"
+        data-products="{{  }}"
+        aria-labelledby="tab-all-{{ section.id }}">
+        {%- if base_collection != blank -%}
+          {%- for product in base_collection.products -%}
+            {%- render 'bundle-product-card', product: product -%}
+          {%- endfor -%}
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} GRIDS: ONE PER FILTER BLOCK {%- endcomment -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'filter' and block.settings.collection != blank -%}
+          <div
+            class="bundle-products__grid"
+            data-grid="{{ block.id }}"
+            id="grid-{{ block.id }}"
+            role="tabpanel"
+            aria-labelledby="tab-{{ block.id }}"
+            hidden>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <div class="bundle-products__cart">
+      <div id="a-open-cart-main-button" class="icon-5 cart-trigger-slide w-embed">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.9997 10.586L16.9497 5.63599L18.3637 7.04999L13.4137 12L18.3637 16.95L16.9497 18.364L11.9997 13.414L7.04974 18.364L5.63574 16.95L10.5857 12L5.63574 7.04999L7.04974 5.63599L11.9997 10.586Z" fill="currentColor"></path></svg>
+      </div>
+      <div class="bundle-products__cart-total">
+        <div class="bundle-products__cart-total-icon">
+          <svg width="44" height="56" viewBox="0 0 44 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5.5 55.5C3.9875 55.5 2.69271 54.9615 1.61563 53.8844C0.538542 52.8073 0 51.5125 0 50V17C0 15.4875 0.538542 14.1927 1.61563 13.1156C2.69271 12.0385 3.9875 11.5 5.5 11.5H11C11 8.475 12.0771 5.88542 14.2313 3.73125C16.3854 1.57708 18.975 0.5 22 0.5C25.025 0.5 27.6146 1.57708 29.7687 3.73125C31.9229 5.88542 33 8.475 33 11.5H38.5C40.0125 11.5 41.3073 12.0385 42.3844 13.1156C43.4615 14.1927 44 15.4875 44 17V50C44 51.5125 43.4615 52.8073 42.3844 53.8844C41.3073 54.9615 40.0125 55.5 38.5 55.5H5.5ZM5.5 50H38.5V17H33V22.5C33 23.2792 32.7365 23.9323 32.2094 24.4594C31.6823 24.9865 31.0292 25.25 30.25 25.25C29.4708 25.25 28.8177 24.9865 28.2906 24.4594C27.7635 23.9323 27.5 23.2792 27.5 22.5V17H16.5V22.5C16.5 23.2792 16.2365 23.9323 15.7094 24.4594C15.1823 24.9865 14.5292 25.25 13.75 25.25C12.9708 25.25 12.3177 24.9865 11.7906 24.4594C11.2635 23.9323 11 23.2792 11 22.5V17H5.5V50ZM16.5 11.5H27.5C27.5 9.9875 26.9615 8.69271 25.8844 7.61563C24.8073 6.53854 23.5125 6 22 6C20.4875 6 19.1927 6.53854 18.1156 7.61563C17.0385 8.69271 16.5 9.9875 16.5 11.5Z" fill="black"/>
+          </svg>
+        </div>
+        <div class="bundle-products__cart-total-text">
+          <span class="bundle-products__cart-total-label">Your Current Total</span>
+          <span class="bundle-products__cart-total-price">{{ cart.total_price | money_without_trailing_zeros }}</span>
+          {%- liquid
+            assign total_saved = cart.total_discount
+            for item in cart.items
+              if item.variant.compare_at_price and item.variant.compare_at_price > item.final_price
+                assign compare_at_price_total = item.variant.compare_at_price | times: item.quantity
+                assign final_price_total = item.final_price | times: item.quantity
+                assign item_savings = compare_at_price_total | minus: final_price_total
+                assign total_saved = total_saved | plus: item_savings
+              endif
+            endfor
+          -%}
+          <span class="bundle-products__cart-total-saved">YOU SAVED <span class="saved-amount">{{ total_saved | money_without_trailing_zeros }}</span></span>
+        </div>
+      </div>
+
+      <div class="bundle-products__cart-items">
+        {%- for product in cart.items -%}
+          <div class="bundle-products__cart-item">
+            <img class="bundle-products__cart-item-image" src="{{ product | image_url }}" alt="{{ product.title }}" />
+            <div class="bundle-products__cart-item-details">
+              <span class="bundle-products__cart-item-collection">{{ product.collections[0].title }}</span>
+              <span class="bundle-products__cart-item-title">{{ product.title }} x {{ product.quantity }}</span>
+            </div>
+            <button class="bundle-products__cart-item-remove" data-remove-from-cart="{{ product.variant_id }}">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.4 14.6538L10 11.0538L13.6 14.6538L14.6538 13.6L11.0538 10L14.6538 6.4L13.6 5.34625L10 8.94625L6.4 5.34625L5.34625 6.4L8.94625 10L5.34625 13.6L6.4 14.6538ZM10.0017 19.5C8.68775 19.5 7.45267 19.2507 6.2965 18.752C5.14033 18.2533 4.13467 17.5766 3.2795 16.7218C2.42433 15.8669 1.74725 14.8617 1.24825 13.706C0.749417 12.5503 0.5 11.3156 0.5 10.0017C0.5 8.68775 0.749333 7.45267 1.248 6.2965C1.74667 5.14033 2.42342 4.13467 3.27825 3.2795C4.13308 2.42433 5.13833 1.74725 6.294 1.24825C7.44967 0.749417 8.68442 0.5 9.99825 0.5C11.3123 0.5 12.5473 0.749333 13.7035 1.248C14.8597 1.74667 15.8653 2.42342 16.7205 3.27825C17.5757 4.13308 18.2528 5.13833 18.7518 6.294C19.2506 7.44967 19.5 8.68442 19.5 9.99825C19.5 11.3123 19.2507 12.5473 18.752 13.7035C18.2533 14.8597 17.5766 15.8653 16.7218 16.7205C15.8669 17.5757 14.8617 18.2528 13.706 18.7518C12.5503 19.2506 11.3156 19.5 10.0017 19.5ZM10 18C12.2333 18 14.125 17.225 15.675 15.675C17.225 14.125 18 12.2333 18 10C18 7.76667 17.225 5.875 15.675 4.325C14.125 2.775 12.2333 2 10 2C7.76667 2 5.875 2.775 4.325 4.325C2.775 5.875 2 7.76667 2 10C2 12.2333 2.775 14.125 4.325 15.675C5.875 17.225 7.76667 18 10 18Z" fill="#ABABAB"/></svg>
+            </button>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      <div class="bundle-products__cart-progress">
+        <p class="bundle-products__cart-progress-heading">{{ section.settings.bundle_content_heading }}</p>
+        <p class="bundle-products__cart-progress-subheading">{{ section.settings.bundle_content_subheading }} </p>
+        {%- liquid
+          assign has_special_tag = false
+          for item in cart.items
+            if item.product.tags contains 'trio-bundle' or item.product.tags contains 'collection'
+              assign has_special_tag = true
+              break
+            endif
+          endfor
+        -%}
+        {%- assign remaining = 3 | minus: cart.item_count -%}
+        {%- liquid
+          if cart.item_count >= 3 or has_special_tag
+            assign progress = 100
+          else
+            assign progress = 100 | times: cart.item_count | divided_by: 3
+          endif
+        -%}
+        <div class="bundle-products__cart-progress-bar" style="--progress: {{ progress }}%">
+          <div class="bundle-products__cart-progress-fill"></div>
+        </div>
+        {%- liquid
+          assign progress_text = ''
+          if cart.item_count >= 3 or has_special_tag
+            assign progress_text = section.settings.progress_text_complete | default: 'We love to see it. 20% OFF applied.'
+          elsif cart.item_count == 2
+            assign progress_text = section.settings.progress_text_one_more | default: 'Just 1 more set to unlock 20% OFF'
+          elsif cart.item_count == 1
+            assign progress_text = section.settings.progress_text_two_more | default: 'Just 2 more sets to unlock 20% OFF'
+          else
+            assign default_text = section.settings.progress_text_default | default: 'You are [X] sets away from 20% OFF'
+            assign progress_text = default_text | replace: '[X]', remaining
+          endif
+        -%}
+        <p 
+          class="bundle-products__cart-progress-text"
+          data-progress-text-default="{{ section.settings.progress_text_default | default: 'You are [X] sets away from 20% OFF' | escape }}"
+          data-progress-text-two-more="{{ section.settings.progress_text_two_more | default: 'Just 2 more sets to unlock 20% OFF' | escape }}"
+          data-progress-text-one-more="{{ section.settings.progress_text_one_more | default: 'Just 1 more set to unlock 20% OFF' | escape }}"
+          data-progress-text-complete="{{ section.settings.progress_text_complete | default: 'We love to see it. 20% OFF applied.' | escape }}">
+          {{ progress_text }}
+        </p>
+      </div>
+
+      {%- form 'cart', cart -%}
+        <button type="submit" name="checkout" class="bundle-products__cart-checkout">SECURE CHECKOUT</button>
+      {%- endform -%}
+    </div>
+  </div>
+</section>
+
+<template id="bundle-cart-item">
+  <div class="bundle-products__cart-item">
+    <img class="bundle-products__cart-item-image" src="%IMAGE%" alt="%TITLE%" />
+    <div class="bundle-products__cart-item-details">
+      <span class="bundle-products__cart-item-collection">{{ base_collection.title }}</span>
+      <span class="bundle-products__cart-item-title">%TITLE% x %QUANTITY%</span>
+    </div>
+    <button class="bundle-products__cart-item-remove" data-remove-from-cart="%ID%">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.4 14.6538L10 11.0538L13.6 14.6538L14.6538 13.6L11.0538 10L14.6538 6.4L13.6 5.34625L10 8.94625L6.4 5.34625L5.34625 6.4L8.94625 10L5.34625 13.6L6.4 14.6538ZM10.0017 19.5C8.68775 19.5 7.45267 19.2507 6.2965 18.752C5.14033 18.2533 4.13467 17.5766 3.2795 16.7218C2.42433 15.8669 1.74725 14.8617 1.24825 13.706C0.749417 12.5503 0.5 11.3156 0.5 10.0017C0.5 8.68775 0.749333 7.45267 1.248 6.2965C1.74667 5.14033 2.42342 4.13467 3.27825 3.2795C4.13308 2.42433 5.13833 1.74725 6.294 1.24825C7.44967 0.749417 8.68442 0.5 9.99825 0.5C11.3123 0.5 12.5473 0.749333 13.7035 1.248C14.8597 1.74667 15.8653 2.42342 16.7205 3.27825C17.5757 4.13308 18.2528 5.13833 18.7518 6.294C19.2506 7.44967 19.5 8.68442 19.5 9.99825C19.5 11.3123 19.2507 12.5473 18.752 13.7035C18.2533 14.8597 17.5766 15.8653 16.7218 16.7205C15.8669 17.5757 14.8617 18.2528 13.706 18.7518C12.5503 19.2506 11.3156 19.5 10.0017 19.5ZM10 18C12.2333 18 14.125 17.225 15.675 15.675C17.225 14.125 18 12.2333 18 10C18 7.76667 17.225 5.875 15.675 4.325C14.125 2.775 12.2333 2 10 2C7.76667 2 5.875 2.775 4.325 4.325C2.775 5.875 2 7.76667 2 10C2 12.2333 2.775 14.125 4.325 15.675C5.875 17.225 7.76667 18 10 18Z" fill="#ABABAB"/></svg>
+    </button>
+  </div>
+</template>
+
+{{ 'section-bundle-products.js' | asset_url | script_tag }}
+
+<div class="sticky-footer" style="display: none">
+  <div class="footer-box total">
+    <div class="label">Total</div>
+    <div class="value">$75</div>
+  </div>
+
+  <div class="footer-box saved">
+    <div class="label">Saved</div>
+    {%- liquid
+      assign footer_total_saved = cart.total_discount
+      for item in cart.items
+        if item.variant.compare_at_price and item.variant.compare_at_price > item.final_price
+          assign compare_at_price_total = item.variant.compare_at_price | times: item.quantity
+          assign final_price_total = item.final_price | times: item.quantity
+          assign item_savings = compare_at_price_total | minus: final_price_total
+          assign footer_total_saved = footer_total_saved | plus: item_savings
+        endif
+      endfor
+    -%}
+    <div class="value">{{ footer_total_saved | money_without_trailing_zeros }}</div>
+  </div>
+
+  <div class="footer-box open-bundle">
+    <div class="icon">
+      <svg width="22" height="28" viewBox="0 0 22 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.75 27.75C1.99375 27.75 1.34635 27.4807 0.807813 26.9422C0.269271 26.4036 0 25.7563 0 25V8.5C0 7.74375 0.269271 7.09635 0.807813 6.55781C1.34635 6.01927 1.99375 5.75 2.75 5.75H5.5C5.5 4.2375 6.03854 2.94271 7.11563 1.86563C8.19271 0.788542 9.4875 0.25 11 0.25C12.5125 0.25 13.8073 0.788542 14.8844 1.86563C15.9615 2.94271 16.5 4.2375 16.5 5.75H19.25C20.0063 5.75 20.6536 6.01927 21.1922 6.55781C21.7307 7.09635 22 7.74375 22 8.5V25C22 25.7563 21.7307 26.4036 21.1922 26.9422C20.6536 27.4807 20.0063 27.75 19.25 27.75H2.75ZM2.75 25H19.25V8.5H16.5V11.25C16.5 11.6396 16.3682 11.9661 16.1047 12.2297C15.8411 12.4932 15.5146 12.625 15.125 12.625C14.7354 12.625 14.4089 12.4932 14.1453 12.2297C13.8818 11.9661 13.75 11.6396 13.75 11.25V8.5H8.25V11.25C8.25 11.6396 8.11823 11.9661 7.85469 12.2297C7.59115 12.4932 7.26458 12.625 6.875 12.625C6.48542 12.625 6.15885 12.4932 5.89531 12.2297C5.63177 11.9661 5.5 11.6396 5.5 11.25V8.5H2.75V25ZM8.25 5.75H13.75C13.75 4.99375 13.4807 4.34635 12.9422 3.80781C12.4036 3.26927 11.7563 3 11 3C10.2437 3 9.59635 3.26927 9.05781 3.80781C8.51927 4.34635 8.25 4.99375 8.25 5.75Z" fill="white"/></svg>
+    </div>
+    <div>
+      <div class="label bold">View Cart</div>
+      {% comment  %}<div class="label">Cart Bundle</div> {% endcomment %}
+    </div>
+  </div>
+</div>
+
+<script>
+  // Toggle the bundle cart drawer
+  document.querySelectorAll('.footer-box.open-bundle, #a-open-cart-main-button').forEach(function(el) {
+    el.addEventListener('click', function() {
+      document.querySelectorAll('.bundle-products__cart').forEach(function(el) {
+        el.classList.toggle('show');
+      });
     });
+  });
 
-    // Update bundle cart UI with real data and update cart drawer in background
-    refreshCart().then(cartData => {
-      // Update theme's cart drawer in background (non-blocking)
-      if (cartData) {
-        document.dispatchEvent(new CustomEvent('theme:cart:change', {
-          detail: {
-            cart: cartData
-          },
-          bubbles: true
-        }));
-      }
-    });
-  }
+  // Sync total in sticky footer
+  setInterval(function () {
+    const source = document.querySelector('span.bundle-products__cart-total-price');
+    const target = document.querySelector('.footer-box.total .value');
+    console.log(source.textContent)
+    if (source && target) target.textContent = source.textContent;
+  }, 500);
 
-  function optimisticallyAddToBundleCart(variantId, productData, quantity) {
-    const template = document.querySelector('#bundle-cart-item');
-    if (!template) return;
-
-    const cartContainer = document.querySelector('.bundle-products__cart-items');
-    if (!cartContainer) return;
-
-    // Check if item already exists (for quantity updates)
-    const existingItem = cartContainer.querySelector(`[data-remove-from-cart="${variantId}"]`)?.closest('.bundle-products__cart-item');
-    if (existingItem) {
-      // Update existing item quantity
-      const titleElement = existingItem.querySelector('.bundle-products__cart-item-title');
-      if (titleElement) {
-        const currentQty = parseInt(titleElement.textContent.match(/x\s*(\d+)/)?.[1] || '1');
-        const newQty = currentQty + quantity;
-        titleElement.textContent = titleElement.textContent.replace(/x\s*\d+/, `x ${newQty}`);
-      }
-    } else {
-      // Create and add new optimistic cart item
-      const itemHtml = template.innerHTML
-        .replace(/%ID%/g, variantId)
-        .replace(/%TITLE%/g, productData.title)
-        .replace(/%IMAGE%/g, productData.image || 'default-image-url.jpg')
-        .replace(/%QUANTITY%/g, quantity);
-
-      const tempDiv = document.createElement('div');
-      tempDiv.innerHTML = itemHtml;
-      const newItem = tempDiv.firstElementChild;
-      
-      // Add to the beginning of cart items
-      cartContainer.insertBefore(newItem, cartContainer.firstChild);
-    }
-
-    // Optimistically update progress (total will be corrected by refreshCart)
-    const progress = document.querySelector('.bundle-products__cart-progress-bar');
-    if (progress) {
-      const currentItems = cartContainer.querySelectorAll('.bundle-products__cart-item').length;
-      progress.style.setProperty('--progress', (currentItems / 3) * 100 + '%');
-    }
-  }
-
-  async function removeFromCart(variantId) {
-    // Optimistically remove from bundle cart UI immediately
-    const cartContainer = document.querySelector('.bundle-products__cart-items');
-    if (cartContainer) {
-      const itemToRemove = cartContainer.querySelector(`[data-remove-from-cart="${variantId}"]`)?.closest('.bundle-products__cart-item');
-      if (itemToRemove) {
-        itemToRemove.remove();
-      }
-    }
-
-    await fetch(`/cart/change.js`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        id: variantId,
-        quantity: 0
-      })
-    });
-
-    // Update bundle cart UI with real data and update cart drawer in background
-    refreshCart().then(cartData => {
-      // Update theme's cart drawer in background (non-blocking)
-      if (cartData) {
-        document.dispatchEvent(new CustomEvent('theme:cart:change', {
-          detail: {
-            cart: cartData
-          },
-          bubbles: true
-        }));
-      }
-    });
-  }
-
-  async function refreshCart() {
-    const response = await fetch('/cart.js');
-    const data = await response.json();
-    
-    console.log('Cart data:', data);
-    const template = document.querySelector('#bundle-cart-item');
-
-    // Check for products with special tags (trio-bundle or collection) and get compare_at_price
-    let hasSpecialTag = false;
-    const itemCompareAtPrices = new Map(); // Store variant_id -> compare_at_price
-    
-    if (data.items && data.items.length > 0) {
-      // Fetch product data to check tags and get compare_at_price
-      const productChecks = data.items.map(async (item) => {
-        try {
-          // Extract product handle from URL if available, or use product_id as fallback
-          let productHandle = item.handle;
-          if (!productHandle && item.url) {
-            // Extract handle from URL like /products/handle or /products/handle?variant=...
-            const urlMatch = item.url.match(/\/products\/([^\/\?]+)/);
-            if (urlMatch) {
-              productHandle = urlMatch[1];
-            }
-          }
-          
-          if (productHandle) {
-            const productResponse = await fetch(`/products/${productHandle}.js`);
-            if (productResponse.ok) {
-              const productData = await productResponse.json();
-              
-              // Get compare_at_price for the specific variant
-              if (productData.variants) {
-                const variant = productData.variants.find(v => v.id === item.variant_id);
-                if (variant && variant.compare_at_price) {
-                  itemCompareAtPrices.set(item.variant_id, variant.compare_at_price);
+  // Update saved amount
+  setInterval(function () {
+    fetch('/cart.js')
+      .then(response => response.json())
+      .then(cart => {
+        // Calculate total saved amount (discounts + compare_at_price savings)
+        let totalSaved = cart.total_discount || 0;
+        
+        if (cart.items && cart.items.length > 0) {
+          // Fetch product data for all items to get compare_at_price
+          const productPromises = cart.items.map(async (item) => {
+            try {
+              let productHandle = item.handle;
+              if (!productHandle && item.url) {
+                const urlMatch = item.url.match(/\/products\/([^\/\?]+)/);
+                if (urlMatch) {
+                  productHandle = urlMatch[1];
                 }
               }
               
-              // Check for special tags
-              if (productData.tags) {
-                const tags = Array.isArray(productData.tags) ? productData.tags : productData.tags.split(',');
-                return tags.some(tag => 
-                  tag.trim().toLowerCase() === 'trio-bundle' || 
-                  tag.trim().toLowerCase() === 'collection'
-                );
+              if (productHandle) {
+                const productResponse = await fetch(`/products/${productHandle}.js`);
+                console.log('response' + productResponse)
+                if (productResponse.ok) {
+                  const productData = await productResponse.json();
+                  if (productData.variants) {
+                    const variant = productData.variants.find(v => v.id === item.variant_id);
+                    if (variant && variant.compare_at_price && variant.compare_at_price > variant.price) {
+                      const compareAtPrice = variant.compare_at_price;
+                      const finalPrice = item.final_price;
+                      const quantity = item.quantity || 1;
+                      const savingsPerItem = compareAtPrice - finalPrice;
+                      return savingsPerItem * quantity;
+                    }
+                  }
+                }
               }
+            } catch (e) {
+              console.warn('Could not fetch product data for item:', item.product_id);
             }
+            return 0;
+          });
+          
+          // Wait for all product fetches to complete and sum up savings
+          Promise.all(productPromises).then(savings => {
+            savings.forEach(saving => {
+              totalSaved += saving;
+            });
+            
+            const savedTotal = totalSaved / 100;
+            const savedAmountEl = document.querySelector('span.saved-amount');
+            const savedAmountEl2 = document.querySelector('.footer-box.saved .value');
+            if (savedAmountEl) savedAmountEl.textContent = `$${savedTotal.toFixed(2)}`;
+            if (savedAmountEl2) savedAmountEl2.textContent = `$${savedTotal.toFixed(2)}`;
+          });
+        } else {
+          // No items, just update with discount
+          const savedTotal = totalSaved / 100;
+          const savedAmountEl = document.querySelector('span.saved-amount');
+          const savedAmountEl2 = document.querySelector('.footer-box.saved .value');
+          if (savedAmountEl) savedAmountEl.textContent = `$${savedTotal.toFixed(2)}`;
+          if (savedAmountEl2) savedAmountEl2.textContent = `$${savedTotal.toFixed(2)}`;
+        }
+      })
+      .catch(console.error);
+  }, 500);
+
+// Category filter by data-collection
+document.querySelectorAll('.bundle-products__filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const filter = btn.innerText.trim().toLowerCase().replace('brat ', '');
+    console.log('filter: ' + filter)
+    document.querySelectorAll('.bundle-products__grid')[0].setAttribute('data-grid', filter)
+
+    // Remove is-active from all, add only to clicked
+    document.querySelectorAll('.bundle-products__filter-btn').forEach(b =>
+      b.classList.remove('is-active')
+    );
+    btn.classList.add('is-active');
+
+    // Show/hide product cards
+    document.querySelectorAll('.bundle-product__card').forEach(card => {
+      const col = (card.dataset.collection || '').toLowerCase().replace('brat ', '');
+      console.log(col)
+      console.log(filter);
+      if (filter === 'all' || col.includes(filter)) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  });
+});
+
+// Trigger default "All" on load
+document.querySelector('.bundle-products__filter-btn[data-filter="all"]')?.click();
+
+</script>
+
+
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+  const params = new URLSearchParams(window.location.search);
+  const handle = params.get('handle');
+  
+  if (handle) {
+    const tabButton = document.querySelector(`.bundle-products__filter-btn[data-handle*="${handle}"]`);
+    if (tabButton) {
+      tabButton.click()
+      setTimeout(() => tabButton.click(), 50);
+    }
+  }
+});
+
+</script>
+
+{% schema %}
+{
+  "name": "Bundle Products",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Base collection (for \"All\")"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Shop the Bundle"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "info": "Rich text subheading displayed below the main heading"
+    },
+    {
+      "type": "text",
+      "id": "all_label",
+      "label": "Label for \"All\" filter",
+      "default": "All"
+    },
+    {
+      "type": "text",
+      "id": "bundle_content_heading",
+      "label": "Bundle Content Heading",
+      "default": "GET THE FULL BUNDLE"
+    },
+    {
+      "type": "text",
+      "id": "bundle_content_subheading",
+      "label": "Bundle Content Subheading",
+      "default": "Unlock brat-level savings and score that full bundle deal babe,"
+    },
+    {
+      "type": "header",
+      "content": "Progress Bar Text"
+    },
+    {
+      "type": "text",
+      "id": "progress_text_default",
+      "label": "Default Progress Text",
+      "info": "Use [X] as placeholder for remaining sets. Example: 'You are [X] sets away from 20% OFF'",
+      "default": "You are [X] sets away from 20% OFF"
+    },
+    {
+      "type": "text",
+      "id": "progress_text_two_more",
+      "label": "Progress Text (3 sets in cart)",
+      "default": "Just 2 more sets to unlock 20% OFF"
+    },
+    {
+      "type": "text",
+      "id": "progress_text_one_more",
+      "label": "Progress Text (4 sets in cart)",
+      "default": "Just 1 more set to unlock 20% OFF"
+    },
+    {
+      "type": "text",
+      "id": "progress_text_complete",
+      "label": "Progress Text (5+ sets in cart)",
+      "default": "We love to see it. 20% OFF applied."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "filter",
+      "name": "Category filter",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Filter label",
+          "default": "Category"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Filter collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bundle Products with Filters",
+      "blocks": [
+        {
+          "type": "filter",
+          "settings": {
+            "label": "Skincare"
           }
-        } catch (e) {
-          console.warn('Could not fetch product data for item:', item.product_id);
+        },
+        {
+          "type": "filter",
+          "settings": {
+            "label": "Haircare"
+          }
         }
-        return false;
-      });
-      
-      const tagResults = await Promise.all(productChecks);
-      hasSpecialTag = tagResults.some(result => result === true);
+      ]
     }
-
-    let html = '';
-    data.items.forEach(item => {
-      const itemHtml = template.innerHTML
-        .replace(/%ID%/g, item.variant_id)
-        .replace(/%TITLE%/g, item.product_title)
-        .replace(/%IMAGE%/g, item.image || 'default-image-url.jpg')
-        .replace(/%QUANTITY%/g, item.quantity);
-      html += itemHtml;
-    });
-
-    const cartContainer = document.querySelector('.bundle-products__cart-items');
-    if (cartContainer) cartContainer.innerHTML = html;
-
-    const total = document.querySelector('.bundle-products__cart-total-price');
-    if (total) total.innerHTML = '$' + ((data.total_price || 0) / 100);
-
-    // Calculate total saved amount (discounts + compare_at_price savings)
-    let totalSaved = data.total_discount || 0;
-    if (data.items && data.items.length > 0) {
-      data.items.forEach(item => {
-        // Get compare_at_price from the map we populated earlier
-        const compareAtPrice = itemCompareAtPrices.get(item.variant_id);
-        if (compareAtPrice && compareAtPrice > item.final_price) {
-          const finalPrice = item.final_price;
-          const quantity = item.quantity || 1;
-          const savingsPerItem = compareAtPrice - finalPrice;
-          totalSaved += savingsPerItem * quantity;
-        }
-      });
-    }
-
-    const savedAmount = document.querySelector('span.saved-amount');
-    if (savedAmount) {
-      savedAmount.textContent = '$' + (totalSaved / 100).toFixed(2);
-    }
-
-    const progress = document.querySelector('.bundle-products__cart-progress-bar');
-    if (progress) {
-      // Mark complete if 3+ items OR has special tag
-      if (data.item_count >= 3 || hasSpecialTag) {
-        progress.style.setProperty('--progress', '100%');
-      } else {
-        progress.style.setProperty('--progress', (data.item_count / 3) * 100 + '%');
-      }
-    }
-
-    const remaining = document.querySelector('.bundle-products__cart-progress-text');
-    if (remaining) {
-      const itemCount = data.item_count;
-      const remainingCount = 3 - itemCount;
-      let progressText = '';
-      
-      // Get text templates from data attributes
-      const textDefault = remaining.dataset.progressTextDefault || 'You are [X] sets away from 20% OFF';
-      const textTwoMore = remaining.dataset.progressTextTwoMore || 'Just 2 more sets to unlock 20% OFF';
-      const textOneMore = remaining.dataset.progressTextOneMore || 'Just 1 more set to unlock 20% OFF';
-      const textComplete = remaining.dataset.progressTextComplete || 'We love to see it. 20% OFF applied.';
-      
-      // Apply conditional logic matching the Liquid template
-      if (itemCount >= 3 || hasSpecialTag) {
-        progressText = textComplete;
-      } else if (itemCount === 2) {
-        progressText = textOneMore;
-      } else if (itemCount === 1) {
-        progressText = textTwoMore;
-      } else {
-        // Replace [X] with remaining count
-        progressText = textDefault.replace('[X]', remainingCount);
-      }
-      
-      remaining.innerHTML = progressText;
-    }
-    
-    // Return cart data for use in updating theme's cart drawer
-    return data;
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const addToCartButtons = document.querySelectorAll('[data-add-to-cart]');
-    addToCartButtons.forEach(button => {
-      button.addEventListener('click', async () => {
-        button.classList.add('loading');
-
-        const variantId = button.getAttribute('data-variant-id') || null;
-        const sellingPlanID = button.getAttribute('data-selling-plan') || null;
-
-        // Get product data from the card for optimistic update
-        const card = button.closest('.bundle-product__card');
-        const productData = card ? {
-          title: card.querySelector('.bundle-product__title')?.textContent?.trim() || '',
-          image: card.querySelector('.bundle-product__image')?.src || '',
-          price: card.querySelector('.bundle-product__price--sale, .bundle-product__price--regular')?.textContent || '0'
-        } : null;
-
-        // Don't await - let it run in background after optimistic update
-        addToCart(variantId, 0, 1, productData).then(() => {
-          button.classList.remove('loading');
-        }).catch(() => {
-          button.classList.remove('loading');
-          // If add fails, refresh cart to show correct state
-          refreshCart();
-        });
-      });
-    });
-
-    document.addEventListener('click', async (event) => {
-      let button = event.target;
-      if (!button.matches('[data-remove-from-cart]')) {
-        button = event.target.closest('[data-remove-from-cart]');
-      }
-
-      if (button) {
-        button.classList.add('loading');
-        const variantId = button.dataset.removeFromCart;
-        // Don't await - let it run in background after optimistic update
-        removeFromCart(variantId).then(() => {
-          button.classList.remove('loading');
-        }).catch(() => {
-          button.classList.remove('loading');
-          // If remove fails, refresh cart to show correct state
-          refreshCart();
-        });
-      }
-    });
-
-    refreshCart();
-  });
-
-  function handleCartChange() {
-    if (typeof refreshCart === 'function') {
-      refreshCart();
-    }
-  }
-
-  // 1️⃣ Shopify / theme cart events (documented + common)
-  document.addEventListener('cart:updated', handleCartChange);
-  document.addEventListener('theme:cart:change', handleCartChange);
-
-  // 2️⃣ Fallback: after any add-to-cart form submit
-  document.addEventListener('submit', function (event) {
-    const form = event.target;
-
-    if (
-      form?.action?.includes('/cart/add')
-    ) {
-      // Wait for Shopify to finish adding
-      setTimeout(handleCartChange, 300);
-    }
-  });
-})();
+  ]
+}
+{% endschema %}
