@@ -248,6 +248,7 @@
         let totalSaved = cart.total_discount || 0;
         
         if (cart.items && cart.items.length > 0) {
+          console.og('heree..')
           // Fetch product data for all items to get compare_at_price
           const productPromises = cart.items.map(async (item) => {
             try {
@@ -258,7 +259,7 @@
                   productHandle = urlMatch[1];
                 }
               }
-              
+              console.og('heree..' + productHandle)
               if (productHandle) {
                 const productResponse = await fetch(`/products/${productHandle}.js`);
                 console.log('response' + productResponse)
