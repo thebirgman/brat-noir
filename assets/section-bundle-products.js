@@ -125,10 +125,12 @@
     console.log('Cart data:', data);
     const template = document.querySelector('#bundle-cart-item');
 
-    // Check for products with special tags (trio-bundle or collection)
+    // Check for products with special tags (trio-bundle or collection) and get compare_at_price
     let hasSpecialTag = false;
+    const itemCompareAtPrices = new Map(); // Store variant_id -> compare_at_price
+    
     if (data.items && data.items.length > 0) {
-      // Fetch product data to check tags
+      // Fetch product data to check tags and get compare_at_price
       const productChecks = data.items.map(async (item) => {
         try {
           // Extract product handle from URL if available, or use product_id as fallback
@@ -145,6 +147,16 @@
             const productResponse = await fetch(`/products/${productHandle}.js`);
             if (productResponse.ok) {
               const productData = await productResponse.json();
+              
+              // Get compare_at_price for the specific variant
+              if (productData.variants) {
+                const variant = productData.variants.find(v => v.id === item.variant_id);
+                if (variant && variant.compare_at_price) {
+                  itemCompareAtPrices.set(item.variant_id, variant.compare_at_price);
+                }
+              }
+              
+              // Check for special tags
               if (productData.tags) {
                 const tags = Array.isArray(productData.tags) ? productData.tags : productData.tags.split(',');
                 return tags.some(tag => 
@@ -155,7 +167,7 @@
             }
           }
         } catch (e) {
-          console.warn('Could not fetch product tags for item:', item.product_id);
+          console.warn('Could not fetch product data for item:', item.product_id);
         }
         return false;
       });
@@ -184,9 +196,9 @@
     let totalSaved = data.total_discount || 0;
     if (data.items && data.items.length > 0) {
       data.items.forEach(item => {
-        // Check if item has compare_at_price and it's greater than the final price
-        if (item.variant && item.variant.compare_at_price && item.variant.compare_at_price > item.final_price) {
-          const compareAtPrice = item.variant.compare_at_price;
+        // Get compare_at_price from the map we populated earlier
+        const compareAtPrice = itemCompareAtPrices.get(item.variant_id);
+        if (compareAtPrice && compareAtPrice > item.final_price) {
           const finalPrice = item.final_price;
           const quantity = item.quantity || 1;
           const savingsPerItem = compareAtPrice - finalPrice;
