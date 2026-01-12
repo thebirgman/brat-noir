@@ -180,6 +180,26 @@
     const total = document.querySelector('.bundle-products__cart-total-price');
     if (total) total.innerHTML = '$' + ((data.total_price || 0) / 100);
 
+    // Calculate total saved amount (discounts + compare_at_price savings)
+    let totalSaved = data.total_discount || 0;
+    if (data.items && data.items.length > 0) {
+      data.items.forEach(item => {
+        // Check if item has compare_at_price and it's greater than the final price
+        if (item.variant && item.variant.compare_at_price && item.variant.compare_at_price > item.final_price) {
+          const compareAtPrice = item.variant.compare_at_price;
+          const finalPrice = item.final_price;
+          const quantity = item.quantity || 1;
+          const savingsPerItem = compareAtPrice - finalPrice;
+          totalSaved += savingsPerItem * quantity;
+        }
+      });
+    }
+
+    const savedAmount = document.querySelector('span.saved-amount');
+    if (savedAmount) {
+      savedAmount.textContent = '$' + (totalSaved / 100).toFixed(2);
+    }
+
     const progress = document.querySelector('.bundle-products__cart-progress-bar');
     if (progress) {
       // Mark complete if 3+ items OR has special tag
