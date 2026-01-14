@@ -779,3 +779,42 @@ button.bundle-product__atc {
 span.bundle-products__cart-item-title {
     padding-right: 25px;
 }
+
+.bundle-products__cart-total {
+    border: 1px solid #FFFFFF;
+}
+
+.bundle-products__cart-items {
+    border: 1px solid #fff;
+}
+
+.bundle-products__cart-progress {
+    border: 1px solid #fff;
+}
+
+.bundle-products__cart-total {
+    order: 3;
+}
+
+.bundle-products__cart-items {
+    order: 2;
+    margin: 0;
+}
+
+.bundle-products__cart-progress {
+    order: 1;
+}
+
+.shopify-cart-form {
+    order: 4;
+}
+
+.bundle-products__cart-items {}
+
+button.bundle-products__cart-checkout {
+    margin: 0;
+}
+
+.bundle-products__cart {
+    gap: 16px;
+}
