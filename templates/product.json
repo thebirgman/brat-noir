@@ -158,7 +158,7 @@
             "heading": "Build Your Own Bundle",
             "text": "Why overpay for one mani when you could press on five?",
             "button_label": "Build Now",
-            "button_link": "https://bratnoir.com/pages/build-your-own-bundle",
+            "button_link": "https://bratnoir.com/collections/all",
             "image_width": 40,
             "border_radius": 12,
             "padding_bottom": 20,
@@ -337,10 +337,10 @@
       "custom_css": [
         ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
         "h4 {margin-bottom: 7px;}",
-        ".layer-card.main-card p,.layer-card.main-card li,.layer-card.feature-wide p {font-size: 17px!important;}",
+        ".layer-card.main-card p,.layer-card.main-card li,.layer-card.feature-wide p {font-size: 17px !important;}",
         "h4,p {color: #222;}",
-        "p {font-size: 15px!important;}",
-        "@media screen and (max-width: 768px) {p, li {font-size: 14px!important; }}"
+        "p {font-size: 15px !important;}",
+        "@media screen and (max-width: 768px) {p, li {font-size: 14px !important; }}"
       ],
       "name": "Layer Construct Section",
       "settings": {
