@@ -26589,7 +26589,7 @@ span.price,span.product__price.accent-size-4 {
   background: #FFFFFF4D;
   border: 1px solid #FFFFFF;
   border-radius: 4px;
-
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
   pointer-events: none;
   z-index: 0;
 }
