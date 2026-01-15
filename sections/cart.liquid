@@ -70,7 +70,7 @@
           <div class="cart__footer__notes">
             {%- if section.settings.cart_notes_enable -%}
               <label class="cart__notes__label" for="CartSpecialInstructions">{{ 'cart.general.note' | t }}</label>
-              <textarea name="note" class="input-full" id="CartSpecialInstructions" data-cart-note>{{ cart.note }}</textarea>
+              <textarea name="note" class="input-full" id="CartSpecialInstructions" placeholder="How can we help you?" data-cart-note>{{ cart.note }}</textarea>
             {%- endif -%}
           </div>
           <div class="cart__footer__shipping">
@@ -95,20 +95,65 @@
               {% render 'cart-subtotal' %}
             </div>
 
-            <p>
+            {% comment %}<p>
               <span class="cart__footer__label">{{ 'cart.general.subtotal' | t }}</span>
               <span class="cart__footer__value" data-cart-final>
                 {{ cart.total_price | money_with_currency }}
               </span>
             </p>
+			{% endcomment %}
             <p class="cart__footer__small">{% render 'taxes-included-cart' %}</p>
-          </div>
 
-          <div class="cart__footer__checkout">
+			<div class="cart__footer__checkout">
             <button type="submit" name="checkout" class="btn btn--primary btn--large checkout__button">
               {{ 'cart.general.checkout' | t }}
             </button>
           </div>
+
+		  <div class="cart-trust-points">
+  <ul class="cart-trust-points__list">
+    <li class="cart-trust-points__item">
+      <img
+        src="{{ 'verified.svg' | asset_url }}"
+        alt="Verified"
+        class="cart-trust-points__icon"
+        width="20"
+        height="20"
+        loading="lazy"
+      >
+      <span>Free Shipping on Orders Over $45.</span>
+    </li>
+
+    <li class="cart-trust-points__item">
+      <img
+        src="{{ 'verified.svg' | asset_url }}"
+        alt="Verified"
+        class="cart-trust-points__icon"
+        width="20"
+        height="20"
+        loading="lazy"
+      >
+      <span>30-Day Happiness Guarantee.</span>
+    </li>
+
+    <li class="cart-trust-points__item">
+      <img
+        src="{{ 'verified.svg' | asset_url }}"
+        alt="Verified"
+        class="cart-trust-points__icon"
+        width="20"
+        height="20"
+        loading="lazy"
+      >
+      <span>Designed &amp; Shipped from Las Vegas with love &lt;3</span>
+    </li>
+  </ul>
+</div>
+
+
+          </div>
+
+          
 
           <div class="cart__footer__update">
             <span class="cart__update" data-update-button>
