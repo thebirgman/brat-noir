@@ -340,7 +340,7 @@ button.tab-link:hover{
 }
 
 .quantity__button {
-    border: 1px solid #fff;
+    
     font-size: 24px;
     padding: 0 12px;
 }
@@ -391,16 +391,16 @@ p.cart__footer__itemtotal,
 
 .drawer__footer__subtotal .cart__footer__itemtotal {
     border-color: #fff;
-    padding: 30px 0 0;
+   
 }
 
 .drawer__content {
-    padding: 30px 0;
+    padding: 20px 0;
 }
 
 .drawer__bottom .btn--primary {
-    width: 90%;
-    margin: 20px auto;
+    width: 80%;
+    margin: 0px auto;
     height: 52px;
     font-size: 18px!important;
     background: #000;
@@ -417,7 +417,7 @@ p.cart__footer__itemtotal,
     cursor: pointer;
     transition: 0.2s ease-in-out;
     width: 100%;
-    margin: auto;
+    margin: 0px auto 20px auto;
 }
 
 .tab__scroll .tabs {
@@ -2581,7 +2581,7 @@ footer.footer {
   align-items: center;
   width: 100%;
   text-align: left; /* override centering */
-  padding: 16px 22.5px 0px 22.5px !important;
+  
 }
 
 /* Optional: font consistency */
@@ -2677,13 +2677,13 @@ footer.footer {
 .cart__footer__discount {
   margin-top: 10px;
   font-size: 15px;
-  color: #f4a261; /* wireframe peach */
+  color: #000000; /* wireframe peach */
 }
 
 /* Value alignment */
 .cart__footer__value {
   text-align: right !important;
-  font-weight: 500;
+  color: #61150F !important;
 }
 
 /* Discount input container */
@@ -2770,12 +2770,9 @@ footer.footer {
 span.cart__footer__label {
   font-size: 16px !important;
   color: #000 !important;
+  font-weight: 600 !important;
 }
 
-.drawer__footer__subtotal {
-  border-top: solid 1px #FFFFFF;
-  padding-top: 29px;
-}
 
 @media screen and (max-width: 768px) {
 .footer .grid__item {
