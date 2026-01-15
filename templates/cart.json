@@ -11,6 +11,11 @@
   "sections": {
     "main": {
       "type": "cart",
+      "custom_css": [
+        "p.cart__footer__itemtotal,p.cart__footer__discount {padding: 8px 0px !important;}",
+        "#CartSpecialInstructions::placeholder {color: #222 !important;}",
+        ".btn {letter-spacing: 0 !important; border-radius: 4px;}"
+      ],
       "settings": {
         "cart_shipping_enable": false,
         "cart_show_quantity": true,
