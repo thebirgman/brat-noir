@@ -3079,3 +3079,40 @@ table.subscription-info-modal__table thead {
 span.product__price--sale {
     color: #61150F;
 }
+
+
+
+.cart__drawer .drawer__content {
+    padding-bottom: 0px!important;
+}
+
+.cart__drawer  p.bundle-progress-bar__text {
+    margin-top: 0;
+}
+
+.cart__drawer  .bundle-progress-divider {
+    margin-top: 20px;
+    margin-bottom: 0;
+    max-width: calc(100% - 40px);
+    margin-left: 20px;
+    margin-right: 20px!important;
+}
+
+.cart__drawer  .cart__items__remove {right: 23px;}
+
+.cart__drawer  .bundle-progress-bar__track {
+    max-width: calc(100% - 60px);
+    margin-right: 30px;
+}
+
+@media screen and (max-width: 768px) {
+.cart__drawer  .bundle-progress-bar__track {
+    max-width: 100%;
+}
+
+.cart__drawer  .bundle-progress-divider {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+}
