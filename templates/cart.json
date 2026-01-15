@@ -8,13 +8,27 @@
  * ------------------------------------------------------------
  */
 {
-	"sections": {
-		"main": {
-			"type": "cart",
-			"settings": {}
-		}
-	},
-	"order": [
-		"main"
-	]
+  "sections": {
+    "main": {
+      "type": "cart",
+      "settings": {
+        "cart_shipping_enable": false,
+        "cart_show_quantity": true,
+        "cart_notes_enable": true,
+        "show_free_shipping_message": false,
+        "message": "Spend ||amount|| more for free shipping",
+        "cart_custom_message_enable": false,
+        "cart_custom_message_text": "<p>Use code <strong>TENOFF</strong> at checkout for 10% off</p>",
+        "cart_color_bg": "palette--light bg--neutral",
+        "cart_show_additional_buttons": false,
+        "bg": "palette--light bg--neutral",
+        "width": "wrapper",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
 }

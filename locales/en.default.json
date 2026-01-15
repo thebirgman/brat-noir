@@ -43,7 +43,7 @@
     "general": {
       "title": "Your Cart",
       "remove": "Remove",
-      "note": "Special instructions for seller",
+      "note": "Add order note",
       "subtotal": "Subtotal",
       "shipping_at_checkout": "Shipping & taxes calculated at checkout",
       "update": "Update Cart",
