@@ -818,3 +818,24 @@ button.bundle-products__cart-checkout {
 .bundle-products__cart {
     gap: 16px;
 }
+@media screen and (max-width: 768px) {
+.bundle-products__cart.show {
+    display: flex!important;
+    flex-direction: column;
+}
+
+}
+
+div#a-open-cart-main-button {}
+
+.bundle-products__cart-total {
+    box-shadow: 0 4px 14px #0000000d;
+}
+
+.bundle-products__cart-items {
+    box-shadow: 0 4px 14px #0000000d;
+}
+
+.bundle-products__cart-progress {
+    box-shadow: 0 4px 14px #0000000d;
+}
