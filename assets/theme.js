@@ -1190,7 +1190,6 @@
             this.options = {
                 accessibility: true,
                 contain: true,
-                freeScroll: true,
                 prevNextButtons: true,
                 wrapArround: false,
                 groupCells: false,
