@@ -3196,7 +3196,9 @@ a.brat-featured-button {
 }
 
 @media screen and (max-width: 900px) and (min-width: 768px) {
-
+.template-product .product-grid-slide.flickity-cell {
+    width: calc(50% - 20px)!Important;
+}
 .product-single .grid__item {
     width: 100%;
 }
