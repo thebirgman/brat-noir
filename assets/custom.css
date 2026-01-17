@@ -3167,3 +3167,9 @@ a.brat-featured-button {
 
 
 .brick__collection.flickity-badge-dots.flickity-disabled-mobile.flickity-enabled.is-draggable {}
+
+@media screen and (max-width: 820px) {
+.template-index .image-text-custom__inner {
+    max-width: 550px;
+}
+}
