@@ -3116,3 +3116,10 @@ span.product__price--sale {
     margin-right: 0;
 }
 }
+
+
+@media screen and (max-width: 820px) {
+h2 {
+    font-size: 40px!important;
+}
+}
