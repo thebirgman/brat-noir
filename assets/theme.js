@@ -1190,6 +1190,7 @@
             this.options = {
                 accessibility: true,
                 contain: true,
+                freeScroll: true,
                 prevNextButtons: true,
                 wrapArround: false,
                 groupCells: false,
@@ -1197,7 +1198,7 @@
                 pageDots: true,
                 cellAlign: window.isRTL ? 'right' : 'left',
                 rightToLeft: window.isRTL,
-                dragThreshold: 10,
+                dragThreshold: 3,
                 arrowShape: {
                     x0: 10,
                     x1: 60,
