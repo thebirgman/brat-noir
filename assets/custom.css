@@ -3206,9 +3206,10 @@ a.brat-featured-button {
 #faqs [data-grid] {
     justify-content: center;
 }
-#about-us main#MainContent {
-    padding-left: 80px;
-    padding-right: 80px;
+#about-us main#MainContent section.image-text-custom {
+   max-width: 650px;
+   margin-left: auto;
+   margin-right: auto;
 }
 
 .layer-overlay {
