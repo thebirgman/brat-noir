@@ -3206,6 +3206,10 @@ a.brat-featured-button {
 #faqs [data-grid] {
     justify-content: center;
 }
+#about-us main#MainContent {
+    padding-left: 80px;
+    padding-right: 80px;
+}
 
 .layer-overlay {
     padding-bottom: 80px;
