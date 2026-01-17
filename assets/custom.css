@@ -894,6 +894,10 @@ body:not(.template-index):not(#build-your-own-bundle) [data-header-transparent=t
       min-width: 90px!important;
     }
 
+   html .bundle-product__card {
+    width: calc(50% - 10px);
+}
+
 }
 
 @media screen and (max-width: 768px) {
