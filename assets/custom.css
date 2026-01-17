@@ -486,7 +486,7 @@ p.cart__footer__itemtotal,
   }
 
 
-@media (max-width: 768px) {
+@media (max-width: 575px) {
   .collection-tabs .tabs {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr);
