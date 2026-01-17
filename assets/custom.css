@@ -3201,6 +3201,10 @@ a.brat-featured-button {
     width: 100%;
 }
 
+.layer-overlay {
+    padding-bottom: 80px;
+    /* padding-left: 10px; */
+}
 .product__main__content.grid__item.medium-up--one-half {
     width: 100%;
 }
