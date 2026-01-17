@@ -887,7 +887,7 @@ body:not(.template-index):not(#build-your-own-bundle) [data-header-transparent=t
     }
 
       .template-collection  .collection-tabs-container .slide-item.product-grid-slide[data-item]{
-  width: calc(100% / var(--grid-large-items) -30px);
+  width: calc(100% / var(--grid-large-items) - 15px);
     }
 
     .template-collection .slide-item.product-grid-slide[data-item]{
