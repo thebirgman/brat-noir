@@ -18615,7 +18615,7 @@ Collection grid item
 [dir=rtl] .subfooter__items a:not(.footer__icon):hover:after {
   transform-origin: 100% 50%;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 821px) {
   .subfooter__items {
     grid-template-columns: repeat(2, auto);
   }
@@ -18627,7 +18627,7 @@ Collection grid item
   -moz-column-gap: 10px;
        column-gap: 10px;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 821px) {
   .subfooter__item:nth-child(odd) {
     justify-content: flex-start;
   }
