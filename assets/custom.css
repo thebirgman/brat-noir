@@ -3155,6 +3155,10 @@ a.brat-featured-button {
 .gfa-widget.GSC-uIxMwmNBjDcAIwD {
     margin-top: -40px!important;
 }
+
+.gfa-content__carousel-slide{
+  min-width: 25%!important;
+}
 }
 
 @media screen and (max-width: 768px) {
