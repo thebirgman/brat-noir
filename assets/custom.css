@@ -3227,6 +3227,17 @@ a.brat-featured-button {
 :not(#s).layer-overlay p {
     font-size: 16px!important;
 }
+html .layer-slider-track .layer-slide:first-child .layer-content {
+    padding-bottom: 80px;
+}
+  html  .layer-slide {
+        flex: 0 0 100%;
+        scroll-snap-align: center;
+        position: relative;
+        border-radius: 0px;
+        overflow: hidden;
+        min-height: calc(100vw + 20px);
+    }
 
 .layer-bg {}
 }
