@@ -3172,6 +3172,9 @@ a.brat-featured-button {
 .template-index main .image-text-custom__inner {
     max-width: 550px;
 }
+.shopify-section-group-group-header {
+    z-index: 99999;
+}
 
 .footer__content__inner {
     flex-direction: column;
