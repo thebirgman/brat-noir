@@ -3192,6 +3192,39 @@ a.brat-featured-button {
 .gfa-content__carousel-slide{
   min-width: 25%!important;
 }
+
+.product-single .grid__item {
+    width: 100%;
+}
+
+.product__main__content.grid__item.medium-up--one-half {
+    width: 100%;
+}
+
+.product__inner.is-sticky {
+    padding-left: 0;
+    padding-top: 40px;
+}
+
+
+.template-product main#MainContent {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.layer-mobile-slider.mobile-only {
+    max-width: 550px;
+}
+
+.layer-overlay h4 {
+    font-size: 28px!Important;
+}
+
+:not(#s).layer-overlay p {
+    font-size: 16px!important;
+}
+
+.layer-bg {}
 }
 
 @media screen and (max-width: 768px) {
@@ -3221,5 +3254,8 @@ a.brat-featured-button {
 }
 
 }
+
+
+
 
 
