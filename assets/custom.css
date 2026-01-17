@@ -2486,7 +2486,7 @@ a.footer__icon.footer__icon--social {
     font-size: 15px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 820px) {
 .footer__block.footer__aside {
     width: 100%;
 }
