@@ -3206,7 +3206,9 @@ a.brat-featured-button {
 #faqs [data-grid] {
     justify-content: center;
 }
-#about-us main#MainContent section.image-text-custom {
+#about-us main#MainContent section.image-text-custom,
+
+#about-us main#MainContent .wrapper.section-padding{
    max-width: 650px;
    margin-left: auto;
    margin-right: auto;
