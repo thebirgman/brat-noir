@@ -3122,6 +3122,10 @@ span.product__price--sale {
 h2 {
     font-size: 40px!important;
 }
+
+.gfa-content__text.heading-NaZWxdcpdaxx > h3, .gfa-content__text.heading-NaZWxdcpdaxx > span {
+    font-size: 40px!important;
+}
 }
 
 h2 {
@@ -3149,7 +3153,7 @@ a.brat-featured-button {
 }
 
 .gfa-widget.GSC-uIxMwmNBjDcAIwD {
-    margin-top: -40px;
+    margin-top: -40px!important;
 }
 }
 
