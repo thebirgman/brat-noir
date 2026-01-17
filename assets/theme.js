@@ -1198,7 +1198,7 @@
                 pageDots: true,
                 cellAlign: window.isRTL ? 'right' : 'left',
                 rightToLeft: window.isRTL,
-                dragThreshold: 3,
+                dragThreshold: 10,
                 arrowShape: {
                     x0: 10,
                     x1: 60,
@@ -5458,7 +5458,6 @@
                 wrapAround: false,
                 groupCells: false,
                 cellAlign: 'left',
-                freeScroll: true,
                 prevNextButtons: true,
                 draggable: true,
                 rightToLeft: window.isRTL,
