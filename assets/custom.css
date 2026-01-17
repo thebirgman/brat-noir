@@ -3201,6 +3201,10 @@ a.brat-featured-button {
 }
 .product-single .grid__item {
     width: 100%;
+    
+}
+#faqs [data-grid] {
+    justify-content: center;
 }
 
 .layer-overlay {
