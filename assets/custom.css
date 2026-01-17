@@ -3177,4 +3177,17 @@ a.brat-featured-button {
     margin-left: auto;
     margin-right: auto;
 }
+.footer__content__inner {
+    flex-direction: column;
+    gap: 40px;
 }
+
+.footer__container.footer__container--reversed {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+}
+
+
