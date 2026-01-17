@@ -890,6 +890,10 @@ body:not(.template-index):not(#build-your-own-bundle) [data-header-transparent=t
       width: calc(100% / 3 - 20px);
     }
 
+    body.template-collection .product__grid__price.product__grid__price--nowrap{
+      min-width: 90px!important;
+    }
+
 }
 
 @media screen and (max-width: 768px) {
