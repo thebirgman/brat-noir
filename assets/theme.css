@@ -18351,7 +18351,7 @@ Collection grid item
 [dir=rtl] .footer__quicklinks a:hover:after {
   transform-origin: 100% 50%;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 821px) {
   .footer__container {
     display: flex;
   }
@@ -18359,7 +18359,7 @@ Collection grid item
 .footer__content {
   min-width: 0;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 821px) {
   .footer__content {
     flex: 0 1 100%;
     display: flex;
@@ -18370,7 +18370,7 @@ Collection grid item
 .footer__content__inner {
   padding: var(--padding-top) 0 var(--padding-bottom) 0;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 821px) {
   .footer__content__inner {
     flex: 0 1 100%;
     max-width: 100%;
@@ -18386,7 +18386,7 @@ Collection grid item
   background-color: var(--bg);
   color: var(--text);
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 821px) {
   .footer__aside {
     display: flex;
     flex: 0 0 40%;
@@ -18433,7 +18433,7 @@ Collection grid item
 .footer__newsletter__body .footer__form .input-group-button button:hover {
   color: var(--text-dark);
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 821px) {
   .footer__newsletter__body {
     flex: 0 1 100%;
   }
@@ -18450,7 +18450,7 @@ Collection grid item
 .footer__block--socials h3:last-child {
   margin-bottom: 0;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 821px) {
   .footer__block--socials {
     flex: 0 1 100%;
     display: flex;
@@ -18484,7 +18484,7 @@ Collection grid item
   border-top: none;
   margin-top: 0;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 821px) {
   .footer__socials {
     flex: 1;
     align-self: center;
@@ -18526,7 +18526,7 @@ Collection grid item
   height: 100%;
   vertical-align: middle;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 821px) {
   .subfooter__item:nth-child(even) .footer__icon, .footer__socials:not(:first-child) .footer__icon {
     margin-inline: 20px 0;
   }
@@ -18540,7 +18540,7 @@ Collection grid item
 .footer__icon--payment svg {
   height: auto;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 821px) {
   .subfooter__item:nth-child(even) .footer__icon--payment {
     margin-inline-start: 5px;
   }
