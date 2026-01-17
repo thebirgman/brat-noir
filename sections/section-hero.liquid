@@ -133,7 +133,7 @@
                       min({{ block.settings.image_max_limit }}px, 100vw)
                     {%- endcapture -%}
 
-                    {% render 'image', img_object: block.settings.image, sizes: sizes, wh_ratio: wh_ratio, placeholder: 'logo', preload: preload, loading: loading %}
+                    {% render 'image', img_object: block.settings.image, sizes: sizes, wh_ratio: wh_ratio, placeholder: 'logo', preload: preload, loading: loading, isHero: true %}
 
                     {%- if block.settings.image_link != blank -%}</a>{%- endif -%}
                   </div>
