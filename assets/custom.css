@@ -3193,6 +3193,10 @@ a.brat-featured-button {
   min-width: 25%!important;
 }
 
+}
+
+@media screen and (max-width: 900px) and (min-width: 768px) {
+
 .product-single .grid__item {
     width: 100%;
 }
@@ -3225,10 +3229,6 @@ a.brat-featured-button {
 }
 
 .layer-bg {}
-}
-
-@media screen and (max-width: 768px) {
-
 }
 
 
