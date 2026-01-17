@@ -3172,11 +3172,7 @@ a.brat-featured-button {
 .template-index main .image-text-custom__inner {
     max-width: 550px;
 }
-.wrapper.section-padding .reposition-background-mobile {
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
+
 .footer__content__inner {
     flex-direction: column;
     gap: 40px;

@@ -145,8 +145,8 @@
       assign wrapper_style = wrapper_style | append: ' --ASPECT-RATIO-MOBILE: ' | append: wh_ratio_mobile | append: ';'
     -%}
     <picture class="{{ wrapper_classes }}" style="{{ wrapper_style }}">
-      <source media="(min-width: 821px)" sizes="{{ sizes }}" srcset="{{ srcset }}" />
-      <source media="(max-width: 820px)" sizes="{{ sizes }}" srcset="{{ srcset_mobile }}" />
+      <source media="(min-width: 768px)" sizes="{{ sizes }}" srcset="{{ srcset }}" />
+      <source media="(max-width: 767px)" sizes="{{ sizes }}" srcset="{{ srcset_mobile }}" />
       {{ image | image_url: width: width_default | image_tag:
         class: image_classes,
         alt: alt,
