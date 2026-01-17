@@ -886,6 +886,10 @@ body:not(.template-index):not(#build-your-own-bundle) [data-header-transparent=t
   width: calc(100% / var(--grid-large-items) - 20px);
     }
 
+    .template-collection .slide-item.product-grid-slide[data-item]{
+      width: calc(100% / 3 - 20px);
+    }
+
 }
 
 @media screen and (max-width: 768px) {
