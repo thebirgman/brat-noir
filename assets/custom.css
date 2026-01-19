@@ -3292,6 +3292,13 @@ div#shopify-section-template--23209815736343__section_image_PkKzpV {
     margin-left: auto;
     margin-right: auto;
 }
+.product__grid__main-info .product__grid__title__wrapper p.product__grid__collection-name {
+    margin-left: 2px!Important;
+}
+
+.product__grid__main-info p {
+    margin-left: 2px!important;
+}
 
 }
 
