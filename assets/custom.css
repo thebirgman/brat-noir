@@ -3322,3 +3322,18 @@ html:not(#S) body .product__grid__price.product__grid__price--nowrap {
 
 
 
+@media screen and (max-width: 820px) {
+.cart__footer__notes {
+    min-width: 0!important;
+    width: 100%;
+}
+
+.cart__footer__total {
+    width: 100%;
+}
+
+li.cart-trust-points__item {
+    text-align:left;
+}
+}
+
