@@ -3227,6 +3227,25 @@ a.brat-featured-button {
     padding-top: 40px;
 }
 
+.product-feature-icons__container {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.template-product main#MainContent {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.product-page {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+div#shopify-section-template--23209815703575__section_image_UdpBbw {
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .template-product main#MainContent {
     padding-left: 60px;
