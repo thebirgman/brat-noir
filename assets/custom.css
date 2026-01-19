@@ -3293,11 +3293,12 @@ div#shopify-section-template--23209815736343__section_image_PkKzpV {
     margin-right: auto;
 }
 .product__grid__main-info .product__grid__title__wrapper p.product__grid__collection-name {
-    margin-left: 2px!Important;
+    margin-left: 5px!Important;
 }
 
-.product__grid__main-info p {
-    margin-left: 2px!important;
+.product__grid__main-info p,
+html:not(#S) body .product__grid__price.product__grid__price--nowrap {
+    margin-left: 5px!important;
 }
 
 }
