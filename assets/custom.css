@@ -3322,7 +3322,7 @@ html:not(#S) body .product__grid__price.product__grid__price--nowrap {
 
 
 
-@media screen and (max-width: 820px) {
+@media screen and (max-width: 1000px) {
 .cart__footer__notes {
     min-width: 0!important;
     width: 100%;
