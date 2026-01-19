@@ -3337,3 +3337,9 @@ li.cart-trust-points__item {
 }
 }
 
+
+@media screen and (max-width: 768px) {
+.template__cart__footer .cart__footer__total{
+  max-width: 100%!important;
+}
+}
