@@ -1035,7 +1035,7 @@ product-form.product__block__buttons {
 
 @media screen and (max-width: 820px) {
     .product__mobile-header {
-        display: block;
+        display: block!important;
         width: 100%;
         padding: 20px;
     }
