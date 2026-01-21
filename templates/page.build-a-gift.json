@@ -366,6 +366,56 @@
         "padding_top": 0,
         "padding_bottom": 72
       }
+    },
+    "section_build_gift_box_xQ6gQU": {
+      "type": "section-build-gift-box",
+      "blocks": {
+        "filter_eBEjAA": {
+          "type": "filter",
+          "settings": {
+            "label": "Brat Ombré",
+            "collection": "fall-collection"
+          }
+        },
+        "filter_MVTpft": {
+          "type": "filter",
+          "settings": {
+            "label": "Brat Classic",
+            "collection": "classic-collection"
+          }
+        },
+        "filter_zVkfPE": {
+          "type": "filter",
+          "settings": {
+            "label": "Brat Goth",
+            "collection": "goth-collection"
+          }
+        },
+        "filter_UtjQ9i": {
+          "type": "filter",
+          "settings": {
+            "label": "Brat Summer",
+            "collection": "summer-collection"
+          }
+        }
+      },
+      "block_order": [
+        "filter_eBEjAA",
+        "filter_MVTpft",
+        "filter_zVkfPE",
+        "filter_UtjQ9i"
+      ],
+      "name": "Build Gift Box",
+      "settings": {
+        "collection": "collection-2",
+        "gift_box_product": "brat-noir-gift-box",
+        "heading": "",
+        "subheading": "",
+        "all_label": "All",
+        "gift_box_heading": "BUILD THE PERFECT GIFT",
+        "gift_box_features": "<ul><li>One-time purchase.</li><li>Luxury Gift Packaging Included.</li><li>Free Shipping</li></ul>",
+        "progress_icon": "shopify://shop_images/Group_542.png"
+      }
     }
   },
   "order": [
@@ -375,6 +425,7 @@
     "section_double_izRHnt",
     "section_double_bqV4gT",
     "section_double_Xf8aYX",
-    "gift_steps_8VpaKx"
+    "gift_steps_8VpaKx",
+    "section_build_gift_box_xQ6gQU"
   ]
 }
