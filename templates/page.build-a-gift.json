@@ -304,23 +304,30 @@
         "step_J47cj7": {
           "type": "step",
           "settings": {
+            "image_height": 140,
+            "image_height_mobile": 110,
             "title": "Step 1",
-            "text": "Step description"
+            "text": "Select 5 Sets."
           }
         },
         "step_dcyYPH": {
           "type": "step",
           "settings": {
             "image": "shopify://shop_images/Card_1_d820c726-5738-4b73-a197-1f6481eaf162.png",
-            "title": "Step 1",
-            "text": "Step description"
+            "image_height": 140,
+            "image_height_mobile": 110,
+            "title": "Step 2",
+            "text": "Craft Your Note."
           }
         },
         "step_dMj9Yb": {
           "type": "step",
           "settings": {
-            "title": "Step 1",
-            "text": "Step description"
+            "image": "shopify://shop_images/freepik__add-a-texture-background-for-img1-and-use-the-same__13177_1.png",
+            "image_height": 140,
+            "image_height_mobile": 110,
+            "title": "Step 3",
+            "text": "We Ship the Experience."
           }
         }
       },
