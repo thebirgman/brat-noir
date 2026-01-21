@@ -297,6 +297,46 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "gift_steps_3iHCmc": {
+      "type": "gift-steps",
+      "blocks": {
+        "step_J47cj7": {
+          "type": "step",
+          "settings": {
+            "title": "Step 1",
+            "text": "Step description"
+          }
+        },
+        "step_dcyYPH": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Card_1_d820c726-5738-4b73-a197-1f6481eaf162.png",
+            "title": "Step 1",
+            "text": "Step description"
+          }
+        },
+        "step_dMj9Yb": {
+          "type": "step",
+          "settings": {
+            "title": "Step 1",
+            "text": "Step description"
+          }
+        }
+      },
+      "block_order": [
+        "step_J47cj7",
+        "step_dcyYPH",
+        "step_dMj9Yb"
+      ],
+      "name": "Gift Steps",
+      "settings": {
+        "heading": "Gift Giving, Elevated.",
+        "max_width": 1200,
+        "background": "linear-gradient(135deg, rgba(243, 232, 255, 1), rgba(252, 231, 243, 1) 100%)",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
     }
   },
   "order": [
@@ -305,6 +345,7 @@
     "section_double_Hbg3nU",
     "section_double_izRHnt",
     "section_double_bqV4gT",
-    "section_double_Xf8aYX"
+    "section_double_Xf8aYX",
+    "gift_steps_3iHCmc"
   ]
 }
