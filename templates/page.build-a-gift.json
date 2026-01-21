@@ -71,6 +71,9 @@
         "text_JMD7dJ",
         "button_VxaCVY"
       ],
+      "custom_css": [
+        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}"
+      ],
       "name": "Rich text",
       "settings": {
         "align_text": "text-center",
@@ -340,6 +343,7 @@
         "step_dcyYPH",
         "step_dMj9Yb"
       ],
+      "custom_css": [],
       "name": "Gift Steps",
       "settings": {
         "heading": "Gift Giving, Elevated.",
