@@ -33,14 +33,14 @@
         "heading_AxxLhd": {
           "type": "heading",
           "settings": {
-            "heading": "Rich text",
+            "heading": "The Ultimate Brat Noir Gift Experience.",
             "text_size": 8
           }
         },
         "text_JMD7dJ": {
           "type": "text",
           "settings": {
-            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "text": "<p>Curate 5 premium sets in our exclusive, faux-velvet vanity box. Includes a collectible Tarot card and your personal note—handwritten by us.</p>",
             "text_size": 4,
             "text_columns": 1
           }
@@ -48,9 +48,9 @@
         "button_VxaCVY": {
           "type": "button",
           "settings": {
-            "link_text_1": "View products",
+            "link_text_1": "Start Building Your Gift",
             "link_1": "",
-            "button_size_1": "btn--long",
+            "button_size_1": "btn--large",
             "button_style_1": "btn",
             "button_color_1": "btn--white",
             "link_text_2": "",
@@ -85,27 +85,11 @@
     "section_double_Hbg3nU": {
       "type": "section-double",
       "blocks": {
-        "text_xrJdtb": {
-          "type": "text",
-          "settings": {
-            "kicker": "Image with text",
-            "title": "",
-            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
-            "font_size": 5,
-            "text_columns": 1,
-            "align_text": "text-left",
-            "button_text": "",
-            "button_url": "",
-            "button_color": "btn--neutral",
-            "button_style": "btn-text-thick-line",
-            "text_color": "text--neutral",
-            "bg_color": ""
-          }
-        },
         "image_jmcfJ4": {
           "type": "image",
           "settings": {
-            "overlay_opacity": 15,
+            "image": "shopify://shop_images/Velvet-Vanity-Box.png",
+            "overlay_opacity": 0,
             "overlay_color": "#000000",
             "enable_overlay_text": false,
             "kicker": "",
@@ -113,16 +97,33 @@
             "richtext": "",
             "text_align": "align--middle-center",
             "text_color": "text--white",
-            "link_text": "Shop Now",
+            "link_text": "",
             "link": "",
             "button_color": "btn--white",
             "button_style": "btn"
           }
+        },
+        "text_xrJdtb": {
+          "type": "text",
+          "settings": {
+            "kicker": "",
+            "title": "The Velvet Vanity Box.",
+            "text": "<p>A reusable, faux-velvet lined keepsake box designed to protect their collection in style.</p>",
+            "font_size": 5,
+            "text_columns": 1,
+            "align_text": "text-center",
+            "button_text": "",
+            "button_url": "",
+            "button_color": "btn--neutral",
+            "button_style": "btn-text-thick-line",
+            "text_color": "text--neutral",
+            "bg_color": ""
+          }
         }
       },
       "block_order": [
-        "text_xrJdtb",
-        "image_jmcfJ4"
+        "image_jmcfJ4",
+        "text_xrJdtb"
       ],
       "name": "Image with text",
       "settings": {
@@ -133,7 +134,7 @@
         "preload_image": false,
         "width": "wrapper",
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 0
       }
     },
     "section_double_izRHnt": {
@@ -142,12 +143,12 @@
         "text_hM7R6g": {
           "type": "text",
           "settings": {
-            "kicker": "Image with text",
-            "title": "",
-            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "kicker": "",
+            "title": "Curated by You.",
+            "text": "<p>Select 5 distinct looks from our Ombré, Classic, Goth, and Summer collections.</p>",
             "font_size": 5,
             "text_columns": 1,
-            "align_text": "text-left",
+            "align_text": "text-center",
             "button_text": "",
             "button_url": "",
             "button_color": "btn--neutral",
@@ -159,7 +160,8 @@
         "image_3TRQTK": {
           "type": "image",
           "settings": {
-            "overlay_opacity": 15,
+            "image": "shopify://shop_images/Curated_by_You.png",
+            "overlay_opacity": 0,
             "overlay_color": "#000000",
             "enable_overlay_text": false,
             "kicker": "",
@@ -167,7 +169,7 @@
             "richtext": "",
             "text_align": "align--middle-center",
             "text_color": "text--white",
-            "link_text": "Shop Now",
+            "link_text": "",
             "link": "",
             "button_color": "btn--white",
             "button_style": "btn"
@@ -186,33 +188,17 @@
         "bg_color": "",
         "preload_image": false,
         "width": "wrapper",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "section_double_bqV4gT": {
       "type": "section-double",
       "blocks": {
-        "text_JxygnE": {
-          "type": "text",
-          "settings": {
-            "kicker": "Image with text",
-            "title": "",
-            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
-            "font_size": 5,
-            "text_columns": 1,
-            "align_text": "text-left",
-            "button_text": "",
-            "button_url": "",
-            "button_color": "btn--neutral",
-            "button_style": "btn-text-thick-line",
-            "text_color": "text--neutral",
-            "bg_color": ""
-          }
-        },
         "image_epMddw": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/written-in-the-cards.png",
             "overlay_opacity": 15,
             "overlay_color": "#000000",
             "enable_overlay_text": false,
@@ -221,16 +207,33 @@
             "richtext": "",
             "text_align": "align--middle-center",
             "text_color": "text--white",
-            "link_text": "Shop Now",
+            "link_text": "",
             "link": "",
             "button_color": "btn--white",
             "button_style": "btn"
           }
+        },
+        "text_JxygnE": {
+          "type": "text",
+          "settings": {
+            "kicker": "",
+            "title": "Written in the Cards.",
+            "text": "<p>Every box includes an exclusive Brat Noir Tarot Card for a touch of mystique.</p>",
+            "font_size": 5,
+            "text_columns": 1,
+            "align_text": "text-center",
+            "button_text": "",
+            "button_url": "",
+            "button_color": "btn--neutral",
+            "button_style": "btn-text-thick-line",
+            "text_color": "text--neutral",
+            "bg_color": ""
+          }
         }
       },
       "block_order": [
-        "text_JxygnE",
-        "image_epMddw"
+        "image_epMddw",
+        "text_JxygnE"
       ],
       "name": "Image with text",
       "settings": {
@@ -240,8 +243,8 @@
         "bg_color": "",
         "preload_image": false,
         "width": "wrapper",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "section_double_Xf8aYX": {
@@ -250,12 +253,12 @@
         "text_6XRGyR": {
           "type": "text",
           "settings": {
-            "kicker": "Image with text",
-            "title": "",
-            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "kicker": "",
+            "title": "Pen to Paper.",
+            "text": "<p>Write your message at checkout, and we will handwrite it on premium cardstock.</p>",
             "font_size": 5,
             "text_columns": 1,
-            "align_text": "text-left",
+            "align_text": "text-center",
             "button_text": "",
             "button_url": "",
             "button_color": "btn--neutral",
@@ -267,6 +270,7 @@
         "image_WR7Vpa": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/pen-to-paper.png",
             "overlay_opacity": 15,
             "overlay_color": "#000000",
             "enable_overlay_text": false,
@@ -275,7 +279,7 @@
             "richtext": "",
             "text_align": "align--middle-center",
             "text_color": "text--white",
-            "link_text": "Shop Now",
+            "link_text": "",
             "link": "",
             "button_color": "btn--white",
             "button_style": "btn"
@@ -294,7 +298,7 @@
         "bg_color": "",
         "preload_image": false,
         "width": "wrapper",
-        "padding_top": 36,
+        "padding_top": 0,
         "padding_bottom": 36
       }
     },
