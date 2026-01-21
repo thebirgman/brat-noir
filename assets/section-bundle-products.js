@@ -270,6 +270,16 @@
           price: card.querySelector('.bundle-product__price--sale, .bundle-product__price--regular')?.textContent || '0'
         } : null;
 
+        // Add visual feedback class to product card
+        if (card) {
+          card.classList.add('is-added-to-box');
+          
+          // Remove the class after 2 seconds
+          setTimeout(() => {
+            card.classList.remove('is-added-to-box');
+          }, 2000);
+        }
+
         // Don't await - let it run in background after optimistic update
         addToCart(variantId, 0, 1, productData).then(() => {
           button.classList.remove('loading');
