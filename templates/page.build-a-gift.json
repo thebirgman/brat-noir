@@ -106,7 +106,7 @@
           "type": "image",
           "settings": {
             "overlay_opacity": 15,
-            "overlay_color": "#000",
+            "overlay_color": "#000000",
             "enable_overlay_text": false,
             "kicker": "",
             "title": "",
@@ -160,7 +160,7 @@
           "type": "image",
           "settings": {
             "overlay_opacity": 15,
-            "overlay_color": "#000",
+            "overlay_color": "#000000",
             "enable_overlay_text": false,
             "kicker": "",
             "title": "",
@@ -214,7 +214,7 @@
           "type": "image",
           "settings": {
             "overlay_opacity": 15,
-            "overlay_color": "#000",
+            "overlay_color": "#000000",
             "enable_overlay_text": false,
             "kicker": "",
             "title": "",
@@ -268,7 +268,7 @@
           "type": "image",
           "settings": {
             "overlay_opacity": 15,
-            "overlay_color": "#000",
+            "overlay_color": "#000000",
             "enable_overlay_text": false,
             "kicker": "",
             "title": "",
@@ -297,79 +297,6 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
-    },
-    "section_columns_nVfDMr": {
-      "type": "section-columns",
-      "blocks": {
-        "text_block_TqaWGP": {
-          "type": "text_block",
-          "settings": {
-            "enable_image": true,
-            "shape_class": "",
-            "title": "Step 1",
-            "text": "<p>Select 5 Sets.</p>",
-            "button_label": "",
-            "button_link": "",
-            "button_color": "btn--neutral",
-            "button_style": "btn--soft",
-            "enable_video": false,
-            "video_link": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-            "video_button_color": "text--white"
-          }
-        },
-        "text_block_ppqiLL": {
-          "type": "text_block",
-          "settings": {
-            "enable_image": true,
-            "shape_class": "",
-            "title": "Step 2",
-            "text": "<p>Craft Your Note.</p>",
-            "button_label": "",
-            "button_link": "",
-            "button_color": "btn--neutral",
-            "button_style": "btn--soft",
-            "enable_video": false,
-            "video_link": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-            "video_button_color": "text--white"
-          }
-        },
-        "text_block_fHKKwF": {
-          "type": "text_block",
-          "settings": {
-            "enable_image": true,
-            "shape_class": "",
-            "title": "Step 3",
-            "text": "<p>We ship the Experience.</p>",
-            "button_label": "",
-            "button_link": "",
-            "button_color": "btn--neutral",
-            "button_style": "btn--soft",
-            "enable_video": false,
-            "video_link": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-            "video_button_color": "text--white"
-          }
-        }
-      },
-      "block_order": [
-        "text_block_TqaWGP",
-        "text_block_ppqiLL",
-        "text_block_fHKKwF"
-      ],
-      "name": "Text columns with images",
-      "settings": {
-        "title": "Gift Giving. Elevated.",
-        "bg": "palette--light bg--neutral",
-        "align_text": "text-center",
-        "scale_image": true,
-        "wh_ratio": 1,
-        "grid_large": 3,
-        "grid_medium": 3,
-        "grid_mobile": 1.2,
-        "progress_bar_mobile": false,
-        "width": "wrapper",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
     }
   },
   "order": [
@@ -378,7 +305,6 @@
     "section_double_Hbg3nU",
     "section_double_izRHnt",
     "section_double_bqV4gT",
-    "section_double_Xf8aYX",
-    "section_columns_nVfDMr"
+    "section_double_Xf8aYX"
   ]
 }
