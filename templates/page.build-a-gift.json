@@ -340,7 +340,7 @@
       "settings": {
         "heading": "Gift Giving, Elevated.",
         "max_width": 1200,
-        "background": "linear-gradient(135deg, rgba(243, 232, 255, 1), rgba(252, 231, 243, 1) 100%)",
+        "background": "",
         "padding_top": 80,
         "padding_bottom": 80
       }
