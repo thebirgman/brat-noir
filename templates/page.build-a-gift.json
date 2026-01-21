@@ -114,7 +114,7 @@
             "kicker": "",
             "title": "The Velvet Vanity Box.",
             "text": "<p>A reusable, faux-velvet lined keepsake box designed to protect their collection in style.</p>",
-            "font_size": 5,
+            "font_size": 4,
             "text_columns": 1,
             "align_text": "text-center",
             "button_text": "",
@@ -129,6 +129,9 @@
       "block_order": [
         "image_jmcfJ4",
         "text_xrJdtb"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 750px) {h2 {font-size: 48px !important; }}"
       ],
       "name": "Image with text",
       "settings": {
@@ -151,7 +154,7 @@
             "kicker": "",
             "title": "Curated by You.",
             "text": "<p>Select 5 distinct looks from our Ombré, Classic, Goth, and Summer collections.</p>",
-            "font_size": 5,
+            "font_size": 4,
             "text_columns": 1,
             "align_text": "text-center",
             "button_text": "",
@@ -184,6 +187,9 @@
       "block_order": [
         "text_hM7R6g",
         "image_3TRQTK"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 750px) {h2 {font-size: 48px !important; }}"
       ],
       "name": "Image with text",
       "settings": {
@@ -224,7 +230,7 @@
             "kicker": "",
             "title": "Written in the Cards.",
             "text": "<p>Every box includes an exclusive Brat Noir Tarot Card for a touch of mystique.</p>",
-            "font_size": 5,
+            "font_size": 4,
             "text_columns": 1,
             "align_text": "text-center",
             "button_text": "",
@@ -239,6 +245,9 @@
       "block_order": [
         "image_epMddw",
         "text_JxygnE"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 750px) {h2 {font-size: 48px !important; }}"
       ],
       "name": "Image with text",
       "settings": {
@@ -261,7 +270,7 @@
             "kicker": "",
             "title": "Pen to Paper.",
             "text": "<p>Write your message at checkout, and we will handwrite it on premium cardstock.</p>",
-            "font_size": 5,
+            "font_size": 4,
             "text_columns": 1,
             "align_text": "text-center",
             "button_text": "",
@@ -294,6 +303,9 @@
       "block_order": [
         "text_6XRGyR",
         "image_WR7Vpa"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 750px) {h2 {font-size: 48px !important; }}"
       ],
       "name": "Image with text",
       "settings": {
