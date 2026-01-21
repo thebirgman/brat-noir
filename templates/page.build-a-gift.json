@@ -72,7 +72,8 @@
         "button_VxaCVY"
       ],
       "custom_css": [
-        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}"
+        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
+        "@media screen and (min-width: 750px) {a.standard__cta.hero__btn.btn.btn--white.btn--large.aos-init.aos-animate {width: 445px;}}"
       ],
       "name": "Rich text",
       "settings": {
