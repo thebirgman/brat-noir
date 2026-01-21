@@ -311,6 +311,7 @@
         "step_MB8mAG": {
           "type": "step",
           "settings": {
+            "image": "shopify://shop_images/brat-gift-step-1.png",
             "image_height": 140,
             "image_height_mobile": 110,
             "title": "Step 1",
