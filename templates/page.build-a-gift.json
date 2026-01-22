@@ -75,7 +75,7 @@
         ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
         "@media screen and (min-width: 769px) {a {width: 445px; font-size: 20px !important; }}",
         "a {box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.25), 3px 8px 9px rgba(0, 0, 0, 0.21), 6px 19px 12px rgba(0, 0, 0, 0.13), 10px 33px 14px rgba(0, 0, 0, 0.04), 16px 52px 15px rgba(0, 0, 0, 0); font-weight: 700 !important;}",
-        "@media screen and (max-width: 768px) {p {font-size: 14px;}}"
+        "@media screen and (max-width: 768px) {p {font-size: 14px; }}"
       ],
       "name": "Rich text",
       "settings": {
@@ -132,7 +132,8 @@
         "text_xrJdtb"
       ],
       "custom_css": [
-        "@media screen and (min-width: 750px) {h2 {font-size: 48px !important; } p {width: 400px; margin: 0 auto; }}"
+        "@media screen and (min-width: 750px) {h2 {font-size: 48px !important; } p {width: 400px; margin: 0 auto; }}",
+        "@media screen and (max-width: 768px) {.wrapper.section-padding {padding-left: 0px; padding-right: 0px; }}"
       ],
       "name": "Image with text",
       "settings": {
