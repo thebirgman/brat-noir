@@ -42,16 +42,19 @@
               </div>
 
             {% when 'result' %}
-              <div class="value-breakdown__result">
-                <div class="value-breakdown__total">
-                  <span class="value-breakdown__label-text">Total Value:</span>
-                  <span class="strike">{{ block.settings.total_value }}</span>
-                </div>
-                <div class="value-breakdown__final">
-                  <span class="value-breakdown__label-text">Your Price:</span>
-                  <span>{{ block.settings.final_price }}</span>
-                </div>
-              </div>
+  <div class="value-breakdown__result">
+    <div class="value-breakdown__total">
+      <span class="value-breakdown__label-text">Total Value:</span>
+      <span class="strike">{{ block.settings.total_value }}</span>
+    </div>
+    <div class="value-breakdown__final">
+      <span class="value-breakdown__label-text">Your Price:</span>
+      <span class="value-breakdown__price-value">
+        {{ block.settings.final_price }}
+      </span>
+    </div>
+  </div>
+
 
           {% endcase %}
         {% endfor %}
