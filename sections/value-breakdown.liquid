@@ -172,6 +172,20 @@
   font-size: 26px;
 }
 
+/* Align total + price in one row */
+.value-breakdown__total,
+.value-breakdown__final {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Ensure prices don’t wrap oddly */
+.value-breakdown__total .strike,
+.value-breakdown__final strong {
+  white-space: nowrap;
+}
+
 
 
 /* DESKTOP */
