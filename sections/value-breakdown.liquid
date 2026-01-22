@@ -50,21 +50,26 @@
         {% endfor %}
       </div>
 
-      <!-- MOBILE GRID -->
+      <!-- MOBILE LAYOUT -->
       <div class="value-breakdown__grid">
-        {% for block in section.blocks %}
-          {% if block.type == 'item' %}
-            <div class="value-breakdown__item">
-              <div class="value-breakdown__price">
-                {{ block.settings.price }}
-              </div>
-              <div class="value-breakdown__label">
-                {{ block.settings.label }}
-              </div>
-            </div>
-          {% endif %}
-        {% endfor %}
 
+        <!-- 2x2 ITEM GRID -->
+        <div class="value-breakdown__grid-items">
+          {% for block in section.blocks %}
+            {% if block.type == 'item' %}
+              <div class="value-breakdown__item">
+                <div class="value-breakdown__price">
+                  {{ block.settings.price }}
+                </div>
+                <div class="value-breakdown__label">
+                  {{ block.settings.label }}
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        <!-- RESULT -->
         {% for block in section.blocks %}
           {% if block.type == 'result' %}
             <div class="value-breakdown__result">
@@ -79,6 +84,7 @@
             </div>
           {% endif %}
         {% endfor %}
+
       </div>
 
     </div>
@@ -164,23 +170,28 @@
   }
 
   .value-breakdown__grid {
+    display: block;
+    text-align: center;
+  }
+
+  .value-breakdown__grid-items {
     display: grid;
     grid-template-columns: 1fr 1fr;
     position: relative;
     gap: 24px;
     padding: 24px 0;
-    text-align: center;
   }
 
-  .value-breakdown__grid::before,
-  .value-breakdown__grid::after {
+  /* Divider lines (ONLY for the 2x2 grid) */
+  .value-breakdown__grid-items::before,
+  .value-breakdown__grid-items::after {
     content: "";
     position: absolute;
     background: {{ section.settings.divider_color }};
   }
 
   /* Vertical divider */
-  .value-breakdown__grid::before {
+  .value-breakdown__grid-items::before {
     width: 2px;
     height: 100%;
     left: 50%;
@@ -189,7 +200,7 @@
   }
 
   /* Horizontal divider */
-  .value-breakdown__grid::after {
+  .value-breakdown__grid-items::after {
     height: 2px;
     width: 100%;
     left: 0;
@@ -198,7 +209,6 @@
   }
 
   .value-breakdown__result {
-    grid-column: span 2;
     margin-top: 24px;
   }
 }
