@@ -73,7 +73,7 @@ p{
 h2{
       font-size: 48px !important;
     margin-bottom: 20px !important;
-    letter-spacing: -1px!important;
+    letter-spacing: 0px!important;
     text-transform: capitalize !important;
 }
 

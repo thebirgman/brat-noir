@@ -1,0 +1,743 @@
+{{ 'section-what-sets-us-apart.css' | asset_url | stylesheet_tag }}
+
+<section class="what-sets-us-apart" id="what-sets-us-apart-{{ section.id }}" data-section-id="{{ section.id }}">
+  <div class="what-sets-us-apart__container">
+    {%- if section.settings.heading != blank -%}
+      <div class="what-sets-us-apart__heading rte">
+        {{ section.settings.heading }}
+      </div>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      {%- comment -%} Mobile Main Image {%- endcomment -%}
+      {%- if section.settings.main_image != blank -%}
+        <div class="what-sets-us-apart__main-image-mobile">
+          <img
+            src="{{ section.settings.main_image | image_url: width: 800 }}"
+            srcset="{{ section.settings.main_image | image_url: width: 400 }} 400w,
+                    {{ section.settings.main_image | image_url: width: 600 }} 600w,
+                    {{ section.settings.main_image | image_url: width: 800 }} 800w"
+            sizes="(max-width: 768px) 100vw, 800px"
+            alt="{{ section.settings.main_image.alt | escape }}"
+            loading="lazy"
+            width="{{ section.settings.main_image.width }}"
+            height="{{ section.settings.main_image.height }}">
+        </div>
+      {%- endif -%}
+
+      {%- comment -%} Labels/Tabs {%- endcomment -%}
+      <div class="what-sets-us-apart__labels" role="tablist" aria-label="Feature tabs">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'feature_block' or block.type == 'feature_block_with_arrows' -%}
+            <div class="what-sets-us-apart__label-wrapper">
+              <button
+                class="what-sets-us-apart__label{% if forloop.first %} is-active{% endif %}"
+                data-tab="{{ block.id }}"
+                role="tab"
+                aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+                aria-controls="content-{{ block.id }}"
+                id="tab-{{ block.id }}"
+                type="button"
+                {{ block.shopify_attributes }}>
+                {{ block.settings.title }}
+              </button>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+      {%- comment -%} Content Panels {%- endcomment -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'feature_block' or block.type == 'feature_block_with_arrows' -%}
+          <div
+            class="what-sets-us-apart__content{% if forloop.first %} is-active{% endif %}"
+            data-content="{{ block.id }}"
+            role="tabpanel"
+            aria-labelledby="tab-{{ block.id }}"
+            id="content-{{ block.id }}"
+            {% unless forloop.first %}hidden{% endunless %}
+            {{ block.shopify_attributes }}>
+            
+            {%- comment -%} Desktop Layout - 2 Rows {%- endcomment -%}
+            <div class="what-sets-us-apart__desktop-grid">
+              {%- comment -%} Row 1: Image-Text 1 + Main Image + Image-Text 2 {%- endcomment -%}
+              <div class="what-sets-us-apart__row what-sets-us-apart__row--first">
+                {%- comment -%} Image-Text 1 {%- endcomment -%}
+                {%- if block.settings.image_1 != blank or block.settings.text_1 != blank -%}
+                  <div class="what-sets-us-apart__item what-sets-us-apart__item--1 what-sets-us-apart__item--text-{{ block.settings.text_alignment_1 | default: 'center' }}{% if block.type == 'feature_block_with_arrows' %} what-sets-us-apart__item--hide-image-desktop{% endif %}">
+                    {%- if block.settings.image_1 != blank -%}
+                      <div class="what-sets-us-apart__item-image">
+                        <img
+                          src="{{ block.settings.image_1 | image_url: width: 300 }}"
+                          srcset="{{ block.settings.image_1 | image_url: width: 150 }} 150w,
+                                  {{ block.settings.image_1 | image_url: width: 300 }} 300w"
+                          sizes="(max-width: 768px) 150px, 300px"
+                          alt="{{ block.settings.image_1.alt | escape }}"
+                          loading="lazy"
+                          width="{{ block.settings.image_1.width }}"
+                          height="{{ block.settings.image_1.height }}">
+                      </div>
+                    {%- endif -%}
+                    {%- if block.settings.text_1 != blank -%}
+                      <div class="what-sets-us-apart__item-text rte">
+                        {{ block.settings.text_1 }}
+                      </div>
+                    {%- endif -%}
+                    {%- comment -%} Arrow for feature_block_with_arrows {%- endcomment -%}
+                    {%- if block.type == 'feature_block_with_arrows' and block.settings.arrow_1 != blank -%}
+                      <div class="what-sets-us-apart__item-arrow" style="top: {{ block.settings.arrow_1_top }}%; left: {{ block.settings.arrow_1_left }}%; width: {{ block.settings.arrow_1_width }}px;">
+                        <img
+                          src="{{ block.settings.arrow_1 | image_url: width: 600 }}"
+                          alt="Arrow"
+                          loading="lazy"
+                          width="{{ block.settings.arrow_1.width }}"
+                          height="{{ block.settings.arrow_1.height }}">
+                      </div>
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
+
+                {%- comment -%} Main Image {%- endcomment -%}
+                {%- if section.settings.main_image != blank -%}
+                  <div class="what-sets-us-apart__main-image">
+                    <img
+                      src="{{ section.settings.main_image | image_url: width: 600 }}"
+                      srcset="{{ section.settings.main_image | image_url: width: 400 }} 400w,
+                              {{ section.settings.main_image | image_url: width: 600 }} 600w,
+                              {{ section.settings.main_image | image_url: width: 800 }} 800w"
+                      sizes="(max-width: 768px) 100vw, 600px"
+                      alt="{{ section.settings.main_image.alt | escape }}"
+                      loading="lazy"
+                      width="{{ section.settings.main_image.width }}"
+                      height="{{ section.settings.main_image.height }}">
+                  </div>
+                {%- endif -%}
+
+                {%- comment -%} Image-Text 2 {%- endcomment -%}
+                {%- if block.settings.image_2 != blank or block.settings.text_2 != blank -%}
+                  <div class="what-sets-us-apart__item what-sets-us-apart__item--2 what-sets-us-apart__item--text-{{ block.settings.text_alignment_2 | default: 'center' }}{% if block.type == 'feature_block_with_arrows' %} what-sets-us-apart__item--hide-image-desktop{% endif %}">
+                    {%- if block.settings.image_2 != blank -%}
+                      <div class="what-sets-us-apart__item-image">
+                        <img
+                          src="{{ block.settings.image_2 | image_url: width: 300 }}"
+                          srcset="{{ block.settings.image_2 | image_url: width: 150 }} 150w,
+                                  {{ block.settings.image_2 | image_url: width: 300 }} 300w"
+                          sizes="(max-width: 768px) 150px, 300px"
+                          alt="{{ block.settings.image_2.alt | escape }}"
+                          loading="lazy"
+                          width="{{ block.settings.image_2.width }}"
+                          height="{{ block.settings.image_2.height }}">
+                      </div>
+                    {%- endif -%}
+                    {%- if block.settings.text_2 != blank -%}
+                      <div class="what-sets-us-apart__item-text rte">
+                        {{ block.settings.text_2 }}
+                      </div>
+                    {%- endif -%}
+                    {%- comment -%} Arrow for feature_block_with_arrows {%- endcomment -%}
+                    {%- if block.type == 'feature_block_with_arrows' and block.settings.arrow_2 != blank -%}
+                      <div class="what-sets-us-apart__item-arrow" style="top: {{ block.settings.arrow_2_top }}%; left: {{ block.settings.arrow_2_left }}%; width: {{ block.settings.arrow_2_width }}px;">
+                        <img
+                          src="{{ block.settings.arrow_2 | image_url: width: 600 }}"
+                          alt="Arrow"
+                          loading="lazy"
+                          width="{{ block.settings.arrow_2.width }}"
+                          height="{{ block.settings.arrow_2.height }}">
+                      </div>
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
+              </div>
+
+              {%- comment -%} Row 2: Image-Text 3 + Image-Text 4 {%- endcomment -%}
+              <div class="what-sets-us-apart__row what-sets-us-apart__row--second">
+                {%- comment -%} Image-Text 3 {%- endcomment -%}
+                {%- if block.settings.image_3 != blank or block.settings.text_3 != blank -%}
+                  <div class="what-sets-us-apart__item what-sets-us-apart__item--3 what-sets-us-apart__item--text-{{ block.settings.text_alignment_3 | default: 'center' }}{% if block.type == 'feature_block_with_arrows' %} what-sets-us-apart__item--hide-image-desktop{% endif %}">
+                    {%- if block.settings.image_3 != blank -%}
+                      <div class="what-sets-us-apart__item-image">
+                        <img
+                          src="{{ block.settings.image_3 | image_url: width: 300 }}"
+                          srcset="{{ block.settings.image_3 | image_url: width: 150 }} 150w,
+                                  {{ block.settings.image_3 | image_url: width: 300 }} 300w"
+                          sizes="(max-width: 768px) 150px, 300px"
+                          alt="{{ block.settings.image_3.alt | escape }}"
+                          loading="lazy"
+                          width="{{ block.settings.image_3.width }}"
+                          height="{{ block.settings.image_3.height }}">
+                      </div>
+                    {%- endif -%}
+                    {%- if block.settings.text_3 != blank -%}
+                      <div class="what-sets-us-apart__item-text rte">
+                        {{ block.settings.text_3 }}
+                      </div>
+                    {%- endif -%}
+                    {%- comment -%} Arrow for feature_block_with_arrows {%- endcomment -%}
+                    {%- if block.type == 'feature_block_with_arrows' and block.settings.arrow_3 != blank -%}
+                      <div class="what-sets-us-apart__item-arrow" style="top: {{ block.settings.arrow_3_top }}%; left: {{ block.settings.arrow_3_left }}%; width: {{ block.settings.arrow_3_width }}px;">
+                        <img
+                          src="{{ block.settings.arrow_3 | image_url: width: 600 }}"
+                          alt="Arrow"
+                          loading="lazy"
+                          width="{{ block.settings.arrow_3.width }}"
+                          height="{{ block.settings.arrow_3.height }}">
+                      </div>
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
+
+                {%- comment -%} Image-Text 4 {%- endcomment -%}
+                {%- if block.settings.image_4 != blank or block.settings.text_4 != blank -%}
+                  <div class="what-sets-us-apart__item what-sets-us-apart__item--4 what-sets-us-apart__item--text-{{ block.settings.text_alignment_4 | default: 'center' }}{% if block.type == 'feature_block_with_arrows' %} what-sets-us-apart__item--hide-image-desktop{% endif %}">
+                    {%- if block.settings.image_4 != blank -%}
+                      <div class="what-sets-us-apart__item-image">
+                        <img
+                          src="{{ block.settings.image_4 | image_url: width: 300 }}"
+                          srcset="{{ block.settings.image_4 | image_url: width: 150 }} 150w,
+                                  {{ block.settings.image_4 | image_url: width: 300 }} 300w"
+                          sizes="(max-width: 768px) 150px, 300px"
+                          alt="{{ block.settings.image_4.alt | escape }}"
+                          loading="lazy"
+                          width="{{ block.settings.image_4.width }}"
+                          height="{{ block.settings.image_4.height }}">
+                      </div>
+                    {%- endif -%}
+                    {%- if block.settings.text_4 != blank -%}
+                      <div class="what-sets-us-apart__item-text rte">
+                        {{ block.settings.text_4 }}
+                      </div>
+                    {%- endif -%}
+                    {%- comment -%} Arrow for feature_block_with_arrows {%- endcomment -%}
+                    {%- if block.type == 'feature_block_with_arrows' and block.settings.arrow_4 != blank -%}
+                      <div class="what-sets-us-apart__item-arrow" style="top: {{ block.settings.arrow_4_top }}%; left: {{ block.settings.arrow_4_left }}%; width: {{ block.settings.arrow_4_width }}px;">
+                        <img
+                          src="{{ block.settings.arrow_4 | image_url: width: 600 }}"
+                          alt="Arrow"
+                          loading="lazy"
+                          width="{{ block.settings.arrow_4.width }}"
+                          height="{{ block.settings.arrow_4.height }}">
+                      </div>
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
+              </div>
+            </div>
+
+            {%- comment -%} Mobile Slider {%- endcomment -%}
+            <div class="what-sets-us-apart__mobile-slider">
+              <div class="what-sets-us-apart__slider-track">
+                {%- for i in (1..4) -%}
+                  {%- assign image_key = 'image_' | append: i -%}
+                  {%- assign text_key = 'text_' | append: i -%}
+                  {%- assign alignment_key = 'text_alignment_' | append: i -%}
+                  {%- assign image = block.settings[image_key] -%}
+                  {%- assign text = block.settings[text_key] -%}
+                  {%- assign alignment = block.settings[alignment_key] | default: 'center' -%}
+                  
+                  {%- if image != blank or text != blank -%}
+                    <div class="what-sets-us-apart__slide what-sets-us-apart__slide--text-{{ alignment }}">
+                      {%- if image != blank -%}
+                        <div class="what-sets-us-apart__slide-image">
+                          <img
+                            src="{{ image | image_url: width: 400 }}"
+                            srcset="{{ image | image_url: width: 200 }} 200w,
+                                    {{ image | image_url: width: 400 }} 400w"
+                            sizes="(max-width: 768px) 90vw, 400px"
+                            alt="{{ image.alt | escape }}"
+                            loading="lazy"
+                            width="{{ image.width }}"
+                            height="{{ image.height }}">
+                        </div>
+                      {%- endif -%}
+                      {%- if text != blank -%}
+                        <div class="what-sets-us-apart__slide-text rte">
+                          {{ text }}
+                        </div>
+                      {%- endif -%}
+                    </div>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+              
+              {%- comment -%} Slider Dots {%- endcomment -%}
+              <div class="what-sets-us-apart__dots">
+                {%- for i in (1..4) -%}
+                  {%- assign image_key = 'image_' | append: i -%}
+                  {%- assign text_key = 'text_' | append: i -%}
+                  {%- assign image = block.settings[image_key] -%}
+                  {%- assign text = block.settings[text_key] -%}
+                  
+                  {%- if image != blank or text != blank -%}
+                    <button
+                      class="what-sets-us-apart__dot{% if forloop.first %} is-active{% endif %}"
+                      data-slide="{{ forloop.index | minus: 1 }}"
+                      aria-label="Go to slide {{ forloop.index }}"
+                      type="button">
+                    </button>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+  </div>
+</section>
+
+{{ 'section-what-sets-us-apart.js' | asset_url | script_tag }}
+
+{% schema %}
+{
+  "name": "What Sets Us Apart",
+  "tag": "section",
+  "class": "section-what-sets-us-apart",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>What Sets Us Apart</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Main Image",
+      "info": "The large center image displayed in the middle of the content"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature_block",
+      "name": "Feature Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Block Title",
+          "default": "Feature Title",
+          "info": "This appears as a tab label"
+        },
+        {
+          "type": "header",
+          "content": "Image & Text 1 (Top Left)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Image 1"
+        },
+        {
+          "type": "richtext",
+          "id": "text_1",
+          "label": "Text 1",
+          "default": "<p>Feature description goes here</p>"
+        },
+        {
+          "type": "select",
+          "id": "text_alignment_1",
+          "label": "Text 1 Alignment",
+          "options": [
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "left",
+              "label": "Left"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "header",
+          "content": "Image & Text 2 (Top Right)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Image 2"
+        },
+        {
+          "type": "richtext",
+          "id": "text_2",
+          "label": "Text 2",
+          "default": "<p>Feature description goes here</p>"
+        },
+        {
+          "type": "select",
+          "id": "text_alignment_2",
+          "label": "Text 2 Alignment",
+          "options": [
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "left",
+              "label": "Left"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "header",
+          "content": "Image & Text 3 (Bottom Left)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Image 3"
+        },
+        {
+          "type": "richtext",
+          "id": "text_3",
+          "label": "Text 3",
+          "default": "<p>Feature description goes here</p>"
+        },
+        {
+          "type": "select",
+          "id": "text_alignment_3",
+          "label": "Text 3 Alignment",
+          "options": [
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "left",
+              "label": "Left"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "header",
+          "content": "Image & Text 4 (Bottom Right)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_4",
+          "label": "Image 4"
+        },
+        {
+          "type": "richtext",
+          "id": "text_4",
+          "label": "Text 4",
+          "default": "<p>Feature description goes here</p>"
+        },
+        {
+          "type": "select",
+          "id": "text_alignment_4",
+          "label": "Text 4 Alignment",
+          "options": [
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "left",
+              "label": "Left"
+            }
+          ],
+          "default": "center"
+        }
+      ]
+    },
+    {
+      "type": "feature_block_with_arrows",
+      "name": "Feature Block with Arrows",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Block Title",
+          "default": "Feature Title",
+          "info": "This appears as a tab label"
+        },
+        {
+          "type": "header",
+          "content": "Image & Text 1 (Top Left)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Image 1"
+        },
+        {
+          "type": "richtext",
+          "id": "text_1",
+          "label": "Text 1",
+          "default": "<p>Feature description goes here</p>"
+        },
+        {
+          "type": "select",
+          "id": "text_alignment_1",
+          "label": "Text 1 Alignment",
+          "options": [
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "left",
+              "label": "Left"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "image_picker",
+          "id": "arrow_1",
+          "label": "Arrow Image 1",
+          "info": "Arrow pointing to this item"
+        },
+        {
+          "type": "range",
+          "id": "arrow_1_top",
+          "label": "Arrow 1 - Top Position (%)",
+          "min": -100,
+          "max": 150,
+          "step": 5,
+          "default": 0,
+          "unit": "%"
+        },
+        {
+          "type": "range",
+          "id": "arrow_1_left",
+          "label": "Arrow 1 - Left Position (%)",
+          "min": -100,
+          "max": 100,
+          "step": 5,
+          "default": 0,
+          "unit": "%"
+        },
+        {
+          "type": "range",
+          "id": "arrow_1_width",
+          "label": "Arrow 1 - Width (px)",
+          "min": 50,
+          "max": 300,
+          "step": 10,
+          "default": 150,
+          "unit": "px"
+        },
+        {
+          "type": "header",
+          "content": "Image & Text 2 (Top Right)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Image 2"
+        },
+        {
+          "type": "richtext",
+          "id": "text_2",
+          "label": "Text 2",
+          "default": "<p>Feature description goes here</p>"
+        },
+        {
+          "type": "select",
+          "id": "text_alignment_2",
+          "label": "Text 2 Alignment",
+          "options": [
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "left",
+              "label": "Left"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "image_picker",
+          "id": "arrow_2",
+          "label": "Arrow Image 2",
+          "info": "Arrow pointing to this item"
+        },
+        {
+          "type": "range",
+          "id": "arrow_2_top",
+          "label": "Arrow 2 - Top Position (%)",
+          "min": -100,
+          "max": 150,
+          "step": 5,
+          "default": 0,
+          "unit": "%"
+        },
+        {
+          "type": "range",
+          "id": "arrow_2_left",
+          "label": "Arrow 2 - Left Position (%)",
+          "min": -100,
+          "max": 100,
+          "step": 5,
+          "default": 0,
+          "unit": "%"
+        },
+        {
+          "type": "range",
+          "id": "arrow_2_width",
+          "label": "Arrow 2 - Width (px)",
+          "min": 50,
+          "max": 300,
+          "step": 10,
+          "default": 150,
+          "unit": "px"
+        },
+        {
+          "type": "header",
+          "content": "Image & Text 3 (Bottom Left)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Image 3"
+        },
+        {
+          "type": "richtext",
+          "id": "text_3",
+          "label": "Text 3",
+          "default": "<p>Feature description goes here</p>"
+        },
+        {
+          "type": "select",
+          "id": "text_alignment_3",
+          "label": "Text 3 Alignment",
+          "options": [
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "left",
+              "label": "Left"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "image_picker",
+          "id": "arrow_3",
+          "label": "Arrow Image 3",
+          "info": "Arrow pointing to this item"
+        },
+        {
+          "type": "range",
+          "id": "arrow_3_top",
+          "label": "Arrow 3 - Top Position (%)",
+          "min": -100,
+          "max": 150,
+          "step": 5,
+          "default": 0,
+          "unit": "%"
+        },
+        {
+          "type": "range",
+          "id": "arrow_3_left",
+          "label": "Arrow 3 - Left Position (%)",
+          "min": -100,
+          "max": 100,
+          "step": 5,
+          "default": 0,
+          "unit": "%"
+        },
+        {
+          "type": "range",
+          "id": "arrow_3_width",
+          "label": "Arrow 3 - Width (px)",
+          "min": 50,
+          "max": 300,
+          "step": 10,
+          "default": 150,
+          "unit": "px"
+        },
+        {
+          "type": "header",
+          "content": "Image & Text 4 (Bottom Right)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_4",
+          "label": "Image 4"
+        },
+        {
+          "type": "richtext",
+          "id": "text_4",
+          "label": "Text 4",
+          "default": "<p>Feature description goes here</p>"
+        },
+        {
+          "type": "select",
+          "id": "text_alignment_4",
+          "label": "Text 4 Alignment",
+          "options": [
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "left",
+              "label": "Left"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "image_picker",
+          "id": "arrow_4",
+          "label": "Arrow Image 4",
+          "info": "Arrow pointing to this item"
+        },
+        {
+          "type": "range",
+          "id": "arrow_4_top",
+          "label": "Arrow 4 - Top Position (%)",
+          "min": -100,
+          "max": 150,
+          "step": 5,
+          "default": 0,
+          "unit": "%"
+        },
+        {
+          "type": "range",
+          "id": "arrow_4_left",
+          "label": "Arrow 4 - Left Position (%)",
+          "min": -100,
+          "max": 100,
+          "step": 5,
+          "default": 0,
+          "unit": "%"
+        },
+        {
+          "type": "range",
+          "id": "arrow_4_width",
+          "label": "Arrow 4 - Width (px)",
+          "min": 50,
+          "max": 300,
+          "step": 10,
+          "default": 150,
+          "unit": "px"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "What Sets Us Apart",
+      "blocks": [
+        {
+          "type": "feature_block",
+          "settings": {
+            "title": "The Anatomy of a Perfect Manicure"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
