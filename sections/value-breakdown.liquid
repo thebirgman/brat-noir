@@ -44,11 +44,11 @@
             {% when 'result' %}
               <div class="value-breakdown__result">
                 <div class="value-breakdown__total">
-                  Total Value:
+                  <span class="value-breakdown__label-text">Total Value:</span>
                   <span class="strike">{{ block.settings.total_value }}</span>
                 </div>
                 <div class="value-breakdown__final">
-                  Your Price:
+                  <span class="value-breakdown__label-text">Your Price:</span>
                   <strong>{{ block.settings.final_price }}</strong>
                 </div>
               </div>
@@ -66,7 +66,7 @@
             {% if block.type == 'item' %}
               <div
                 class="value-breakdown__item
-                  {% if block.settings.price == 'Priceless' %}
+                  {% if block.settings.price == 'priceless' %}
                     value-breakdown__item--priceless
                   {% endif %}
                 "
@@ -87,11 +87,11 @@
           {% if block.type == 'result' %}
             <div class="value-breakdown__result">
               <div class="value-breakdown__total">
-                Total Value:
+                <span class="value-breakdown__label-text">Total Value:</span>
                 <span class="strike">{{ block.settings.total_value }}</span>
               </div>
               <div class="value-breakdown__final">
-                Your Price:
+                <span class="value-breakdown__label-text">Your Price:</span>
                 <strong>{{ block.settings.final_price }}</strong>
               </div>
             </div>
@@ -103,7 +103,6 @@
     </div>
   </div>
 </section>
-
 
 <style>
 /* BASE */
@@ -148,45 +147,37 @@
   margin-left: 32px;
 }
 
-.value-breakdown__total {
+.value-breakdown__total,
+.value-breakdown__final {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap; /* 🔑 Prevents label breaking */
+}
+
+.value-breakdown__label-text {
   font-size: 14px;
 }
 
 .value-breakdown__total .strike {
   text-decoration: line-through;
   opacity: 0.6;
-  margin-left: 4px;
 }
 
 .value-breakdown__final {
   font-size: 20px;
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
 .value-breakdown__final strong {
   color: {{ section.settings.accent_color }};
 }
 
+/* Priceless styling */
 .value-breakdown__item--priceless .value-breakdown__price {
   font-family: "DM Serif Display", serif;
   font-size: 26px;
 }
-
-/* Align total + price in one row */
-.value-breakdown__total,
-.value-breakdown__final {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-/* Ensure prices don’t wrap oddly */
-.value-breakdown__total .strike,
-.value-breakdown__final strong {
-  white-space: nowrap;
-}
-
-
 
 /* DESKTOP */
 .value-breakdown__desktop-flow {
@@ -218,7 +209,7 @@
     padding: 24px 0;
   }
 
-  /* Divider lines (ONLY for the 2x2 grid) */
+  /* Divider lines */
   .value-breakdown__grid-items::before,
   .value-breakdown__grid-items::after {
     content: "";
@@ -226,7 +217,6 @@
     background: {{ section.settings.divider_color }};
   }
 
-  /* Vertical divider */
   .value-breakdown__grid-items::before {
     width: 2px;
     height: 100%;
@@ -235,7 +225,6 @@
     transform: translateX(-50%);
   }
 
-  /* Horizontal divider */
   .value-breakdown__grid-items::after {
     height: 2px;
     width: 100%;
@@ -248,9 +237,8 @@
     margin-top: 24px;
   }
 }
-
-
 </style>
+
 
 {% schema %}
 {
