@@ -444,11 +444,11 @@
       "name": "Value Breakdown",
       "settings": {
         "max_width": 1200,
-        "background": "linear-gradient(180deg, rgba(244, 232, 255, 1), rgba(249, 228, 227, 1) 100%)",
-        "accent_color": "#7B2D26",
-        "divider_color": "#E27A6A",
-        "padding_top": 48,
-        "padding_bottom": 48
+        "background": "",
+        "accent_color": "#7b2d26",
+        "divider_color": "#e27a6a",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "section_build_gift_box_xQ6gQU": {
