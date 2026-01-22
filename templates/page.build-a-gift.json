@@ -367,6 +367,90 @@
         "padding_bottom": 72
       }
     },
+    "value_breakdown_pM8HLp": {
+      "type": "value-breakdown",
+      "blocks": {
+        "item_RG8NcT": {
+          "type": "item",
+          "settings": {
+            "price": "$90",
+            "label": "5 Premium Nail Sets Value"
+          }
+        },
+        "operator_PdmgXz": {
+          "type": "operator",
+          "settings": {
+            "symbol": "+"
+          }
+        },
+        "item_PxKLbK": {
+          "type": "item",
+          "settings": {
+            "price": "$30",
+            "label": "The Velvet Vanity Box"
+          }
+        },
+        "operator_j7yC4T": {
+          "type": "operator",
+          "settings": {
+            "symbol": "+"
+          }
+        },
+        "item_mt4kCF": {
+          "type": "item",
+          "settings": {
+            "price": "$10",
+            "label": "Handwritten Card Service"
+          }
+        },
+        "operator_78cDyz": {
+          "type": "operator",
+          "settings": {
+            "symbol": "+"
+          }
+        },
+        "item_NmYtrJ": {
+          "type": "item",
+          "settings": {
+            "price": "Priceless",
+            "label": "Exclusive Tarot Card"
+          }
+        },
+        "operator_rEXbtt": {
+          "type": "operator",
+          "settings": {
+            "symbol": "="
+          }
+        },
+        "result_GNtXDE": {
+          "type": "result",
+          "settings": {
+            "total_value": "$130",
+            "final_price": "$75"
+          }
+        }
+      },
+      "block_order": [
+        "item_RG8NcT",
+        "operator_PdmgXz",
+        "item_PxKLbK",
+        "operator_j7yC4T",
+        "item_mt4kCF",
+        "operator_78cDyz",
+        "item_NmYtrJ",
+        "operator_rEXbtt",
+        "result_GNtXDE"
+      ],
+      "name": "Value Breakdown",
+      "settings": {
+        "max_width": 1200,
+        "background": "linear-gradient(180deg, rgba(244, 232, 255, 1), rgba(249, 228, 227, 1) 100%)",
+        "accent_color": "#7B2D26",
+        "divider_color": "#E27A6A",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
     "section_build_gift_box_xQ6gQU": {
       "type": "section-build-gift-box",
       "blocks": {
@@ -426,6 +510,7 @@
     "section_double_bqV4gT",
     "section_double_Xf8aYX",
     "gift_steps_8VpaKx",
+    "value_breakdown_pM8HLp",
     "section_build_gift_box_xQ6gQU"
   ]
 }
