@@ -246,6 +246,59 @@
     margin-top: 24px;
   }
 }
+
+@media (max-width: 768px) {
+
+  /* CENTER ITEM CONTENT */
+  .value-breakdown__grid-items .value-breakdown__item {
+    text-align: center;
+    padding: 12px 8px;
+  }
+
+  .value-breakdown__price {
+    font-size: 26px;
+    font-weight: 500;
+  }
+
+  .value-breakdown__label {
+    margin-top: 10px;
+    line-height: 1.4;
+  }
+
+  /* CONTAIN DIVIDERS STRICTLY INSIDE GRID */
+  .value-breakdown__grid-items {
+    padding: 32px 0;
+  }
+
+  .value-breakdown__grid-items::before {
+    height: calc(100% - 16px);
+  }
+
+  .value-breakdown__grid-items::after {
+    width: calc(100% - 16px);
+  }
+
+  /* RESULT BLOCK SPACING */
+  .value-breakdown__result {
+    margin-top: 32px;
+    text-align: center;
+  }
+
+  .value-breakdown__total,
+  .value-breakdown__final {
+    justify-content: center;
+  }
+
+  .value-breakdown__total {
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+
+  .value-breakdown__final {
+    font-size: 22px;
+  }
+}
+
 </style>
 
 
