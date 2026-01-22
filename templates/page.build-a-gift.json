@@ -412,7 +412,7 @@
         "item_NmYtrJ": {
           "type": "item",
           "settings": {
-            "price": "Priceless",
+            "price": "priceless",
             "label": "Exclusive Tarot Card"
           }
         },
