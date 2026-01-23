@@ -70,7 +70,7 @@
             {%- assign is_bestseller = false -%}
             {%- if best_seller_ids != blank -%}
               {%- assign product_id_check = ',' | append: product.id | append: ',' -%}
-			  {{ best_seller_ids }} == {{ product_id_check }}
+			  
               {%- if best_seller_ids contains product_id_check -%}
 		
                 {%- assign is_bestseller = true -%}
