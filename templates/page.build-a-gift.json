@@ -133,7 +133,7 @@
         "text_xrJdtb"
       ],
       "custom_css": [
-        "@media screen and (min-width: 750px) {h2 {font-size: 48px !important; } p {width: 400px; margin: 0 auto; }}",
+        "@media screen and (min-width: 750px) {h2 {font-size: 48px !important; } p {width: 400px; margin: 0 auto; }.wrapper {padding-left: 0 !important; padding-right: 0 !important;}}",
         "@media screen and (max-width: 768px) {.wrapper.section-padding {padding: 0px; } h2 {font-size: 26px !important; } p {width: 360px; margin: 0 auto; }}"
       ],
       "name": "Image with text",
@@ -192,7 +192,7 @@
         "image_3TRQTK"
       ],
       "custom_css": [
-        "@media screen and (min-width: 750px) {h2 {font-size: 48px !important; } p {width: 400px; margin: 0 auto; }}",
+        "@media screen and (min-width: 750px) {h2 {font-size: 48px !important; } p {width: 400px; margin: 0 auto; } .wrapper {padding-left: 0 !important; padding-right: 0 !important; }}",
         "@media screen and (max-width: 768px) {.wrapper.section-padding {padding: 0px; } h2 {font-size: 26px !important; } p {width: 360px; margin: 0 auto; }}"
       ],
       "name": "Image with text",
@@ -251,7 +251,7 @@
         "text_JxygnE"
       ],
       "custom_css": [
-        "@media screen and (min-width: 750px) {h2 {font-size: 48px !important; } p {width: 400px; margin: 0 auto; }}",
+        "@media screen and (min-width: 750px) {h2 {font-size: 48px !important; } p {width: 400px; margin: 0 auto; } .wrapper {padding-left: 0 !important; padding-right: 0 !important; }}",
         "@media screen and (max-width: 768px) {.wrapper.section-padding {padding: 0px; } h2 {font-size: 26px !important; } p {width: 360px; margin: 0 auto; }}"
       ],
       "name": "Image with text",
@@ -310,7 +310,7 @@
         "image_WR7Vpa"
       ],
       "custom_css": [
-        "@media screen and (min-width: 750px) {h2 {font-size: 48px !important; } p {width: 400px; margin: 0 auto; }}",
+        "@media screen and (min-width: 750px) {h2 {font-size: 48px !important; } p {width: 400px; margin: 0 auto; } .wrapper {padding-left: 0 !important; padding-right: 0 !important; }}",
         "@media screen and (max-width: 768px) {.wrapper.section-padding {padding: 0px; } h2 {font-size: 26px !important; } p {width: 360px; margin: 0 auto; }}"
       ],
       "name": "Image with text",
