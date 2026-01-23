@@ -370,7 +370,7 @@
       "name": "Gift Steps",
       "settings": {
         "heading": "Gift Giving, Elevated.",
-        "max_width": 1200,
+        "max_width": 1150,
         "background": "linear-gradient(180deg, rgba(244, 232, 255, 1), rgba(249, 228, 227, 1) 100%)",
         "padding_top": 0,
         "padding_bottom": 72
