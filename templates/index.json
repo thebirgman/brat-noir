@@ -104,8 +104,7 @@
           "type": "feature_block",
           "settings": {
             "title": "The Anatomy of a Perfect Manicure",
-            "main_image": "shopify://shop_images/anatomy-of-perfect-manicure.png",
-            "image_1": "shopify://shop_images/whats-included.png",
+            "image_1": "shopify://shop_images/image_85.png",
             "text_1": "<h3><strong>The 4-Layer Salon Construct</strong></h3><p>We don't print nails; we build them. <br/>1. Base Primer. <br/>2. Soft Gel Core. <br/>3. High-Pigment Polish.<br/>4. UV-Hardened Top Coat. Indestructible structure, glass-like finish.</p>",
             "text_alignment_1": "left",
             "image_2": "shopify://shop_images/image_85.png",
@@ -236,7 +235,6 @@
       "blocks": {
         "kicker_txXka4": {
           "type": "kicker",
-          "disabled": true,
           "settings": {
             "kicker": "Introducing",
             "enable_line": false,
@@ -247,7 +245,7 @@
           "type": "heading",
           "settings": {
             "title": "The Gift She’ll Actually Keep.",
-            "text_size": 10
+            "text_size": 15
           }
         },
         "text_7tzbwQ": {
@@ -294,8 +292,7 @@
         "enable_overlay_text": false,
         "preload_image": false,
         "content_width": 2000,
-        "text_align": "align--middle-right",
-        "text_align_mobile": "align--top-center",
+        "text_align": "align--middle-left",
         "text_color": "text--white",
         "color_bg": "hero__content--transparent",
         "width": "wrapper--none",
