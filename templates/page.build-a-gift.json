@@ -133,7 +133,7 @@
         "text_xrJdtb"
       ],
       "custom_css": [
-        "@media screen and (min-width: 750px) {h2 {font-size: 48px !important; } p {width: 400px; margin: 0 auto; }.wrapper {padding-left: 0 !important; padding-right: 0 !important;}}",
+        "@media screen and (min-width: 750px) {h2 {font-size: 48px !important; } p {width: 400px; margin: 0 auto; } .wrapper {padding-left: 0 !important; padding-right: 0 !important; }}",
         "@media screen and (max-width: 768px) {.wrapper.section-padding {padding: 0px; } h2 {font-size: 26px !important; } p {width: 360px; margin: 0 auto; }}"
       ],
       "name": "Image with text",
@@ -370,7 +370,7 @@
       "name": "Gift Steps",
       "settings": {
         "heading": "Gift Giving, Elevated.",
-        "max_width": 1150,
+        "max_width": 1200,
         "background": "linear-gradient(180deg, rgba(244, 232, 255, 1), rgba(249, 228, 227, 1) 100%)",
         "padding_top": 0,
         "padding_bottom": 72
