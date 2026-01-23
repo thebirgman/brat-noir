@@ -18,6 +18,16 @@
   if section.settings.width == 'wrapper--narrow' or section.settings.width == 'wrapper--tiny'
     assign additional_classes = additional_classes | append: ' not-moved-arrows'
   endif
+
+  comment Get best-sellers collection and create list of first 6 product IDs
+  assign best_sellers_collection = collections['best-sellers-all']
+  assign best_seller_ids = ','
+  if best_sellers_collection != blank
+    for product in best_sellers_collection.products limit: 6
+      assign best_seller_ids = best_seller_ids | append: product.id | append: ','
+    endfor
+  endif
+endcomment
 -%}
 
 {%- for block in section.blocks -%}
@@ -57,11 +67,18 @@
           class="collection-tabs-container">
           <!-- /snippets/product-grid-item.liquid -->
           {% for product in featured_collection.products limit: section.settings.limit %}
+            {%- assign is_bestseller = false -%}
+            {%- if best_seller_ids != blank -%}
+              {%- assign product_id_check = ',' | append: product.id | append: ',' -%}
+              {%- if best_seller_ids contains product_id_check -%}
+                {%- assign is_bestseller = true -%}
+              {%- endif -%}
+            {%- endif -%}
             <div
               class="slide-item product-grid-slide"
               
               data-item>
-              {% render 'product-grid-item', product: product %}
+              {% render 'product-grid-item', product: product, is_bestseller: is_bestseller %}
             </div>
           {% else %}
             {% render 'onboarding-product-grid-item', limit: section.settings.limit, wrap: 'product-grid-slide slide-item' %}
