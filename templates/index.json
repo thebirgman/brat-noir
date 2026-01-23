@@ -204,7 +204,7 @@
         "limit": 6,
         "bg": "palette--light bg--neutral",
         "width": "wrapper",
-        "padding_top": 40,
+        "padding_top": 10,
         "padding_bottom": 0
       }
     },
