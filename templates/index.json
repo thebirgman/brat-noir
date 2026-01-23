@@ -286,13 +286,13 @@
         "button_n7ANwi"
       ],
       "custom_css": [
-        "a{min-width: 300px; }",
-        "@media screen and (max-width: 768px) {.hero__title p{font-size: 34px;}}"
+        "a {min-width: 300px;}",
+        "@media screen and (max-width: 768px) {.hero__title p {font-size: 34px; }}"
       ],
       "name": "Image banner",
       "settings": {
-        "image": "shopify://shop_images/Gift_Banner_2.jpg",
-        "mobile_image": "shopify://shop_images/Rectangle_273.jpg",
+        "image": "shopify://shop_images/homepage-gift-section-web.png",
+        "mobile_image": "shopify://shop_images/homepage-gift-section-mobile.png",
         "height": "use_image",
         "overlay_opacity": 15,
         "overlay_color": "#000000",
