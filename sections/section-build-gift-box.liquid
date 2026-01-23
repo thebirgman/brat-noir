@@ -3,6 +3,15 @@
 
 {%- assign base_collection = section.settings.collection -%}
 
+{%- comment -%} Get best-sellers collection and create list of first 6 product IDs {%- endcomment -%}
+{%- assign best_sellers_collection = collections['best-sellers-all'] -%}
+{%- assign best_seller_ids = ',' -%}
+{%- if best_sellers_collection != blank -%}
+  {%- for product in best_sellers_collection.products limit: 6 -%}
+    {%- assign best_seller_ids = best_seller_ids | append: product.id | append: ',' -%}
+  {%- endfor -%}
+{%- endif -%}
+
 <section class="build-gift-box" id="build-gift-box-{{ section.id }}" data-gift-box-product-handle="{% if section.settings.gift_box_product %}{{ section.settings.gift_box_product.handle }}{% endif %}">
   <h2>{{ section.settings.heading }}</h2>
   
@@ -56,8 +65,14 @@
         aria-labelledby="tab-all-{{ section.id }}">
         {%- if base_collection != blank -%}
           {%- for product in base_collection.products -%}
-            
-            {%- render 'build-gift-box-product-card', product: product -%}
+            {%- assign is_bestseller = false -%}
+            {%- if best_seller_ids != blank -%}
+              {%- assign product_id_check = ',' | append: product.id | append: ',' -%}
+              {%- if best_seller_ids contains product_id_check -%}
+                {%- assign is_bestseller = true -%}
+              {%- endif -%}
+            {%- endif -%}
+            {%- render 'build-gift-box-product-card', product: product, is_bestseller: is_bestseller -%}
           {%- endfor -%}
         {%- endif -%}
       </div>
