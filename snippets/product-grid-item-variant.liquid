@@ -295,6 +295,9 @@
               {% endif %}
             >
               {% unless visible %}<template>{% endunless %}
+              {%- if is_bestseller -%}
+          <div class="bundle-product__bestseller-badge">BESTSELLER</div>
+        {%- endif -%}
 
               {% render 'image',
                 cover: image_cover,
