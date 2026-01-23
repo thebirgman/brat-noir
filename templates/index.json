@@ -205,7 +205,7 @@
         "bg": "palette--light bg--neutral",
         "width": "wrapper",
         "padding_top": 40,
-        "padding_bottom": 70
+        "padding_bottom": 0
       }
     },
     "175307847684129928": {
