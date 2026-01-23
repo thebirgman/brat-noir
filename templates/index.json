@@ -285,6 +285,10 @@
         "text_7tzbwQ",
         "button_n7ANwi"
       ],
+      "custom_css": [
+        "a{min-width: 300px; }",
+        "@media screen and (max-width: 768px) {.hero__title p{font-size: 34px;}}"
+      ],
       "name": "Image banner",
       "settings": {
         "image": "shopify://shop_images/Gift_Banner_2.jpg",
