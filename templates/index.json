@@ -123,6 +123,7 @@
           "type": "feature_block_with_arrows",
           "settings": {
             "title": "What's Included",
+            "main_image": "shopify://shop_images/whats-included.png",
             "image_1": "shopify://shop_images/image_85.png",
             "text_1": "<h3>32 Nails (16 Sizes)</h3><p>Each set includes 2 nails in every size so you never have to settle</p>",
             "text_alignment_1": "center",
