@@ -183,7 +183,7 @@
       ],
       "custom_css": [
         ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
-        ".scrolling-promo {display: none;}",
+        ".scrolling-promo,.tab-link.current{display: none;}",
         "p {max-width: 820px; margin: 30px auto;}",
         ".collection-tabs h2:after {display: none;}",
         "h2 {padding: 0;}",
