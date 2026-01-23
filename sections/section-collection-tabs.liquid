@@ -19,7 +19,7 @@
     assign additional_classes = additional_classes | append: ' not-moved-arrows'
   endif
 
-  comment Get best-sellers collection and create list of first 6 product IDs
+   
   assign best_sellers_collection = collections['best-sellers-all']
   assign best_seller_ids = ','
   if best_sellers_collection != blank
@@ -27,7 +27,7 @@
       assign best_seller_ids = best_seller_ids | append: product.id | append: ','
     endfor
   endif
-endcomment
+
 -%}
 
 {%- for block in section.blocks -%}
