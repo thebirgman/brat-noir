@@ -157,56 +157,6 @@
         "padding_bottom": 0
       }
     },
-    "section_build_gift_box_azB3g6": {
-      "type": "section-build-gift-box",
-      "blocks": {
-        "filter_6brzHe": {
-          "type": "filter",
-          "settings": {
-            "label": "Brat Ombré",
-            "collection": "fall-collection"
-          }
-        },
-        "filter_yYKyy3": {
-          "type": "filter",
-          "settings": {
-            "label": "Brat Classic",
-            "collection": "classic-collection"
-          }
-        },
-        "filter_LgpVEW": {
-          "type": "filter",
-          "settings": {
-            "label": "Brat Goth",
-            "collection": "goth-collection"
-          }
-        },
-        "filter_xEJymz": {
-          "type": "filter",
-          "settings": {
-            "label": "Brat Summer",
-            "collection": "summer-collection"
-          }
-        }
-      },
-      "block_order": [
-        "filter_6brzHe",
-        "filter_yYKyy3",
-        "filter_LgpVEW",
-        "filter_xEJymz"
-      ],
-      "name": "Build Gift Box",
-      "settings": {
-        "collection": "collection-2",
-        "gift_box_product": "brat-noir-gift-box",
-        "heading": "",
-        "subheading": "",
-        "all_label": "All",
-        "gift_box_heading": "BUILD THE PERFECT GIFT",
-        "gift_box_features": "<ul><li>One-time purchase.</li><li>Luxury Gift Packaging Included.</li><li>Free Shipping</li></ul>",
-        "progress_icon": "shopify://shop_images/Group_542.png"
-      }
-    },
     "no_stress_promise_DLDMBq": {
       "type": "no-stress-promise",
       "blocks": {
@@ -249,13 +199,69 @@
         "max_width": 1200,
         "background": "rgba(0,0,0,0)"
       }
+    },
+    "section_bundle_products_UGbh4h": {
+      "type": "section-bundle-products",
+      "blocks": {
+        "filter_xPp3VC": {
+          "type": "filter",
+          "settings": {
+            "label": "Brat Ombré",
+            "collection": "fall-collection"
+          }
+        },
+        "filter_yKbQdL": {
+          "type": "filter",
+          "settings": {
+            "label": "Brat Classic",
+            "collection": "fall-collection"
+          }
+        },
+        "filter_DXqBbf": {
+          "type": "filter",
+          "settings": {
+            "label": "Brat Goth",
+            "collection": "goth-collection"
+          }
+        },
+        "filter_63ePxm": {
+          "type": "filter",
+          "settings": {
+            "label": "Brat Summer",
+            "collection": "fall-collection"
+          }
+        }
+      },
+      "block_order": [
+        "filter_xPp3VC",
+        "filter_yKbQdL",
+        "filter_DXqBbf",
+        "filter_63ePxm"
+      ],
+      "custom_css": [
+        "p.product__grid__collection-name {font-size: 12px !important; font-weight: 300; font-family: \"Montserrat\"; color: #000; letter-spacing: 0.5px !important; text-align: left;}",
+        "@media screen and (max-width: 768px) {.bundle-products__filters {padding-left: 0; padding-right: 0; } .bundle-products__filter-btn {font-size: 16px !important; }}",
+        ".bundle-product__title {font-size: 15px;}"
+      ],
+      "settings": {
+        "collection": "collection-2",
+        "heading": "Build Your Own Collection",
+        "subheading": "<p>Curate your own look. <strong>Pro Tip: </strong>Unlock VIP Pricing by adding 3+ sets to cart for $15 per set + FREE SHIPPING</p>",
+        "all_label": "All",
+        "bundle_content_heading": "BUNDLE & SAVE: 3 FOR $45",
+        "bundle_content_subheading": "3 Sets. $45 Flat. Free Shipping. Secure your rotation now.",
+        "progress_text_default": "Add [X] more sets to unlock the $15/set insider rate.",
+        "progress_text_two_more": "Getting closer. Add 2 more sets to save $9 instantly + FREE SHIPPING.",
+        "progress_text_one_more": "So close. Add 1 more set to secure the $45 Stash.",
+        "progress_text_complete": "Vault unlocked. Insider rate ($15/set) secured. The math is mathing."
+      }
     }
   },
   "order": [
     "main",
     "section_richtext_r7WzkB",
     "gift_steps_VNE8xd",
-    "section_build_gift_box_azB3g6",
+    "section_bundle_products_UGbh4h",
     "no_stress_promise_DLDMBq"
   ]
 }
