@@ -118,6 +118,7 @@
         "step_HaKWAQ": {
           "type": "step",
           "settings": {
+            "image": "shopify://shop_images/brat-club-1-free-shipping_02d8059e-b7aa-4410-b5db-c9ad8b5007d0.png",
             "image_height": 140,
             "image_height_mobile": 110,
             "title": "Always Free Shipping.",
@@ -127,6 +128,7 @@
         "step_amKRcY": {
           "type": "step",
           "settings": {
+            "image": "shopify://shop_images/brat-club-2-mystery-set_017ad566-96a6-4363-90d5-c2a170559809.png",
             "image_height": 140,
             "image_height_mobile": 110,
             "title": "Free Set.",
@@ -155,49 +157,6 @@
         "background": "linear-gradient(0deg, rgba(255,255,255,0.3), rgba(255,255,255,0.3)), linear-gradient(135deg, #F1DFFE, #F9E4E3)",
         "padding_top": 80,
         "padding_bottom": 0
-      }
-    },
-    "no_stress_promise_DLDMBq": {
-      "type": "no-stress-promise",
-      "blocks": {
-        "card_LzgJxR": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_304.png",
-            "title": "No Traps:",
-            "text": "We email you 3 days before your box ships.",
-            "full_width": false
-          }
-        },
-        "card_E7QhKh": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_302.png",
-            "title": "Total Control:",
-            "text": "Skip a month if you're overloaded. Swap styles whenever.",
-            "full_width": false
-          }
-        },
-        "card_AxDrUj": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_303.png",
-            "title": "Easy Out:",
-            "text": "Cancel online in 2 clicks. No awkward phone calls.",
-            "full_width": true
-          }
-        }
-      },
-      "block_order": [
-        "card_LzgJxR",
-        "card_E7QhKh",
-        "card_AxDrUj"
-      ],
-      "name": "No Stress Promise",
-      "settings": {
-        "heading": "The No-Stress Promise",
-        "max_width": 1200,
-        "background": "rgba(0,0,0,0)"
       }
     },
     "section_bundle_products_UGbh4h": {
@@ -254,6 +213,49 @@
         "progress_text_two_more": "Getting closer. Add 2 more sets to save $9 instantly + FREE SHIPPING.",
         "progress_text_one_more": "So close. Add 1 more set to secure the $45 Stash.",
         "progress_text_complete": "Vault unlocked. Insider rate ($15/set) secured. The math is mathing."
+      }
+    },
+    "no_stress_promise_DLDMBq": {
+      "type": "no-stress-promise",
+      "blocks": {
+        "card_LzgJxR": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_304.png",
+            "title": "No Traps:",
+            "text": "We email you 3 days before your box ships.",
+            "full_width": false
+          }
+        },
+        "card_E7QhKh": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_302.png",
+            "title": "Total Control:",
+            "text": "Skip a month if you're overloaded. Swap styles whenever.",
+            "full_width": false
+          }
+        },
+        "card_AxDrUj": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_303.png",
+            "title": "Easy Out:",
+            "text": "Cancel online in 2 clicks. No awkward phone calls.",
+            "full_width": true
+          }
+        }
+      },
+      "block_order": [
+        "card_LzgJxR",
+        "card_E7QhKh",
+        "card_AxDrUj"
+      ],
+      "name": "No Stress Promise",
+      "settings": {
+        "heading": "The No-Stress Promise",
+        "max_width": 1200,
+        "background": "rgba(0,0,0,0)"
       }
     }
   },
