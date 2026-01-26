@@ -138,6 +138,7 @@
         "step_7RkcPF": {
           "type": "step",
           "settings": {
+            "image": "shopify://shop_images/brat-club-3-bundle_3ebd4826-7e05-47e7-80b1-27409e2a0846.png",
             "image_height": 140,
             "image_height_mobile": 110,
             "title": "The Velvet Upgrade.",
