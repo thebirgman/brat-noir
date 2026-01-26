@@ -97,6 +97,9 @@
         "spacer_kJFLr4",
         "icon_text_KKUCr8"
       ],
+      "custom_css": [
+        ".standard__icon.text-center {display: flex;}"
+      ],
       "name": "Rich text",
       "settings": {
         "align_text": "text-center",
