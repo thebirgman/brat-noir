@@ -146,8 +146,8 @@
     -%}
     <picture class="{{ wrapper_classes }}" style="{{ wrapper_style }}">
       {% if isHero %}
-      <source media="(min-width: 768px)" sizes="{{ sizes }}" srcset="{{ srcset }}" />
-      <source media="(max-width: 767px)" sizes="{{ sizes }}" srcset="{{ srcset_mobile }}" />
+      <source media="(min-width: 576px)" sizes="{{ sizes }}" srcset="{{ srcset }}" />
+      <source media="(max-width: 575px)" sizes="{{ sizes }}" srcset="{{ srcset_mobile }}" />
 
     {% else %}
        <source media="(min-width: 821px)" sizes="{{ sizes }}" srcset="{{ srcset }}" />
