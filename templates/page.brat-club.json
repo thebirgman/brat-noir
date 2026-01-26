@@ -98,7 +98,8 @@
         "icon_text_KKUCr8"
       ],
       "custom_css": [
-        ".standard__icon.text-center {display: flex;}"
+        ".standard__icon.text-center {display: flex;}",
+        ".palette--light {background: transparent;}"
       ],
       "name": "Rich text",
       "settings": {
