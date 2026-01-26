@@ -121,11 +121,55 @@
         "gift_box_features": "<ul><li>One-time purchase.</li><li>Luxury Gift Packaging Included.</li><li>Free Shipping</li></ul>",
         "progress_icon": "shopify://shop_images/Group_542.png"
       }
+    },
+    "no_stress_promise_DLDMBq": {
+      "type": "no-stress-promise",
+      "blocks": {
+        "card_LzgJxR": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_304.png",
+            "title": "No Traps:",
+            "text": "We email you 3 days before your box ships.",
+            "full_width": false
+          }
+        },
+        "card_E7QhKh": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_302.png",
+            "title": "No Traps:",
+            "text": "We email you 3 days before your box ships.",
+            "full_width": false
+          }
+        },
+        "card_AxDrUj": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_303.png",
+            "title": "No Traps:",
+            "text": "We email you 3 days before your box ships.",
+            "full_width": true
+          }
+        }
+      },
+      "block_order": [
+        "card_LzgJxR",
+        "card_E7QhKh",
+        "card_AxDrUj"
+      ],
+      "name": "No Stress Promise",
+      "settings": {
+        "heading": "The No-Stress Promise",
+        "max_width": 1200,
+        "background": "rgba(0,0,0,0)"
+      }
     }
   },
   "order": [
     "main",
     "gift_steps_VNE8xd",
-    "section_build_gift_box_azB3g6"
+    "section_build_gift_box_azB3g6",
+    "no_stress_promise_DLDMBq"
   ]
 }
