@@ -30,59 +30,76 @@
     "section_richtext_r7WzkB": {
       "type": "section-richtext",
       "blocks": {
-        "kicker_hxNzQQ": {
-          "type": "kicker",
-          "settings": {
-            "kicker": "Introducing",
-            "enable_line": true,
-            "text_size": 4
-          }
-        },
         "heading_UwLVVw": {
           "type": "heading",
           "settings": {
-            "heading": "Rich text",
+            "heading": "The Brat Club: Your Monthly Mani Drop.",
             "text_size": 8
           }
         },
         "text_aJyAmA": {
           "type": "text",
           "settings": {
-            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "text": "<p>Get your favorite sets delivered on your schedule at insider prices. Save up to 30% on every order.</p>",
             "text_size": 4,
             "text_columns": 1
           }
         },
-        "button_cjJDrk": {
-          "type": "button",
+        "spacer_kJFLr4": {
+          "type": "spacer",
           "settings": {
-            "link_text_1": "Shop all",
-            "link_1": "shopify://collections/all",
-            "button_size_1": "btn--medium",
-            "button_style_1": "btn-text-thick-line",
-            "button_color_1": "btn--neutral",
-            "link_text_2": "Learn more",
-            "link_2": "",
-            "button_size_2": "btn--medium",
-            "button_style_2": "btn-text-thick-line",
-            "button_color_2": "btn--neutral",
-            "link_text_3": "",
-            "link_3": "",
-            "button_size_3": "btn--medium",
-            "button_style_3": "btn-text-thick-line",
-            "button_color_3": "btn--neutral"
+            "spacer_padding": 40,
+            "show_line": true
+          }
+        },
+        "icon_text_KKUCr8": {
+          "type": "icon-text",
+          "settings": {
+            "kicker_size": 3,
+            "heading_size": 8,
+            "text_size": 5,
+            "items_per_row": "3",
+            "icon_color": "#4b4b4b",
+            "icon_size": 24,
+            "icon_name_1": "icon-basket-return",
+            "icon_image_1": "shopify://shop_images/verified.svg",
+            "icon_kicker_1": "",
+            "icon_heading_1": "",
+            "icon_text_1": "<p>Free Shipping on Subscription Orders</p>",
+            "icon_name_2": "icon-shipment-world",
+            "icon_image_2": "shopify://shop_images/verified.svg",
+            "icon_kicker_2": "",
+            "icon_heading_2": "",
+            "icon_text_2": "<p>Cancel or pause whenever</p>",
+            "icon_name_3": "icon-phone",
+            "icon_image_3": "shopify://shop_images/verified.svg",
+            "icon_kicker_3": "",
+            "icon_heading_3": "",
+            "icon_text_3": "<p>30 Day Happiness Guarantee: Love your set or get a full refund</p>",
+            "icon_name_4": "none",
+            "icon_kicker_4": "",
+            "icon_heading_4": "",
+            "icon_text_4": "",
+            "icon_name_5": "none",
+            "icon_kicker_5": "",
+            "icon_heading_5": "",
+            "icon_text_5": "",
+            "icon_name_6": "none",
+            "icon_kicker_6": "",
+            "icon_heading_6": "",
+            "icon_text_6": ""
           }
         }
       },
       "block_order": [
-        "kicker_hxNzQQ",
         "heading_UwLVVw",
         "text_aJyAmA",
-        "button_cjJDrk"
+        "spacer_kJFLr4",
+        "icon_text_KKUCr8"
       ],
       "name": "Rich text",
       "settings": {
-        "align_text": "text-left",
+        "align_text": "text-center",
         "text_color": "text--neutral",
         "bg": "palette--light bg--neutral",
         "content_width": 2000,
