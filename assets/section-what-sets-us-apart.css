@@ -573,3 +573,16 @@
     margin-top: -80px;
 }
 }
+
+
+@media screen and (max-width: 820px) {
+.what-sets-us-apart__slide-image img {
+    max-height: 200px;
+    object-fit: contain;
+    object-position: right;
+}
+
+.what-sets-us-apart__slide {
+    padding-right: 0;
+}
+}
