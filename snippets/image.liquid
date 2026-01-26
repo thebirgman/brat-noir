@@ -144,7 +144,7 @@
       assign wh_ratio_mobile = wh_ratio | default: image_mobile.aspect_ratio | default: 0.5
       assign wrapper_style = wrapper_style | append: ' --ASPECT-RATIO-MOBILE: ' | append: wh_ratio_mobile | append: ';'
     -%}
-    <picture class="{{ wrapper_classes }}" style="{{ wrapper_style }}">
+    <picture class="{{ wrapper_classes }} {{ isHero }}" style="{{ wrapper_style }}">
       {% if isHero %}
       <source media="(min-width: 576px)" sizes="{{ sizes }}" srcset="{{ srcset }}" />
       <source media="(max-width: 575px)" sizes="{{ sizes }}" srcset="{{ srcset_mobile }}" />
