@@ -109,11 +109,14 @@
           <div class="build-gift-box__progress-bar">
             <div class="build-gift-box__progress-fill" style="--progress: 0%">
               {%- if section.settings.progress_icon != blank -%}
-                <img class="build-gift-box__progress-icon" src="{{ section.settings.progress_icon | image_url }}" alt="Progress icon" />
+                <img class="build-gift-box__progress-icon build-gift-box__progress-icon--normal" src="{{ section.settings.progress_icon | image_url }}" alt="Progress icon" />
               {%- else -%}
-                <svg class="build-gift-box__progress-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class="build-gift-box__progress-icon build-gift-box__progress-icon--normal" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M10 0L12.5 7.5L20 10L12.5 12.5L10 20L7.5 12.5L0 10L7.5 7.5L10 0Z" fill="white"/>
                 </svg>
+              {%- endif -%}
+              {%- if section.settings.progress_icon_complete != blank -%}
+                <img class="build-gift-box__progress-icon build-gift-box__progress-icon--complete" src="{{ section.settings.progress_icon_complete | image_url }}" alt="Complete icon" style="display: none;" />
               {%- endif -%}
             </div>
           </div>
@@ -148,7 +151,8 @@
           class="build-gift-box__note-textarea" 
           placeholder="Enter your message (max 200 characters)" 
           maxlength="200"
-          rows="4"></textarea>
+          rows="4"
+          required></textarea>
       </div>
 
       <button type="button" class="build-gift-box__note-checkout" style="display: none;">SECURE CHECKOUT</button>
@@ -302,6 +306,12 @@
       "id": "progress_icon",
       "label": "Progress Bar Icon",
       "info": "Icon image displayed on the progress bar"
+    },
+    {
+      "type": "image_picker",
+      "id": "progress_icon_complete",
+      "label": "Progress Bar Icon (Complete)",
+      "info": "Icon image displayed on the progress bar when the box is complete (5/5 items)"
     }
   ],
   "blocks": [

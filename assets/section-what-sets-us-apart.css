@@ -583,11 +583,47 @@
 }
 
 .what-sets-us-apart__slide {
-    padding-right: 0;
+    
 }
 }
 @media screen and (max-width: 768px) {
 .hero__cta__wrapper {
     justify-content: center;
+}
+
+.what-sets-us-apart__slide {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 0;
+}
+
+.what-sets-us-apart__slide-image img[src*="artisan"] {
+  margin-right: 10px;
+  padding-right: 10px;
+}
+
+.what-sets-us-apart__slide-image img {
+  max-height: 100%;
+}
+
+.what-sets-us-apart__slide.what-sets-us-apart__slide--text-center:has(img[src*="vanishing"]){
+  align-items: center;
+  padding-top: 0;
+}
+
+.what-sets-us-apart__slide{
+  position: relative;
+}
+
+.what-sets-us-apart__slide .what-sets-us-apart__slide-image:has(img[src*="vanishing"]){
+  position: absolute;
+  top: 0;
+}
+
+.what-sets-us-apart__slide-image {}
+
+.what-sets-us-apart__slide.what-sets-us-apart__slide--text-center:has(img[src*="vanishing"]) .what-sets-us-apart__slide-text.rte {
+  max-width: 50%;
+  margin-right: auto;
 }
 }

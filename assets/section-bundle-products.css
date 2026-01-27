@@ -488,6 +488,10 @@ button.bundle-product__atc {
     width: 100%;
 }
 
+.bundle-product__quantity-wrapper {
+    width: 100%;
+}
+
 .bundle-product__price {
     display: flex;
     align-items: center;
@@ -769,6 +773,15 @@ button.bundle-products__cart-checkout {
 }
 
 button.bundle-product__atc {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.bundle-product__quantity-wrapper {
+    height: 45px;
+}
+
+.bundle-product__quantity-input {
     font-size: 14px;
     font-weight: 700;
 }

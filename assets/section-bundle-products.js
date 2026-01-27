@@ -249,6 +249,45 @@
       remaining.innerHTML = progressText;
     }
     
+    // Sync quantity selectors with cart state
+    const allProductCards = document.querySelectorAll('.bundle-product__card');
+    const cartVariantIds = new Map();
+    
+    if (data.items && data.items.length > 0) {
+      data.items.forEach(item => {
+        cartVariantIds.set(item.variant_id.toString(), item.quantity);
+      });
+    }
+    
+    allProductCards.forEach(card => {
+      const variantIdAttr = card.querySelector('[data-variant-id]')?.getAttribute('data-variant-id');
+      if (!variantIdAttr) return;
+      
+      const quantityInCart = cartVariantIds.get(variantIdAttr);
+      const quantityWrapper = card.querySelector('.bundle-product__quantity-wrapper');
+      const atcButton = card.querySelector('.bundle-product__atc');
+      
+      if (quantityInCart && quantityInCart > 0) {
+        // Item is in cart - show quantity selector
+        card.classList.add('added');
+        if (quantityWrapper && atcButton) {
+          atcButton.style.display = 'none';
+          quantityWrapper.style.display = 'flex';
+          const quantityInput = quantityWrapper.querySelector('[data-quantity-input]');
+          if (quantityInput) {
+            quantityInput.value = quantityInCart;
+          }
+        }
+      } else {
+        // Item is not in cart - show button
+        card.classList.remove('added');
+        if (quantityWrapper && atcButton) {
+          quantityWrapper.style.display = 'none';
+          atcButton.style.display = 'flex';
+        }
+      }
+    });
+    
     // Return cart data for use in updating theme's cart drawer
     return data;
   }
@@ -270,11 +309,26 @@
           price: card.querySelector('.bundle-product__price--sale, .bundle-product__price--regular')?.textContent || '0'
         } : null;
 
-        // Add visual feedback class to product card
+        // Add visual feedback class to product card and show quantity selector
         if (card) {
-          card.classList.add('is-added-to-box');
+          card.classList.add('added', 'is-added-to-box');
           
-          // Remove the class after 2 seconds
+          // Show quantity selector and hide button
+          const quantityWrapper = card.querySelector('.bundle-product__quantity-wrapper');
+          const atcButton = card.querySelector('.bundle-product__atc');
+          
+          if (quantityWrapper && atcButton) {
+            atcButton.style.display = 'none';
+            quantityWrapper.style.display = 'flex';
+            
+            // Set initial quantity to 1
+            const quantityInput = quantityWrapper.querySelector('.bundle-product__quantity-input');
+            if (quantityInput) {
+              quantityInput.value = '1';
+            }
+          }
+          
+          // Remove the temporary is-added-to-box class after 2 seconds (keep 'added' class)
           setTimeout(() => {
             card.classList.remove('is-added-to-box');
           }, 2000);
@@ -308,6 +362,111 @@
           // If remove fails, refresh cart to show correct state
           refreshCart();
         });
+      }
+    });
+
+    // Handle quantity changes in bundle product cards
+    document.addEventListener('click', async (event) => {
+      const decreaseBtn = event.target.closest('[data-decrease-quantity]');
+      const increaseBtn = event.target.closest('[data-increase-quantity]');
+      
+      if (decreaseBtn || increaseBtn) {
+        const quantityWrapper = (decreaseBtn || increaseBtn).closest('.bundle-product__quantity-wrapper');
+        if (!quantityWrapper) return;
+        
+        const quantityInput = quantityWrapper.querySelector('[data-quantity-input]');
+        const card = quantityWrapper.closest('.bundle-product__card');
+        if (!quantityInput || !card) return;
+        
+        const variantId = quantityInput.getAttribute('data-variant-id');
+        const sellingPlanID = card.querySelector('[data-selling-plan]')?.getAttribute('data-selling-plan') || null;
+        
+        let currentQuantity = parseInt(quantityInput.value) || 1;
+        
+        if (decreaseBtn) {
+          if (currentQuantity > 1) {
+            currentQuantity--;
+            quantityInput.value = currentQuantity;
+            
+            // Update cart
+            await fetch('/cart/change.js', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                id: variantId,
+                quantity: currentQuantity
+              })
+            });
+            
+            refreshCart();
+          } else {
+            // Remove from cart if quantity is 0
+            await removeFromCart(variantId);
+            
+            // Hide quantity selector and show button
+            quantityWrapper.style.display = 'none';
+            const atcButton = card.querySelector('.bundle-product__atc');
+            if (atcButton) {
+              atcButton.style.display = 'flex';
+            }
+            
+            // Remove added class
+            card.classList.remove('added');
+          }
+        } else if (increaseBtn) {
+          currentQuantity++;
+          quantityInput.value = currentQuantity;
+          
+          // Update cart
+          await fetch('/cart/change.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              id: variantId,
+              quantity: currentQuantity
+            })
+          });
+          
+          refreshCart();
+        }
+      }
+    });
+    
+    // Handle direct input changes
+    document.addEventListener('change', async (event) => {
+      const quantityInput = event.target.closest('[data-quantity-input]');
+      if (!quantityInput || !quantityInput.closest('.bundle-product__quantity-wrapper')) return;
+      
+      const card = quantityInput.closest('.bundle-product__card');
+      if (!card) return;
+      
+      const variantId = quantityInput.getAttribute('data-variant-id');
+      let newQuantity = parseInt(quantityInput.value);
+      
+      if (isNaN(newQuantity) || newQuantity < 0) {
+        newQuantity = 1;
+        quantityInput.value = 1;
+      }
+      
+      if (newQuantity === 0) {
+        await removeFromCart(variantId);
+        const quantityWrapper = quantityInput.closest('.bundle-product__quantity-wrapper');
+        const atcButton = card.querySelector('.bundle-product__atc');
+        if (quantityWrapper && atcButton) {
+          quantityWrapper.style.display = 'none';
+          atcButton.style.display = 'flex';
+        }
+        card.classList.remove('added');
+      } else {
+        await fetch('/cart/change.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            id: variantId,
+            quantity: newQuantity
+          })
+        });
+        refreshCart();
       }
     });
 

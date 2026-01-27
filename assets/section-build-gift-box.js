@@ -1,6 +1,8 @@
 (function () {
   // Store box items in memory (not in cart)
   let boxItems = [];
+  // Track quantities per variant
+  let variantQuantities = new Map();
   const MAX_ITEMS = 5;
 
   function updateProgress() {
@@ -41,6 +43,19 @@
         writeNoteBtn.disabled = false;
       } else {
         writeNoteBtn.disabled = true;
+      }
+    }
+    
+    // Update progress icons (normal vs complete)
+    const normalIcon = document.querySelector('.build-gift-box__progress-icon--normal');
+    const completeIcon = document.querySelector('.build-gift-box__progress-icon--complete');
+    if (normalIcon && completeIcon) {
+      if (count === MAX_ITEMS) {
+        normalIcon.style.display = 'none';
+        completeIcon.style.display = 'block';
+      } else {
+        normalIcon.style.display = 'block';
+        completeIcon.style.display = 'none';
       }
     }
   }
@@ -149,10 +164,33 @@
     }
 
     updateProgress();
+    syncQuantitySelectors();
     return true;
   }
 
   function removeFromBox(slotNumber) {
+    const itemToRemove = boxItems.find(item => item.slot === slotNumber);
+    if (itemToRemove) {
+      // Update variant quantity tracking
+      const currentQty = variantQuantities.get(itemToRemove.variantId) || 0;
+      if (currentQty > 1) {
+        variantQuantities.set(itemToRemove.variantId, currentQty - 1);
+      } else {
+        variantQuantities.delete(itemToRemove.variantId);
+        // Update product card UI if quantity reaches 0
+        const card = document.querySelector(`[data-add-to-box][data-variant-id="${itemToRemove.variantId}"]`)?.closest('.bundle-product__card');
+        if (card) {
+          card.classList.remove('added');
+          const quantityWrapper = card.querySelector('.bundle-product__quantity-wrapper');
+          const atcButton = card.querySelector('.bundle-product__atc');
+          if (quantityWrapper && atcButton) {
+            quantityWrapper.style.display = 'none';
+            atcButton.style.display = 'flex';
+          }
+        }
+      }
+    }
+    
     boxItems = boxItems.filter(item => item.slot !== slotNumber);
     
     const slot = document.querySelector(`.build-gift-box__cart-item[data-slot="${slotNumber}"]`);
@@ -205,6 +243,7 @@
 
     updateRemainingCounts();
     updateProgress();
+    syncQuantitySelectors();
   }
 
   function updateRemainingCounts() {
@@ -217,6 +256,43 @@
         const isFilled = boxItems.some(item => item.slot === slotNum);
         if (!isFilled) {
           //el.textContent = remaining;
+        }
+      }
+    });
+  }
+
+  function syncQuantitySelectors() {
+    // Update all quantity selectors to match current box state
+    const allProductCards = document.querySelectorAll('.bundle-product__card');
+    
+    allProductCards.forEach(card => {
+      const button = card.querySelector('[data-add-to-box]');
+      if (!button) return;
+      
+      const variantId = button.getAttribute('data-variant-id');
+      const quantityInBox = variantQuantities.get(variantId) || 0;
+      const quantityWrapper = card.querySelector('.bundle-product__quantity-wrapper');
+      const atcButton = card.querySelector('.bundle-product__atc');
+      
+      if (quantityInBox > 0) {
+        // Item is in box - show quantity selector
+        card.classList.add('added');
+        if (quantityWrapper && atcButton) {
+          atcButton.style.display = 'none';
+          // Make sure quantity wrapper is visible
+          quantityWrapper.style.display = 'flex';
+          quantityWrapper.style.visibility = 'visible';
+          const quantityInput = quantityWrapper.querySelector('[data-box-quantity-input]');
+          if (quantityInput) {
+            quantityInput.value = quantityInBox;
+          }
+        }
+      } else {
+        // Item is not in box - show button
+        card.classList.remove('added');
+        if (quantityWrapper && atcButton) {
+          quantityWrapper.style.display = 'none';
+          atcButton.style.display = 'flex';
         }
       }
     });
@@ -328,9 +404,36 @@
         // Get the product card and add selected class
         const productCard = button.closest('.bundle-product__card');
         if (productCard) {
-          productCard.classList.add('is-added-to-box');
+          productCard.classList.add('added', 'is-added-to-box');
           
-          // Remove the class after 2 seconds
+          // Hide button immediately
+          const quantityWrapper = productCard.querySelector('.bundle-product__quantity-wrapper');
+          const atcButton = productCard.querySelector('.bundle-product__atc');
+          
+          if (atcButton) {
+            atcButton.style.display = 'none';
+          }
+          
+          // Show quantity selector after 2 seconds
+          if (quantityWrapper) {
+            // Set initial quantity to 1
+            const quantityInput = quantityWrapper.querySelector('[data-box-quantity-input]');
+            if (quantityInput) {
+              quantityInput.value = '1';
+            }
+            
+            // Ensure it's hidden initially
+            quantityWrapper.style.display = 'none';
+            quantityWrapper.style.visibility = 'hidden';
+            
+            // Show after 2 seconds
+            setTimeout(() => {
+              quantityWrapper.style.display = 'flex';
+              quantityWrapper.style.visibility = 'visible';
+            }, 2000);
+          }
+          
+          // Remove the temporary is-added-to-box class after 2 seconds (keep 'added' class)
           setTimeout(() => {
             productCard.classList.remove('is-added-to-box');
           }, 2000);
@@ -342,6 +445,20 @@
         
         if (!success) {
           alert('Unable to add product to box. The box may be full.');
+          // If failed, revert UI changes
+          if (productCard) {
+            productCard.classList.remove('added');
+            const quantityWrapper = productCard.querySelector('.bundle-product__quantity-wrapper');
+            const atcButton = productCard.querySelector('.bundle-product__atc');
+            if (quantityWrapper && atcButton) {
+              quantityWrapper.style.display = 'none';
+              atcButton.style.display = 'flex';
+            }
+          }
+        } else {
+          // Update quantity tracking
+          const currentQty = variantQuantities.get(productData.variantId) || 0;
+          variantQuantities.set(productData.variantId, currentQty + 1);
         }
       });
     });
@@ -355,6 +472,161 @@
         
         const slotNumber = parseInt(removeBtn.getAttribute('data-remove-slot'));
         removeFromBox(slotNumber);
+      }
+    });
+
+    // Handle quantity changes in build-gift-box product cards
+    document.addEventListener('click', (event) => {
+      const decreaseBtn = event.target.closest('[data-decrease-box-quantity]');
+      const increaseBtn = event.target.closest('[data-increase-box-quantity]');
+      
+      if (decreaseBtn || increaseBtn) {
+        event.preventDefault();
+        event.stopPropagation();
+        
+        const quantityWrapper = (decreaseBtn || increaseBtn).closest('.bundle-product__quantity-wrapper');
+        if (!quantityWrapper) return;
+        
+        const quantityInput = quantityWrapper.querySelector('[data-box-quantity-input]');
+        const card = quantityWrapper.closest('.bundle-product__card');
+        if (!quantityInput || !card) return;
+        
+        const variantId = quantityInput.getAttribute('data-variant-id');
+        const button = card.querySelector('[data-add-to-box]');
+        if (!button) return;
+        
+        const productData = {
+          variantId: button.getAttribute('data-variant-id'),
+          productId: button.getAttribute('data-product-id'),
+          productHandle: button.getAttribute('data-product-handle'),
+          title: button.getAttribute('data-product-title'),
+          image: button.getAttribute('data-product-image'),
+          collection: button.getAttribute('data-product-collection')
+        };
+        
+        let currentQuantity = parseInt(quantityInput.value) || 1;
+        const currentQtyInBox = variantQuantities.get(variantId) || 0;
+        
+        if (decreaseBtn) {
+          if (currentQuantity > 1) {
+            currentQuantity--;
+            quantityInput.value = currentQuantity;
+            
+            // Remove one instance from box
+            if (currentQtyInBox > 0) {
+              // Find and remove one item with this variant
+              const itemToRemove = boxItems.find(item => item.variantId === variantId);
+              if (itemToRemove) {
+                removeFromBox(itemToRemove.slot);
+              }
+            }
+          } else {
+            // Remove all instances from box
+            const itemsToRemove = boxItems.filter(item => item.variantId === variantId);
+            itemsToRemove.forEach(item => {
+              removeFromBox(item.slot);
+            });
+            
+            // Hide quantity selector and show button
+            quantityWrapper.style.display = 'none';
+            const atcButton = card.querySelector('.bundle-product__atc');
+            if (atcButton) {
+              atcButton.style.display = 'flex';
+            }
+            
+            // Remove added class
+            card.classList.remove('added');
+          }
+        } else if (increaseBtn) {
+          // Check if we can add more (not exceeding MAX_ITEMS)
+          if (boxItems.length >= MAX_ITEMS) {
+            alert(`You can only add ${MAX_ITEMS} items to your gift box.`);
+            return;
+          }
+          
+          currentQuantity++;
+          quantityInput.value = currentQuantity;
+          
+          // Add one more instance to box
+          const success = addToBox(productData);
+          if (success) {
+            const newQty = variantQuantities.get(variantId) || 0;
+            variantQuantities.set(variantId, newQty + 1);
+          } else {
+            // Revert quantity if add failed
+            currentQuantity--;
+            quantityInput.value = currentQuantity;
+          }
+        }
+      }
+    });
+    
+    // Handle direct input changes for box quantities
+    document.addEventListener('change', (event) => {
+      const quantityInput = event.target.closest('[data-box-quantity-input]');
+      if (!quantityInput || !quantityInput.closest('.bundle-product__quantity-wrapper')) return;
+      
+      const card = quantityInput.closest('.bundle-product__card');
+      if (!card) return;
+      
+      const variantId = quantityInput.getAttribute('data-variant-id');
+      const button = card.querySelector('[data-add-to-box]');
+      if (!button) return;
+      
+      const productData = {
+        variantId: button.getAttribute('data-variant-id'),
+        productId: button.getAttribute('data-product-id'),
+        productHandle: button.getAttribute('data-product-handle'),
+        title: button.getAttribute('data-product-title'),
+        image: button.getAttribute('data-product-image'),
+        collection: button.getAttribute('data-product-collection')
+      };
+      
+      let newQuantity = parseInt(quantityInput.value);
+      
+      if (isNaN(newQuantity) || newQuantity < 0) {
+        newQuantity = 1;
+        quantityInput.value = 1;
+      }
+      
+      const currentQtyInBox = variantQuantities.get(variantId) || 0;
+      
+      if (newQuantity === 0) {
+        // Remove all instances
+        const itemsToRemove = boxItems.filter(item => item.variantId === variantId);
+        itemsToRemove.forEach(item => {
+          removeFromBox(item.slot);
+        });
+        
+        const quantityWrapper = quantityInput.closest('.bundle-product__quantity-wrapper');
+        const atcButton = card.querySelector('.bundle-product__atc');
+        if (quantityWrapper && atcButton) {
+          quantityWrapper.style.display = 'none';
+          atcButton.style.display = 'flex';
+        }
+        card.classList.remove('added');
+      } else if (newQuantity > currentQtyInBox) {
+        // Add more items
+        const toAdd = newQuantity - currentQtyInBox;
+        for (let i = 0; i < toAdd; i++) {
+          if (boxItems.length >= MAX_ITEMS) {
+            alert(`You can only add ${MAX_ITEMS} items to your gift box.`);
+            quantityInput.value = currentQtyInBox;
+            break;
+          }
+          const success = addToBox(productData);
+          if (success) {
+            const newQty = variantQuantities.get(variantId) || 0;
+            variantQuantities.set(variantId, newQty + 1);
+          }
+        }
+      } else if (newQuantity < currentQtyInBox) {
+        // Remove items
+        const toRemove = currentQtyInBox - newQuantity;
+        const itemsToRemove = boxItems.filter(item => item.variantId === variantId).slice(0, toRemove);
+        itemsToRemove.forEach(item => {
+          removeFromBox(item.slot);
+        });
       }
     });
 
@@ -373,7 +645,39 @@
     if (checkoutBtn) {
       checkoutBtn.addEventListener('click', async () => {
         const textarea = document.querySelector('.build-gift-box__note-textarea');
-        const note = textarea ? textarea.value : '';
+        if (!textarea) return;
+        
+        const note = textarea.value.trim();
+        
+        // Validate that textarea is filled
+        if (!note) {
+          // Show validation error
+          textarea.classList.add('error');
+          textarea.focus();
+          
+          // Show error message
+          let errorMsg = textarea.parentElement.querySelector('.build-gift-box__note-error');
+          if (!errorMsg) {
+            errorMsg = document.createElement('p');
+            errorMsg.className = 'build-gift-box__note-error';
+            errorMsg.style.color = '#ff6d6d';
+            errorMsg.style.marginTop = '8px';
+            errorMsg.style.fontSize = '14px';
+            errorMsg.textContent = 'Please enter a message before proceeding to checkout.';
+            textarea.parentElement.appendChild(errorMsg);
+          }
+          
+          // Remove error state after user starts typing
+          textarea.addEventListener('input', function removeError() {
+            textarea.classList.remove('error');
+            if (errorMsg) {
+              errorMsg.remove();
+            }
+            textarea.removeEventListener('input', removeError);
+          }, { once: true });
+          
+          return;
+        }
         
         checkoutBtn.disabled = true;
         checkoutBtn.textContent = 'Wrapping...';
@@ -402,5 +706,8 @@
 
     // Initialize progress
     updateProgress();
+    
+    // Initialize quantity selectors
+    initializeQuantitySelectors();
   });
 })();

@@ -8,7 +8,12 @@
 -%}
 <div class="bundle-product__card" data-collection="{{ product.metafields.custom.collection_name | metafield_text }}">
   <a class="bundle-product_card_link" href="{{ product.url }}"></a>
-  <img class="bundle-product__image" src="{{ product_image | image_url }}" alt="{{ product.title }}" >
+  <div class="bundle-product__image-wrapper">
+    <img class="bundle-product__image" src="{{ product_image | image_url }}" alt="{{ product.title }}" >
+    {%- if is_bestseller -%}
+      <div class="bundle-product__bestseller-badge">BESTSELLER</div>
+    {%- endif -%}
+  </div>
   <div class="bundle-product__details">
     <div class="bundle-product__info">
        <p class="product__grid__collection-name"> {{ product.metafields.custom.collection_name | metafield_text }} </p>
@@ -39,6 +44,19 @@
     >
       ADD TO CART
     </button>
+    <div class="bundle-product__quantity-wrapper" style="display: none;">
+      <button class="bundle-product__quantity-button bundle-product__quantity-button--minus" data-decrease-quantity type="button" aria-label="Decrease quantity">&minus;</button>
+      <input 
+        class="bundle-product__quantity-input"
+        data-quantity-input
+        aria-label="Quantity"
+        type="number"
+        min="1"
+        value="1"
+        data-variant-id="{{ product.first_available_variant.id }}"
+      />
+      <button class="bundle-product__quantity-button bundle-product__quantity-button--plus" data-increase-quantity type="button" aria-label="Increase quantity">+</button>
+    </div>
      <button
   class="st-wishlist-button wishlist-button"
   data-type="details"

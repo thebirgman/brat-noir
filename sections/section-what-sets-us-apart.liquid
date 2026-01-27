@@ -10,20 +10,26 @@
 
     {%- if section.blocks.size > 0 -%}
       {%- comment -%} Mobile Main Image {%- endcomment -%}
-      {%- if section.settings.main_image != blank -%}
-        <div class="what-sets-us-apart__main-image-mobile">
-          <img
-            src="{{ section.settings.main_image | image_url: width: 800 }}"
-            srcset="{{ section.settings.main_image | image_url: width: 400 }} 400w,
-                    {{ section.settings.main_image | image_url: width: 600 }} 600w,
-                    {{ section.settings.main_image | image_url: width: 800 }} 800w"
-            sizes="(max-width: 768px) 100vw, 800px"
-            alt="{{ section.settings.main_image.alt | escape }}"
-            loading="lazy"
-            width="{{ section.settings.main_image.width }}"
-            height="{{ section.settings.main_image.height }}">
-        </div>
-      {%- endif -%}
+      <div class="what-sets-us-apart__main-image-mobile-wrapper">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'feature_block' or block.type == 'feature_block_with_arrows' -%}
+            {%- if block.settings.main_image != blank -%}
+              <div class="what-sets-us-apart__main-image-mobile{% if forloop.first %} is-active{% endif %}" data-main-image-mobile="{{ block.id }}">
+                <img
+                  src="{{ block.settings.main_image | image_url: width: 800 }}"
+                  srcset="{{ block.settings.main_image | image_url: width: 400 }} 400w,
+                          {{ block.settings.main_image | image_url: width: 600 }} 600w,
+                          {{ block.settings.main_image | image_url: width: 800 }} 800w"
+                  sizes="(max-width: 768px) 100vw, 800px"
+                  alt="{{ block.settings.main_image.alt | escape }}"
+                  loading="lazy"
+                  width="{{ block.settings.main_image.width }}"
+                  height="{{ block.settings.main_image.height }}">
+              </div>
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
 
       {%- comment -%} Labels/Tabs {%- endcomment -%}
       <div class="what-sets-us-apart__labels" role="tablist" aria-label="Feature tabs">
@@ -98,18 +104,18 @@
                 {%- endif -%}
 
                 {%- comment -%} Main Image {%- endcomment -%}
-                {%- if section.settings.main_image != blank -%}
+                {%- if block.settings.main_image != blank -%}
                   <div class="what-sets-us-apart__main-image">
                     <img
-                      src="{{ section.settings.main_image | image_url: width: 600 }}"
-                      srcset="{{ section.settings.main_image | image_url: width: 400 }} 400w,
-                              {{ section.settings.main_image | image_url: width: 600 }} 600w,
-                              {{ section.settings.main_image | image_url: width: 800 }} 800w"
+                      src="{{ block.settings.main_image | image_url: width: 600 }}"
+                      srcset="{{ block.settings.main_image | image_url: width: 400 }} 400w,
+                              {{ block.settings.main_image | image_url: width: 600 }} 600w,
+                              {{ block.settings.main_image | image_url: width: 800 }} 800w"
                       sizes="(max-width: 768px) 100vw, 600px"
-                      alt="{{ section.settings.main_image.alt | escape }}"
+                      alt="{{ block.settings.main_image.alt | escape }}"
                       loading="lazy"
-                      width="{{ section.settings.main_image.width }}"
-                      height="{{ section.settings.main_image.height }}">
+                      width="{{ block.settings.main_image.width }}"
+                      height="{{ block.settings.main_image.height }}">
                   </div>
                 {%- endif -%}
 
@@ -228,25 +234,29 @@
               <div class="what-sets-us-apart__slider-track">
                 {%- for i in (1..4) -%}
                   {%- assign image_key = 'image_' | append: i -%}
+                  {%- assign image_mobile_key = 'image_' | append: i | append: '_mobile' -%}
                   {%- assign text_key = 'text_' | append: i -%}
                   {%- assign alignment_key = 'text_alignment_' | append: i -%}
                   {%- assign image = block.settings[image_key] -%}
+                  {%- assign image_mobile = block.settings[image_mobile_key] -%}
                   {%- assign text = block.settings[text_key] -%}
                   {%- assign alignment = block.settings[alignment_key] | default: 'center' -%}
+                  {%- comment -%} Use mobile image if available, otherwise fall back to regular image {%- endcomment -%}
+                  {%- assign display_image = image_mobile | default: image -%}
                   
-                  {%- if image != blank or text != blank -%}
+                  {%- if display_image != blank or text != blank -%}
                     <div class="what-sets-us-apart__slide what-sets-us-apart__slide--text-{{ alignment }}">
-                      {%- if image != blank -%}
+                      {%- if display_image != blank -%}
                         <div class="what-sets-us-apart__slide-image">
                           <img
-                            src="{{ image | image_url: width: 400 }}"
-                            srcset="{{ image | image_url: width: 200 }} 200w,
-                                    {{ image | image_url: width: 400 }} 400w"
+                            src="{{ display_image | image_url: width: 400 }}"
+                            srcset="{{ display_image | image_url: width: 200 }} 200w,
+                                    {{ display_image | image_url: width: 400 }} 400w"
                             sizes="(max-width: 768px) 90vw, 400px"
-                            alt="{{ image.alt | escape }}"
+                            alt="{{ display_image.alt | escape }}"
                             loading="lazy"
-                            width="{{ image.width }}"
-                            height="{{ image.height }}">
+                            width="{{ display_image.width }}"
+                            height="{{ display_image.height }}">
                         </div>
                       {%- endif -%}
                       {%- if text != blank -%}
@@ -298,12 +308,6 @@
       "id": "heading",
       "label": "Heading",
       "default": "<p>What Sets Us Apart</p>"
-    },
-    {
-      "type": "image_picker",
-      "id": "main_image",
-      "label": "Main Image",
-      "info": "The large center image displayed in the middle of the content"
     }
   ],
   "blocks": [
@@ -319,6 +323,12 @@
           "info": "This appears as a tab label"
         },
         {
+          "type": "image_picker",
+          "id": "main_image",
+          "label": "Main Image",
+          "info": "The large center image displayed in the middle of the content"
+        },
+        {
           "type": "header",
           "content": "Image & Text 1 (Top Left)"
         },
@@ -326,6 +336,12 @@
           "type": "image_picker",
           "id": "image_1",
           "label": "Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1_mobile",
+          "label": "Image 1 (Mobile)",
+          "info": "Optional: Use a different image for mobile devices"
         },
         {
           "type": "richtext",
@@ -359,6 +375,12 @@
           "label": "Image 2"
         },
         {
+          "type": "image_picker",
+          "id": "image_2_mobile",
+          "label": "Image 2 (Mobile)",
+          "info": "Optional: Use a different image for mobile devices"
+        },
+        {
           "type": "richtext",
           "id": "text_2",
           "label": "Text 2",
@@ -390,6 +412,12 @@
           "label": "Image 3"
         },
         {
+          "type": "image_picker",
+          "id": "image_3_mobile",
+          "label": "Image 3 (Mobile)",
+          "info": "Optional: Use a different image for mobile devices"
+        },
+        {
           "type": "richtext",
           "id": "text_3",
           "label": "Text 3",
@@ -419,6 +447,12 @@
           "type": "image_picker",
           "id": "image_4",
           "label": "Image 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_4_mobile",
+          "label": "Image 4 (Mobile)",
+          "info": "Optional: Use a different image for mobile devices"
         },
         {
           "type": "richtext",
@@ -456,6 +490,12 @@
           "info": "This appears as a tab label"
         },
         {
+          "type": "image_picker",
+          "id": "main_image",
+          "label": "Main Image",
+          "info": "The large center image displayed in the middle of the content"
+        },
+        {
           "type": "header",
           "content": "Image & Text 1 (Top Left)"
         },
@@ -463,6 +503,12 @@
           "type": "image_picker",
           "id": "image_1",
           "label": "Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1_mobile",
+          "label": "Image 1 (Mobile)",
+          "info": "Optional: Use a different image for mobile devices"
         },
         {
           "type": "richtext",
@@ -532,6 +578,12 @@
           "label": "Image 2"
         },
         {
+          "type": "image_picker",
+          "id": "image_2_mobile",
+          "label": "Image 2 (Mobile)",
+          "info": "Optional: Use a different image for mobile devices"
+        },
+        {
           "type": "richtext",
           "id": "text_2",
           "label": "Text 2",
@@ -599,6 +651,12 @@
           "label": "Image 3"
         },
         {
+          "type": "image_picker",
+          "id": "image_3_mobile",
+          "label": "Image 3 (Mobile)",
+          "info": "Optional: Use a different image for mobile devices"
+        },
+        {
           "type": "richtext",
           "id": "text_3",
           "label": "Text 3",
@@ -664,6 +722,12 @@
           "type": "image_picker",
           "id": "image_4",
           "label": "Image 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_4_mobile",
+          "label": "Image 4 (Mobile)",
+          "info": "Optional: Use a different image for mobile devices"
         },
         {
           "type": "richtext",
