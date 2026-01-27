@@ -95,7 +95,7 @@
         "image_jmcfJ4": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Velvet-Vanity-Box.png",
+            "image": "shopify://shop_images/Velvet_Packaging.gif",
             "overlay_opacity": 0,
             "overlay_color": "#000000",
             "enable_overlay_text": false,
@@ -213,7 +213,7 @@
         "image_epMddw": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/written-in-the-cards.png",
+            "image": "shopify://shop_images/Tarot_Card.gif",
             "overlay_opacity": 15,
             "overlay_color": "#000000",
             "enable_overlay_text": false,
