@@ -679,8 +679,8 @@
           return;
         }
         
-        checkoutBtn.disabled = true;
-        checkoutBtn.textContent = 'Wrapping...';
+        //checkoutBtn.disabled = true;
+        //checkoutBtn.textContent = 'Wrapping...';
         
         try {
           await handleCheckout(note);
