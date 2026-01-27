@@ -507,7 +507,8 @@
         "all_label": "All",
         "gift_box_heading": "BUILD THE PERFECT GIFT",
         "gift_box_features": "<ul><li>One-time purchase.</li><li>Luxury Gift Packaging Included.</li><li>Free Shipping</li></ul>",
-        "progress_icon": "shopify://shop_images/Group_542.png"
+        "progress_icon": "shopify://shop_images/Group_542.png",
+        "progress_icon_complete": "shopify://shop_images/progress-bar-complete_77889e5e-6381-4b56-b106-64f41b5889d0.png"
       }
     }
   },
