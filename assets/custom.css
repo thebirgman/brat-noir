@@ -3599,9 +3599,9 @@ p.build-gift-box__note-error {
   font-size: 13px!Important;
 }
 
-.bundle-product__quantity-wrapper {
+body .bundle-product__quantity-wrapper {
   border: 1px solid #D1D1D1;
-  width: 100%;
+  width: 100%!important;
   border-radius: 4px;
 }
 
@@ -3609,7 +3609,7 @@ body .bundle-product__quantity-button {
   border: 0;
 }
 
-.bundle-product__card.added .bundle-product__quantity-wrapper input {
+body .bundle-product__card.added .bundle-product__quantity-wrapper input {
   margin: 0;
   padding: 0;
 }
