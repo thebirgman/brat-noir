@@ -295,8 +295,8 @@
             "image": "shopify://shop_images/Group_547.png",
             "image_height": 140,
             "image_height_mobile": 110,
-            "title": "Free Shipping + VIP Pricing",
-            "text": "Add 3 sets and get VIP Pricing ($15/set) + Free Shipping"
+            "title": "<p>Free Shipping + VIP Pricing</p>",
+            "text": "<p><strong>Add 3 sets </strong>and get VIP Pricing ($15/set) + Free Shipping</p>"
           }
         },
         "step_pHEWpK": {
@@ -305,8 +305,8 @@
             "image": "shopify://shop_images/Group_548.png",
             "image_height": 140,
             "image_height_mobile": 110,
-            "title": "The Velvet Upgrade.",
-            "text": "Add 5 sets to unlock the Velvet Vanity Box + Free Shipping"
+            "title": "<p><strong>The Velvet Upgrade.</strong></p>",
+            "text": "<p><strong>Add 5 sets </strong>to unlock the Velvet Vanity Box + Free Shipping</p>"
           }
         }
       },
