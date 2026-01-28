@@ -170,8 +170,8 @@
 }
 
 .build-gift-box__cart-item-image {
-  width: 89px;
-  height: 89px;
+  width: 75px;
+  height: 75px;
   border-radius: 15px;
   object-fit: cover;
   flex-shrink: 0;
@@ -271,10 +271,27 @@
 .build-gift-box__note-section {
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 20px;
-  padding: 30px 20px;
+  padding: 0;
   margin-top: 10px;
   border: 1px solid #fff;
   box-shadow: 0 4px 14px #0000000d;
+  overflow: hidden;
+}
+
+.build-gift-box__note-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.build-gift-box__note-header:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .build-gift-box__note-title {
@@ -283,7 +300,28 @@
   font-size: 24px;
   line-height: 1.2;
   color: #000;
-  margin: 0 0 20px 0;
+  margin: 0;
+}
+
+.build-gift-box__note-icon {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.build-gift-box__note-header[aria-expanded="false"] .build-gift-box__note-icon {
+  transform: rotate(180deg);
+}
+
+.build-gift-box__note-content {
+  max-height: 500px;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 20px 30px 20px;
+}
+
+.build-gift-box__note-section[data-collapsed="true"] .build-gift-box__note-content {
+  max-height: 0;
+  padding: 0 20px;
 }
 
 .build-gift-box__note-textarea {
@@ -957,4 +995,33 @@ body:has(.js__header__stuck.is-visible) .build-gift-box__cart {
 
 .bundle-product__card.added .bundle-product__atc {
   display: none !important;
+}
+
+h3.build-gift-box__note-title {
+  margin: 0;
+}
+
+button.build-gift-box__note-header {}
+
+button.build-gift-box__note-header {
+  padding: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  
+}
+
+.build-gift-box__note-content {
+  padding-top: 20px;
+  padding-bottom: 0;
+}
+
+.build-gift-box__note-section {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+@media screen and (max-width: 768px) {
+.build-gift-box__note-section[data-collapsed="false"] {
+  min-height: 200px;
+}
 }
