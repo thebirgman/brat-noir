@@ -368,6 +368,7 @@
       ],
       "custom_css": [
         "p.product__grid__collection-name {font-size: 12px !important; font-weight: 300; font-family: \"Montserrat\"; color: #000; letter-spacing: 0.5px !important; text-align: left;}",
+        " section {padding-top:20px;}",
         "@media screen and (max-width: 768px) {.bundle-products__filters {padding-left: 0; padding-right: 0; } .bundle-products__filter-btn {font-size: 16px !important; }}",
         ".bundle-product__title {font-size: 15px;}"
       ],
