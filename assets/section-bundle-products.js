@@ -1,4 +1,15 @@
 (function () {
+  // Debounce helper to prevent rate limiting
+  let refreshCartTimeout = null;
+  function debouncedRefreshCart(delay = 500) {
+    if (refreshCartTimeout) {
+      clearTimeout(refreshCartTimeout);
+    }
+    refreshCartTimeout = setTimeout(() => {
+      refreshCart();
+    }, delay);
+  }
+
   async function addToCart(variantId, sellingPlanId, quantity, productData) {
     console.log('variantId:', variantId);
     console.log('sellingPlanId:', sellingPlanId);
@@ -18,28 +29,26 @@
     }
     
     // Add to cart in background
-    await fetch('/cart/add.js', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        items: [item]
-      })
-    });
+    try {
+      const response = await fetch('/cart/add.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          items: [item]
+        })
+      });
+      
+      if (!response.ok) {
+        console.warn('Add to cart failed:', response.status);
+      }
+    } catch (error) {
+      console.error('Error adding to cart:', error);
+    }
 
     // Update bundle cart UI with real data and update cart drawer in background
-    refreshCart().then(cartData => {
-      // Update theme's cart drawer in background (non-blocking)
-      if (cartData) {
-        document.dispatchEvent(new CustomEvent('theme:cart:change', {
-          detail: {
-            cart: cartData
-          },
-          bubbles: true
-        }));
-      }
-    });
+    debouncedRefreshCart();
   }
 
   function optimisticallyAddToBundleCart(variantId, productData, quantity) {
@@ -93,37 +102,42 @@
       }
     }
 
-    await fetch(`/cart/change.js`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        id: variantId,
-        quantity: 0
-      })
-    });
+    try {
+      const response = await fetch(`/cart/change.js`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          id: variantId,
+          quantity: 0
+        })
+      });
+      
+      if (!response.ok) {
+        console.warn('Remove from cart failed:', response.status);
+      }
+    } catch (error) {
+      console.error('Error removing from cart:', error);
+    }
 
     // Update bundle cart UI with real data and update cart drawer in background
-    refreshCart().then(cartData => {
-      // Update theme's cart drawer in background (non-blocking)
-      if (cartData) {
-        document.dispatchEvent(new CustomEvent('theme:cart:change', {
-          detail: {
-            cart: cartData
-          },
-          bubbles: true
-        }));
-      }
-    });
+    debouncedRefreshCart();
   }
 
   async function refreshCart() {
-    const response = await fetch('/cart.js');
-    const data = await response.json();
-    
-    console.log('Cart data:', data);
-    const template = document.querySelector('#bundle-cart-item');
+    try {
+      const response = await fetch('/cart.js');
+      
+      if (!response.ok) {
+        console.warn('Cart fetch failed with status:', response.status);
+        return null;
+      }
+      
+      const data = await response.json();
+      
+      console.log('Cart data:', data);
+      const template = document.querySelector('#bundle-cart-item');
 
     // Check for products with special tags (trio-bundle or collection) and get compare_at_price
     let hasSpecialTag = false;
@@ -290,6 +304,10 @@
     
     // Return cart data for use in updating theme's cart drawer
     return data;
+    } catch (error) {
+      console.error('Error refreshing cart:', error);
+      return null;
+    }
   }
 
   document.addEventListener('DOMContentLoaded', () => {
@@ -340,7 +358,7 @@
         }).catch(() => {
           button.classList.remove('loading');
           // If add fails, refresh cart to show correct state
-          refreshCart();
+          debouncedRefreshCart();
         });
       });
     });
@@ -360,7 +378,7 @@
         }).catch(() => {
           button.classList.remove('loading');
           // If remove fails, refresh cart to show correct state
-          refreshCart();
+          debouncedRefreshCart();
         });
       }
     });
@@ -400,16 +418,24 @@
             quantityInput.value = currentQuantity;
             
             // Update cart - set new quantity
-            await fetch('/cart/change.js', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                id: variantId,
-                quantity: currentQuantity
-              })
-            });
+            try {
+              const response = await fetch('/cart/change.js', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  id: variantId,
+                  quantity: currentQuantity
+                })
+              });
+              
+              if (!response.ok) {
+                console.warn('Cart change failed:', response.status);
+              }
+            } catch (error) {
+              console.error('Error changing cart:', error);
+            }
             
-            refreshCart();
+            debouncedRefreshCart();
           } else {
             // Remove from cart if quantity becomes 0
             await removeFromCart(variantId);
@@ -438,13 +464,21 @@
             item.selling_plan = parseInt(sellingPlanID);
           }
           
-          await fetch('/cart/add.js', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ items: [item] })
-          });
+          try {
+            const response = await fetch('/cart/add.js', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ items: [item] })
+            });
+            
+            if (!response.ok) {
+              console.warn('Cart add failed:', response.status);
+            }
+          } catch (error) {
+            console.error('Error adding to cart:', error);
+          }
           
-          refreshCart();
+          debouncedRefreshCart();
         }
       }
     });
@@ -487,15 +521,23 @@
         card.classList.remove('added');
       } else {
         // Set absolute quantity in cart
-        await fetch('/cart/change.js', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            id: variantId,
-            quantity: newQuantity
-          })
-        });
-        refreshCart();
+        try {
+          const response = await fetch('/cart/change.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              id: variantId,
+              quantity: newQuantity
+            })
+          });
+          
+          if (!response.ok) {
+            console.warn('Cart change failed:', response.status);
+          }
+        } catch (error) {
+          console.error('Error changing cart:', error);
+        }
+        debouncedRefreshCart();
       }
     });
 
@@ -503,9 +545,7 @@
   });
 
   function handleCartChange() {
-    if (typeof refreshCart === 'function') {
-      refreshCart();
-    }
+    debouncedRefreshCart(300);
   }
 
   // 1️⃣ Shopify / theme cart events (documented + common)
