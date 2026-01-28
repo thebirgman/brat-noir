@@ -8,6 +8,992 @@
  * ------------------------------------------------------------
  */
 {
+  "sections": {
+    "section_slideshow_7Wn4H7": {
+      "type": "section-slideshow",
+      "blocks": {
+        "image_zcLd7j": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/January-Banner-Web-2026.png",
+            "mobile_image": "shopify://shop_images/January-Banner-Mobile-2026.png",
+            "overlay_opacity": 0,
+            "overlay_color": "#000000",
+            "enable_overlay_text": false,
+            "kicker": "",
+            "title": "",
+            "richtext": "",
+            "text_align": "align--middle-left",
+            "text_color": "text--white",
+            "link_text": "",
+            "link": "shopify://collections/all",
+            "button_color": "btn--black",
+            "button_style": "btn"
+          }
+        },
+        "image_Apy973": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Halloween_Desktop_Banner_-_Glow_in_the_Dark__1.png",
+            "mobile_image": "shopify://shop_images/halloween-mobile-banner-glow_1.png",
+            "overlay_opacity": 0,
+            "overlay_color": "#000000",
+            "enable_overlay_text": false,
+            "kicker": "",
+            "title": "Unleash Your Inner Brat.",
+            "richtext": "<p>We make soft-gel press-ons so luxe, they'll swear you spent hours at the salon.</p>",
+            "text_align": "align--middle-left",
+            "text_color": "text--white",
+            "link_text": "SHOP NOW",
+            "link": "shopify://collections/all",
+            "button_color": "btn--black",
+            "button_style": "btn"
+          }
+        }
+      },
+      "block_order": [
+        "image_zcLd7j",
+        "image_Apy973"
+      ],
+      "custom_css": [
+        "h1 {font-size: 48px; max-width: 565px;}",
+        "p {max-width: 565px; font-size: 18px;}",
+        "@media screen and (max-width: 768px) {h1 {font-size: 40px; text-align: center; } p {font-size: 16px; text-align: center; max-width: 95%; margin: auto; } .hero__content {padding: 0; } .hero__cta__wrapper {align-items: center !important; margin-bottom: 115px !important; } .align--middle-left {align-items: flex-start; padding-top: 100px; }}",
+        ".slideshow__slide .hero__content {max-width: 1200px; margin-left: auto; margin-right: auto;}",
+        "a.btn--black {background: #fff; color: #000;}"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "autoplay": true,
+        "autoplay_speed": 3,
+        "preload_first_image": true,
+        "height": "use_image",
+        "color_bg": "palette--light bg--neutral",
+        "width": "wrapper--none",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "section_announcement_YeLNke": {
+      "type": "section-announcement",
+      "blocks": {
+        "text_mkkrnm": {
+          "type": "text",
+          "settings": {
+            "text": "<p>✨ <strong>UNLOCK THE VAULT:</strong> 3 sets for $15/each + FREE SHIPPING✈️).</p><p>The math is mathing.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_mkkrnm"
+      ],
+      "name": "Scrolling promotion",
+      "settings": {
+        "bg_color": "#000000",
+        "color": "#ffffff",
+        "text_size": 4,
+        "padding_top": 10,
+        "padding_bottom": 10
+      }
+    },
+    "section_double_WNL6tc": {
+      "type": "section-double",
+      "blocks": {
+        "image_AA7wyW": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/before-after-brat-noir_101021fd-f603-4a80-9d58-d2ed88f95560.png",
+            "overlay_opacity": 0,
+            "overlay_color": "#000000",
+            "enable_overlay_text": false,
+            "kicker": "",
+            "title": "",
+            "richtext": "",
+            "text_align": "align--middle-center",
+            "text_color": "text--white",
+            "link_text": "",
+            "link": "",
+            "button_color": "btn--white",
+            "button_style": "btn"
+          }
+        },
+        "text_69twkT": {
+          "type": "text",
+          "settings": {
+            "kicker": "",
+            "title": "The Anti-Salon.",
+            "text": "<p>We’re over the 2-hour appointments, the awkward small talk, and the $80 price tag. So we built the exit strategy. Salon-grade aesthetics, minus the salon.<br/><br/>Unlike stiff plastic, our soft gel formula hugs your nail bed for a fit that feels natural and looks unclockable. No UV lamps. No damage. Just elite nails in 10 minutes flat.</p>",
+            "font_size": 4,
+            "text_columns": 1,
+            "align_text": "text-left",
+            "button_text": "SECURE THE STASH",
+            "button_url": "shopify://collections/all",
+            "button_color": "btn--black",
+            "button_style": "btn btn--long",
+            "text_color": "text--neutral",
+            "bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_AA7wyW",
+        "text_69twkT"
+      ],
+      "custom_css": [
+        ".relative img {object-fit: contain;}",
+        "@media screen and (max-width: 767px) {a.standard__cta {margin-top: 30px !important; margin-bottom: 30px !important; } .brick__section {flex-direction: column-reverse; } .brick__section {flex-direction: column-reverse; } .text__standard {text-align: center !important; padding: 0 !important; } .standard__cta {margin: auto !important; } .wrapper.section-padding {padding-top: 30px; }}",
+        ".standard__cta,.hero__cta__wrapper a,.header-button a {width: 300px;}"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "height": "use_image",
+        "brick_gutter": 0,
+        "borders": false,
+        "bg_color": "",
+        "preload_image": false,
+        "width": "wrapper",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "section_announcement_NcKn4a": {
+      "type": "section-announcement",
+      "blocks": {
+        "text_DPMRQb": {
+          "type": "text",
+          "settings": {
+            "text": "<p>DAMAGE FREE.</p>"
+          }
+        },
+        "text_fAehJg": {
+          "type": "text",
+          "settings": {
+            "text": "<p>SALON GRADE. </p>"
+          }
+        },
+        "text_3KGJcG": {
+          "type": "text",
+          "settings": {
+            "text": "<p>INSTANT MANICURE. </p>"
+          }
+        },
+        "text_HzXXyd": {
+          "type": "text",
+          "settings": {
+            "text": "<p>BETTER THAN YOUR TECH.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_DPMRQb",
+        "text_fAehJg",
+        "text_3KGJcG",
+        "text_HzXXyd"
+      ],
+      "disabled": true,
+      "custom_css": [],
+      "name": "Scrolling promotion",
+      "settings": {
+        "bg_color": "#000000",
+        "color": "#ffffff",
+        "text_size": 4,
+        "padding_top": 10,
+        "padding_bottom": 10
+      }
+    },
+    "brat_bundle_UUh33H": {
+      "type": "brat-bundle",
+      "blocks": {
+        "bundle_block_DaM7E6": {
+          "type": "bundle_block",
+          "settings": {
+            "button_label": "Brat Ombré",
+            "featured_image": "shopify://shop_images/Ombre-Stacked_1.png",
+            "featured_heading": "The Ombré Edit. 100% Soft Gel.",
+            "featured_price": "5 Sets. $75 Flat ($15/set). Zero Plastic Feel.",
+            "featured_description": "<p>Stop settling for drugstore plastic that pops off in an hour. We curated the ultimate autumn rotation using our signature Soft Gel formula—flexible, durable material that actually molds to your nail bed for an unclockable fit.</p><ul><li><strong>Better Materials:</strong> Soft gel that feels like a natural extension.</li><li><strong>Better Design:</strong> Edgy, curated art. No \"cheugy\" patterns.</li><li><strong>Better Value:</strong> Get $90 worth of nails for $75.</li></ul>",
+            "featured_button_text": "SHOP THE EDIT",
+            "featured_button_link": "shopify://products/brat-fall-bundle"
+          }
+        },
+        "bundle_block_AxHqJ6": {
+          "type": "bundle_block",
+          "settings": {
+            "button_label": "Brat Classic",
+            "featured_image": "shopify://shop_images/classic-bundle-1.png",
+            "featured_heading": "Clean Girl. Dark Side.",
+            "featured_price": "The 5 Sets You Actually Need.",
+            "featured_description": "<p>Trends fade. These 5 sets are forever. We bundled our absolute best-sellers into one \"Daily Driver\" rotation—from the perfect glazed pearl to the sharpest onyx stiletto. It’s the foundation of your nail wardrobe. Immaculate, expensive-looking, and ready for anything.</p><ul><li><strong>Zero Plastic Feel:</strong> Molds to your cuticle for a seamless fit.</li><li><strong>Instant Polish:</strong> The \"I have my life together\" look, in 10 minutes.</li><li><strong>Smart Math:</strong> 5 manicures for less than the price of one refill.</li></ul>",
+            "featured_button_text": "SHOP THE ICONS",
+            "featured_button_link": "shopify://products/brat-classic-bundle-1"
+          }
+        },
+        "bundle_block_FVxqLa": {
+          "type": "bundle_block",
+          "settings": {
+            "button_label": "Brat Goth",
+            "featured_image": "shopify://shop_images/halloween-bundle-1.png",
+            "featured_heading": "Brat Goth. The Night Shift.",
+            "featured_price": "5 Dark Sets. $15 Each. Zero Costume Vibes.",
+            "featured_description": "<p>Who said skulls are only for October? We curated this box for the girl whose aura is permanently midnight. From razor-sharp stilettos to intricate bone art, this is high-concept noir delivered in our signature Soft Gel. It’s not a costume; it’s a uniform.<br/></p><ul><li><strong>The Art:</strong> High-detail designs (X-Ray Bones, Skulls, Deep Ruby).</li><li><strong>The Tech:</strong> Flexible soft gel that withstands the mosh pit (or the meeting).</li><li><strong>The Deal:</strong> Secure the full dark rotation for just $65.</li></ul>",
+            "featured_button_text": "ENTER THE VOID",
+            "featured_button_link": "shopify://products/brat-halloween-bundle"
+          }
+        },
+        "bundle_block_zhdHTR": {
+          "type": "bundle_block",
+          "settings": {
+            "button_label": "Brat Summer",
+            "featured_image": "shopify://shop_images/summer-bundle-1.png",
+            "featured_heading": "Brat Summer. The Edit.",
+            "featured_price": "5 High-Voltage Sets. Heat-Proof Wear.",
+            "featured_description": "<p>Summer is chaotic. Your nails should be able to keep up. We curated a rotation of high-saturation designs—from \"Strawberry Glaze\" to \"Sunset Chrome\"—that scream \"Main Stage,\" not just \"resort wear.\" Engineered with our Soft Gel to survive the heat, the humidity, and the afterparty.</p><ul><li><strong>The Vibe:</strong> Bold, colorful, and unapologetic.</li><li><strong>The Tech:</strong> Water-resistant and sweat-proof fit.</li><li><strong>The Math:</strong> 5 full sets for $75 ($15/set).</li></ul>",
+            "featured_button_text": "SHOP THE HEAT",
+            "featured_button_link": "shopify://products/brat-summer-bundle-1"
+          }
+        },
+        "bundle_block_ULfTYG": {
+          "type": "bundle_block",
+          "settings": {
+            "button_label": "Build Your Own",
+            "featured_image": "shopify://shop_images/brat-bundle-fs.png",
+            "featured_heading": "Total Control.",
+            "featured_price": "5 Sets. Any Vibe. $75 Flat ($15/set).",
+            "featured_description": "<p>We opened the vault. You curate the lineup. Whether you want 5 sets of Onyx Black or a chaotic mix of Summer Chrome and Goth Skulls, this is your chance to build a rotation that actually matches your life. No fillers. Just the 5 sets you’re obsessed with.</p><ul><li><strong>Full Access:</strong> Choose from every collection on the site.</li><li><strong>The Math:</strong> You pay $15 per set. You save $15 instantly.</li><li><strong>The Look:</strong> Soft gel perfection, tailored by you.</li></ul>",
+            "featured_button_text": "BUILD YOUR LOOK",
+            "featured_button_link": "shopify://collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "bundle_block_DaM7E6",
+        "bundle_block_AxHqJ6",
+        "bundle_block_FVxqLa",
+        "bundle_block_zhdHTR",
+        "bundle_block_ULfTYG"
+      ],
+      "custom_css": [
+        ".brat-bundle {background: transparent;}",
+        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
+        "ul {list-style: disc; padding: 15px 10px 0px 30px;}"
+      ],
+      "name": "Brat Bundle",
+      "settings": {
+        "heading": "Stop Renting Your Nails. Own Them.",
+        "subheading": "<p>We don’t do generic. While other brands recycle the same basic designs, we curate edits inspired by the actual underground. These are high-concept sets designed for your rotation—so you can switch your aesthetic as often as your mood without sacrificing quality.</p>",
+        "width": "wrapper"
+      }
+    },
+    "section_custom_content_eMeDwn": {
+      "type": "section-custom-content",
+      "blocks": {
+        "rich_header_Kq9W6h": {
+          "type": "rich_header",
+          "settings": {
+            "heading": "<h2>The Brat Standard.</h2>",
+            "description": "<p>We don’t do filler tracks. We curate specific, high-impact edits for the girl who refuses to look generic. From the sharpest Onyx stiletto to the cleanest Glazed finish, every set is vetted for maximum impact and zero cringe. This isn't just a catalog; it's the new standard for soft gel.</p>",
+            "button_text": "SHOP THE DROP",
+            "button_link": "shopify://collections/all",
+            "button_style": "btn",
+            "button_color": "btn--black",
+            "max_width": 840,
+            "align_text": "text-center"
+          }
+        },
+        "collection_LxMDD7": {
+          "type": "collection",
+          "settings": {
+            "collection": "best-sellers-handpicked",
+            "kicker": "<h4>Current Obsessions</h4>",
+            "align_text": "text-center",
+            "text_color": "text--neutral",
+            "bg_color": "linear-gradient(198.25deg, rgba(249, 228, 227, 1) 13.06%, rgba(241, 223, 254, 1) 31.86%, rgba(214, 229, 241, 1) 51.39%)",
+            "bg_accent": "#ffffff"
+          }
+        },
+        "image_kKCL6A": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_39_2.png",
+            "overlay_opacity": 0,
+            "overlay_color": "rgba(0,0,0,0)",
+            "enable_overlay_text": false,
+            "kicker": "",
+            "title": "",
+            "richtext": "",
+            "text_align": "align--middle-center",
+            "text_color": "text--white",
+            "link_text": "",
+            "link": "",
+            "button_color": "btn--white",
+            "button_style": "btn"
+          }
+        }
+      },
+      "block_order": [
+        "rich_header_Kq9W6h",
+        "collection_LxMDD7",
+        "image_kKCL6A"
+      ],
+      "custom_css": [
+        "p {font-size: 18px;}",
+        ".brick__block__text {background: transparent;}",
+        ".brick__block {min-height: 0 !important;}",
+        ".kicker__line {display: none;}",
+        ".brick__block__image {display: flex;}",
+        "@media screen and (max-width: 768px) {.brick__section {flex-direction: column-reverse; } .text__standard, .wrapper {padding-top: 0; padding-bottom: 0; }}"
+      ],
+      "name": "Custom content",
+      "settings": {
+        "height": "use_pixels_650",
+        "brick_gutter": 0,
+        "borders": false,
+        "bg_color": "rgba(0,0,0,0)",
+        "preload_image": false,
+        "width": "wrapper",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "section_announcement_KWU7dr": {
+      "type": "section-announcement",
+      "blocks": {
+        "text_NWqn33": {
+          "type": "text",
+          "settings": {
+            "text": "<p>BETTER THINGS TO DO THAN SIT IN A SALON CHAIR. 🖤</p><p><br/>YOUR NAIL TECH COULD NEVER. 💅</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_NWqn33"
+      ],
+      "disabled": true,
+      "name": "Scrolling promotion",
+      "settings": {
+        "bg_color": "#000000",
+        "color": "#ffffff",
+        "text_size": 4,
+        "padding_top": 10,
+        "padding_bottom": 10
+      }
+    },
+    "section_gallery_NHLfMg": {
+      "type": "section-gallery",
+      "blocks": {
+        "image_nEzF9w": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_16_1.png",
+            "link": ""
+          }
+        },
+        "image_qeAk6d": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_17_1.png",
+            "link": ""
+          }
+        },
+        "image_cGVci9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_18_a6a9fcbc-16b8-45c4-9809-4e6bf1151ac4.png",
+            "link": ""
+          }
+        },
+        "image_b3wxkm": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_19_2.png",
+            "link": ""
+          }
+        },
+        "image_VkMjxn": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_20_d3eace0f-e380-4229-a145-1ff245af813d.png",
+            "link": ""
+          }
+        },
+        "image_eyW9q7": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_21_1.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_nEzF9w",
+        "image_qeAk6d",
+        "image_cGVci9",
+        "image_b3wxkm",
+        "image_VkMjxn",
+        "image_eyW9q7"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
+        "h2 {text-transform: none !important;}"
+      ],
+      "name": "Gallery",
+      "settings": {
+        "scale_image": false,
+        "wh_ratio": 1,
+        "bg": "palette--light bg--neutral",
+        "add_gutters": true,
+        "progress_bar": "hidden",
+        "grid_large": 6,
+        "grid_medium": 4,
+        "grid_mobile": 2,
+        "heading": "<h2>Watch the Brats Slay irl</h2>",
+        "heading_alignment": "center",
+        "width": "wrapper",
+        "padding_top": 36,
+        "padding_bottom": 100
+      }
+    },
+    "section_richtext_HWH8G4": {
+      "type": "section-richtext",
+      "blocks": {
+        "heading_WLAJqQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Best Seller",
+            "text_size": 8
+          }
+        },
+        "text_GQqDrN": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>",
+            "text_size": 4,
+            "text_columns": 1
+          }
+        },
+        "button_k7RFA9": {
+          "type": "button",
+          "settings": {
+            "link_text_1": "NEW ARRIVAL",
+            "link_1": "shopify://collections/all",
+            "button_size_1": "btn--medium",
+            "button_style_1": "btn-text-thick-line",
+            "button_color_1": "btn--neutral",
+            "link_text_2": "BEST SELLERS",
+            "link_2": "",
+            "button_size_2": "btn--medium",
+            "button_style_2": "btn-text-thick-line",
+            "button_color_2": "btn--neutral",
+            "link_text_3": "",
+            "link_3": "",
+            "button_size_3": "btn--medium",
+            "button_style_3": "btn-text-thick-line",
+            "button_color_3": "btn--neutral"
+          }
+        }
+      },
+      "block_order": [
+        "heading_WLAJqQ",
+        "text_GQqDrN",
+        "button_k7RFA9"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".frame {background: transparent;}"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "align_text": "text-center",
+        "text_color": "text--neutral",
+        "bg": "palette--light bg--neutral",
+        "content_width": 2000,
+        "width": "wrapper--narrow",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "section_collection_nG6dnP": {
+      "type": "section-collection",
+      "disabled": true,
+      "name": "Product grid",
+      "settings": {
+        "title": "",
+        "collection": "collection-2",
+        "grid": 3,
+        "rows": 2,
+        "grid_mobile": "2",
+        "bg": "palette--light bg--neutral",
+        "show_view_all": true,
+        "width": "wrapper",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "1752905966de01eed5": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_featured_carousel_HVzMKD": {
+          "type": "shopify://apps/judge-me-reviews/blocks/featured_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "maxwidth": 1080
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_featured_carousel_HVzMKD"
+      ],
+      "disabled": true,
+      "settings": {
+        "text_color": "text--neutral",
+        "bg": "palette--light bg--neutral",
+        "width": "wrapper",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "175307847684129928": {
+      "type": "apps",
+      "blocks": {
+        "gsc_instagram_feed_instafeed_j8P4r3": {
+          "type": "shopify://apps/gsc-instagram-feed/blocks/instafeed/96970b1b-b770-454f-b16b-51f47e1aa4ed",
+          "settings": {
+            "widget_id": "GSC-uIxMwmNBjDcAIwD"
+          }
+        }
+      },
+      "block_order": [
+        "gsc_instagram_feed_instafeed_j8P4r3"
+      ],
+      "custom_css": [
+        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}"
+      ],
+      "settings": {
+        "text_color": "text--neutral",
+        "bg": "palette--light bg--neutral",
+        "width": "wrapper",
+        "padding_top": 50,
+        "padding_bottom": 70
+      }
+    },
+    "section_announcement_4Dq9yg": {
+      "type": "section-announcement",
+      "blocks": {
+        "text_wpFwkD": {
+          "type": "text",
+          "settings": {
+            "text": "<p>3 SETS. $45 FLAT. $15/EACH. FREE SHIPPING.</p><p>THE MATH IS MATHING 💸.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_wpFwkD"
+      ],
+      "custom_css": [
+        "{margin-bottom: 30px;}"
+      ],
+      "name": "Scrolling promotion",
+      "settings": {
+        "bg_color": "#000000",
+        "color": "#ffffff",
+        "text_size": 4,
+        "padding_top": 10,
+        "padding_bottom": 10
+      }
+    },
+    "section_collection_tabs_7JVzQA": {
+      "type": "section-collection-tabs",
+      "blocks": {
+        "collection_XCEy4A": {
+          "type": "collection",
+          "settings": {
+            "collection": "fall-collection",
+            "title": "Ombré Collection",
+            "grid_large": 3,
+            "grid_medium": 2,
+            "grid_mobile": 1.2
+          }
+        },
+        "collection_YrVM7N": {
+          "type": "collection",
+          "settings": {
+            "collection": "classic-collection",
+            "title": "Classic Collection",
+            "grid_large": 3,
+            "grid_medium": 2,
+            "grid_mobile": 1.2
+          }
+        },
+        "collection_HeNwWW": {
+          "type": "collection",
+          "settings": {
+            "collection": "goth-collection",
+            "title": "Goth Collection",
+            "grid_large": 3,
+            "grid_medium": 2,
+            "grid_mobile": 1.2
+          }
+        },
+        "collection_wGhVQQ": {
+          "type": "collection",
+          "settings": {
+            "collection": "summer-collection",
+            "title": "Summer Collection",
+            "grid_large": 2,
+            "grid_medium": 2,
+            "grid_mobile": 1.2
+          }
+        }
+      },
+      "block_order": [
+        "collection_XCEy4A",
+        "collection_YrVM7N",
+        "collection_HeNwWW",
+        "collection_wGhVQQ"
+      ],
+      "custom_css": [
+        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
+        ".scrolling-promo {display: none;}",
+        "p {max-width: 820px; margin: 30px auto;}",
+        ".collection-tabs h2:after {display: none;}",
+        "h2 {padding: 0;}",
+        "@media screen and (max-width: 768px) {.collection-tabs .tabs .tab-link {max-width: 160px !important; width: 100% !important; font-size: 15px !important; }}",
+        "span.price {color: #000 !important;}",
+        "@media screen and (max-width: 768px) {.slide-item.product-grid-slide {margin: 0px 40px !important; }}"
+      ],
+      "name": "Product slider tabs",
+      "settings": {
+        "title": "The Heavy Hitters.",
+        "description": "<p>Why are these our top-rated sets? Because they don't look like press-ons. While other brands sell you rigid plastic that pops off, these best-sellers are crafted from flexible Soft Gel that molds to your nail for a seamless, unclockable fit. It’s the $120 salon look, engineered for real life.</p>",
+        "description_alignment": "center",
+        "wrapper": "wrapper",
+        "progress_bar": "hidden",
+        "grid_large": 3,
+        "grid_medium": 2,
+        "grid_mobile": 1,
+        "limit": 6,
+        "bg": "palette--light bg--neutral",
+        "width": "wrapper",
+        "padding_top": 0,
+        "padding_bottom": 70
+      }
+    },
+    "section_richtext_JzM6AG": {
+      "type": "section-richtext",
+      "blocks": {
+        "heading_PqdxAQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Beliefs",
+            "text_size": 10
+          }
+        }
+      },
+      "block_order": [
+        "heading_PqdxAQ"
+      ],
+      "custom_css": [
+        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
+        ".standard__heading p {font-size: 48px !important; line-height: 48px;}",
+        "@media screen and (max-width: 768px) {.standard__heading p {display: none; } {display: none; }}"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "align_text": "text-center",
+        "text_color": "text--neutral",
+        "bg": "palette--light bg--neutral",
+        "content_width": 2000,
+        "width": "wrapper",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "section_double_kEEUk4": {
+      "type": "section-double",
+      "blocks": {
+        "image_6EqqDB": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_171.png",
+            "overlay_opacity": 0,
+            "overlay_color": "#000000",
+            "enable_overlay_text": false,
+            "kicker": "",
+            "title": "",
+            "richtext": "",
+            "text_align": "align--middle-center",
+            "text_color": "text--white",
+            "link_text": "",
+            "link": "",
+            "button_color": "btn--white",
+            "button_style": "btn"
+          }
+        },
+        "text_Wxb4eU": {
+          "type": "text",
+          "settings": {
+            "kicker": "",
+            "title": "Our Beliefs",
+            "text": "<p><strong>High Maintenance is a Compliment.</strong></p><p>We believe knowing what you want (and getting it) is a power move, not a personality flaw. “Basic” isn’t in our vocabulary, and settling isn’t in our nature. If that makes us brats, we’ll wear the label.</p><p><strong><br/>Time is the Ultimate Luxury.</strong></p><p>We refuse to spend three hours in a salon chair for a look that lasts two weeks. We press on luxury in minutes—because your calendar is full, your time is expensive, and your standards are non-negotiable.</p><p><strong><br/>Fake Nails, Real Impact.</strong></p><p>We believe in the \"unclockable\" manicures. No UV damage. No plastic look. Just flawless, hand-painted soft gel designs that look like you spent a fortune (and leave you enough money to buy the champagne).</p>",
+            "font_size": 5,
+            "text_columns": 1,
+            "align_text": "text-left",
+            "button_text": "",
+            "button_url": "",
+            "button_color": "btn--neutral",
+            "button_style": "btn-text-thick-line",
+            "text_color": "text--neutral",
+            "bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_6EqqDB",
+        "text_Wxb4eU"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "strong {font-family: \"DM Serif Display\"; font-size: 24px;}",
+        "img {border-radius: 30px;}",
+        "@media screen and (min-width: 769px) {h2.standard__heading.heading-size-9.aos-init.aos-animate {display: none; }}",
+        "@media screen and (max-width: 768px) {h2, p {text-align: center; }}"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "height": "use_image",
+        "brick_gutter": 0,
+        "borders": false,
+        "bg_color": "",
+        "preload_image": false,
+        "width": "wrapper",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_text_custom_jQfmMV": {
+      "type": "image-text-custom",
+      "custom_css": [
+        "strong {font-family: \"DM Serif Display\"; font-size: 24px;}",
+        "img {border-radius: 30px;}",
+        "@media screen and (min-width: 769px) {h2.image-text-custom__heading {display: none; }}",
+        "@media screen and (max-width: 768px) {.image-text-custom {padding-top: 20px; } h2, p {text-align: center; }}"
+      ],
+      "name": "Image with text (custom width)",
+      "settings": {
+        "image": "shopify://shop_images/Rectangle_171.png",
+        "image_position": "left",
+        "image_width": 60,
+        "heading": "Our Beliefs",
+        "text": "<p><strong>High Maintenance is a Compliment.</strong></p><p>We believe knowing what you want (and getting it) is a power move, not a personality flaw. “Basic” isn’t in our vocabulary, and settling isn’t in our nature. If that makes us brats, we’ll wear the label.</p><p><strong><br/>Time is the Ultimate Luxury.</strong></p><p>We refuse to spend three hours in a salon chair for a look that lasts two weeks. We press on luxury in minutes—because your calendar is full, your time is expensive, and your standards are non-negotiable.</p><p><strong><br/>Fake Nails, Real Impact.</strong></p><p>We believe in the \"unclockable\" manicures. No UV damage. No plastic look. Just flawless, hand-painted soft gel designs that look like you spent a fortune (and leave you enough money to buy the champagne).</p>",
+        "button_label": "",
+        "button_link": "",
+        "padding": 60
+      }
+    },
+    "section_icons_YdAWAL": {
+      "type": "section-icons",
+      "blocks": {
+        "icon_block_7MUtWn": {
+          "type": "icon_block",
+          "settings": {
+            "icon_name": "icon-basket-return",
+            "icon_alt": "shopify://shop_images/Group_153_4cbfdcf1-769c-4e8e-99e1-c122d30f2f18.png",
+            "icon_color": "#aaaaaa",
+            "title": "10 Minutes Flat.",
+            "text": "",
+            "link_text": "",
+            "link_url": ""
+          }
+        },
+        "icon_block_AtXfgx": {
+          "type": "icon_block",
+          "settings": {
+            "icon_name": "icon-shipment-world",
+            "icon_alt": "shopify://shop_images/Group_152_bf4d43c5-c6ee-44a6-8851-a28ffa3a9580.png",
+            "icon_color": "#aaaaaa",
+            "title": "100% Soft Gel.",
+            "text": "",
+            "link_text": "",
+            "link_url": ""
+          }
+        },
+        "icon_block_7ip4FQ": {
+          "type": "icon_block",
+          "settings": {
+            "icon_name": "icon-phone",
+            "icon_alt": "shopify://shop_images/Group_151_cdc5ec29-83cd-4b56-8908-1c6967ccdd2c.png",
+            "icon_color": "#aaaaaa",
+            "title": "14-Day Wear.",
+            "text": "",
+            "link_text": "",
+            "link_url": ""
+          }
+        },
+        "icon_block_hRhrMQ": {
+          "type": "icon_block",
+          "settings": {
+            "icon_name": "icon-leaf",
+            "icon_alt": "shopify://shop_images/Group_150.png",
+            "icon_color": "#aaaaaa",
+            "title": "Reusable 3x.",
+            "text": "",
+            "link_text": "",
+            "link_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "icon_block_7MUtWn",
+        "icon_block_AtXfgx",
+        "icon_block_7ip4FQ",
+        "icon_block_hRhrMQ"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
+        "p {font-weight: 700;}",
+        "@media screen and (max-width: 768px) {.float-grid {display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; justify-items: center; text-align: center; } .float-grid .grid__item {width: 100% !important; float: none !important; } .grid__item:not(:first-child) .icon__column {padding-top: 0; }}"
+      ],
+      "name": "Icon columns",
+      "settings": {
+        "title": "",
+        "bg": "palette--light bg--neutral",
+        "icons_size": 80,
+        "icon_alignment": "icon--top",
+        "layout": "grid--stacked",
+        "align_text": "text-center",
+        "width": "wrapper",
+        "padding_top": 36,
+        "padding_bottom": 70
+      }
+    },
+    "section_announcement_WDdjGr": {
+      "type": "section-announcement",
+      "blocks": {
+        "text_LEiwBK": {
+          "type": "text",
+          "settings": {
+            "text": "<p>UNCLOCKABLE FIT. </p><p>SOFT GEL TECHNOLOGY. </p><p>THE ANTI-SALON.</p><p>SAVE YOUR MONEY.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_LEiwBK"
+      ],
+      "disabled": true,
+      "custom_css": [],
+      "name": "Scrolling promotion",
+      "settings": {
+        "bg_color": "#000000",
+        "color": "#ffffff",
+        "text_size": 4,
+        "padding_top": 10,
+        "padding_bottom": 10
+      }
+    },
+    "section_image_DgdWbc": {
+      "type": "section-image",
+      "disabled": true,
+      "name": "Image",
+      "settings": {
+        "image": "shopify://shop_images/Our_Belief_-_2.png",
+        "mobile_image": "shopify://shop_images/our-beliefs.png",
+        "max_width": 100,
+        "x_align": "center",
+        "color_bg": "palette--light bg--neutral",
+        "width": "wrapper--none",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "section_richtext_Gt8mwq": {
+      "type": "section-richtext",
+      "blocks": {
+        "heading_M8Txy9": {
+          "type": "heading",
+          "settings": {
+            "heading": "Find Your Perfect Nail Style",
+            "text_size": 9
+          }
+        },
+        "text_KKpKh4": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Rule #1 is owning your unapologetic edge, babe. Set the tone. Dare to be everyone’s favorite reference. You’ll always be the one.</p>",
+            "text_size": 5,
+            "text_columns": 1
+          }
+        },
+        "button_KjVirm": {
+          "type": "button",
+          "settings": {
+            "link_text_1": "SHOP NOW",
+            "link_1": "shopify://collections/all",
+            "button_size_1": "btn--long",
+            "button_style_1": "btn",
+            "button_color_1": "btn--black",
+            "link_text_2": "",
+            "link_2": "",
+            "button_size_2": "btn--medium",
+            "button_style_2": "btn-text-thick-line",
+            "button_color_2": "btn--neutral",
+            "link_text_3": "",
+            "link_3": "",
+            "button_size_3": "btn--medium",
+            "button_style_3": "btn-text-thick-line",
+            "button_color_3": "btn--neutral"
+          }
+        }
+      },
+      "block_order": [
+        "heading_M8Txy9",
+        "text_KKpKh4",
+        "button_KjVirm"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "p {max-width: 820px; margin: auto;}",
+        ".standard__heading p {font-size: 48px !important; line-height: 48px;}",
+        "@media screen and (max-width: 768px) {.standard__heading p {font-size: 40px !important; line-height: 40px; }}"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "align_text": "text-center",
+        "text_color": "text--neutral",
+        "bg": "palette--light bg--neutral",
+        "content_width": 2000,
+        "width": "wrapper",
+        "padding_top": 70,
+        "padding_bottom": 70
+      }
+    },
+    "section_liquid_Bbxrxz": {
+      "type": "section-liquid",
+      "disabled": true,
+      "name": "Custom Liquid",
+      "settings": {
+        "custom_liquid": "<style>\n  .why-brat-noir {\n    background: #f6e9ee;\n    border-radius: 28px;\n    max-width: 1300px;\n    margin: 80px auto;\n    overflow: hidden;\n  }\n\n  .why-brat-inner {\n    display: grid;\n    grid-template-columns: 1.2fr 2fr 1.2fr;\n    align-items: stretch;\n  }\n\n  /* IMAGE COLUMNS */\n  .why-brat-image {\n    position: relative;\n  }\n\n  .why-brat-image img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    display: block;\n  }\n\n  /* Fade overlays */\n  .why-brat-image::after {\n    content: '';\n    position: absolute;\n    inset: 0;\n    pointer-events: none;\n  }\n\n  .why-brat-image.left::after {\n    background: linear-gradient(\n      to right,\n      rgba(246,233,238,0) 70%,\n      rgba(246,233,238,1) 100%\n    );\n  }\n\n  .why-brat-image.right::after {\n    background: linear-gradient(\n      to left,\n      rgba(246,233,238,0) 70%,\n      rgba(246,233,238,1) 100%\n    );\n  }\n\n  /* CENTER CONTENT */\n  .why-brat-content {\n    text-align: center;\n    padding: 80px 60px;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n  }\n\n  .why-brat-content h2 {\n    font-size: 44px;\n    font-weight: 500;\n    margin-bottom: 48px;\n  }\n\n  /* ICON GRID */\n  .why-brat-icons {\n    display: grid;\n    grid-template-columns: repeat(4, 125px);\n    gap: 48px;\n    justify-content: center;\n    align-items: start;\n  }\n\n  .why-brat-icon {\n    font-family: 'DM Sans', sans-serif;\n    font-weight: 700;\n    font-size: 18px;\n    line-height: 1.3;\n    text-align: center;\n  }\n\n  .why-brat-icon svg {\n    width: 34px;\n    height: 34px;\n    margin: 0 auto 14px;\n    display: block;\n    stroke-width: 1.75;\n  }\n\n  /* MOBILE */\n  @media (max-width: 900px) {\n    .why-brat-noir {\n      max-width: 380px;\n      margin: 60px auto;\n    }\n\n    .why-brat-inner {\n      grid-template-columns: 1fr;\n    }\n\n    /* Hide left image */\n    .why-brat-image.left {\n      display: none;\n    }\n\n    /* Image on top */\n    .why-brat-image.right {\n      order: -1;\n      height: 460px;\n    }\n\n    .why-brat-image.right img {\n      object-position: center top;\n    }\n\n    /* Bottom fade */\n    .why-brat-image.right::after {\n      background: linear-gradient(\n        to bottom,\n        rgba(246,233,238,0) 60%,\n        rgba(246,233,238,1) 100%\n      );\n    }\n\n    .why-brat-content {\n      padding: 48px 24px 56px;\n    }\n\n    .why-brat-content h2 {\n      font-size: 32px;\n      margin-bottom: 32px;\n    }\n\n    .why-brat-icons {\n      grid-template-columns: repeat(2, 125px);\n      gap: 32px 24px;\n      justify-content: center;\n    }\n  }\n</style>\n\n<section class=\"why-brat-noir\">\n  <div class=\"why-brat-inner\">\n\n    <!-- LEFT IMAGE -->\n    <div class=\"why-brat-image left\">\n      <img\n        src=\"https://cdn.shopify.com/s/files/1/0729/8845/9031/files/freepik__create-a-highend-beauty-portrait-of-a-different-af__35915_1.png?v=1765786732\"\n        alt=\"Brat Noir portrait left\"\n      >\n    </div>\n\n    <!-- CENTER CONTENT -->\n    <div class=\"why-brat-content\">\n      <h2>Why Brat Noir</h2>\n\n      <div class=\"why-brat-icons\">\n        <div class=\"why-brat-icon\">\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\">\n            <circle cx=\"12\" cy=\"12\" r=\"10\"/>\n            <path d=\"M12 6v6l4 2\"/>\n          </svg>\n          10-minute<br>application\n        </div>\n\n        <div class=\"why-brat-icon\">\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\">\n            <path d=\"M12 2C7 7 5 10 5 14a7 7 0 0014 0c0-4-2-7-7-12z\"/>\n          </svg>\n          Salon Quality<br>Nails\n        </div>\n\n        <div class=\"why-brat-icon\">\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\">\n            <rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\"/>\n            <path d=\"M16 2v4M8 2v4M3 10h18\"/>\n          </svg>\n          Up to 3 Weeks<br>Wear\n        </div>\n\n        <div class=\"why-brat-icon\">\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\">\n            <path d=\"M21 12l-4-4v3H7\"/>\n            <path d=\"M3 12l4 4v-3h10\"/>\n          </svg>\n          Reusable up<br>to 3x\n        </div>\n      </div>\n    </div>\n\n    <!-- RIGHT IMAGE -->\n    <div class=\"why-brat-image right\">\n      <img\n        src=\"https://cdn.shopify.com/s/files/1/0729/8845/9031/files/image_34.png?v=1765786732\"\n        alt=\"Brat Noir portrait right\"\n      >\n    </div>\n\n  </div>\n</section>"
+      }
+    },
+    "section_image_PkKzpV": {
+      "type": "section-image",
+      "custom_css": [
+        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}"
+      ],
+      "name": "Image",
+      "settings": {
+        "image": "shopify://shop_images/Group_303.png",
+        "mobile_image": "shopify://shop_images/Group_302.png",
+        "max_width": 100,
+        "x_align": "center",
+        "color_bg": "palette--light bg--neutral",
+        "width": "wrapper",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    }
+  },
   "order": [
     "section_slideshow_7Wn4H7",
     "section_announcement_YeLNke",
@@ -32,991 +1018,5 @@
     "section_richtext_Gt8mwq",
     "section_liquid_Bbxrxz",
     "section_image_PkKzpV"
-  ],
-  "sections": {
-    "1752905966de01eed5": {
-      "block_order": [
-        "judge_me_reviews_featured_carousel_HVzMKD"
-      ],
-      "blocks": {
-        "judge_me_reviews_featured_carousel_HVzMKD": {
-          "settings": {
-            "maxwidth": 1080
-          },
-          "type": "shopify://apps/judge-me-reviews/blocks/featured_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8"
-        }
-      },
-      "disabled": true,
-      "settings": {
-        "bg": "palette--light bg--neutral",
-        "padding_bottom": 36,
-        "padding_top": 36,
-        "text_color": "text--neutral",
-        "width": "wrapper"
-      },
-      "type": "apps"
-    },
-    "175307847684129928": {
-      "block_order": [
-        "gsc_instagram_feed_instafeed_j8P4r3"
-      ],
-      "blocks": {
-        "gsc_instagram_feed_instafeed_j8P4r3": {
-          "settings": {
-            "widget_id": "GSC-uIxMwmNBjDcAIwD"
-          },
-          "type": "shopify://apps/gsc-instagram-feed/blocks/instafeed/96970b1b-b770-454f-b16b-51f47e1aa4ed"
-        }
-      },
-      "custom_css": [
-        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}"
-      ],
-      "settings": {
-        "bg": "palette--light bg--neutral",
-        "padding_bottom": 70,
-        "padding_top": 50,
-        "text_color": "text--neutral",
-        "width": "wrapper"
-      },
-      "type": "apps"
-    },
-    "brat_bundle_UUh33H": {
-      "block_order": [
-        "bundle_block_DaM7E6",
-        "bundle_block_AxHqJ6",
-        "bundle_block_FVxqLa",
-        "bundle_block_zhdHTR",
-        "bundle_block_ULfTYG"
-      ],
-      "blocks": {
-        "bundle_block_AxHqJ6": {
-          "settings": {
-            "button_label": "Brat Classic",
-            "featured_button_link": "shopify://products/brat-classic-bundle-1",
-            "featured_button_text": "SHOP THE ICONS",
-            "featured_description": "<p>Trends fade. These 5 sets are forever. We bundled our absolute best-sellers into one \"Daily Driver\" rotation—from the perfect glazed pearl to the sharpest onyx stiletto. It’s the foundation of your nail wardrobe. Immaculate, expensive-looking, and ready for anything.</p><ul><li><strong>Zero Plastic Feel:</strong> Molds to your cuticle for a seamless fit.</li><li><strong>Instant Polish:</strong> The \"I have my life together\" look, in 10 minutes.</li><li><strong>Smart Math:</strong> 5 manicures for less than the price of one refill.</li></ul>",
-            "featured_heading": "Clean Girl. Dark Side.",
-            "featured_image": "shopify://shop_images/classic-bundle-1.png",
-            "featured_price": "The 5 Sets You Actually Need."
-          },
-          "type": "bundle_block"
-        },
-        "bundle_block_DaM7E6": {
-          "settings": {
-            "button_label": "Brat Ombré",
-            "featured_button_link": "shopify://products/brat-fall-bundle",
-            "featured_button_text": "SHOP THE EDIT",
-            "featured_description": "<p>Stop settling for drugstore plastic that pops off in an hour. We curated the ultimate autumn rotation using our signature Soft Gel formula—flexible, durable material that actually molds to your nail bed for an unclockable fit.</p><ul><li><strong>Better Materials:</strong> Soft gel that feels like a natural extension.</li><li><strong>Better Design:</strong> Edgy, curated art. No \"cheugy\" patterns.</li><li><strong>Better Value:</strong> Get $90 worth of nails for $75.</li></ul>",
-            "featured_heading": "The Ombré Edit. 100% Soft Gel.",
-            "featured_image": "shopify://shop_images/Ombre-Stacked_1.png",
-            "featured_price": "5 Sets. $75 Flat ($15/set). Zero Plastic Feel."
-          },
-          "type": "bundle_block"
-        },
-        "bundle_block_FVxqLa": {
-          "settings": {
-            "button_label": "Brat Goth",
-            "featured_button_link": "shopify://products/brat-halloween-bundle",
-            "featured_button_text": "ENTER THE VOID",
-            "featured_description": "<p>Who said skulls are only for October? We curated this box for the girl whose aura is permanently midnight. From razor-sharp stilettos to intricate bone art, this is high-concept noir delivered in our signature Soft Gel. It’s not a costume; it’s a uniform.<br/></p><ul><li><strong>The Art:</strong> High-detail designs (X-Ray Bones, Skulls, Deep Ruby).</li><li><strong>The Tech:</strong> Flexible soft gel that withstands the mosh pit (or the meeting).</li><li><strong>The Deal:</strong> Secure the full dark rotation for just $65.</li></ul>",
-            "featured_heading": "Brat Goth. The Night Shift.",
-            "featured_image": "shopify://shop_images/halloween-bundle-1.png",
-            "featured_price": "5 Dark Sets. $15 Each. Zero Costume Vibes."
-          },
-          "type": "bundle_block"
-        },
-        "bundle_block_ULfTYG": {
-          "settings": {
-            "button_label": "Build Your Own",
-            "featured_button_link": "shopify://collections/all",
-            "featured_button_text": "BUILD YOUR LOOK",
-            "featured_description": "<p>We opened the vault. You curate the lineup. Whether you want 5 sets of Onyx Black or a chaotic mix of Summer Chrome and Goth Skulls, this is your chance to build a rotation that actually matches your life. No fillers. Just the 5 sets you’re obsessed with.</p><ul><li><strong>Full Access:</strong> Choose from every collection on the site.</li><li><strong>The Math:</strong> You pay $15 per set. You save $15 instantly.</li><li><strong>The Look:</strong> Soft gel perfection, tailored by you.</li></ul>",
-            "featured_heading": "Total Control.",
-            "featured_image": "shopify://shop_images/brat-bundle-fs.png",
-            "featured_price": "5 Sets. Any Vibe. $75 Flat ($15/set)."
-          },
-          "type": "bundle_block"
-        },
-        "bundle_block_zhdHTR": {
-          "settings": {
-            "button_label": "Brat Summer",
-            "featured_button_link": "shopify://products/brat-summer-bundle-1",
-            "featured_button_text": "SHOP THE HEAT",
-            "featured_description": "<p>Summer is chaotic. Your nails should be able to keep up. We curated a rotation of high-saturation designs—from \"Strawberry Glaze\" to \"Sunset Chrome\"—that scream \"Main Stage,\" not just \"resort wear.\" Engineered with our Soft Gel to survive the heat, the humidity, and the afterparty.</p><ul><li><strong>The Vibe:</strong> Bold, colorful, and unapologetic.</li><li><strong>The Tech:</strong> Water-resistant and sweat-proof fit.</li><li><strong>The Math:</strong> 5 full sets for $75 ($15/set).</li></ul>",
-            "featured_heading": "Brat Summer. The Edit.",
-            "featured_image": "shopify://shop_images/summer-bundle-1.png",
-            "featured_price": "5 High-Voltage Sets. Heat-Proof Wear."
-          },
-          "type": "bundle_block"
-        }
-      },
-      "custom_css": [
-        ".brat-bundle {background: transparent;}",
-        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
-        "ul {list-style: disc; padding: 15px 10px 0px 30px;}"
-      ],
-      "name": "Brat Bundle",
-      "settings": {
-        "heading": "Stop Renting Your Nails. Own Them.",
-        "subheading": "<p>We don’t do generic. While other brands recycle the same basic designs, we curate edits inspired by the actual underground. These are high-concept sets designed for your rotation—so you can switch your aesthetic as often as your mood without sacrificing quality.</p>",
-        "width": "wrapper"
-      },
-      "type": "brat-bundle"
-    },
-    "image_text_custom_jQfmMV": {
-      "custom_css": [
-        "strong {font-family: \"DM Serif Display\"; font-size: 24px;}",
-        "img {border-radius: 30px;}",
-        "@media screen and (min-width: 769px) {h2.image-text-custom__heading {display: none; }}",
-        "@media screen and (max-width: 768px) {.image-text-custom {padding-top: 20px; } h2, p {text-align: center; }}"
-      ],
-      "name": "Image with text (custom width)",
-      "settings": {
-        "button_label": "",
-        "button_link": "",
-        "heading": "Our Beliefs",
-        "image": "shopify://shop_images/Rectangle_171.png",
-        "image_position": "left",
-        "image_width": 60,
-        "padding": 60,
-        "text": "<p><strong>High Maintenance is a Compliment.</strong></p><p>We believe knowing what you want (and getting it) is a power move, not a personality flaw. “Basic” isn’t in our vocabulary, and settling isn’t in our nature. If that makes us brats, we’ll wear the label.</p><p><strong><br/>Time is the Ultimate Luxury.</strong></p><p>We refuse to spend three hours in a salon chair for a look that lasts two weeks. We press on luxury in minutes—because your calendar is full, your time is expensive, and your standards are non-negotiable.</p><p><strong><br/>Fake Nails, Real Impact.</strong></p><p>We believe in the \"unclockable\" manicures. No UV damage. No plastic look. Just flawless, hand-painted soft gel designs that look like you spent a fortune (and leave you enough money to buy the champagne).</p>"
-      },
-      "type": "image-text-custom"
-    },
-    "section_announcement_4Dq9yg": {
-      "block_order": [
-        "text_wpFwkD"
-      ],
-      "blocks": {
-        "text_wpFwkD": {
-          "settings": {
-            "text": "<p>3 SETS. $45 FLAT. $15/EACH. FREE SHIPPING.</p><p>THE MATH IS MATHING 💸.</p>"
-          },
-          "type": "text"
-        }
-      },
-      "custom_css": [
-        "{margin-bottom: 30px;}"
-      ],
-      "name": "Scrolling promotion",
-      "settings": {
-        "bg_color": "#000000",
-        "color": "#ffffff",
-        "padding_bottom": 10,
-        "padding_top": 10,
-        "text_size": 4
-      },
-      "type": "section-announcement"
-    },
-    "section_announcement_KWU7dr": {
-      "block_order": [
-        "text_NWqn33"
-      ],
-      "blocks": {
-        "text_NWqn33": {
-          "settings": {
-            "text": "<p>BETTER THINGS TO DO THAN SIT IN A SALON CHAIR. 🖤</p><p><br/>YOUR NAIL TECH COULD NEVER. 💅</p>"
-          },
-          "type": "text"
-        }
-      },
-      "disabled": true,
-      "name": "Scrolling promotion",
-      "settings": {
-        "bg_color": "#000000",
-        "color": "#ffffff",
-        "padding_bottom": 10,
-        "padding_top": 10,
-        "text_size": 4
-      },
-      "type": "section-announcement"
-    },
-    "section_announcement_NcKn4a": {
-      "block_order": [
-        "text_DPMRQb",
-        "text_fAehJg",
-        "text_3KGJcG",
-        "text_HzXXyd"
-      ],
-      "blocks": {
-        "text_3KGJcG": {
-          "settings": {
-            "text": "<p>INSTANT MANICURE. </p>"
-          },
-          "type": "text"
-        },
-        "text_DPMRQb": {
-          "settings": {
-            "text": "<p>DAMAGE FREE.</p>"
-          },
-          "type": "text"
-        },
-        "text_HzXXyd": {
-          "settings": {
-            "text": "<p>BETTER THAN YOUR TECH.</p>"
-          },
-          "type": "text"
-        },
-        "text_fAehJg": {
-          "settings": {
-            "text": "<p>SALON GRADE. </p>"
-          },
-          "type": "text"
-        }
-      },
-      "custom_css": [],
-      "disabled": true,
-      "name": "Scrolling promotion",
-      "settings": {
-        "bg_color": "#000000",
-        "color": "#ffffff",
-        "padding_bottom": 10,
-        "padding_top": 10,
-        "text_size": 4
-      },
-      "type": "section-announcement"
-    },
-    "section_announcement_WDdjGr": {
-      "block_order": [
-        "text_LEiwBK"
-      ],
-      "blocks": {
-        "text_LEiwBK": {
-          "settings": {
-            "text": "<p>UNCLOCKABLE FIT. </p><p>SOFT GEL TECHNOLOGY. </p><p>THE ANTI-SALON.</p><p>SAVE YOUR MONEY.</p>"
-          },
-          "type": "text"
-        }
-      },
-      "custom_css": [],
-      "disabled": true,
-      "name": "Scrolling promotion",
-      "settings": {
-        "bg_color": "#000000",
-        "color": "#ffffff",
-        "padding_bottom": 10,
-        "padding_top": 10,
-        "text_size": 4
-      },
-      "type": "section-announcement"
-    },
-    "section_announcement_YeLNke": {
-      "block_order": [
-        "text_mkkrnm"
-      ],
-      "blocks": {
-        "text_mkkrnm": {
-          "settings": {
-            "text": "<p>✨ <strong>UNLOCK THE VAULT:</strong> 3 sets for $15/each + FREE SHIPPING✈️).</p><p>The math is mathing.</p>"
-          },
-          "type": "text"
-        }
-      },
-      "name": "Scrolling promotion",
-      "settings": {
-        "bg_color": "#000000",
-        "color": "#ffffff",
-        "padding_bottom": 10,
-        "padding_top": 10,
-        "text_size": 4
-      },
-      "type": "section-announcement"
-    },
-    "section_collection_nG6dnP": {
-      "disabled": true,
-      "name": "Product grid",
-      "settings": {
-        "bg": "palette--light bg--neutral",
-        "collection": "collection-2",
-        "grid": 3,
-        "grid_mobile": "2",
-        "padding_bottom": 36,
-        "padding_top": 36,
-        "rows": 2,
-        "show_view_all": true,
-        "title": "",
-        "width": "wrapper"
-      },
-      "type": "section-collection"
-    },
-    "section_collection_tabs_7JVzQA": {
-      "block_order": [
-        "collection_XCEy4A",
-        "collection_YrVM7N",
-        "collection_HeNwWW",
-        "collection_wGhVQQ"
-      ],
-      "blocks": {
-        "collection_HeNwWW": {
-          "settings": {
-            "collection": "goth-collection",
-            "grid_large": 3,
-            "grid_medium": 2,
-            "grid_mobile": 1.2,
-            "title": "Goth Collection"
-          },
-          "type": "collection"
-        },
-        "collection_XCEy4A": {
-          "settings": {
-            "collection": "fall-collection",
-            "grid_large": 3,
-            "grid_medium": 2,
-            "grid_mobile": 1.2,
-            "title": "Ombré Collection"
-          },
-          "type": "collection"
-        },
-        "collection_YrVM7N": {
-          "settings": {
-            "collection": "classic-collection",
-            "grid_large": 3,
-            "grid_medium": 2,
-            "grid_mobile": 1.2,
-            "title": "Classic Collection"
-          },
-          "type": "collection"
-        },
-        "collection_wGhVQQ": {
-          "settings": {
-            "collection": "summer-collection",
-            "grid_large": 2,
-            "grid_medium": 2,
-            "grid_mobile": 1.2,
-            "title": "Summer Collection"
-          },
-          "type": "collection"
-        }
-      },
-      "custom_css": [
-        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
-        ".scrolling-promo {display: none;}",
-        "p {max-width: 820px; margin: 30px auto;}",
-        ".collection-tabs h2:after {display: none;}",
-        "h2 {padding: 0;}",
-        "@media screen and (max-width: 768px) {.collection-tabs .tabs .tab-link {max-width: 160px !important; width: 100% !important; font-size: 15px !important; }}",
-        "span.price {color: #000 !important;}",
-        "@media screen and (max-width: 768px) {.slide-item.product-grid-slide {margin: 0px 40px !important; }}"
-      ],
-      "name": "Product slider tabs",
-      "settings": {
-        "bg": "palette--light bg--neutral",
-        "description": "<p>Why are these our top-rated sets? Because they don't look like press-ons. While other brands sell you rigid plastic that pops off, these best-sellers are crafted from flexible Soft Gel that molds to your nail for a seamless, unclockable fit. It’s the $120 salon look, engineered for real life.</p>",
-        "description_alignment": "center",
-        "grid_large": 3,
-        "grid_medium": 2,
-        "grid_mobile": 1,
-        "limit": 6,
-        "padding_bottom": 70,
-        "padding_top": 0,
-        "progress_bar": "hidden",
-        "title": "The Heavy Hitters.",
-        "width": "wrapper",
-        "wrapper": "wrapper"
-      },
-      "type": "section-collection-tabs"
-    },
-    "section_custom_content_eMeDwn": {
-      "block_order": [
-        "rich_header_Kq9W6h",
-        "collection_LxMDD7",
-        "image_kKCL6A"
-      ],
-      "blocks": {
-        "collection_LxMDD7": {
-          "settings": {
-            "align_text": "text-center",
-            "bg_accent": "#ffffff",
-            "bg_color": "linear-gradient(198.25deg, rgba(249, 228, 227, 1) 13.06%, rgba(241, 223, 254, 1) 31.86%, rgba(214, 229, 241, 1) 51.39%)",
-            "collection": "best-sellers-handpicked",
-            "kicker": "<h4>Current Obsessions</h4>",
-            "text_color": "text--neutral"
-          },
-          "type": "collection"
-        },
-        "image_kKCL6A": {
-          "settings": {
-            "button_color": "btn--white",
-            "button_style": "btn",
-            "enable_overlay_text": false,
-            "image": "shopify://shop_images/Rectangle_39_2.png",
-            "kicker": "",
-            "link": "",
-            "link_text": "",
-            "overlay_color": "rgba(0,0,0,0)",
-            "overlay_opacity": 0,
-            "richtext": "",
-            "text_align": "align--middle-center",
-            "text_color": "text--white",
-            "title": ""
-          },
-          "type": "image"
-        },
-        "rich_header_Kq9W6h": {
-          "settings": {
-            "align_text": "text-center",
-            "button_color": "btn--black",
-            "button_link": "shopify://collections/all",
-            "button_style": "btn",
-            "button_text": "SHOP THE DROP",
-            "description": "<p>We don’t do filler tracks. We curate specific, high-impact edits for the girl who refuses to look generic. From the sharpest Onyx stiletto to the cleanest Glazed finish, every set is vetted for maximum impact and zero cringe. This isn't just a catalog; it's the new standard for soft gel.</p>",
-            "heading": "<h2>The Brat Standard.</h2>",
-            "max_width": 840
-          },
-          "type": "rich_header"
-        }
-      },
-      "custom_css": [
-        "p {font-size: 18px;}",
-        ".brick__block__text {background: transparent;}",
-        ".brick__block {min-height: 0 !important;}",
-        ".kicker__line {display: none;}",
-        ".brick__block__image {display: flex;}",
-        "@media screen and (max-width: 768px) {.brick__section {flex-direction: column-reverse; } .text__standard, .wrapper {padding-top: 0; padding-bottom: 0; }}"
-      ],
-      "name": "Custom content",
-      "settings": {
-        "bg_color": "rgba(0,0,0,0)",
-        "borders": false,
-        "brick_gutter": 0,
-        "height": "use_pixels_650",
-        "padding_bottom": 0,
-        "padding_top": 0,
-        "preload_image": false,
-        "width": "wrapper"
-      },
-      "type": "section-custom-content"
-    },
-    "section_double_WNL6tc": {
-      "block_order": [
-        "image_AA7wyW",
-        "text_69twkT"
-      ],
-      "blocks": {
-        "image_AA7wyW": {
-          "settings": {
-            "button_color": "btn--white",
-            "button_style": "btn",
-            "enable_overlay_text": false,
-            "image": "shopify://shop_images/before-after-brat-noir_101021fd-f603-4a80-9d58-d2ed88f95560.png",
-            "kicker": "",
-            "link": "",
-            "link_text": "",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0,
-            "richtext": "",
-            "text_align": "align--middle-center",
-            "text_color": "text--white",
-            "title": ""
-          },
-          "type": "image"
-        },
-        "text_69twkT": {
-          "settings": {
-            "align_text": "text-left",
-            "bg_color": "",
-            "button_color": "btn--black",
-            "button_style": "btn btn--long",
-            "button_text": "SECURE THE STASH",
-            "button_url": "shopify://collections/all",
-            "font_size": 4,
-            "kicker": "",
-            "text": "<p>We’re over the 2-hour appointments, the awkward small talk, and the $80 price tag. So we built the exit strategy. Salon-grade aesthetics, minus the salon.<br/><br/>Unlike stiff plastic, our soft gel formula hugs your nail bed for a fit that feels natural and looks unclockable. No UV lamps. No damage. Just elite nails in 10 minutes flat.</p>",
-            "text_color": "text--neutral",
-            "text_columns": 1,
-            "title": "The Anti-Salon."
-          },
-          "type": "text"
-        }
-      },
-      "custom_css": [
-        ".relative img {object-fit: contain;}",
-        "@media screen and (max-width: 767px) {a.standard__cta {margin-top: 30px !important; margin-bottom: 30px !important; } .brick__section {flex-direction: column-reverse; } .brick__section {flex-direction: column-reverse; } .text__standard {text-align: center !important; padding: 0 !important; } .standard__cta {margin: auto !important; } .wrapper.section-padding {padding-top: 30px; }}",
-        ".standard__cta,.hero__cta__wrapper a,.header-button a {width: 300px;}"
-      ],
-      "name": "Image with text",
-      "settings": {
-        "bg_color": "",
-        "borders": false,
-        "brick_gutter": 0,
-        "height": "use_image",
-        "padding_bottom": 50,
-        "padding_top": 50,
-        "preload_image": false,
-        "width": "wrapper"
-      },
-      "type": "section-double"
-    },
-    "section_double_kEEUk4": {
-      "block_order": [
-        "image_6EqqDB",
-        "text_Wxb4eU"
-      ],
-      "blocks": {
-        "image_6EqqDB": {
-          "settings": {
-            "button_color": "btn--white",
-            "button_style": "btn",
-            "enable_overlay_text": false,
-            "image": "shopify://shop_images/Rectangle_171.png",
-            "kicker": "",
-            "link": "",
-            "link_text": "",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0,
-            "richtext": "",
-            "text_align": "align--middle-center",
-            "text_color": "text--white",
-            "title": ""
-          },
-          "type": "image"
-        },
-        "text_Wxb4eU": {
-          "settings": {
-            "align_text": "text-left",
-            "bg_color": "",
-            "button_color": "btn--neutral",
-            "button_style": "btn-text-thick-line",
-            "button_text": "",
-            "button_url": "",
-            "font_size": 5,
-            "kicker": "",
-            "text": "<p><strong>High Maintenance is a Compliment.</strong></p><p>We believe knowing what you want (and getting it) is a power move, not a personality flaw. “Basic” isn’t in our vocabulary, and settling isn’t in our nature. If that makes us brats, we’ll wear the label.</p><p><strong><br/>Time is the Ultimate Luxury.</strong></p><p>We refuse to spend three hours in a salon chair for a look that lasts two weeks. We press on luxury in minutes—because your calendar is full, your time is expensive, and your standards are non-negotiable.</p><p><strong><br/>Fake Nails, Real Impact.</strong></p><p>We believe in the \"unclockable\" manicures. No UV damage. No plastic look. Just flawless, hand-painted soft gel designs that look like you spent a fortune (and leave you enough money to buy the champagne).</p>",
-            "text_color": "text--neutral",
-            "text_columns": 1,
-            "title": "Our Beliefs"
-          },
-          "type": "text"
-        }
-      },
-      "custom_css": [
-        "strong {font-family: \"DM Serif Display\"; font-size: 24px;}",
-        "img {border-radius: 30px;}",
-        "@media screen and (min-width: 769px) {h2.standard__heading.heading-size-9.aos-init.aos-animate {display: none; }}",
-        "@media screen and (max-width: 768px) {h2, p {text-align: center; }}"
-      ],
-      "disabled": true,
-      "name": "Image with text",
-      "settings": {
-        "bg_color": "",
-        "borders": false,
-        "brick_gutter": 0,
-        "height": "use_image",
-        "padding_bottom": 36,
-        "padding_top": 36,
-        "preload_image": false,
-        "width": "wrapper"
-      },
-      "type": "section-double"
-    },
-    "section_gallery_NHLfMg": {
-      "block_order": [
-        "image_nEzF9w",
-        "image_qeAk6d",
-        "image_cGVci9",
-        "image_b3wxkm",
-        "image_VkMjxn",
-        "image_eyW9q7"
-      ],
-      "blocks": {
-        "image_VkMjxn": {
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_20_d3eace0f-e380-4229-a145-1ff245af813d.png",
-            "link": ""
-          },
-          "type": "image"
-        },
-        "image_b3wxkm": {
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_19_2.png",
-            "link": ""
-          },
-          "type": "image"
-        },
-        "image_cGVci9": {
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_18_a6a9fcbc-16b8-45c4-9809-4e6bf1151ac4.png",
-            "link": ""
-          },
-          "type": "image"
-        },
-        "image_eyW9q7": {
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_21_1.png",
-            "link": ""
-          },
-          "type": "image"
-        },
-        "image_nEzF9w": {
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_16_1.png",
-            "link": ""
-          },
-          "type": "image"
-        },
-        "image_qeAk6d": {
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_17_1.png",
-            "link": ""
-          },
-          "type": "image"
-        }
-      },
-      "custom_css": [
-        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
-        "h2 {text-transform: none !important;}"
-      ],
-      "disabled": true,
-      "name": "Gallery",
-      "settings": {
-        "add_gutters": true,
-        "bg": "palette--light bg--neutral",
-        "grid_large": 6,
-        "grid_medium": 4,
-        "grid_mobile": 2,
-        "heading": "<h2>Watch the Brats Slay irl</h2>",
-        "heading_alignment": "center",
-        "padding_bottom": 100,
-        "padding_top": 36,
-        "progress_bar": "hidden",
-        "scale_image": false,
-        "wh_ratio": 1,
-        "width": "wrapper"
-      },
-      "type": "section-gallery"
-    },
-    "section_icons_YdAWAL": {
-      "block_order": [
-        "icon_block_7MUtWn",
-        "icon_block_AtXfgx",
-        "icon_block_7ip4FQ",
-        "icon_block_hRhrMQ"
-      ],
-      "blocks": {
-        "icon_block_7MUtWn": {
-          "settings": {
-            "icon_alt": "shopify://shop_images/Group_153_4cbfdcf1-769c-4e8e-99e1-c122d30f2f18.png",
-            "icon_color": "#aaaaaa",
-            "icon_name": "icon-basket-return",
-            "link_text": "",
-            "link_url": "",
-            "text": "",
-            "title": "10 Minutes Flat."
-          },
-          "type": "icon_block"
-        },
-        "icon_block_7ip4FQ": {
-          "settings": {
-            "icon_alt": "shopify://shop_images/Group_151_cdc5ec29-83cd-4b56-8908-1c6967ccdd2c.png",
-            "icon_color": "#aaaaaa",
-            "icon_name": "icon-phone",
-            "link_text": "",
-            "link_url": "",
-            "text": "",
-            "title": "14-Day Wear."
-          },
-          "type": "icon_block"
-        },
-        "icon_block_AtXfgx": {
-          "settings": {
-            "icon_alt": "shopify://shop_images/Group_152_bf4d43c5-c6ee-44a6-8851-a28ffa3a9580.png",
-            "icon_color": "#aaaaaa",
-            "icon_name": "icon-shipment-world",
-            "link_text": "",
-            "link_url": "",
-            "text": "",
-            "title": "100% Soft Gel."
-          },
-          "type": "icon_block"
-        },
-        "icon_block_hRhrMQ": {
-          "settings": {
-            "icon_alt": "shopify://shop_images/Group_150.png",
-            "icon_color": "#aaaaaa",
-            "icon_name": "icon-leaf",
-            "link_text": "",
-            "link_url": "",
-            "text": "",
-            "title": "Reusable 3x."
-          },
-          "type": "icon_block"
-        }
-      },
-      "custom_css": [
-        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
-        "p {font-weight: 700;}",
-        "@media screen and (max-width: 768px) {.float-grid {display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; justify-items: center; text-align: center; } .float-grid .grid__item {width: 100% !important; float: none !important; } .grid__item:not(:first-child) .icon__column {padding-top: 0; }}"
-      ],
-      "disabled": true,
-      "name": "Icon columns",
-      "settings": {
-        "align_text": "text-center",
-        "bg": "palette--light bg--neutral",
-        "icon_alignment": "icon--top",
-        "icons_size": 80,
-        "layout": "grid--stacked",
-        "padding_bottom": 70,
-        "padding_top": 36,
-        "title": "",
-        "width": "wrapper"
-      },
-      "type": "section-icons"
-    },
-    "section_image_DgdWbc": {
-      "disabled": true,
-      "name": "Image",
-      "settings": {
-        "color_bg": "palette--light bg--neutral",
-        "image": "shopify://shop_images/Our_Belief_-_2.png",
-        "max_width": 100,
-        "mobile_image": "shopify://shop_images/our-beliefs.png",
-        "padding_bottom": 0,
-        "padding_top": 0,
-        "width": "wrapper--none",
-        "x_align": "center"
-      },
-      "type": "section-image"
-    },
-    "section_image_PkKzpV": {
-      "custom_css": [
-        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}"
-      ],
-      "name": "Image",
-      "settings": {
-        "color_bg": "palette--light bg--neutral",
-        "image": "shopify://shop_images/Group_303.png",
-        "max_width": 100,
-        "mobile_image": "shopify://shop_images/Group_302.png",
-        "padding_bottom": 36,
-        "padding_top": 0,
-        "width": "wrapper",
-        "x_align": "center"
-      },
-      "type": "section-image"
-    },
-    "section_liquid_Bbxrxz": {
-      "disabled": true,
-      "name": "Custom Liquid",
-      "settings": {
-        "custom_liquid": "<style>\n  .why-brat-noir {\n    background: #f6e9ee;\n    border-radius: 28px;\n    max-width: 1300px;\n    margin: 80px auto;\n    overflow: hidden;\n  }\n\n  .why-brat-inner {\n    display: grid;\n    grid-template-columns: 1.2fr 2fr 1.2fr;\n    align-items: stretch;\n  }\n\n  /* IMAGE COLUMNS */\n  .why-brat-image {\n    position: relative;\n  }\n\n  .why-brat-image img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    display: block;\n  }\n\n  /* Fade overlays */\n  .why-brat-image::after {\n    content: '';\n    position: absolute;\n    inset: 0;\n    pointer-events: none;\n  }\n\n  .why-brat-image.left::after {\n    background: linear-gradient(\n      to right,\n      rgba(246,233,238,0) 70%,\n      rgba(246,233,238,1) 100%\n    );\n  }\n\n  .why-brat-image.right::after {\n    background: linear-gradient(\n      to left,\n      rgba(246,233,238,0) 70%,\n      rgba(246,233,238,1) 100%\n    );\n  }\n\n  /* CENTER CONTENT */\n  .why-brat-content {\n    text-align: center;\n    padding: 80px 60px;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n  }\n\n  .why-brat-content h2 {\n    font-size: 44px;\n    font-weight: 500;\n    margin-bottom: 48px;\n  }\n\n  /* ICON GRID */\n  .why-brat-icons {\n    display: grid;\n    grid-template-columns: repeat(4, 125px);\n    gap: 48px;\n    justify-content: center;\n    align-items: start;\n  }\n\n  .why-brat-icon {\n    font-family: 'DM Sans', sans-serif;\n    font-weight: 700;\n    font-size: 18px;\n    line-height: 1.3;\n    text-align: center;\n  }\n\n  .why-brat-icon svg {\n    width: 34px;\n    height: 34px;\n    margin: 0 auto 14px;\n    display: block;\n    stroke-width: 1.75;\n  }\n\n  /* MOBILE */\n  @media (max-width: 900px) {\n    .why-brat-noir {\n      max-width: 380px;\n      margin: 60px auto;\n    }\n\n    .why-brat-inner {\n      grid-template-columns: 1fr;\n    }\n\n    /* Hide left image */\n    .why-brat-image.left {\n      display: none;\n    }\n\n    /* Image on top */\n    .why-brat-image.right {\n      order: -1;\n      height: 460px;\n    }\n\n    .why-brat-image.right img {\n      object-position: center top;\n    }\n\n    /* Bottom fade */\n    .why-brat-image.right::after {\n      background: linear-gradient(\n        to bottom,\n        rgba(246,233,238,0) 60%,\n        rgba(246,233,238,1) 100%\n      );\n    }\n\n    .why-brat-content {\n      padding: 48px 24px 56px;\n    }\n\n    .why-brat-content h2 {\n      font-size: 32px;\n      margin-bottom: 32px;\n    }\n\n    .why-brat-icons {\n      grid-template-columns: repeat(2, 125px);\n      gap: 32px 24px;\n      justify-content: center;\n    }\n  }\n</style>\n\n<section class=\"why-brat-noir\">\n  <div class=\"why-brat-inner\">\n\n    <!-- LEFT IMAGE -->\n    <div class=\"why-brat-image left\">\n      <img\n        src=\"https://cdn.shopify.com/s/files/1/0729/8845/9031/files/freepik__create-a-highend-beauty-portrait-of-a-different-af__35915_1.png?v=1765786732\"\n        alt=\"Brat Noir portrait left\"\n      >\n    </div>\n\n    <!-- CENTER CONTENT -->\n    <div class=\"why-brat-content\">\n      <h2>Why Brat Noir</h2>\n\n      <div class=\"why-brat-icons\">\n        <div class=\"why-brat-icon\">\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\">\n            <circle cx=\"12\" cy=\"12\" r=\"10\"/>\n            <path d=\"M12 6v6l4 2\"/>\n          </svg>\n          10-minute<br>application\n        </div>\n\n        <div class=\"why-brat-icon\">\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\">\n            <path d=\"M12 2C7 7 5 10 5 14a7 7 0 0014 0c0-4-2-7-7-12z\"/>\n          </svg>\n          Salon Quality<br>Nails\n        </div>\n\n        <div class=\"why-brat-icon\">\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\">\n            <rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\"/>\n            <path d=\"M16 2v4M8 2v4M3 10h18\"/>\n          </svg>\n          Up to 3 Weeks<br>Wear\n        </div>\n\n        <div class=\"why-brat-icon\">\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\">\n            <path d=\"M21 12l-4-4v3H7\"/>\n            <path d=\"M3 12l4 4v-3h10\"/>\n          </svg>\n          Reusable up<br>to 3x\n        </div>\n      </div>\n    </div>\n\n    <!-- RIGHT IMAGE -->\n    <div class=\"why-brat-image right\">\n      <img\n        src=\"https://cdn.shopify.com/s/files/1/0729/8845/9031/files/image_34.png?v=1765786732\"\n        alt=\"Brat Noir portrait right\"\n      >\n    </div>\n\n  </div>\n</section>"
-      },
-      "type": "section-liquid"
-    },
-    "section_richtext_Gt8mwq": {
-      "block_order": [
-        "heading_M8Txy9",
-        "text_KKpKh4",
-        "button_KjVirm"
-      ],
-      "blocks": {
-        "button_KjVirm": {
-          "settings": {
-            "button_color_1": "btn--black",
-            "button_color_2": "btn--neutral",
-            "button_color_3": "btn--neutral",
-            "button_size_1": "btn--long",
-            "button_size_2": "btn--medium",
-            "button_size_3": "btn--medium",
-            "button_style_1": "btn",
-            "button_style_2": "btn-text-thick-line",
-            "button_style_3": "btn-text-thick-line",
-            "link_1": "shopify://collections/all",
-            "link_2": "",
-            "link_3": "",
-            "link_text_1": "SHOP NOW",
-            "link_text_2": "",
-            "link_text_3": ""
-          },
-          "type": "button"
-        },
-        "heading_M8Txy9": {
-          "settings": {
-            "heading": "Find Your Perfect Nail Style",
-            "text_size": 9
-          },
-          "type": "heading"
-        },
-        "text_KKpKh4": {
-          "settings": {
-            "text": "<p>Rule #1 is owning your unapologetic edge, babe. Set the tone. Dare to be everyone’s favorite reference. You’ll always be the one.</p>",
-            "text_columns": 1,
-            "text_size": 5
-          },
-          "type": "text"
-        }
-      },
-      "custom_css": [
-        "p {max-width: 820px; margin: auto;}",
-        ".standard__heading p {font-size: 48px !important; line-height: 48px;}",
-        "@media screen and (max-width: 768px) {.standard__heading p {font-size: 40px !important; line-height: 40px; }}"
-      ],
-      "disabled": true,
-      "name": "Rich text",
-      "settings": {
-        "align_text": "text-center",
-        "bg": "palette--light bg--neutral",
-        "content_width": 2000,
-        "padding_bottom": 70,
-        "padding_top": 70,
-        "text_color": "text--neutral",
-        "width": "wrapper"
-      },
-      "type": "section-richtext"
-    },
-    "section_richtext_HWH8G4": {
-      "block_order": [
-        "heading_WLAJqQ",
-        "text_GQqDrN",
-        "button_k7RFA9"
-      ],
-      "blocks": {
-        "button_k7RFA9": {
-          "settings": {
-            "button_color_1": "btn--neutral",
-            "button_color_2": "btn--neutral",
-            "button_color_3": "btn--neutral",
-            "button_size_1": "btn--medium",
-            "button_size_2": "btn--medium",
-            "button_size_3": "btn--medium",
-            "button_style_1": "btn-text-thick-line",
-            "button_style_2": "btn-text-thick-line",
-            "button_style_3": "btn-text-thick-line",
-            "link_1": "shopify://collections/all",
-            "link_2": "",
-            "link_3": "",
-            "link_text_1": "NEW ARRIVAL",
-            "link_text_2": "BEST SELLERS",
-            "link_text_3": ""
-          },
-          "type": "button"
-        },
-        "heading_WLAJqQ": {
-          "settings": {
-            "heading": "Our Best Seller",
-            "text_size": 8
-          },
-          "type": "heading"
-        },
-        "text_GQqDrN": {
-          "settings": {
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>",
-            "text_columns": 1,
-            "text_size": 4
-          },
-          "type": "text"
-        }
-      },
-      "custom_css": [
-        ".frame {background: transparent;}"
-      ],
-      "disabled": true,
-      "name": "Rich text",
-      "settings": {
-        "align_text": "text-center",
-        "bg": "palette--light bg--neutral",
-        "content_width": 2000,
-        "padding_bottom": 36,
-        "padding_top": 36,
-        "text_color": "text--neutral",
-        "width": "wrapper--narrow"
-      },
-      "type": "section-richtext"
-    },
-    "section_richtext_JzM6AG": {
-      "block_order": [
-        "heading_PqdxAQ"
-      ],
-      "blocks": {
-        "heading_PqdxAQ": {
-          "settings": {
-            "heading": "Our Beliefs",
-            "text_size": 10
-          },
-          "type": "heading"
-        }
-      },
-      "custom_css": [
-        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
-        ".standard__heading p {font-size: 48px !important; line-height: 48px;}",
-        "@media screen and (max-width: 768px) {.standard__heading p {display: none; } {display: none; }}"
-      ],
-      "name": "Rich text",
-      "settings": {
-        "align_text": "text-center",
-        "bg": "palette--light bg--neutral",
-        "content_width": 2000,
-        "padding_bottom": 0,
-        "padding_top": 0,
-        "text_color": "text--neutral",
-        "width": "wrapper"
-      },
-      "type": "section-richtext"
-    },
-    "section_slideshow_7Wn4H7": {
-      "block_order": [
-        "image_zcLd7j",
-        "image_Apy973"
-      ],
-      "blocks": {
-        "image_Apy973": {
-          "disabled": true,
-          "settings": {
-            "button_color": "btn--black",
-            "button_style": "btn",
-            "enable_overlay_text": false,
-            "image": "shopify://shop_images/Halloween_Desktop_Banner_-_Glow_in_the_Dark__1.png",
-            "kicker": "",
-            "link": "shopify://collections/all",
-            "link_text": "SHOP NOW",
-            "mobile_image": "shopify://shop_images/halloween-mobile-banner-glow_1.png",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0,
-            "richtext": "<p>We make soft-gel press-ons so luxe, they'll swear you spent hours at the salon.</p>",
-            "text_align": "align--middle-left",
-            "text_color": "text--white",
-            "title": "Unleash Your Inner Brat."
-          },
-          "type": "image"
-        },
-        "image_zcLd7j": {
-          "settings": {
-            "button_color": "btn--black",
-            "button_style": "btn",
-            "enable_overlay_text": false,
-            "image": "shopify://shop_images/January-Banner-Web-2026.png",
-            "kicker": "",
-            "link": "shopify://collections/all",
-            "link_text": "",
-            "mobile_image": "shopify://shop_images/January-Banner-Mobile-2026.png",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0,
-            "richtext": "",
-            "text_align": "align--middle-left",
-            "text_color": "text--white",
-            "title": ""
-          },
-          "type": "image"
-        }
-      },
-      "custom_css": [
-        "h1 {font-size: 48px; max-width: 565px;}",
-        "p {max-width: 565px; font-size: 18px;}",
-        "@media screen and (max-width: 768px) {h1 {font-size: 40px; text-align: center; } p {font-size: 16px; text-align: center; max-width: 95%; margin: auto; } .hero__content {padding: 0; } .hero__cta__wrapper {align-items: center !important; margin-bottom: 115px !important; } .align--middle-left {align-items: flex-start; padding-top: 100px; }}",
-        ".slideshow__slide .hero__content {max-width: 1200px; margin-left: auto; margin-right: auto;}",
-        "a.btn--black {background: #fff; color: #000;}"
-      ],
-      "name": "Slideshow",
-      "settings": {
-        "autoplay": true,
-        "autoplay_speed": 3,
-        "color_bg": "palette--light bg--neutral",
-        "height": "use_image",
-        "padding_bottom": 0,
-        "padding_top": 0,
-        "preload_first_image": true,
-        "width": "wrapper--none"
-      },
-      "type": "section-slideshow"
-    }
-  }
+  ]
 }
