@@ -158,6 +158,21 @@
         -%}
         <div class="bundle-products__cart-progress-bar" style="--progress: {{ progress }}%">
           <div class="bundle-products__cart-progress-fill"></div>
+          {%- if section.settings.progress_step_1_icon != blank -%}
+            <div class="bundle-products__cart-progress-step bundle-products__cart-progress-step--1">
+              <img src="{{ section.settings.progress_step_1_icon | image_url }}" alt="Step 1" />
+            </div>
+          {%- endif -%}
+          {%- if section.settings.progress_step_2_icon != blank -%}
+            <div class="bundle-products__cart-progress-step bundle-products__cart-progress-step--2">
+              <img src="{{ section.settings.progress_step_2_icon | image_url }}" alt="Step 2" />
+            </div>
+          {%- endif -%}
+          {%- if section.settings.progress_step_3_icon != blank -%}
+            <div class="bundle-products__cart-progress-step bundle-products__cart-progress-step--3">
+              <img src="{{ section.settings.progress_step_3_icon | image_url }}" alt="Step 3" />
+            </div>
+          {%- endif -%}
         </div>
         {%- liquid
           assign progress_text = ''
@@ -439,6 +454,28 @@ document.querySelector('.bundle-products__filter-btn[data-filter="all"]')?.click
       "id": "progress_text_complete",
       "label": "Progress Text (5+ sets in cart)",
       "default": "We love to see it. 20% OFF applied."
+    },
+    {
+      "type": "header",
+      "content": "Progress Bar Step Icons"
+    },
+    {
+      "type": "image_picker",
+      "id": "progress_step_1_icon",
+      "label": "Step 1 Icon",
+      "info": "Icon displayed at the first step (33% of progress bar)"
+    },
+    {
+      "type": "image_picker",
+      "id": "progress_step_2_icon",
+      "label": "Step 2 Icon",
+      "info": "Icon displayed at the second step (66% of progress bar)"
+    },
+    {
+      "type": "image_picker",
+      "id": "progress_step_3_icon",
+      "label": "Step 3 Icon",
+      "info": "Icon displayed at the final step (100% of progress bar)"
     }
   ],
   "blocks": [

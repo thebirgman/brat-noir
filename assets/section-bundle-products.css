@@ -168,6 +168,7 @@
   background-color: #fff;
   border-radius: 20px;
   margin-top: 26px;
+  position: relative;
 }
 
 .bundle-products__cart-progress-fill {
@@ -186,6 +187,52 @@
     height: 14px;
     border-radius: 50%;
     background-color: #000;
+  }
+}
+
+.bundle-products__cart-progress-step {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.bundle-products__cart-progress-step img {
+  width: auto;
+  height: auto;
+  max-width: 48px;
+  max-height: 48px;
+  object-fit: contain;
+  display: block;
+}
+
+.bundle-products__cart-progress-step--1 {
+  left: 29%;
+}
+
+.bundle-products__cart-progress-step--2 {
+  left: 60%;
+}
+
+.bundle-products__cart-progress-step--3 {
+  left: 100%;
+}
+.bundle-products__cart-progress-bar {
+    margin-bottom: 30px;
+}
+
+.bundle-products__cart-progress-step.bundle-products__cart-progress-step--3 {
+    left: calc(100% - 20px);
+}
+
+@media screen and (max-width: 768px) {
+  .bundle-products__cart-progress-step img {
+    max-width: 40px;
+    max-height: 40px;
   }
 }
 
@@ -878,4 +925,9 @@ div#a-open-cart-main-button {}
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+}
+
+p.bundle-products__cart-progress-text {
+    width: 100%!Important;
+    text-align: center;
 }
