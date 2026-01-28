@@ -49,7 +49,7 @@
           "type": "button",
           "settings": {
             "link_text_1": "Start Building Your Gift",
-            "link_1": "",
+            "link_1": "#build-gift-box",
             "button_size_1": "btn--large",
             "button_style_1": "btn",
             "button_color_1": "btn--white",
