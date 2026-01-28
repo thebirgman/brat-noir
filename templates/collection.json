@@ -368,7 +368,7 @@
       ],
       "custom_css": [
         "p.product__grid__collection-name {font-size: 12px !important; font-weight: 300; font-family: \"Montserrat\"; color: #000; letter-spacing: 0.5px !important; text-align: left;}",
-        " section {padding-top:20px;}",
+        "section {padding-top: 20px;}",
         "@media screen and (max-width: 768px) {.bundle-products__filters {padding-left: 0; padding-right: 0; } .bundle-products__filter-btn {font-size: 16px !important; }}",
         ".bundle-product__title {font-size: 15px;}"
       ],
@@ -382,7 +382,10 @@
         "progress_text_default": "Add [X] more sets to unlock the $15/set insider rate.",
         "progress_text_two_more": "Getting closer. Add 2 more sets to save $9 instantly + FREE SHIPPING.",
         "progress_text_one_more": "So close. Add 1 more set to secure the $45 Stash.",
-        "progress_text_complete": "Vault unlocked. Insider rate ($15/set) secured. The math is mathing."
+        "progress_text_complete": "Vault unlocked. Insider rate ($15/set) secured. The math is mathing.",
+        "progress_step_1_icon": "shopify://shop_images/Group_542_2.png",
+        "progress_step_2_icon": "shopify://shop_images/Group_543.png",
+        "progress_step_3_icon": "shopify://shop_images/Group_544_b3877652-6389-46ab-966c-16d5d76552fa.png"
       }
     },
     "section_collection_tabs_y8FR4V": {
