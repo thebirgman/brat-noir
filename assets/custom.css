@@ -3613,3 +3613,14 @@ body .bundle-product__card.added .bundle-product__quantity-wrapper input {
   margin: 0;
   padding: 0;
 }
+
+.bundle-product__actions:has(.bundle-product__quantity-wrapper[style*="flex"]) button.bundle-product__atc {
+    display: none!important;
+}
+
+.bundle-product__quantity-wrapper {}
+
+input.bundle-product__quantity-input {
+    margin: 0;
+    padding: 0;
+}
