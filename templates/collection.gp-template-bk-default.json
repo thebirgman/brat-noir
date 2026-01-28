@@ -16,7 +16,8 @@
     "section_announcement_XYjiPA",
     "section_collection_tabs_aPxHGE",
     "section_collection_tabs_7FhyYd",
-    "section_bundle_products_tAiL7K"
+    "section_bundle_products_tAiL7K",
+    "section_collection_tabs_y8FR4V"
   ],
   "sections": {
     "hero": {
@@ -69,11 +70,12 @@
       "blocks": {
         "text_YrGUjx": {
           "settings": {
-            "text": "<p>BUY <strong>5 SETS</strong> AND GET <strong>20% OFF + FREE SHIPPING</strong>. MATH CAN BE CUTE</p>"
+            "text": "<p>✨ <strong>UNLOCK THE VAULT:</strong> 3 sets for $15/each + FREE SHIPPING✈️).</p><p>The math is mathing.</p>"
           },
           "type": "text"
         }
       },
+      "disabled": true,
       "name": "Scrolling promotion",
       "settings": {
         "bg_color": "#000000",
@@ -86,10 +88,10 @@
     },
     "section_bundle_products_tAiL7K": {
       "block_order": [
-        "filter_QTwkEy",
         "filter_ctVMdy",
-        "filter_QiQn7W",
-        "filter_wgRijT"
+        "filter_wgRijT",
+        "filter_QTwkEy",
+        "filter_QiQn7W"
       ],
       "blocks": {
         "filter_QTwkEy": {
@@ -109,7 +111,7 @@
         "filter_ctVMdy": {
           "settings": {
             "collection": "fall-collection",
-            "label": "Brat Fall"
+            "label": "Brat Ombré"
           },
           "type": "filter"
         },
@@ -123,14 +125,20 @@
       },
       "custom_css": [
         "p.product__grid__collection-name {font-size: 12px !important; font-weight: 300; font-family: \"Montserrat\"; color: #000; letter-spacing: 0.5px !important; text-align: left;}",
-        "@media screen and (max-width: 768px) {.bundle-products__filters {padding-left: 0; padding-right: 0; } .bundle-products__filter-btn {font-size: 16px !important; }}"
+        "@media screen and (max-width: 768px) {.bundle-products__filters {padding-left: 0; padding-right: 0; } .bundle-products__filter-btn {font-size: 16px !important; }}",
+        ".bundle-product__title {font-size: 15px;}"
       ],
       "settings": {
         "all_label": "All",
-        "bundle_content_heading": "GET THE FULL BUNDLE",
-        "bundle_content_subheading": "Unlock brat-level savings and score that full bundle deal babe,",
+        "bundle_content_heading": "BUNDLE & SAVE: 3 FOR $45",
+        "bundle_content_subheading": "3 Sets. $45 Flat. Free Shipping. Secure your rotation now.",
         "collection": "collection-2",
-        "heading": "Nails"
+        "heading": "Build Your Own Collection",
+        "progress_text_complete": "Vault unlocked. Insider rate ($15/set) secured. The math is mathing.",
+        "progress_text_default": "Add [X] more sets to unlock the $15/set insider rate.",
+        "progress_text_one_more": "So close. Add 1 more set to secure the $45 Stash.",
+        "progress_text_two_more": "Getting closer. Add 2 more sets to save $9 instantly + FREE SHIPPING.",
+        "subheading": "<p>Curate your own look. <strong>Pro Tip: </strong>Unlock VIP Pricing by adding 3+ sets to cart for $15 per set + FREE SHIPPING</p>"
       },
       "type": "section-bundle-products"
     },
@@ -141,38 +149,38 @@
       "blocks": {
         "collection_Y8434L": {
           "settings": {
-            "collection": "bundles",
+            "collection": "trio-bundle",
             "grid_large": 4,
             "grid_medium": 2,
             "grid_mobile": 1.2,
-            "title": "Brat Halloween Bundle"
+            "title": "Trio Bundle"
           },
           "type": "collection"
         }
       },
       "custom_css": [
-        ".scrolling-promo,.tabs,.kicker-flourished:after {display: none;}",
+        ".scrolling-promo,.tabs,.kicker-flourished:after {display: none !important;}",
         "h2 {padding: 0;}",
-        ".product__grid__price {display: flex; flex-direction: column;}",
+        ".product__grid__price {display: flex;}",
         ".bg--neutral {background: transparent;}",
         ".product__grid__main-info p {text-align: left;}",
-        "@media screen and (min-width: 1080px) {.slide-item.product-grid-slide[data-item] {width: calc(25% - 25px); }}",
+        "@media screen and (min-width: 1080px) {.slide-item.product-grid-slide[data-item] {width: calc(33% - 25px); }}",
         ".collection-tabs-container {max-width: 100%; margin: 0 auto !important;}",
-        ".product__grid__price {min-width: 70px; text-align: right; align-items: flex-end;}"
+        ".product__grid__price {min-width: 70px; text-align: right; align-items: flex-end; flex-direction: row-reverse;}"
       ],
       "name": "Product slider tabs",
       "settings": {
         "bg": "palette--light bg--neutral",
-        "description": "",
+        "description": "<p>3 Sets. $45. Free Shipping. The perfect entry point to the Brat life.</p>",
         "description_alignment": "center",
         "grid_large": 3,
         "grid_medium": 2,
         "grid_mobile": 1,
         "limit": 9,
-        "padding_bottom": 70,
-        "padding_top": 70,
+        "padding_bottom": 30,
+        "padding_top": 50,
         "progress_bar": "hidden",
-        "title": "Pre-Curated Collections",
+        "title": "The Starter Edits",
         "width": "wrapper",
         "wrapper": "wrapper"
       },
@@ -264,10 +272,55 @@
       },
       "type": "section-collection-tabs"
     },
+    "section_collection_tabs_y8FR4V": {
+      "block_order": [
+        "collection_Vgf4KT"
+      ],
+      "blocks": {
+        "collection_Vgf4KT": {
+          "settings": {
+            "collection": "bundles",
+            "grid_large": 4,
+            "grid_medium": 2,
+            "grid_mobile": 1.2,
+            "title": "Brat Halloween Bundle"
+          },
+          "type": "collection"
+        }
+      },
+      "custom_css": [
+        ".scrolling-promo,.tabs,.kicker-flourished:after {display: none !important;}",
+        "h2 {padding: 0;}",
+        ".product__grid__price {display: flex; flex-direction: column;}",
+        ".bg--neutral {background: transparent;}",
+        ".product__grid__main-info p {text-align: left;}",
+        "@media screen and (min-width: 1080px) {.slide-item.product-grid-slide[data-item] {width: calc(25% - 25px); }}",
+        ".collection-tabs-container {max-width: 100%; margin: 0 auto !important;}",
+        ".product__grid__price {min-width: 70px; text-align: right; align-items: flex-end; flex-direction: row-reverse;}"
+      ],
+      "name": "Product slider tabs",
+      "settings": {
+        "bg": "palette--light bg--neutral",
+        "description": "<p>5-Set Collections. Maximum value + Instant Free Shipping.</p>",
+        "description_alignment": "center",
+        "grid_large": 3,
+        "grid_medium": 2,
+        "grid_mobile": 1,
+        "limit": 9,
+        "padding_bottom": 20,
+        "padding_top": 30,
+        "progress_bar": "hidden",
+        "title": "The Vaults",
+        "width": "wrapper",
+        "wrapper": "wrapper"
+      },
+      "type": "section-collection-tabs"
+    },
     "section_video_z78q6B": {
       "custom_css": [
         "@media screen and (max-width: 768px) {.section--image, .image__hero__frame {min-height: 330px !important; height: 330px !important; }}"
       ],
+      "disabled": true,
       "name": "Video banner",
       "settings": {
         "color_bg": "palette--light bg--neutral",
