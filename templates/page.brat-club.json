@@ -99,7 +99,8 @@
       ],
       "custom_css": [
         ".standard__icon.text-center {display: flex;}",
-        ".palette--light {background: transparent;}"
+        ".palette--light {background: transparent;}",
+        ".standard__icon__holder {margin: 0;}"
       ],
       "name": "Rich text",
       "settings": {
