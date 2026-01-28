@@ -248,6 +248,95 @@
         "padding_bottom": 30
       }
     },
+    "section_richtext_miyxB6": {
+      "type": "section-richtext",
+      "blocks": {
+        "heading_c3zizQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Build Your Own Collection",
+            "text_size": 8
+          }
+        },
+        "text_beNXX9": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Curate your own look. <strong>Pro Tip: </strong>Unlock VIP Pricing by adding 3+ sets to cart for $15 per set + FREE SHIPPING</p>",
+            "text_size": 5,
+            "text_columns": 1
+          }
+        }
+      },
+      "block_order": [
+        "heading_c3zizQ",
+        "text_beNXX9"
+      ],
+      "custom_css": [
+        ".bg--neutral {background: transparent;}",
+        "strong {font-weight: 700;}"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "align_text": "text-center",
+        "text_color": "text--neutral",
+        "bg": "palette--light bg--neutral",
+        "content_width": 2000,
+        "width": "wrapper",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "gift_steps_qVE7mL": {
+      "type": "gift-steps",
+      "blocks": {
+        "step_f9Erbh": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/brat-gift-step-1.png",
+            "image_height": 140,
+            "image_height_mobile": 110,
+            "title": "Step 1",
+            "text": "Select 5 Sets."
+          }
+        },
+        "step_pHEWpK": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/brat-gift-step-2.png",
+            "image_height": 140,
+            "image_height_mobile": 110,
+            "title": "Step 2",
+            "text": "Craft Your Note."
+          }
+        },
+        "step_yr7wxX": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/brat-gift-step-3.png",
+            "image_height": 140,
+            "image_height_mobile": 110,
+            "title": "Step 3",
+            "text": "We Ship the Experience."
+          }
+        }
+      },
+      "block_order": [
+        "step_f9Erbh",
+        "step_pHEWpK",
+        "step_yr7wxX"
+      ],
+      "custom_css": [
+        "h2 {margin-bottom: 0 !important;}"
+      ],
+      "name": "Gift Steps",
+      "settings": {
+        "heading": "The more you add, the more you unlock.",
+        "max_width": 1200,
+        "background": "linear-gradient(180deg, rgba(244, 232, 255, 1), rgba(249, 228, 227, 1) 100%)",
+        "padding_top": 0,
+        "padding_bottom": 72
+      }
+    },
     "section_bundle_products_tAiL7K": {
       "type": "section-bundle-products",
       "blocks": {
@@ -357,6 +446,8 @@
     "section_announcement_XYjiPA",
     "section_collection_tabs_aPxHGE",
     "section_collection_tabs_7FhyYd",
+    "section_richtext_miyxB6",
+    "gift_steps_qVE7mL",
     "section_bundle_products_tAiL7K",
     "section_collection_tabs_y8FR4V"
   ]
