@@ -12,7 +12,7 @@
   {%- endfor -%}
 {%- endif -%}
 
-<section class="build-gift-box" id="build-gift-box-{{ section.id }}" data-gift-box-product-handle="{% if section.settings.gift_box_product %}{{ section.settings.gift_box_product.handle }}{% endif %}">
+<section class="build-gift-box" id="build-gift-box" data-gift-box-product-handle="{% if section.settings.gift_box_product %}{{ section.settings.gift_box_product.handle }}{% endif %}">
   <h2>{{ section.settings.heading }}</h2>
   
   {%- if section.settings.subheading != blank -%}
