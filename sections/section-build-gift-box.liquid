@@ -1,0 +1,350 @@
+{{ 'section-build-gift-box.css' | asset_url | stylesheet_tag }}
+{{ 'component-bundle-product-card.css' | asset_url | stylesheet_tag }}
+
+{%- assign base_collection = section.settings.collection -%}
+
+{%- comment -%} Get best-sellers collection and create list of first 6 product IDs {%- endcomment -%}
+{%- assign best_sellers_collection = collections['best-sellers-all'] -%}
+{%- assign best_seller_ids = ',' -%}
+{%- if best_sellers_collection != blank -%}
+  {%- for product in best_sellers_collection.products limit: 6 -%}
+    {%- assign best_seller_ids = best_seller_ids | append: product.id | append: ',' -%}
+  {%- endfor -%}
+{%- endif -%}
+
+<section class="build-gift-box" id="build-gift-box" data-gift-box-product-handle="{% if section.settings.gift_box_product %}{{ section.settings.gift_box_product.handle }}{% endif %}">
+  <h2>{{ section.settings.heading }}</h2>
+  
+  {%- if section.settings.subheading != blank -%}
+    <div class="build-gift-box__subheading rte">
+      {{ section.settings.subheading }}
+    </div>
+  {%- endif -%}
+
+  {%- comment -%}
+    FILTER BUTTONS
+  {%- endcomment -%}
+  <div class="build-gift-box__filters" role="tablist" aria-label="Category filters">
+    <button
+      class="build-gift-box__filter-btn is-active"
+      data-filter="all"
+      data-handle="all"
+      role="tab"
+      aria-selected="true"
+      aria-controls="grid-all-{{ section.id }}"
+      id="tab-all-{{ section.id }}"
+      type="button">
+      {{ section.settings.all_label | default: 'All' }}
+    </button>
+
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'filter' -%}
+        <button
+          class="build-gift-box__filter-btn"
+          data-filter="{{ block.id }}"
+          data-handle="{{ block.settings.label | handleize }}"
+          role="tab"
+          aria-selected="false"
+          aria-controls="grid-{{ block.id }}"
+          id="tab-{{ block.id }}"
+          type="button">
+          {{ block.settings.label }}
+        </button>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  <div class="build-gift-box__container">
+    <div class="build-gift-box__grids">
+      {%- comment -%} GRID: ALL (Base Collection) {%- endcomment -%}
+      <div
+        class="build-gift-box__grid"
+        data-grid="all"
+        id="grid-all-{{ section.id }}"
+        role="tabpanel"
+        aria-labelledby="tab-all-{{ section.id }}">
+        {%- if base_collection != blank -%}
+          {%- for product in base_collection.products -%}
+            {%- assign is_bestseller = false -%}
+            {%- if best_seller_ids != blank -%}
+              {%- assign product_id_check = ',' | append: product.id | append: ',' -%}
+              {%- if best_seller_ids contains product_id_check -%}
+                {%- assign is_bestseller = true -%}
+              {%- endif -%}
+            {%- endif -%}
+            {%- render 'build-gift-box-product-card', product: product, is_bestseller: is_bestseller -%}
+          {%- endfor -%}
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} GRIDS: ONE PER FILTER BLOCK {%- endcomment -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'filter' and block.settings.collection != blank -%}
+          <div
+            class="build-gift-box__grid"
+            data-grid="{{ block.id }}"
+            id="grid-{{ block.id }}"
+            role="tabpanel"
+            aria-labelledby="tab-{{ block.id }}"
+            hidden>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <div class="build-gift-box__cart">
+      <div id="a-open-cart-main-button" class="icon-5 cart-trigger-slide w-embed">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.9997 10.586L16.9497 5.63599L18.3637 7.04999L13.4137 12L18.3637 16.95L16.9497 18.364L11.9997 13.414L7.04974 18.364L5.63574 16.95L10.5857 12L5.63574 7.04999L7.04974 5.63599L11.9997 10.586Z" fill="currentColor"></path></svg>
+      </div>
+
+      <div class="build-gift-box__header">
+        <h3 class="build-gift-box__header-title">{{ section.settings.gift_box_heading | default: 'BUILD THE PERFECT GIFT' }}</h3>
+        {%- if section.settings.gift_box_features != blank -%}
+          <div class="build-gift-box__features rte">
+            {{ section.settings.gift_box_features }}
+          </div>
+        {%- endif -%}
+        
+        <div class="build-gift-box__progress">
+          <div class="build-gift-box__progress-bar">
+            <div class="build-gift-box__progress-fill" style="--progress: 0%">
+              {%- if section.settings.progress_icon != blank -%}
+                <img class="build-gift-box__progress-icon build-gift-box__progress-icon--normal" src="{{ section.settings.progress_icon | image_url }}" alt="Progress icon" />
+              {%- else -%}
+                <svg class="build-gift-box__progress-icon build-gift-box__progress-icon--normal" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10 0L12.5 7.5L20 10L12.5 12.5L10 20L7.5 12.5L0 10L7.5 7.5L10 0Z" fill="white"/>
+                </svg>
+              {%- endif -%}
+              {%- if section.settings.progress_icon_complete != blank -%}
+                <img class="build-gift-box__progress-icon build-gift-box__progress-icon--complete" src="{{ section.settings.progress_icon_complete | image_url }}" alt="Complete icon" style="display: none;" />
+              {%- endif -%}
+            </div>
+          </div>
+          <p class="build-gift-box__progress-text">Your Velvet Box (<span class="build-gift-box__progress-count">0</span>/5 Selected)</p>
+        </div>
+      </div>
+
+      <div class="build-gift-box__cart-items">
+        {%- for i in (1..5) -%}
+          <div class="build-gift-box__cart-item" data-slot="{{ i }}">
+            <div class="build-gift-box__cart-item-placeholder">
+              <svg class="build-gift-box__cart-item-plus" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="build-gift-box__cart-item-content">
+              <p class="build-gift-box__cart-item-label">Select a Product</p>
+              <p class="build-gift-box__cart-item-hint">Add <span class="build-gift-box__cart-item-remaining">{{ 6 | minus: i }}</span> more to complete your gift set</p>
+            </div>
+            <button class="build-gift-box__cart-item-remove" data-remove-slot="{{ i }}" style="display: none;">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.4 14.6538L10 11.0538L13.6 14.6538L14.6538 13.6L11.0538 10L14.6538 6.4L13.6 5.34625L10 8.94625L6.4 5.34625L5.34625 6.4L8.94625 10L5.34625 13.6L6.4 14.6538Z" fill="#ABABAB"/>
+              </svg>
+            </button>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      <div class="build-gift-box__note-section" style="display: none;">
+        <button type="button" class="build-gift-box__note-header" aria-expanded="true">
+          <h3 class="build-gift-box__note-title">Who is this for?</h3>
+          <svg class="build-gift-box__note-icon" width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 8.41418L8 1.41418L1 8.41418" stroke="black" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="build-gift-box__note-content">
+          <textarea 
+            class="build-gift-box__note-textarea" 
+            placeholder="Enter your message (min 5, max 300 characters)" 
+            minlength="5"
+            maxlength="300"
+            rows="4"
+            required></textarea>
+        </div>
+      </div>
+
+      <button type="button" class="build-gift-box__note-checkout" style="display: none;">SECURE CHECKOUT</button>
+
+      <button type="button" class="build-gift-box__write-note" disabled>
+        WRITE YOUR NOTE
+      </button>
+    </div>
+  </div>
+</section>
+
+<div class="sticky-footer">
+  <div class="sticky-footer__progress">
+    <span class="sticky-footer__progress-text">Add <span class="sticky-footer__progress-count">5</span> sets to complete your gift box.</span>
+  </div>
+  <button type="button" class="sticky-footer__button">
+    <svg width="22" height="28" viewBox="0 0 22 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.75 27.75C1.99375 27.75 1.34635 27.4807 0.807813 26.9422C0.269271 26.4036 0 25.7563 0 25V8.5C0 7.74375 0.269271 7.09635 0.807813 6.55781C1.34635 6.01927 1.99375 5.75 2.75 5.75H5.5C5.5 4.2375 6.03854 2.94271 7.11563 1.86563C8.19271 0.788542 9.4875 0.25 11 0.25C12.5125 0.25 13.8073 0.788542 14.8844 1.86563C15.9615 2.94271 16.5 4.2375 16.5 5.75H19.25C20.0063 5.75 20.6536 6.01927 21.1922 6.55781C21.7307 7.09635 22 7.74375 22 8.5V25C22 25.7563 21.7307 26.4036 21.1922 26.9422C20.6536 27.4807 20.0063 27.75 19.25 27.75H2.75ZM2.75 25H19.25V8.5H16.5V11.25C16.5 11.6396 16.3682 11.9661 16.1047 12.2297C15.8411 12.4932 15.5146 12.625 15.125 12.625C14.7354 12.625 14.4089 12.4932 14.1453 12.2297C13.8818 11.9661 13.75 11.6396 13.75 11.25V8.5H8.25V11.25C8.25 11.6396 8.11823 11.9661 7.85469 12.2297C7.59115 12.4932 7.26458 12.625 6.875 12.625C6.48542 12.625 6.15885 12.4932 5.89531 12.2297C5.63177 11.9661 5.5 11.6396 5.5 11.25V8.5H2.75V25ZM8.25 5.75H13.75C13.75 4.99375 13.4807 4.34635 12.9422 3.80781C12.4036 3.26927 11.7563 3 11 3C10.2437 3 9.59635 3.26927 9.05781 3.80781C8.51927 4.34635 8.25 4.99375 8.25 5.75Z" fill="white"/></svg>
+
+    <span class="sticky-footer__button-text">View Gift Box</span>
+  </button>
+</div>
+
+<template id="build-gift-box-item">
+  <div class="build-gift-box__cart-item" data-slot="%SLOT%">
+    <img class="build-gift-box__cart-item-image" src="%IMAGE%" alt="%TITLE%" />
+    <div class="build-gift-box__cart-item-content">
+      <p class="build-gift-box__cart-item-collection">%COLLECTION%</p>
+      <p class="build-gift-box__cart-item-label">%TITLE%</p>
+    </div>
+    <button class="build-gift-box__cart-item-remove" data-remove-slot="%SLOT%">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.4 14.6538L10 11.0538L13.6 14.6538L14.6538 13.6L11.0538 10L14.6538 6.4L13.6 5.34625L10 8.94625L6.4 5.34625L5.34625 6.4L8.94625 10L5.34625 13.6L6.4 14.6538Z" fill="#ABABAB"/>
+      </svg>
+    </button>
+  </div>
+</template>
+
+{{ 'section-build-gift-box.js' | asset_url | script_tag }}
+
+<script>
+  // Toggle the gift box cart drawer
+  document.querySelectorAll('.sticky-footer__button, #a-open-cart-main-button').forEach(function(el) {
+    el.addEventListener('click', function() {
+      document.querySelectorAll('.build-gift-box__cart').forEach(function(el) {
+        el.classList.toggle('show');
+      });
+    });
+  });
+</script>
+
+<script>
+  // Category filter by data-collection
+  document.addEventListener('DOMContentLoaded', function() {
+    const sectionId = '{{ section.id }}';
+    const filterButtons = document.querySelectorAll(`#build-gift-box-${sectionId} .build-gift-box__filter-btn`);
+    
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.innerText.trim().toLowerCase().replace('brat ', '');
+        const grid = document.querySelector(`#build-gift-box-${sectionId} .build-gift-box__grid[data-grid="all"]`);
+        if (grid) {
+          grid.setAttribute('data-grid', filter);
+        }
+
+        // Remove is-active from all, add only to clicked
+        filterButtons.forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+
+        // Show/hide product cards
+        document.querySelectorAll(`#build-gift-box-${sectionId} .bundle-product__card`).forEach(card => {
+          const col = (card.dataset.collection || '').toLowerCase().replace('brat ', '');
+          if (filter === 'all' || col.includes(filter)) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // Trigger default "All" on load
+    const allButton = document.querySelector(`#build-gift-box-${sectionId} .build-gift-box__filter-btn[data-filter="all"]`);
+    if (allButton) {
+      allButton.click();
+    }
+
+    // Handle URL parameter for filter
+    const params = new URLSearchParams(window.location.search);
+    const handle = params.get('handle');
+    
+    if (handle) {
+      const tabButton = document.querySelector(`#build-gift-box-${sectionId} .build-gift-box__filter-btn[data-handle*="${handle}"]`);
+      if (tabButton) {
+        setTimeout(() => tabButton.click(), 100);
+      }
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Build Gift Box",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Base collection (for \"All\")"
+    },
+    {
+      "type": "product",
+      "id": "gift_box_product",
+      "label": "Gift Box Product",
+      "info": "The product to add to cart when checkout is clicked"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Build Your Gift Box"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "info": "Rich text subheading displayed below the main heading"
+    },
+    {
+      "type": "text",
+      "id": "all_label",
+      "label": "Label for \"All\" filter",
+      "default": "All"
+    },
+    {
+      "type": "header",
+      "content": "Gift Box Header"
+    },
+    {
+      "type": "text",
+      "id": "gift_box_heading",
+      "label": "Header Heading",
+      "default": "BUILD THE PERFECT GIFT"
+    },
+    {
+      "type": "richtext",
+      "id": "gift_box_features",
+      "label": "Features List",
+      "info": "Add bullet points or list items. Each line will be displayed as a feature."
+    },
+    {
+      "type": "image_picker",
+      "id": "progress_icon",
+      "label": "Progress Bar Icon",
+      "info": "Icon image displayed on the progress bar"
+    },
+    {
+      "type": "image_picker",
+      "id": "progress_icon_complete",
+      "label": "Progress Bar Icon (Complete)",
+      "info": "Icon image displayed on the progress bar when the box is complete (5/5 items)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "filter",
+      "name": "Category filter",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Filter label",
+          "default": "Category"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Filter collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Build Gift Box"
+    }
+  ]
+}
+{% endschema %}

@@ -3,6 +3,15 @@
 
 {%- assign base_collection = section.settings.collection -%}
 
+{%- comment -%} Get best-sellers collection and create list of first 6 product IDs {%- endcomment -%}
+{%- assign best_sellers_collection = collections['best-sellers-all'] -%}
+{%- assign best_seller_ids = ',' -%}
+{%- if best_sellers_collection != blank -%}
+  {%- for product in best_sellers_collection.products limit: 6 -%}
+    {%- assign best_seller_ids = best_seller_ids | append: product.id | append: ',' -%}
+  {%- endfor -%}
+{%- endif -%}
+
 <section class="bundle-products" id="bundle-products-{{ section.id }}">
   <h2>{{ section.settings.heading }}</h2>
   
@@ -57,7 +66,14 @@
         aria-labelledby="tab-all-{{ section.id }}">
         {%- if base_collection != blank -%}
           {%- for product in base_collection.products -%}
-            {%- render 'bundle-product-card', product: product -%}
+            {%- assign is_bestseller = false -%}
+            {%- if best_seller_ids != blank -%}
+              {%- assign product_id_check = ',' | append: product.id | append: ',' -%}
+              {%- if best_seller_ids contains product_id_check -%}
+                {%- assign is_bestseller = true -%}
+              {%- endif -%}
+            {%- endif -%}
+            {%- render 'bundle-product-card', product: product, is_bestseller: is_bestseller -%}
           {%- endfor -%}
         {%- endif -%}
       </div>
@@ -142,6 +158,21 @@
         -%}
         <div class="bundle-products__cart-progress-bar" style="--progress: {{ progress }}%">
           <div class="bundle-products__cart-progress-fill"></div>
+          {%- if section.settings.progress_step_1_icon != blank -%}
+            <div class="bundle-products__cart-progress-step bundle-products__cart-progress-step--1">
+              <img src="{{ section.settings.progress_step_1_icon | image_url }}" alt="Step 1" />
+            </div>
+          {%- endif -%}
+          {%- if section.settings.progress_step_2_icon != blank -%}
+            <div class="bundle-products__cart-progress-step bundle-products__cart-progress-step--2">
+              <img src="{{ section.settings.progress_step_2_icon | image_url }}" alt="Step 2" />
+            </div>
+          {%- endif -%}
+          {%- if section.settings.progress_step_3_icon != blank -%}
+            <div class="bundle-products__cart-progress-step bundle-products__cart-progress-step--3">
+              <img src="{{ section.settings.progress_step_3_icon | image_url }}" alt="Step 3" />
+            </div>
+          {%- endif -%}
         </div>
         {%- liquid
           assign progress_text = ''
@@ -423,6 +454,28 @@ document.querySelector('.bundle-products__filter-btn[data-filter="all"]')?.click
       "id": "progress_text_complete",
       "label": "Progress Text (5+ sets in cart)",
       "default": "We love to see it. 20% OFF applied."
+    },
+    {
+      "type": "header",
+      "content": "Progress Bar Step Icons"
+    },
+    {
+      "type": "image_picker",
+      "id": "progress_step_1_icon",
+      "label": "Step 1 Icon",
+      "info": "Icon displayed at the first step (33% of progress bar)"
+    },
+    {
+      "type": "image_picker",
+      "id": "progress_step_2_icon",
+      "label": "Step 2 Icon",
+      "info": "Icon displayed at the second step (66% of progress bar)"
+    },
+    {
+      "type": "image_picker",
+      "id": "progress_step_3_icon",
+      "label": "Step 3 Icon",
+      "info": "Icon displayed at the final step (100% of progress bar)"
     }
   ],
   "blocks": [

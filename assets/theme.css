@@ -17494,8 +17494,8 @@ Collection grid item
 }
 @media only screen and (max-width: 767px) {
   .brick__block__text .text__standard {
-    padding-top: 36px;
-    padding-bottom: 36px;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 }
 .brick__block__text .standard__rte p {

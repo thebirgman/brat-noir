@@ -6,11 +6,33 @@
   flex-direction: column;;
 }
 
+.bundle-product__image-wrapper {
+  position: relative;
+  width: 100%;
+}
+
 .bundle-product__image {
   width: 100%;
   height: auto;
   border-radius: 15px;
   aspect-ratio: 1 / 1;
+}
+
+.bundle-product__bestseller-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: #B594EE;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 1;
+  padding: 6px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  z-index: 2;
 }
 
 .bundle-product__details {
@@ -85,4 +107,69 @@
   width: 45px;
   border-radius: 40px;
   background-color: #EAEAEA;
+}
+
+.bundle-product__quantity-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 190px;
+  height: 40px;
+  border: 1px solid #000;
+  border-radius: 40px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.bundle-product__quantity-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 100%;
+  background: transparent;
+  border: none;
+  color: #000;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.bundle-product__quantity-button:hover {
+  background-color: #f5f5f5;
+}
+
+.bundle-product__quantity-button--minus {
+  border-right: 1px solid #000;
+}
+
+.bundle-product__quantity-button--plus {
+  border-left: 1px solid #000;
+}
+
+.bundle-product__quantity-input {
+  flex: 1;
+  height: 100%;
+  border: none;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1;
+  color: #000;
+  background: transparent;
+  -moz-appearance: textfield;
+}
+
+.bundle-product__quantity-input::-webkit-outer-spin-button,
+.bundle-product__quantity-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.bundle-product__card.added .bundle-product__atc {
+  display: none;
 }

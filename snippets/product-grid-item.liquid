@@ -171,7 +171,8 @@ assign placeholder = placeholder | default: false
         placeholder: placeholder,
         columns_desktop: columns_desktop,
         columns_tablet: columns_tablet,
-        columns_mobile: columns_mobile
+        columns_mobile: columns_mobile,
+        is_bestseller: is_bestseller
       %}
     {% endfor %}
   {% elsif has_swatches %}
@@ -258,7 +259,8 @@ assign placeholder = placeholder | default: false
         placeholder: placeholder,
         columns_desktop: columns_desktop,
         columns_tablet: columns_tablet,
-        columns_mobile: columns_mobile
+        columns_mobile: columns_mobile,
+        is_bestseller: is_bestseller
       %}
 
       {% capture swatch_link_markup %}
@@ -324,7 +326,8 @@ assign placeholder = placeholder | default: false
       placeholder: placeholder,
       columns_desktop: columns_desktop,
       columns_tablet: columns_tablet,
-      columns_mobile: columns_mobile
+      columns_mobile: columns_mobile,
+      is_bestseller: is_bestseller
     %}
   {% endif %}
 

@@ -29,7 +29,7 @@
   --CONTENT-WIDTH: {{ section.settings.content_width }}px;">
   <div class="section-padding">
     <div class="section__inner">
-      <div class="hero__content__wrapper {{ section.settings.text_align }}  {{ section.settings.width }}">
+      <div class="hero__content__wrapper hero__content__wrapper--mobile-{{ section.settings.text_align_mobile | default: 'align--top-center' | replace: 'align--', '' }} hero__content__wrapper--desktop-{{ section.settings.text_align | replace: 'align--', '' }} {{ section.settings.width }}">
         <div class="{{ hero_content_class }} {{ section.settings.color_bg }} js-overflow-content">
           {%- assign animation_anchor = "[data-section-id='" | append: section.id | append: "']" -%}
           {%- assign elements_counter = 0 -%}
@@ -316,8 +316,52 @@
 		{
 			"type": "select",
 			"id": "text_align",
-			"label": "Alignment",
+			"label": "Alignment (desktop)",
 			"default": "align--middle-center",
+			"options": [
+				{
+					"value": "align--top-left",
+					"label": "Top left"
+				},
+				{
+					"value": "align--top-center",
+					"label": "Top center"
+				},
+				{
+					"value": "align--top-right",
+					"label": "Top right"
+				},
+				{
+					"value": "align--middle-left",
+					"label": "Middle left"
+				},
+				{
+					"value": "align--middle-center",
+					"label": "Absolute center"
+				},
+				{
+					"value": "align--middle-right",
+					"label": "Middle right"
+				},
+				{
+					"value": "align--bottom-left",
+					"label": "Bottom left"
+				},
+				{
+					"value": "align--bottom-center",
+					"label": "Bottom center"
+				},
+				{
+					"value": "align--bottom-right",
+					"label": "Bottom right"
+				}
+			]
+		},
+		{
+			"type": "select",
+			"id": "text_align_mobile",
+			"label": "Alignment (mobile)",
+			"default": "align--top-center",
 			"options": [
 				{
 					"value": "align--top-left",

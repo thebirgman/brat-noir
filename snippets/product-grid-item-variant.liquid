@@ -195,6 +195,9 @@
           --wh-ratio: {{ container_wh_ratio }};
         "
       >
+        {%- if is_bestseller -%}
+          <div class="bundle-product__bestseller-badge">BESTSELLER</div>
+        {%- endif -%}
         {%- if product.media.size > 0 -%}
           {% comment %}
             Manually store and increment this variable since we start skipping images below when we exceed the allowed images which would

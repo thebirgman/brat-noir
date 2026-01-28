@@ -8,21 +8,18 @@
     relative
     bg--transparent
     text-[color:var(--text)]
+    {% if section.settings.layout_desktop == 'split-right' %}
+      nested-banner--split-right
+    {% endif %}
   "
   style="
     --PT: {{ section.settings.padding_top }}px;
     --PB: {{ section.settings.padding_bottom }}px;
   "
 >
-  <div class="absolute inset-0">
-    <div class="
-      {{ section.settings.width }} section-padding h-full
-      {% comment %} Fixes an issue where the content overflows outside the section's container when it is bottom aligned and there is a "spacer" block above it {% endcomment %}
-      flex flex-col
-    ">
-      {% content_for "blocks" %}
-    </div>
-  </div>
+  {% capture blocks_content %}
+    {% content_for "blocks" %}
+  {% endcapture %}
 
   {% liquid
     if section.index0 == 0
@@ -34,15 +31,46 @@
     endif
   %}
 
-  {% render 'image-parallax',
-    img_object: section.settings.image,
-    img_object_mobile: section.settings.image_mobile,
-    frame_height_class: section.settings.height,
-    frame_class: 'nested-banner__section-image',
-    preload: preload,
-    loading: loading,
-    fetchpriority: fetchpriority
-  %}
+  {% if section.settings.layout_desktop == 'split-right' %}
+    <div class="nested-banner__split-container {{ section.settings.width }} section-padding h-full flex flex-col md:flex-row md:items-center md:gap-8 lg:gap-12">
+      <div class="nested-banner__split-content flex-1 md:w-1/2 order-2 md:order-1">
+        <div class="h-full flex flex-col">
+          {{ blocks_content }}
+        </div>
+      </div>
+      <div class="nested-banner__split-image flex-1 md:w-1/2 order-1 md:order-2">
+        {% render 'image-parallax',
+          img_object: section.settings.image,
+          img_object_mobile: section.settings.image_mobile,
+          frame_height_class: section.settings.height,
+          frame_class: 'nested-banner__section-image',
+          preload: preload,
+          loading: loading,
+          fetchpriority: fetchpriority
+        %}
+      </div>
+    </div>
+  {% else %}
+    <div class="absolute inset-0">
+      <div class="
+        {{ section.settings.width }} section-padding h-full
+        {% comment %} Fixes an issue where the content overflows outside the section's container when it is bottom aligned and there is a "spacer" block above it {% endcomment %}
+        flex flex-col
+      ">
+        {{ blocks_content }}
+      </div>
+    </div>
+
+    {% render 'image-parallax',
+      img_object: section.settings.image,
+      img_object_mobile: section.settings.image_mobile,
+      frame_height_class: section.settings.height,
+      frame_class: 'nested-banner__section-image',
+      preload: preload,
+      loading: loading,
+      fetchpriority: fetchpriority
+    %}
+  {% endif %}
 </section>
 
 {% schema %}
@@ -62,6 +90,22 @@
 		{
 			"type": "header",
 			"content": "Layout"
+		},
+		{
+			"type": "select",
+			"id": "layout_desktop",
+			"label": "Desktop layout",
+			"default": "overlay",
+			"options": [
+				{
+					"value": "overlay",
+					"label": "Overlay (content over image)"
+				},
+				{
+					"value": "split-right",
+					"label": "Split (image right, content left)"
+				}
+			]
 		},
 		{
 			"type": "select",

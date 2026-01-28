@@ -1,4 +1,15 @@
 (function () {
+  // Debounce helper to prevent rate limiting
+  let refreshCartTimeout = null;
+  function debouncedRefreshCart(delay = 500) {
+    if (refreshCartTimeout) {
+      clearTimeout(refreshCartTimeout);
+    }
+    refreshCartTimeout = setTimeout(() => {
+      refreshCart();
+    }, delay);
+  }
+
   async function addToCart(variantId, sellingPlanId, quantity, productData) {
     console.log('variantId:', variantId);
     console.log('sellingPlanId:', sellingPlanId);
@@ -18,28 +29,26 @@
     }
     
     // Add to cart in background
-    await fetch('/cart/add.js', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        items: [item]
-      })
-    });
+    try {
+      const response = await fetch('/cart/add.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          items: [item]
+        })
+      });
+      
+      if (!response.ok) {
+        console.warn('Add to cart failed:', response.status);
+      }
+    } catch (error) {
+      console.error('Error adding to cart:', error);
+    }
 
     // Update bundle cart UI with real data and update cart drawer in background
-    refreshCart().then(cartData => {
-      // Update theme's cart drawer in background (non-blocking)
-      if (cartData) {
-        document.dispatchEvent(new CustomEvent('theme:cart:change', {
-          detail: {
-            cart: cartData
-          },
-          bubbles: true
-        }));
-      }
-    });
+    debouncedRefreshCart();
   }
 
   function optimisticallyAddToBundleCart(variantId, productData, quantity) {
@@ -93,37 +102,42 @@
       }
     }
 
-    await fetch(`/cart/change.js`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        id: variantId,
-        quantity: 0
-      })
-    });
+    try {
+      const response = await fetch(`/cart/change.js`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          id: variantId,
+          quantity: 0
+        })
+      });
+      
+      if (!response.ok) {
+        console.warn('Remove from cart failed:', response.status);
+      }
+    } catch (error) {
+      console.error('Error removing from cart:', error);
+    }
 
     // Update bundle cart UI with real data and update cart drawer in background
-    refreshCart().then(cartData => {
-      // Update theme's cart drawer in background (non-blocking)
-      if (cartData) {
-        document.dispatchEvent(new CustomEvent('theme:cart:change', {
-          detail: {
-            cart: cartData
-          },
-          bubbles: true
-        }));
-      }
-    });
+    debouncedRefreshCart();
   }
 
   async function refreshCart() {
-    const response = await fetch('/cart.js');
-    const data = await response.json();
-    
-    console.log('Cart data:', data);
-    const template = document.querySelector('#bundle-cart-item');
+    try {
+      const response = await fetch('/cart.js');
+      
+      if (!response.ok) {
+        console.warn('Cart fetch failed with status:', response.status);
+        return null;
+      }
+      
+      const data = await response.json();
+      
+      console.log('Cart data:', data);
+      const template = document.querySelector('#bundle-cart-item');
 
     // Check for products with special tags (trio-bundle or collection) and get compare_at_price
     let hasSpecialTag = false;
@@ -249,8 +263,51 @@
       remaining.innerHTML = progressText;
     }
     
+    // Sync quantity selectors with cart state
+    const allProductCards = document.querySelectorAll('.bundle-product__card');
+    const cartVariantIds = new Map();
+    
+    if (data.items && data.items.length > 0) {
+      data.items.forEach(item => {
+        cartVariantIds.set(item.variant_id.toString(), item.quantity);
+      });
+    }
+    
+    allProductCards.forEach(card => {
+      const variantIdAttr = card.querySelector('[data-variant-id]')?.getAttribute('data-variant-id');
+      if (!variantIdAttr) return;
+      
+      const quantityInCart = cartVariantIds.get(variantIdAttr);
+      const quantityWrapper = card.querySelector('.bundle-product__quantity-wrapper');
+      const atcButton = card.querySelector('.bundle-product__atc');
+      
+      if (quantityInCart && quantityInCart > 0) {
+        // Item is in cart - show quantity selector
+        card.classList.add('added');
+        if (quantityWrapper && atcButton) {
+          atcButton.style.display = 'none';
+          quantityWrapper.style.display = 'flex';
+          const quantityInput = quantityWrapper.querySelector('.bundle-product__quantity-input');
+          if (quantityInput) {
+            quantityInput.value = quantityInCart;
+          }
+        }
+      } else {
+        // Item is not in cart - show button
+        card.classList.remove('added');
+        if (quantityWrapper && atcButton) {
+          quantityWrapper.style.display = 'none';
+          atcButton.style.display = 'flex';
+        }
+      }
+    });
+    
     // Return cart data for use in updating theme's cart drawer
     return data;
+    } catch (error) {
+      console.error('Error refreshing cart:', error);
+      return null;
+    }
   }
 
   document.addEventListener('DOMContentLoaded', () => {
@@ -270,13 +327,38 @@
           price: card.querySelector('.bundle-product__price--sale, .bundle-product__price--regular')?.textContent || '0'
         } : null;
 
+        // Add visual feedback class to product card and show quantity selector
+        if (card) {
+          card.classList.add('added', 'is-added-to-box');
+          
+          // Show quantity selector and hide button
+          const quantityWrapper = card.querySelector('.bundle-product__quantity-wrapper');
+          const atcButton = card.querySelector('.bundle-product__atc');
+          
+          if (quantityWrapper && atcButton) {
+            atcButton.style.display = 'none';
+            quantityWrapper.style.display = 'flex';
+            
+            // Set initial quantity to 1
+            const quantityInput = quantityWrapper.querySelector('.bundle-product__quantity-input');
+            if (quantityInput) {
+              quantityInput.value = '1';
+            }
+          }
+          
+          // Remove the temporary is-added-to-box class after 2 seconds (keep 'added' class)
+          setTimeout(() => {
+            card.classList.remove('is-added-to-box');
+          }, 2000);
+        }
+
         // Don't await - let it run in background after optimistic update
         addToCart(variantId, 0, 1, productData).then(() => {
           button.classList.remove('loading');
         }).catch(() => {
           button.classList.remove('loading');
           // If add fails, refresh cart to show correct state
-          refreshCart();
+          debouncedRefreshCart();
         });
       });
     });
@@ -296,8 +378,166 @@
         }).catch(() => {
           button.classList.remove('loading');
           // If remove fails, refresh cart to show correct state
-          refreshCart();
+          debouncedRefreshCart();
         });
+      }
+    });
+
+    // Handle quantity changes in bundle product cards
+    document.addEventListener('click', async (event) => {
+      const decreaseBtn = event.target.closest('[data-decrease-quantity]');
+      const increaseBtn = event.target.closest('[data-increase-quantity]');
+      
+      if (decreaseBtn || increaseBtn) {
+        const quantityWrapper = (decreaseBtn || increaseBtn).closest('.bundle-product__quantity-wrapper');
+        if (!quantityWrapper) return;
+        
+        const quantityInput = quantityWrapper.querySelector('.bundle-product__quantity-input');
+        const card = quantityWrapper.closest('.bundle-product__card');
+        if (!quantityInput || !card) return;
+        
+        // Get variant ID from input or fallback to button's data attribute
+        let variantId = quantityInput.getAttribute('data-variant-id');
+        if (!variantId) {
+          const addButton = card.querySelector('[data-add-to-cart]');
+          variantId = addButton?.getAttribute('data-variant-id');
+        }
+        
+        if (!variantId) {
+          console.error('No variant ID found for quantity change');
+          return;
+        }
+        
+        const sellingPlanID = card.querySelector('[data-selling-plan]')?.getAttribute('data-selling-plan') || null;
+        
+        let currentQuantity = parseInt(quantityInput.value) || 1;
+        
+        if (decreaseBtn) {
+          if (currentQuantity > 1) {
+            currentQuantity--;
+            quantityInput.value = currentQuantity;
+            
+            // Update cart - set new quantity
+            try {
+              const response = await fetch('/cart/change.js', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  id: variantId,
+                  quantity: currentQuantity
+                })
+              });
+              
+              if (!response.ok) {
+                console.warn('Cart change failed:', response.status);
+              }
+            } catch (error) {
+              console.error('Error changing cart:', error);
+            }
+            
+            debouncedRefreshCart();
+          } else {
+            // Remove from cart if quantity becomes 0
+            await removeFromCart(variantId);
+            
+            // Hide quantity selector and show button
+            quantityWrapper.style.display = 'none';
+            const atcButton = card.querySelector('.bundle-product__atc');
+            if (atcButton) {
+              atcButton.style.display = 'flex';
+            }
+            
+            // Remove added class
+            card.classList.remove('added');
+          }
+        } else if (increaseBtn) {
+          currentQuantity++;
+          quantityInput.value = currentQuantity;
+          
+          // Add one more to cart using /cart/add.js
+          const item = {
+            id: parseInt(variantId),
+            quantity: 1
+          };
+          
+          if (sellingPlanID) {
+            item.selling_plan = parseInt(sellingPlanID);
+          }
+          
+          try {
+            const response = await fetch('/cart/add.js', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ items: [item] })
+            });
+            
+            if (!response.ok) {
+              console.warn('Cart add failed:', response.status);
+            }
+          } catch (error) {
+            console.error('Error adding to cart:', error);
+          }
+          
+          debouncedRefreshCart();
+        }
+      }
+    });
+    
+    // Handle direct input changes
+    document.addEventListener('change', async (event) => {
+      const quantityInput = event.target.closest('.bundle-product__quantity-input');
+      if (!quantityInput || !quantityInput.closest('.bundle-product__quantity-wrapper')) return;
+      
+      const card = quantityInput.closest('.bundle-product__card');
+      if (!card) return;
+      
+      // Get variant ID from input or fallback to button's data attribute
+      let variantId = quantityInput.getAttribute('data-variant-id');
+      if (!variantId) {
+        const addButton = card.querySelector('[data-add-to-cart]');
+        variantId = addButton?.getAttribute('data-variant-id');
+      }
+      
+      if (!variantId) {
+        console.error('No variant ID found for quantity change');
+        return;
+      }
+      
+      let newQuantity = parseInt(quantityInput.value);
+      
+      if (isNaN(newQuantity) || newQuantity < 0) {
+        newQuantity = 1;
+        quantityInput.value = 1;
+      }
+      
+      if (newQuantity === 0) {
+        await removeFromCart(variantId);
+        const quantityWrapper = quantityInput.closest('.bundle-product__quantity-wrapper');
+        const atcButton = card.querySelector('.bundle-product__atc');
+        if (quantityWrapper && atcButton) {
+          quantityWrapper.style.display = 'none';
+          atcButton.style.display = 'flex';
+        }
+        card.classList.remove('added');
+      } else {
+        // Set absolute quantity in cart
+        try {
+          const response = await fetch('/cart/change.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              id: variantId,
+              quantity: newQuantity
+            })
+          });
+          
+          if (!response.ok) {
+            console.warn('Cart change failed:', response.status);
+          }
+        } catch (error) {
+          console.error('Error changing cart:', error);
+        }
+        debouncedRefreshCart();
       }
     });
 
@@ -305,9 +545,7 @@
   });
 
   function handleCartChange() {
-    if (typeof refreshCart === 'function') {
-      refreshCart();
-    }
+    debouncedRefreshCart(300);
   }
 
   // 1️⃣ Shopify / theme cart events (documented + common)

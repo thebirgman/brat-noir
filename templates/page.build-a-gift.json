@@ -11,10 +11,516 @@
   "sections": {
     "main": {
       "type": "page",
-      "settings": {}
+      "disabled": true,
+      "settings": {
+        "kicker": "",
+        "kicker_size": 3,
+        "show_title": true,
+        "title_size": 8,
+        "show_content": true,
+        "content_size": 5,
+        "align_text": "text-left",
+        "text_color": "text--neutral",
+        "bg": "palette--light bg--neutral",
+        "width": "wrapper",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "section_richtext_qVP7xp": {
+      "type": "section-richtext",
+      "blocks": {
+        "heading_AxxLhd": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Ultimate Brat Noir Gift Experience.",
+            "text_size": 8
+          }
+        },
+        "text_JMD7dJ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Curate 5 premium sets in our exclusive, faux-velvet vanity box. Includes a collectible Tarot card and your personal note—handwritten by us.</p>",
+            "text_size": 4,
+            "text_columns": 1
+          }
+        },
+        "button_VxaCVY": {
+          "type": "button",
+          "settings": {
+            "link_text_1": "Start Building Your Gift",
+            "link_1": "#build-gift-box",
+            "button_size_1": "btn--large",
+            "button_style_1": "btn",
+            "button_color_1": "btn--white",
+            "link_text_2": "",
+            "link_2": "",
+            "button_size_2": "btn--long",
+            "button_style_2": "btn-text-thick-line",
+            "button_color_2": "btn--white",
+            "link_text_3": "",
+            "link_3": "",
+            "button_size_3": "btn--long",
+            "button_style_3": "btn-text-thick-line",
+            "button_color_3": "btn--white"
+          }
+        }
+      },
+      "block_order": [
+        "heading_AxxLhd",
+        "text_JMD7dJ",
+        "button_VxaCVY"
+      ],
+      "custom_css": [
+        ".palette--light {background: transparent;}",
+        "@media screen and (min-width: 769px) {a {width: 445px; font-size: 20px !important; margin-top: 10px !important; }}",
+        "a {box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.25), 3px 8px 9px rgba(0, 0, 0, 0.21), 6px 19px 12px rgba(0, 0, 0, 0.13), 10px 33px 14px rgba(0, 0, 0, 0.04), 16px 52px 15px rgba(0, 0, 0, 0); font-weight: 700; background: #61150f; color: #fff;}",
+        "a:hover {background: #7e1a12;}",
+        "@media screen and (max-width: 768px) {p {font-size: 14px; } a.standard__cta.hero__btn {width: 100%; max-width: 90vw; margin: 0 auto; }}"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "align_text": "text-center",
+        "text_color": "text--neutral",
+        "bg": "palette--light bg--neutral",
+        "content_width": 2000,
+        "width": "wrapper",
+        "padding_top": 72,
+        "padding_bottom": 0
+      }
+    },
+    "section_double_Hbg3nU": {
+      "type": "section-double",
+      "blocks": {
+        "image_jmcfJ4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Velvet_Packaging.gif",
+            "overlay_opacity": 0,
+            "overlay_color": "#000000",
+            "enable_overlay_text": false,
+            "kicker": "",
+            "title": "",
+            "richtext": "",
+            "text_align": "align--middle-center",
+            "text_color": "text--white",
+            "link_text": "",
+            "link": "",
+            "button_color": "btn--white",
+            "button_style": "btn"
+          }
+        },
+        "text_xrJdtb": {
+          "type": "text",
+          "settings": {
+            "kicker": "",
+            "title": "<strong>The Velvet Vanity Box.</strong>",
+            "text": "<p>A reusable, faux-velvet lined keepsake box designed to protect their collection in style.</p>",
+            "font_size": 4,
+            "text_columns": 1,
+            "align_text": "text-center",
+            "button_text": "",
+            "button_url": "",
+            "button_color": "btn--neutral",
+            "button_style": "btn-text-thick-line",
+            "text_color": "text--neutral",
+            "bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_jmcfJ4",
+        "text_xrJdtb"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 821px) {h2 {font-size: 48px !important; } p {max-width: 400px; margin: 0 auto; } .wrapper {padding-left: 0 !important; padding-right: 0 !important; }}",
+        "@media screen and (max-width: 768px) {.wrapper.section-padding {padding: 0px; } h2 {font-size: 26px !important; } p {max-width: 360px; margin: 0 auto; }}"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "height": "use_image",
+        "brick_gutter": 0,
+        "borders": false,
+        "bg_color": "",
+        "preload_image": false,
+        "width": "wrapper",
+        "padding_top": 26,
+        "padding_bottom": 0
+      }
+    },
+    "section_double_izRHnt": {
+      "type": "section-double",
+      "blocks": {
+        "text_hM7R6g": {
+          "type": "text",
+          "settings": {
+            "kicker": "",
+            "title": "<strong>Curated by You.</strong>",
+            "text": "<p>Select 5 distinct looks from our Ombré, Classic, Goth, and Summer collections.</p>",
+            "font_size": 4,
+            "text_columns": 1,
+            "align_text": "text-center",
+            "button_text": "",
+            "button_url": "",
+            "button_color": "btn--neutral",
+            "button_style": "btn-text-thick-line",
+            "text_color": "text--neutral",
+            "bg_color": ""
+          }
+        },
+        "image_3TRQTK": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Curated_by_You.png",
+            "overlay_opacity": 0,
+            "overlay_color": "#000000",
+            "enable_overlay_text": false,
+            "kicker": "",
+            "title": "",
+            "richtext": "",
+            "text_align": "align--middle-center",
+            "text_color": "text--white",
+            "link_text": "",
+            "link": "",
+            "button_color": "btn--white",
+            "button_style": "btn"
+          }
+        }
+      },
+      "block_order": [
+        "text_hM7R6g",
+        "image_3TRQTK"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 821px) {h2 {font-size: 48px !important; } p {max-width: 400px; margin: 0 auto; } .wrapper {padding-left: 0 !important; padding-right: 0 !important; }}",
+        "@media screen and (max-width: 768px) {.wrapper.section-padding {padding: 0px; } h2 {font-size: 26px !important; } p {max-width: 360px; margin: 0 auto; }}"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "height": "use_image",
+        "brick_gutter": 0,
+        "borders": false,
+        "bg_color": "",
+        "preload_image": false,
+        "width": "wrapper",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "section_double_bqV4gT": {
+      "type": "section-double",
+      "blocks": {
+        "image_epMddw": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Tarot_Card.gif",
+            "overlay_opacity": 15,
+            "overlay_color": "#000000",
+            "enable_overlay_text": false,
+            "kicker": "",
+            "title": "",
+            "richtext": "",
+            "text_align": "align--middle-center",
+            "text_color": "text--white",
+            "link_text": "",
+            "link": "",
+            "button_color": "btn--white",
+            "button_style": "btn"
+          }
+        },
+        "text_JxygnE": {
+          "type": "text",
+          "settings": {
+            "kicker": "",
+            "title": "<strong>Written in the Cards.</strong>",
+            "text": "<p>Every box includes an exclusive Brat Noir Tarot Card for a touch of mystique.</p>",
+            "font_size": 4,
+            "text_columns": 1,
+            "align_text": "text-center",
+            "button_text": "",
+            "button_url": "",
+            "button_color": "btn--neutral",
+            "button_style": "btn-text-thick-line",
+            "text_color": "text--neutral",
+            "bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_epMddw",
+        "text_JxygnE"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 821px) {h2 {font-size: 48px !important; } p {max-width: 400px; margin: 0 auto; } .wrapper {padding-left: 0 !important; padding-right: 0 !important; }}",
+        "@media screen and (max-width: 768px) {.wrapper.section-padding {padding: 0px; } h2 {font-size: 26px !important; } p {max-width: 360px; margin: 0 auto; }}"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "height": "use_image",
+        "brick_gutter": 0,
+        "borders": false,
+        "bg_color": "",
+        "preload_image": false,
+        "width": "wrapper",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "section_double_Xf8aYX": {
+      "type": "section-double",
+      "blocks": {
+        "text_6XRGyR": {
+          "type": "text",
+          "settings": {
+            "kicker": "",
+            "title": "<strong>Pen to Paper.</strong>",
+            "text": "<p>Write your message at checkout, and we will handwrite it on premium cardstock.</p>",
+            "font_size": 4,
+            "text_columns": 1,
+            "align_text": "text-center",
+            "button_text": "",
+            "button_url": "",
+            "button_color": "btn--neutral",
+            "button_style": "btn-text-thick-line",
+            "text_color": "text--neutral",
+            "bg_color": ""
+          }
+        },
+        "image_WR7Vpa": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/pen-to-paper.png",
+            "overlay_opacity": 15,
+            "overlay_color": "#000000",
+            "enable_overlay_text": false,
+            "kicker": "",
+            "title": "",
+            "richtext": "",
+            "text_align": "align--middle-center",
+            "text_color": "text--white",
+            "link_text": "",
+            "link": "",
+            "button_color": "btn--white",
+            "button_style": "btn"
+          }
+        }
+      },
+      "block_order": [
+        "text_6XRGyR",
+        "image_WR7Vpa"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 821px) {h2 {font-size: 48px !important; } p {max-width: 400px; margin: 0 auto; } .wrapper {padding-left: 0 !important; padding-right: 0 !important; }}",
+        "@media screen and (max-width: 768px) {.wrapper.section-padding {padding: 0px; } h2 {font-size: 26px !important; } p {width: 360px; margin: 0 auto; }}"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "height": "use_image",
+        "brick_gutter": 0,
+        "borders": false,
+        "bg_color": "",
+        "preload_image": false,
+        "width": "wrapper",
+        "padding_top": 0,
+        "padding_bottom": 28
+      }
+    },
+    "gift_steps_8VpaKx": {
+      "type": "gift-steps",
+      "blocks": {
+        "step_MB8mAG": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/brat-gift-step-1.png",
+            "image_height": 140,
+            "image_height_mobile": 110,
+            "title": "<p>Step 1</p>",
+            "text": "<p>Select 5 Sets.</p>"
+          }
+        },
+        "step_i6J6FE": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/brat-gift-step-2.png",
+            "image_height": 140,
+            "image_height_mobile": 110,
+            "title": "<p>Step 2</p>",
+            "text": "<p>Craft Your Note.</p>"
+          }
+        },
+        "step_3HH7JH": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/brat-gift-step-3.png",
+            "image_height": 140,
+            "image_height_mobile": 110,
+            "title": "<p>Step 3</p>",
+            "text": "<p>We Ship the Experience.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "step_MB8mAG",
+        "step_i6J6FE",
+        "step_3HH7JH"
+      ],
+      "custom_css": [
+        "h2 {margin-bottom: 0 !important;}"
+      ],
+      "name": "Gift Steps",
+      "settings": {
+        "heading": "Gift Giving, Elevated.",
+        "max_width": 1200,
+        "background": "linear-gradient(180deg, rgba(244, 232, 255, 1), rgba(249, 228, 227, 1) 100%)",
+        "padding_top": 0,
+        "padding_bottom": 72
+      }
+    },
+    "value_breakdown_pM8HLp": {
+      "type": "value-breakdown",
+      "blocks": {
+        "item_RG8NcT": {
+          "type": "item",
+          "settings": {
+            "price": "$90",
+            "label": "5 Premium Nail Sets Value"
+          }
+        },
+        "operator_PdmgXz": {
+          "type": "operator",
+          "settings": {
+            "symbol": "+"
+          }
+        },
+        "item_PxKLbK": {
+          "type": "item",
+          "settings": {
+            "price": "$30",
+            "label": "The Velvet Vanity Box"
+          }
+        },
+        "operator_j7yC4T": {
+          "type": "operator",
+          "settings": {
+            "symbol": "+"
+          }
+        },
+        "item_mt4kCF": {
+          "type": "item",
+          "settings": {
+            "price": "$10",
+            "label": "Handwritten Card Service"
+          }
+        },
+        "operator_78cDyz": {
+          "type": "operator",
+          "settings": {
+            "symbol": "+"
+          }
+        },
+        "item_NmYtrJ": {
+          "type": "item",
+          "settings": {
+            "price": "priceless",
+            "label": "Exclusive Tarot Card"
+          }
+        },
+        "operator_rEXbtt": {
+          "type": "operator",
+          "settings": {
+            "symbol": "="
+          }
+        },
+        "result_GNtXDE": {
+          "type": "result",
+          "settings": {
+            "total_value": "$130",
+            "final_price": "$75"
+          }
+        }
+      },
+      "block_order": [
+        "item_RG8NcT",
+        "operator_PdmgXz",
+        "item_PxKLbK",
+        "operator_j7yC4T",
+        "item_mt4kCF",
+        "operator_78cDyz",
+        "item_NmYtrJ",
+        "operator_rEXbtt",
+        "result_GNtXDE"
+      ],
+      "name": "Value Breakdown",
+      "settings": {
+        "max_width": 1200,
+        "background": "",
+        "accent_color": "#7b2d26",
+        "divider_color": "#e27a6a",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "section_build_gift_box_xQ6gQU": {
+      "type": "section-build-gift-box",
+      "blocks": {
+        "filter_eBEjAA": {
+          "type": "filter",
+          "settings": {
+            "label": "Brat Ombré",
+            "collection": "fall-collection"
+          }
+        },
+        "filter_MVTpft": {
+          "type": "filter",
+          "settings": {
+            "label": "Brat Classic",
+            "collection": "classic-collection"
+          }
+        },
+        "filter_zVkfPE": {
+          "type": "filter",
+          "settings": {
+            "label": "Brat Goth",
+            "collection": "goth-collection"
+          }
+        },
+        "filter_UtjQ9i": {
+          "type": "filter",
+          "settings": {
+            "label": "Brat Summer",
+            "collection": "summer-collection"
+          }
+        }
+      },
+      "block_order": [
+        "filter_eBEjAA",
+        "filter_MVTpft",
+        "filter_zVkfPE",
+        "filter_UtjQ9i"
+      ],
+      "name": "Build Gift Box",
+      "settings": {
+        "collection": "collection-2",
+        "gift_box_product": "brat-noir-gift-box",
+        "heading": "",
+        "subheading": "",
+        "all_label": "All",
+        "gift_box_heading": "BUILD THE PERFECT GIFT",
+        "gift_box_features": "<ul><li>One-time purchase.</li><li>Luxury Gift Packaging Included.</li><li>Free Shipping</li></ul>",
+        "progress_icon": "shopify://shop_images/Group_542.png",
+        "progress_icon_complete": "shopify://shop_images/progress-bar-complete_77889e5e-6381-4b56-b106-64f41b5889d0.png"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "section_richtext_qVP7xp",
+    "section_double_Hbg3nU",
+    "section_double_izRHnt",
+    "section_double_bqV4gT",
+    "section_double_Xf8aYX",
+    "gift_steps_8VpaKx",
+    "value_breakdown_pM8HLp",
+    "section_build_gift_box_xQ6gQU"
   ]
 }

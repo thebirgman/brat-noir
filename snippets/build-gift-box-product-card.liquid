@@ -17,45 +17,37 @@
   <div class="bundle-product__details">
     <div class="bundle-product__info">
        <p class="product__grid__collection-name"> {{ product.metafields.custom.collection_name | metafield_text }} </p>
-      {% comment %} <span class="bundle-product__collection">{{ product.collections[0].title }}</span> {% endcomment %}
       <span class="bundle-product__title">{{ product.title }}</span>
     </div>
     <div class="bundle-product__price">
-      {% if product.compare_at_price > product.price %}
-        <span class="bundle-product__price--sale">{{ product.price | money_without_trailing_zeros }}</span>
-        <span class="bundle-product__price--compare">{{ product.compare_at_price | money_without_trailing_zeros }}</span>
-      {% else %}
-        <span class="bundle-product__price--regular">{{ product.price | money_without_trailing_zeros }}</span>
-      {% endif %}
+      <span class="bundle-product__price--regular">Included In <br>Gift Box Bundle</span>
     </div>
   </div>
   <div class="bundle-product__actions">
-    {% assign first_variant = product.variants.first %}
-
-    {% for allocation in first_variant.selling_plan_allocations %}
-      {% assign first_selling_plan_id = allocation.selling_plan.id %}
-      {% break %}
-    {% endfor %}
     <button
       class="bundle-product__atc"
       data-variant-id="{{ product.first_available_variant.id }}"
-      data-selling-plan="{{ first_selling_plan_id }}"
-      data-add-to-cart
+      data-product-id="{{ product.id }}"
+      data-product-handle="{{ product.handle }}"
+      data-product-title="{{ product.title }}"
+      data-product-image="{{ product_image | image_url }}"
+      data-product-collection="{{ product.metafields.custom.collection_name | metafield_text }}"
+      data-add-to-box
     >
-      ADD TO CART
+      ADD TO BOX
     </button>
     <div class="bundle-product__quantity-wrapper" style="display: none;">
-      <button class="bundle-product__quantity-button bundle-product__quantity-button--minus" data-decrease-quantity type="button" aria-label="Decrease quantity">&minus;</button>
+      <button class="bundle-product__quantity-button bundle-product__quantity-button--minus" data-decrease-box-quantity type="button" aria-label="Decrease quantity">&minus;</button>
       <input 
         class="bundle-product__quantity-input"
-        data-quantity-input
+        data-box-quantity-input
         aria-label="Quantity"
         type="number"
         min="1"
         value="1"
         data-variant-id="{{ product.first_available_variant.id }}"
       />
-      <button class="bundle-product__quantity-button bundle-product__quantity-button--plus" data-increase-quantity type="button" aria-label="Increase quantity">+</button>
+      <button class="bundle-product__quantity-button bundle-product__quantity-button--plus" data-increase-box-quantity type="button" aria-label="Increase quantity">+</button>
     </div>
      <button
   class="st-wishlist-button wishlist-button"

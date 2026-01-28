@@ -1,0 +1,104 @@
+<section class="verified-benefits">
+  <div class="verified-benefits__container">
+    {% for block in section.blocks %}
+      <div class="verified-benefits__item" {{ block.shopify_attributes }}>
+        {% if section.settings.icon != blank %}
+          <img
+            src="{{ section.settings.icon | image_url: width: 40 }}"
+            alt="Verified"
+            class="verified-benefits__icon"
+            loading="lazy"
+          >
+        {% endif %}
+        <p class="verified-benefits__text">
+          {{ block.settings.text }}
+        </p>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<style>
+.verified-benefits {
+  background: linear-gradient(90deg, #F1E9FF, #FDE7E1);
+  padding: 20px;
+}
+
+.verified-benefits__container {
+  max-width: 1132px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.verified-benefits__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.verified-benefits__icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.verified-benefits__text {
+  font-size: 16px;
+  color: #222222;
+  margin: 0;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .verified-benefits__container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .verified-benefits__item {
+    width: 100%;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Verified Benefits",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "icon",
+      "label": "Icon",
+      "info": "Upload verified.svg"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Free Shipping on Subscription Orders"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Verified Benefits",
+      "blocks": [
+        { "type": "benefit" },
+        { "type": "benefit" },
+        { "type": "benefit" }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -2,6 +2,8 @@
   .gift-steps {
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .gift-steps__container {
@@ -9,17 +11,22 @@
     margin: 0 auto;
     background: {{ section.settings.background }};
     border-radius: 24px;
-    padding: 48px 32px;
+    padding: 42px 74px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.08);
   }
 
   .gift-steps__heading {
     text-align: center;
-    margin-bottom: 48px;
+    margin-bottom: 10px;
+   
   }
 
   .gift-steps__heading h2 {
-    margin: 0;
+    font-size: 24px !important;
+  }
+
+  .gift-step p {
+    font-size: 16px !important;
   }
 
   .gift-steps__grid {
@@ -29,21 +36,114 @@
     text-align: center;
   }
 
-  .gift-step img {
-    max-width: 140px;
-    margin: 0 auto 24px;
+  .gift-step__image {
+    margin-bottom: 24px;
+  }
+
+  .gift-step__image img {
+    height: var(--image-height);
+    width: auto;
+    max-width: 100%;
     display: block;
+    margin: 0 auto;
   }
 
   .gift-step h3 {
     margin-bottom: 8px;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    font-family: 'Montserrat' !important;
   }
 
+  .gift-steps__container {
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.1);
+}
+
+
+  /* Mobile Slider (hidden on desktop) */
+  .gift-steps__mobile-slider {
+    display: none;
+  }
+
+  .gift-steps__slider-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 20px;
+    padding: 0 15px 20px 15px;
+    margin: 0 -15px;
+  }
+
+  .gift-steps__slider-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gift-steps__slide {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    text-align: center;
+  }
+
+  .gift-steps__dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .gift-steps__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #d0d0d0;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+  }
+
+  .gift-steps__dot:hover {
+    background-color: #999;
+  }
+
+  .gift-steps__dot.is-active {
+    background-color: #000;
+    width: 12px;
+    height: 12px;
+  }
+
+  /* Mobile optimizations */
   @media (max-width: 768px) {
-    .gift-steps__grid {
-      grid-template-columns: 1fr;
-      gap: 40px;
+    .gift-steps__container {
+      padding: 32px 20px;
+      border-radius: 20px;
     }
+
+    .gift-steps__heading {
+      margin-bottom: 32px;
+    }
+
+    /* Hide desktop grid on mobile */
+    .gift-steps__grid {
+      display: none;
+    }
+
+    /* Show mobile slider on mobile */
+    .gift-steps__mobile-slider {
+      display: block;
+    }
+
+    .gift-steps__slide .gift-step__image img {
+      height: var(--image-height-mobile);
+    }
+    .gift-step h3 {
+    margin-bottom: 5px;
+}
   }
 {% endstyle %}
 
@@ -55,15 +155,24 @@
       </div>
     {% endif %}
 
+    {%- comment -%} Desktop Grid {%- endcomment -%}
     <div class="gift-steps__grid">
       {% for block in section.blocks %}
         <div class="gift-step" {{ block.shopify_attributes }}>
           {% if block.settings.image %}
-            <img
-              src="{{ block.settings.image | image_url: width: 300 }}"
-              alt="{{ block.settings.title | escape }}"
-              loading="lazy"
+            <div
+              class="gift-step__image"
+              style="
+                --image-height: {{ block.settings.image_height }}px;
+                --image-height-mobile: {{ block.settings.image_height_mobile }}px;
+              "
             >
+              <img
+                src="{{ block.settings.image | image_url: width: 600 }}"
+                alt="{{ block.settings.title | escape }}"
+                loading="lazy"
+              >
+            </div>
           {% endif %}
 
           {% if block.settings.title != blank %}
@@ -76,8 +185,57 @@
         </div>
       {% endfor %}
     </div>
+
+    {%- comment -%} Mobile Slider {%- endcomment -%}
+    <div class="gift-steps__mobile-slider">
+      <div class="gift-steps__slider-track">
+        {% for block in section.blocks %}
+          <div class="gift-steps__slide">
+            <div class="gift-step" {{ block.shopify_attributes }}>
+              {% if block.settings.image %}
+                <div
+                  class="gift-step__image"
+                  style="
+                    --image-height: {{ block.settings.image_height }}px;
+                    --image-height-mobile: {{ block.settings.image_height_mobile }}px;
+                  "
+                >
+                  <img
+                    src="{{ block.settings.image | image_url: width: 600 }}"
+                    alt="{{ block.settings.title | escape }}"
+                    loading="lazy"
+                  >
+                </div>
+              {% endif %}
+
+              {% if block.settings.title != blank %}
+                <h3>{{ block.settings.title }}</h3>
+              {% endif %}
+
+              {% if block.settings.text != blank %}
+                <p>{{ block.settings.text }}</p>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      {%- comment -%} Slider Dots {%- endcomment -%}
+      <div class="gift-steps__dots">
+        {% for block in section.blocks %}
+          <button
+            class="gift-steps__dot{% if forloop.first %} is-active{% endif %}"
+            data-slide="{{ forloop.index0 }}"
+            aria-label="Go to slide {{ forloop.index }}"
+            type="button">
+          </button>
+        {% endfor %}
+      </div>
+    </div>
   </div>
 </section>
+
+<script src="{{ 'gift-steps.js' | asset_url }}" defer></script>
 
 {% schema %}
 {
@@ -99,11 +257,12 @@
       "default": 1200
     },
     {
-      "type": "color_background",
-      "id": "background",
-      "label": "Background",
-      "default": "linear-gradient(135deg, #f3e8ff, #fce7f3)"
-    },
+  "type": "color_background",
+  "id": "background",
+  "label": "Background",
+  "default": "linear-gradient(0deg, rgba(255,255,255,0.3), rgba(255,255,255,0.3)), linear-gradient(135deg, #F1DFFE, #F9E4E3)"
+},
+
     {
       "type": "range",
       "id": "padding_top",
@@ -134,16 +293,32 @@
           "label": "Image"
         },
         {
-          "type": "text",
-          "id": "title",
-          "label": "Title",
-          "default": "Step 1"
+          "type": "range",
+          "id": "image_height",
+          "label": "Image height (desktop px)",
+          "min": 60,
+          "max": 300,
+          "step": 10,
+          "default": 140
         },
         {
-          "type": "text",
+          "type": "range",
+          "id": "image_height_mobile",
+          "label": "Image height (mobile px)",
+          "min": 40,
+          "max": 220,
+          "step": 10,
+          "default": 110
+        },
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
           "id": "text",
-          "label": "Text",
-          "default": "Step description"
+          "label": "Text"
         }
       ]
     }

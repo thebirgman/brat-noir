@@ -1,0 +1,445 @@
+<section
+  class="value-breakdown"
+  style="
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div
+    class="value-breakdown__container"
+    style="
+      max-width: {{ section.settings.max_width }}px;
+      background: {{ section.settings.background }};
+    "
+  >
+    <div class="value-breakdown__items">
+
+      <!-- DESKTOP LAYOUT -->
+      <div class="value-breakdown__desktop-flow">
+        {% for block in section.blocks %}
+          {% case block.type %}
+
+            {% when 'item' %}
+              <div
+                class="value-breakdown__item
+                  {% if block.settings.price == 'priceless' %}
+                    value-breakdown__item--priceless
+                  {% endif %}
+                "
+                {{ block.shopify_attributes }}
+              >
+                <div class="value-breakdown__price">
+                  {{ block.settings.price }}
+                </div>
+                <div class="value-breakdown__label">
+                  {{ block.settings.label }}
+                </div>
+              </div>
+
+            {% when 'operator' %}
+              <div class="value-breakdown__operator">
+                {{ block.settings.symbol }}
+              </div>
+
+            {% when 'result' %}
+              <div class="value-breakdown__result">
+                <div class="value-breakdown__total">
+                  <span class="value-breakdown__label-text">Total Value:</span>
+                  <span class="strike">{{ block.settings.total_value }}</span>
+                </div>
+                <div class="value-breakdown__final">
+                  <span class="value-breakdown__label-text">Your Price:</span>
+                  <strong>{{ block.settings.final_price }}</strong>
+                </div>
+              </div>
+
+          {% endcase %}
+        {% endfor %}
+      </div>
+
+      <!-- MOBILE LAYOUT -->
+      <div class="value-breakdown__grid">
+
+        <!-- 2x2 ITEM GRID -->
+        <div class="value-breakdown__grid-items">
+          {% for block in section.blocks %}
+            {% if block.type == 'item' %}
+              <div
+                class="value-breakdown__item
+                  {% if block.settings.price == 'priceless' %}
+                    value-breakdown__item--priceless
+                  {% endif %}
+                "
+              >
+                <div class="value-breakdown__price">
+                  {{ block.settings.price }}
+                </div>
+                <div class="value-breakdown__label">
+                  {{ block.settings.label }}
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        <!-- RESULT -->
+        {% for block in section.blocks %}
+          {% if block.type == 'result' %}
+            <div class="value-breakdown__result">
+              <div class="value-breakdown__total">
+                <span class="value-breakdown__label-text">Total Value:</span>
+                <span class="strike">{{ block.settings.total_value }}</span>
+              </div>
+              <div class="value-breakdown__final">
+                <span class="value-breakdown__label-text">Your Price:</span>
+                <strong>{{ block.settings.final_price }}</strong>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+/* BASE */
+.value-breakdown__container {
+  margin: 0 auto;
+  border-radius: 24px;
+  padding: 3px 40px;
+}
+
+.value-breakdown__items {
+  display: flex;
+  justify-content: left;
+}
+
+/* ITEM */
+.value-breakdown__item {
+  text-align: left;
+  min-width: 140px;
+}
+
+.value-breakdown__price {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.value-breakdown__label {
+  font-size: 16px;
+  color: #222222;
+  margin-top: 12px;
+}
+
+/* OPERATOR */
+.value-breakdown__operator {
+  font-size: 50px;
+  font-weight: 300;
+  margin: 0 12px;
+  color: #FF6D6D;
+}
+
+/* RESULT */
+.value-breakdown__result {
+  margin-left: 32px;
+}
+
+.value-breakdown__total,
+.value-breakdown__final {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap; /* 🔑 Prevents label breaking */
+}
+
+.value-breakdown__label-text {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Make "Your Price:" bold (700) */
+.value-breakdown__final .value-breakdown__label-text {
+  font-weight: 700;
+}
+
+.value-breakdown__final strong {
+    font-weight: 700 !important;
+}
+
+
+.value-breakdown__total .strike {
+  text-decoration: line-through;
+  font-weight: 500;
+  font-size: 26px;
+}
+
+.value-breakdown__final {
+  font-size: 26px;
+  font-weight: 700 !important;
+  margin-top: 6px;
+}
+
+.value-breakdown__final strong {
+  color: {{ section.settings.accent_color }};
+}
+
+/* Priceless styling */
+.value-breakdown__item--priceless .value-breakdown__price {
+  font-family: "DM Serif Display", serif;
+  font-size: 26px;
+}
+
+/* DESKTOP */
+.value-breakdown__desktop-flow {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* MOBILE */
+.value-breakdown__grid {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .value-breakdown__desktop-flow {
+    display: none;
+  }
+
+  .value-breakdown__grid {
+    display: block;
+    text-align: center;
+  }
+
+  .value-breakdown__grid-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    gap: 24px;
+    padding: 24px 0;
+  }
+
+  /* Divider lines */
+  .value-breakdown__grid-items::before,
+  .value-breakdown__grid-items::after {
+    content: "";
+    position: absolute;
+    background: {{ section.settings.divider_color }};
+  }
+
+  .value-breakdown__grid-items::before {
+    width: 2px;
+    height: 100%;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+  }
+
+  .value-breakdown__grid-items::after {
+    height: 2px;
+    width: 100%;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .value-breakdown__result {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .value-breakdown__items {
+    justify-content: center;
+}
+
+section.gift-steps {
+    padding-bottom: 40px;
+}
+
+.build-gift-box h2:empty {
+    display: none;
+}
+
+  /* CENTER ITEM CONTENT */
+  .value-breakdown__grid-items .value-breakdown__item {
+    text-align: center;
+    padding: 0px 8px;
+  }
+
+  .value-breakdown__price {
+    font-size: 26px;
+    font-weight: 500;
+  }
+
+  .value-breakdown__label {
+    margin-top: 10px;
+    line-height: 1.4;
+  }
+
+  /* CONTAIN DIVIDERS STRICTLY INSIDE GRID */
+  .value-breakdown__grid-items {
+    padding: 32px 0;
+  }
+
+  .value-breakdown__grid-items::before {
+    height: calc(100%);
+  }
+
+  .value-breakdown__grid-items::after {
+    width: calc(100%);
+  }
+
+  /* RESULT BLOCK SPACING */
+  .value-breakdown__result {
+    margin-top: 32px;
+    text-align: center;
+  }
+
+  .value-breakdown__total,
+  .value-breakdown__final {
+    justify-content: center;
+  }
+
+  .value-breakdown__total {
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+
+  .value-breakdown__final {
+    font-size: 22px;
+  }
+  .value-breakdown__grid-items {
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+.value-breakdown__result {
+    margin-left: 0;
+}
+section.gift-steps {
+    padding-left: 0;
+    padding-right: 0;
+    width: calc(100% - 40px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gift-step__image img {
+    object-fit: contain;
+}
+}
+
+</style>
+
+
+{% schema %}
+{
+  "name": "Value Breakdown",
+  "settings": [
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Max width",
+      "min": 800,
+      "max": 1600,
+      "step": 50,
+      "default": 1200
+    },
+    {
+      "type": "color_background",
+      "id": "background",
+      "label": "Background",
+      "default": "linear-gradient(180deg, #F4E8FF, #F9E4E3)"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Final price color",
+      "default": "#7B2D26"
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Mobile divider color",
+      "default": "#E27A6A"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Value item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price",
+          "default": "$90"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Item description"
+        }
+      ]
+    },
+    {
+      "type": "operator",
+      "name": "Operator",
+      "settings": [
+        {
+          "type": "text",
+          "id": "symbol",
+          "label": "Symbol",
+          "default": "+"
+        }
+      ]
+    },
+    {
+      "type": "result",
+      "name": "Final price",
+      "settings": [
+        {
+          "type": "text",
+          "id": "total_value",
+          "label": "Total value",
+          "default": "$130"
+        },
+        {
+          "type": "text",
+          "id": "final_price",
+          "label": "Final price",
+          "default": "$75"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Value Breakdown"
+    }
+  ]
+}
+{% endschema %}
