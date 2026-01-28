@@ -3624,3 +3624,14 @@ input.bundle-product__quantity-input {
     margin: 0;
     padding: 0;
 }
+
+@media screen and (max-width: 768px) {
+.product__grid__main-info {
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+body .product__grid__price.product__grid__price--nowrap {
+    justify-content: flex-start;
+}
+}

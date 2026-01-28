@@ -624,3 +624,9 @@
   margin-right: auto;
 }
 }
+
+
+
+.what-sets-us-apart__item-text h3 strong, .what-sets-us-apart__item-text h3 {
+    font-weight: 500;
+}
