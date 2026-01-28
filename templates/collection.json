@@ -292,11 +292,11 @@
         "step_f9Erbh": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/brat-gift-step-1.png",
+            "image": "shopify://shop_images/Group_547.png",
             "image_height": 140,
             "image_height_mobile": 110,
-            "title": "Step 1",
-            "text": "Select 5 Sets."
+            "title": "Free Shipping + VIP Pricing",
+            "text": "Add 3 sets and get VIP Pricing ($15/set) + Free Shipping"
           }
         },
         "step_pHEWpK": {
@@ -305,25 +305,14 @@
             "image": "shopify://shop_images/brat-gift-step-2.png",
             "image_height": 140,
             "image_height_mobile": 110,
-            "title": "Step 2",
-            "text": "Craft Your Note."
-          }
-        },
-        "step_yr7wxX": {
-          "type": "step",
-          "settings": {
-            "image": "shopify://shop_images/brat-gift-step-3.png",
-            "image_height": 140,
-            "image_height_mobile": 110,
-            "title": "Step 3",
-            "text": "We Ship the Experience."
+            "title": "The Velvet Upgrade.",
+            "text": "Add 5 sets to unlock the Velvet Vanity Box + Free Shipping"
           }
         }
       },
       "block_order": [
         "step_f9Erbh",
-        "step_pHEWpK",
-        "step_yr7wxX"
+        "step_pHEWpK"
       ],
       "custom_css": [
         "h2 {margin-bottom: 0 !important;}"
