@@ -325,7 +325,7 @@
         "max_width": 1200,
         "background": "linear-gradient(180deg, rgba(244, 232, 255, 1), rgba(249, 228, 227, 1) 100%)",
         "padding_top": 0,
-        "padding_bottom": 72
+        "padding_bottom": 0
       }
     },
     "section_bundle_products_tAiL7K": {
@@ -373,8 +373,8 @@
       ],
       "settings": {
         "collection": "collection-2",
-        "heading": "Build Your Own Collection",
-        "subheading": "<p>Curate your own look. <strong>Pro Tip: </strong>Unlock VIP Pricing by adding 3+ sets to cart for $15 per set + FREE SHIPPING</p>",
+        "heading": "",
+        "subheading": "",
         "all_label": "All",
         "bundle_content_heading": "BUNDLE & SAVE: 3 FOR $45",
         "bundle_content_subheading": "3 Sets. $45 Flat. Free Shipping. Secure your rotation now.",
