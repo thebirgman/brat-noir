@@ -313,8 +313,8 @@
         "card_p7hngU": {
           "type": "card",
           "settings": {
-            "image_desktop": "shopify://shop_images/flexible-fit-web_d7e10b9e-48b8-4fb7-8652-d89ed27c074c.png",
-            "image_mobile": "shopify://shop_images/flexible-fit-mobile.png",
+            "image_desktop": "shopify://shop_images/flexible-fit-web_5a7d4063-c3aa-40bb-a056-fb57dd82a935.png",
+            "image_mobile": "shopify://shop_images/flexible-fit-mobile_511cad49-d266-4750-b554-2713427645b6.png",
             "heading": "Flexible-Fit Technology",
             "text": "Rigid plastic pops off. Our Soft-Gel flexes with your natural nail bed for a vacuum-seal fit that lasts 2+ weeks."
           }
@@ -322,8 +322,8 @@
         "card_wCrciP": {
           "type": "card",
           "settings": {
-            "image_desktop": "shopify://shop_images/vanishing-cuticle-web_71d5e346-2efb-4d65-bd0e-d91eac7fb5ad.png",
-            "image_mobile": "shopify://shop_images/vanishing-cuticle-mobile_0c4dc32f-9b94-46e5-b06e-0e899df93daa.png",
+            "image_desktop": "shopify://shop_images/vanishing-cuticle-web_41cf16fe-039c-4007-b182-b21a3c9187aa.png",
+            "image_mobile": "shopify://shop_images/vanishing-cuticle-mobile_71bcd962-8106-473d-9d88-2be7e1d19d9f.png",
             "heading": "The 'Vanishing' Cuticle Line",
             "text": "A bulky cuticle line is a dead giveaway. Our 'Zero-Edge' taper melts into your nail bed. 100% seamless. 0% hair snagging."
           }
@@ -344,8 +344,8 @@
       ],
       "name": "Layer Construct Section",
       "settings": {
-        "left_image_desktop": "shopify://shop_images/4-layer-web_d4c0c53e-95d9-4b6e-9899-5cdc2c6b7f92.png",
-        "left_image_mobile": "shopify://shop_images/4-layer-mobile_12b2c9b2-c4bb-42ef-832e-96f061284183.png",
+        "left_image_desktop": "shopify://shop_images/4layer-salon-destkop.jpg",
+        "left_image_mobile": "shopify://shop_images/4-layer-mobile_65643286-51b9-462c-9731-cf1845a373c2.png",
         "left_heading": "The 4-Layer Salon Construct",
         "left_text": "<p>We don't print nails; we build them.</p>\n<ol>\n  <li>Base Primer.</li>\n  <li>Soft Gel Core.</li>\n  <li>High-Pigment Polish.</li>\n  <li>UV-Hardened Top Coat.</li>\n</ol>\n<p>Indestructible structure, glass-like finish.</p>"
       }

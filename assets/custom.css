@@ -1033,9 +1033,12 @@ product-form.product__block__buttons {
     display: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 820px) {
+  h1.product__mobile-header__title {
+    margin-bottom: 0;
+}
     .product__mobile-header {
-        display: block;
+        display: block!important;
         width: 100%;
         padding: 20px;
     }
@@ -1490,7 +1493,7 @@ button.btn--outline.btn--full.btn--primary.btn--add-to-cart {
   font-family: 'Montserrat';
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 820px) {
 .product__mobile-header.medium-up--hide {
     text-align: center;
     padding: 0;

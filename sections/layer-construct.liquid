@@ -41,7 +41,7 @@
         {% for block in section.blocks offset:1 limit:2 %}
           <div class="layer-card feature-square">
             <div
-              class="layer-bg"
+              class="layer-bg" testing
               style="background-image:url('{{ block.settings.image_desktop | image_url }}')">
             </div>
             <div class="layer-overlay">
@@ -171,7 +171,11 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
 }
-
+layer-slide {
+    box-shadow: 0px 4px 18px 0px #00000026;
+    border-radius: 10px;
+    padding: 0!important;
+}
 .feature-square { aspect-ratio: 1 / 1; }
 
 /* OVERLAY */
