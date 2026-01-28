@@ -223,6 +223,7 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/Rectangle_304.png",
+            "mobile_image": "shopify://shop_images/Rectangle_304_1.png",
             "title": "No Traps:",
             "text": "We email you 3 days before your box ships.",
             "full_width": false
@@ -232,6 +233,7 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/Rectangle_302.png",
+            "mobile_image": "shopify://shop_images/Rectangle_302_1.png",
             "title": "Total Control:",
             "text": "Skip a month if you're overloaded. Swap styles whenever.",
             "full_width": false
@@ -241,6 +243,7 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/Rectangle_303.png",
+            "mobile_image": "shopify://shop_images/Rectangle_303_1.png",
             "title": "Easy Out:",
             "text": "Cancel online in 2 clicks. No awkward phone calls.",
             "full_width": true
