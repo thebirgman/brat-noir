@@ -295,7 +295,7 @@
             "image": "shopify://shop_images/Group_547.png",
             "image_height": 140,
             "image_height_mobile": 110,
-            "title": "<p>Free Shipping + VIP Pricing</p>",
+            "title": "<p><strong>Free Shipping + VIP Pricing</strong></p>",
             "text": "<p><strong>Add 3 sets </strong>and get VIP Pricing ($15/set) + Free Shipping</p>"
           }
         },
@@ -316,7 +316,8 @@
       ],
       "custom_css": [
         "h2 {margin-bottom: 0 !important;}",
-        ".gift-steps__grid {grid-template-columns: repeat(2, 1fr); max-width: 700px; margin: auto; gap: 40px;}"
+        ".gift-steps__grid {grid-template-columns: repeat(2, 1fr); max-width: 700px; margin: auto; gap: 40px;}",
+        "strong {font-weight: 700;}"
       ],
       "name": "Gift Steps",
       "settings": {
