@@ -3635,3 +3635,8 @@ body .product__grid__price.product__grid__price--nowrap {
     justify-content: flex-start;
 }
 }
+
+
+#build-a-gift .standard__heading strong {
+  font-weight: 500!important;
+}

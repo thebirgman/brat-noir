@@ -1024,4 +1024,11 @@ button.build-gift-box__note-header {
 .build-gift-box__note-section[data-collapsed="false"] {
   min-height: 200px;
 }
+
+.build-gift-box__note-section[data-collapsed=false]:has(textarea.build-gift-box__note-textarea.error) {
+  min-height: 200px;
+  height: 100%;
+  max-height: 240px;
 }
+}
+

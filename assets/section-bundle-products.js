@@ -273,7 +273,7 @@
         if (quantityWrapper && atcButton) {
           atcButton.style.display = 'none';
           quantityWrapper.style.display = 'flex';
-          const quantityInput = quantityWrapper.querySelector('[data-quantity-input]');
+          const quantityInput = quantityWrapper.querySelector('.bundle-product__quantity-input');
           if (quantityInput) {
             quantityInput.value = quantityInCart;
           }
@@ -374,11 +374,22 @@
         const quantityWrapper = (decreaseBtn || increaseBtn).closest('.bundle-product__quantity-wrapper');
         if (!quantityWrapper) return;
         
-        const quantityInput = quantityWrapper.querySelector('[data-quantity-input]');
+        const quantityInput = quantityWrapper.querySelector('.bundle-product__quantity-input');
         const card = quantityWrapper.closest('.bundle-product__card');
         if (!quantityInput || !card) return;
         
-        const variantId = quantityInput.getAttribute('data-variant-id');
+        // Get variant ID from input or fallback to button's data attribute
+        let variantId = quantityInput.getAttribute('data-variant-id');
+        if (!variantId) {
+          const addButton = card.querySelector('[data-add-to-cart]');
+          variantId = addButton?.getAttribute('data-variant-id');
+        }
+        
+        if (!variantId) {
+          console.error('No variant ID found for quantity change');
+          return;
+        }
+        
         const sellingPlanID = card.querySelector('[data-selling-plan]')?.getAttribute('data-selling-plan') || null;
         
         let currentQuantity = parseInt(quantityInput.value) || 1;
@@ -388,7 +399,7 @@
             currentQuantity--;
             quantityInput.value = currentQuantity;
             
-            // Update cart
+            // Update cart - set new quantity
             await fetch('/cart/change.js', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
@@ -400,7 +411,7 @@
             
             refreshCart();
           } else {
-            // Remove from cart if quantity is 0
+            // Remove from cart if quantity becomes 0
             await removeFromCart(variantId);
             
             // Hide quantity selector and show button
@@ -417,14 +428,20 @@
           currentQuantity++;
           quantityInput.value = currentQuantity;
           
-          // Update cart
-          await fetch('/cart/change.js', {
+          // Add one more to cart using /cart/add.js
+          const item = {
+            id: parseInt(variantId),
+            quantity: 1
+          };
+          
+          if (sellingPlanID) {
+            item.selling_plan = parseInt(sellingPlanID);
+          }
+          
+          await fetch('/cart/add.js', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              id: variantId,
-              quantity: currentQuantity
-            })
+            body: JSON.stringify({ items: [item] })
           });
           
           refreshCart();
@@ -434,13 +451,24 @@
     
     // Handle direct input changes
     document.addEventListener('change', async (event) => {
-      const quantityInput = event.target.closest('[data-quantity-input]');
+      const quantityInput = event.target.closest('.bundle-product__quantity-input');
       if (!quantityInput || !quantityInput.closest('.bundle-product__quantity-wrapper')) return;
       
       const card = quantityInput.closest('.bundle-product__card');
       if (!card) return;
       
-      const variantId = quantityInput.getAttribute('data-variant-id');
+      // Get variant ID from input or fallback to button's data attribute
+      let variantId = quantityInput.getAttribute('data-variant-id');
+      if (!variantId) {
+        const addButton = card.querySelector('[data-add-to-cart]');
+        variantId = addButton?.getAttribute('data-variant-id');
+      }
+      
+      if (!variantId) {
+        console.error('No variant ID found for quantity change');
+        return;
+      }
+      
       let newQuantity = parseInt(quantityInput.value);
       
       if (isNaN(newQuantity) || newQuantity < 0) {
@@ -458,6 +486,7 @@
         }
         card.classList.remove('added');
       } else {
+        // Set absolute quantity in cart
         await fetch('/cart/change.js', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },

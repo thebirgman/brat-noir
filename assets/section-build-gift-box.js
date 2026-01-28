@@ -99,6 +99,10 @@
     };
     
     boxItems.push(boxItem);
+    
+    // Update variant quantity tracking
+    const currentQty = variantQuantities.get(productData.variantId) || 0;
+    variantQuantities.set(productData.variantId, currentQty + 1);
 
     // Update UI
     if (emptySlot) {
@@ -262,6 +266,7 @@
   }
 
   function syncQuantitySelectors() {
+    console.log('testing the fire');
     // Update all quantity selectors to match current box state
     const allProductCards = document.querySelectorAll('.bundle-product__card');
     
@@ -462,10 +467,6 @@
               atcButton.style.display = 'flex';
             }
           }
-        } else {
-          // Update quantity tracking
-          const currentQty = variantQuantities.get(productData.variantId) || 0;
-          variantQuantities.set(productData.variantId, currentQty + 1);
         }
       });
     });
@@ -556,10 +557,7 @@
           
           // Add one more instance to box
           const success = addToBox(productData);
-          if (success) {
-            const newQty = variantQuantities.get(variantId) || 0;
-            variantQuantities.set(variantId, newQty + 1);
-          } else {
+          if (!success) {
             // Revert quantity if add failed
             currentQuantity--;
             quantityInput.value = currentQuantity;
@@ -618,14 +616,10 @@
         for (let i = 0; i < toAdd; i++) {
           if (boxItems.length >= MAX_ITEMS) {
             alert(`You can only add ${MAX_ITEMS} items to your gift box.`);
-            quantityInput.value = currentQtyInBox;
+            quantityInput.value = variantQuantities.get(variantId) || 0;
             break;
           }
-          const success = addToBox(productData);
-          if (success) {
-            const newQty = variantQuantities.get(variantId) || 0;
-            variantQuantities.set(variantId, newQty + 1);
-          }
+          addToBox(productData);
         }
       } else if (newQuantity < currentQtyInBox) {
         // Remove items
@@ -748,6 +742,6 @@
     updateProgress();
     
     // Initialize quantity selectors
-    initializeQuantitySelectors();
+    syncQuantitySelectors();
   });
 })();

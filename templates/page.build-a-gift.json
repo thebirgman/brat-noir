@@ -114,7 +114,7 @@
           "type": "text",
           "settings": {
             "kicker": "",
-            "title": "The Velvet Vanity Box.",
+            "title": "<strong>The Velvet Vanity Box.</strong>",
             "text": "<p>A reusable, faux-velvet lined keepsake box designed to protect their collection in style.</p>",
             "font_size": 4,
             "text_columns": 1,
@@ -155,7 +155,7 @@
           "type": "text",
           "settings": {
             "kicker": "",
-            "title": "Curated by You.",
+            "title": "<strong>Curated by You.</strong>",
             "text": "<p>Select 5 distinct looks from our Ombré, Classic, Goth, and Summer collections.</p>",
             "font_size": 4,
             "text_columns": 1,
@@ -232,7 +232,7 @@
           "type": "text",
           "settings": {
             "kicker": "",
-            "title": "Written in the Cards.",
+            "title": "<strong>Written in the Cards.</strong>",
             "text": "<p>Every box includes an exclusive Brat Noir Tarot Card for a touch of mystique.</p>",
             "font_size": 4,
             "text_columns": 1,
@@ -273,7 +273,7 @@
           "type": "text",
           "settings": {
             "kicker": "",
-            "title": "Pen to Paper.",
+            "title": "<strong>Pen to Paper.</strong>",
             "text": "<p>Write your message at checkout, and we will handwrite it on premium cardstock.</p>",
             "font_size": 4,
             "text_columns": 1,
@@ -334,8 +334,8 @@
             "image": "shopify://shop_images/brat-gift-step-1.png",
             "image_height": 140,
             "image_height_mobile": 110,
-            "title": "Step 1",
-            "text": "Select 5 Sets."
+            "title": "<p>Step 1</p>",
+            "text": "<p>Select 5 Sets.</p>"
           }
         },
         "step_i6J6FE": {
@@ -344,8 +344,8 @@
             "image": "shopify://shop_images/brat-gift-step-2.png",
             "image_height": 140,
             "image_height_mobile": 110,
-            "title": "Step 2",
-            "text": "Craft Your Note."
+            "title": "<p>Step 2</p>",
+            "text": "<p>Craft Your Note.</p>"
           }
         },
         "step_3HH7JH": {
@@ -354,8 +354,8 @@
             "image": "shopify://shop_images/brat-gift-step-3.png",
             "image_height": 140,
             "image_height_mobile": 110,
-            "title": "Step 3",
-            "text": "We Ship the Experience."
+            "title": "<p>Step 3</p>",
+            "text": "<p>We Ship the Experience.</p>"
           }
         }
       },
