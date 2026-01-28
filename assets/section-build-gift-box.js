@@ -302,8 +302,15 @@
     const noteSection = document.querySelector('.build-gift-box__note-section');
     const writeNoteBtn = document.querySelector('.build-gift-box__write-note');
     const checkoutBtn = document.querySelector('.build-gift-box__note-checkout');
+    const noteHeader = noteSection?.querySelector('.build-gift-box__note-header');
+    
     if (noteSection) {
       noteSection.style.display = 'block';
+      // Ensure section starts expanded
+      if (noteHeader) {
+        noteHeader.setAttribute('aria-expanded', 'true');
+        noteSection.setAttribute('data-collapsed', 'false');
+      }
     }
     if (writeNoteBtn) {
       writeNoteBtn.style.display = 'none';
@@ -640,6 +647,26 @@
       });
     }
 
+    // Handle accordion toggle for note section
+    const noteHeader = document.querySelector('.build-gift-box__note-header');
+    if (noteHeader) {
+      noteHeader.addEventListener('click', () => {
+        const noteSection = noteHeader.closest('.build-gift-box__note-section');
+        if (!noteSection) return;
+        
+        const isExpanded = noteHeader.getAttribute('aria-expanded') === 'true';
+        const isCollapsed = noteSection.getAttribute('data-collapsed') === 'true';
+        
+        if (isExpanded) {
+          noteHeader.setAttribute('aria-expanded', 'false');
+          noteSection.setAttribute('data-collapsed', 'true');
+        } else {
+          noteHeader.setAttribute('aria-expanded', 'true');
+          noteSection.setAttribute('data-collapsed', 'false');
+        }
+      });
+    }
+
     // Handle checkout button in note section
     const checkoutBtn = document.querySelector('.build-gift-box__note-checkout');
     if (checkoutBtn) {
@@ -649,11 +676,19 @@
         
         const note = textarea.value.trim();
         
-        // Validate that textarea is filled
-        if (!note) {
+        // Validate that textarea has minimum 5 characters
+        if (!note || note.length < 5) {
           // Show validation error
           textarea.classList.add('error');
           textarea.focus();
+          
+          // Ensure note section is expanded when showing error
+          const noteSection = textarea.closest('.build-gift-box__note-section');
+          const noteHeader = noteSection?.querySelector('.build-gift-box__note-header');
+          if (noteSection && noteHeader) {
+            noteHeader.setAttribute('aria-expanded', 'true');
+            noteSection.setAttribute('data-collapsed', 'false');
+          }
           
           // Show error message
           let errorMsg = textarea.parentElement.querySelector('.build-gift-box__note-error');
@@ -663,8 +698,13 @@
             errorMsg.style.color = '#ff6d6d';
             errorMsg.style.marginTop = '8px';
             errorMsg.style.fontSize = '14px';
-            errorMsg.textContent = 'Please enter a message before proceeding to checkout.';
             textarea.parentElement.appendChild(errorMsg);
+          }
+          
+          if (!note) {
+            errorMsg.textContent = 'Please enter a message with at least 5 characters before proceeding to checkout.';
+          } else {
+            errorMsg.textContent = 'Please enter a message with at least 5 characters before proceeding to checkout.';
           }
           
           // Remove error state after user starts typing

@@ -146,13 +146,21 @@
       </div>
 
       <div class="build-gift-box__note-section" style="display: none;">
-        <h3 class="build-gift-box__note-title">Who is this for?</h3>
-        <textarea 
-          class="build-gift-box__note-textarea" 
-          placeholder="Enter your message (max 200 characters)" 
-          maxlength="200"
-          rows="4"
-          required></textarea>
+        <button type="button" class="build-gift-box__note-header" aria-expanded="true">
+          <h3 class="build-gift-box__note-title">Who is this for?</h3>
+          <svg class="build-gift-box__note-icon" width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 8.41418L8 1.41418L1 8.41418" stroke="black" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="build-gift-box__note-content">
+          <textarea 
+            class="build-gift-box__note-textarea" 
+            placeholder="Enter your message (min 5, max 300 characters)" 
+            minlength="5"
+            maxlength="300"
+            rows="4"
+            required></textarea>
+        </div>
       </div>
 
       <button type="button" class="build-gift-box__note-checkout" style="display: none;">SECURE CHECKOUT</button>
