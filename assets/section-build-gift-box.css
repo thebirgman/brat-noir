@@ -773,7 +773,7 @@ textarea.build-gift-box__note-textarea {
     background: #fff;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 820px) {
     .bundle-product__card {
             width: calc(50% - 4px);
         }
