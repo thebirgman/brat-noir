@@ -8,197 +8,166 @@
  * ------------------------------------------------------------
  */
 {
+  "order": [
+    "main",
+    "apps_JAWzRj",
+    "section_richtext_kWQYTm",
+    "layer_construct_wkNw6a",
+    "section_video_pyfFWD",
+    "section_announcement_rPaTn7",
+    "1753078667aa1c7b10",
+    "17576513510ada6ccb",
+    "section_double_j3qfgR",
+    "related",
+    "section_announcement_CPdLLn",
+    "section_icons_qHDaQL",
+    "section_liquid_PCbnmP",
+    "section_image_UdpBbw",
+    "section_sticky_cta_74ycWW"
+  ],
   "sections": {
-    "main": {
-      "type": "product",
+    "1753078667aa1c7b10": {
+      "block_order": [
+        "judge_me_reviews_review_widget_PBhW7Q"
+      ],
       "blocks": {
-        "judge_me_reviews_preview_badge_9gqj6X": {
-          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
-        },
-        "title": {
-          "type": "title",
+        "judge_me_reviews_review_widget_PBhW7Q": {
           "settings": {
-            "text_size": 9,
-            "product_show_cutline": true,
-            "show_rating": true,
-            "show_rating_count": false,
-            "padding_bottom": 14
-          }
-        },
-        "price": {
-          "type": "price",
-          "settings": {
-            "price_size": 4,
-            "padding_bottom": 0
-          }
-        },
-        "spacer_67MGNk": {
-          "type": "spacer",
-          "settings": {
-            "show_line": true,
-            "target_device": "",
-            "padding_top": 0,
-            "padding_bottom": 0
-          }
-        },
-        "text_49XkLL": {
-          "type": "text",
-          "settings": {
-            "title": "{{ product.metafields.custom.subdescription | metafield_tag }}",
-            "padding_bottom": 20
-          }
-        },
-        "variants": {
-          "type": "variant-selectors",
-          "disabled": true,
-          "settings": {
-            "option_size_swatch": 34,
-            "option_size_radio": 50,
-            "option_space": 30,
-            "padding_bottom": 30
-          }
-        },
-        "subscriptions": {
-          "type": "subscription",
-          "disabled": true,
-          "settings": {
-            "subscriptions_enable_selectors": true,
-            "padding_bottom": 36
-          }
-        },
-        "quantity": {
-          "type": "quantity",
-          "settings": {
-            "show_quantity": true,
-            "padding_bottom": 20
-          }
-        },
-        "sizes-remaining": {
-          "type": "size-remaining",
-          "disabled": true,
-          "settings": {
-            "info_page": "",
-            "title": "",
-            "show_remaining": true,
-            "show_remaining_style": "low",
-            "countdown": 10,
-            "padding_bottom": 0
-          }
-        },
-        "appstle_subscription_appstle_subscription_product_page_widget_DYYWjm": {
-          "type": "shopify://apps/appstle-subscription/blocks/appstle-subscription-product-page-widget/fe257d39-6f88-4f35-ab08-bd437e3aa94e",
-          "settings": {}
-        },
-        "buttons": {
-          "type": "add-buttons",
-          "settings": {
-            "enable_payment_button": false,
-            "enable_gift_card_recipient": true,
-            "padding_bottom": 40
-          }
-        },
-        "liquid_Ra8HMc": {
-          "type": "liquid",
-          "settings": {
-            "custom_liquid": "<ul class=\"bundle-notice\">\n  <li><b>Free Shipping on Orders Over $45.</b></li>\n  <li>\n    <b>30-Day Happiness Guarantee.</b>\n    Love your nails or get a full refund.\n  </li>\n  <li>\n    <b>Designed & Shipped from Las Vegas with love <3\n  </li>\n</ul>\n\n<style>\nul.bundle-notice {border: 1px dashed;padding: 10px 15px;list-style: disc;}\n\nul.bundle-notice  li{\n    margin-left: 20px;;\n    padding-left: 5px;\n}\n</style>"
-          }
-        },
-        "icon_row_z3rT6C": {
-          "type": "icon-row",
-          "settings": {
-            "background_color": "rgba(0,0,0,0)",
-            "icon_size": 60,
-            "text_size": 12,
-            "icon_1": "shopify://shop_images/search_activity_1.png",
-            "line_1_1": "5 Minute Application",
-            "line_2_1": "",
-            "icon_2": "shopify://shop_images/diamond.png",
-            "line_1_2": "Salon Quality",
-            "line_2_2": "",
-            "icon_3": "shopify://shop_images/ri_recycle-line.png",
-            "line_1_3": "Reusable Nails",
-            "line_2_3": "",
-            "icon_4": "shopify://shop_images/icon-park-outline_fingernail.png",
-            "line_1_4": "No Chipping or Fading",
-            "line_2_4": "",
-            "icon_5": "shopify://shop_images/mingcute_egg-crack-line.png",
-            "line_1_5": "Zero Nail Damage",
-            "line_2_5": "",
-            "icon_6": "shopify://shop_images/event_available.png",
-            "line_1_6": "Up to 3 Weeks Wear",
-            "line_2_6": "",
-            "padding_bottom": 40
-          }
-        },
-        "whats_included_W7yY4R": {
-          "type": "whats-included",
-          "settings": {
-            "heading": "<p><strong>What’s Included In Each Nail Set:</strong></p>",
-            "text": "<ul><li>32 nails in 16 inclusive sizes </li><li>Nail Glue (Net Wt. 0.07oz/2g) </li><li>Double Sided nail file </li><li>Cuticle stick </li><li>2 Alcohol Pads</li></ul>",
-            "image_max_width": 600,
-            "border_radius": 12,
-            "padding_top": 40,
-            "padding_horizontal": 40,
-            "padding_bottom": 40
-          }
-        },
-        "text_TRXwDn": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "title": "<p><strong>Build Your Own Bundle</strong></p>",
-            "padding_bottom": 20
-          }
-        },
-        "bundle_box_axmiMP": {
-          "type": "bundle-box",
-          "settings": {
-            "image": "{{ product.metafields.custom.build_your_own_bundle_image.value }}",
-            "heading": "Build Your Own Bundle",
-            "text": "Why overpay for one mani when you could press on five?",
-            "button_label": "Build Now",
-            "button_link": "https://bratnoir.com/collections/all",
-            "image_width": 40,
-            "border_radius": 12,
-            "padding_bottom": 20,
-            "background_color": "#ffffff"
-          }
-        },
-        "description": {
-          "type": "description",
-          "settings": {
-            "style": "accordions",
-            "enable_description": false,
-            "read_more": false,
-            "icon_description": "",
-            "description_expanded": true,
-            "title_1": "How to Apply",
-            "icon_name_1": "",
-            "raw_content_1": "<p><strong>Press-ons, but make it glam. Here’s how to slay in 5 steps:</strong></p><p><strong>1. Prep The Canvas: </strong>Wash your hands, push back cuticles, buff lightly, and swipe with the alcohol pad. You’re laying down the VIP carpet.</p><p><strong>2. Find Your Match: </strong>Choose the nail size that fits snug on each finger. Not perfect? File one down. Creative genius mode: on.</p><p><strong>3. Apply with Precision: </strong>Add glue to your natural nail and a dab to the press-on. Don’t overdo it — just a swipe and a dot.</p><p><strong>4. Lock It In: </strong>Hold the nail at an angle and press firmly for 30 seconds. Start with your non-dominant hand. Save thumbs for last.</p><p><strong>5. Finish Like a Pro: </strong>Skip the water for an hour. Add cuticle oil, strike a pose, and show the world how glam you really are.</p>",
-            "title_2": "How to Apply",
-            "icon_name_2": "",
-            "raw_content_2": "",
-            "title_3": "Ingredients",
-            "icon_name_3": "",
-            "raw_content_3": "",
-            "title_4": "",
-            "icon_name_4": "",
-            "raw_content_4": "",
-            "title_5": "",
-            "icon_name_5": "",
-            "raw_content_5": "",
-            "padding_bottom": 20
-          }
-        },
-        "swishlist_simple_wishlist_wishlist_product_button_dyMtgm": {
-          "type": "shopify://apps/swishlist-simple-wishlist/blocks/wishlist_product_button/bfcb80f2-f00d-42ae-909a-9f00c726327b",
-          "disabled": true,
-          "settings": {
-            "custom_liquid": ""
-          }
+            "empty_state": "empty_widget",
+            "max_width": 1200,
+            "review_data": "sample_data",
+            "show_shop_reviews": false
+          },
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8"
         }
       },
+      "custom_css": [
+        ".brat-bundle {background: transparent;}",
+        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}"
+      ],
+      "disabled": true,
+      "settings": {
+        "bg": "palette--light bg--neutral",
+        "padding_bottom": 36,
+        "padding_top": 36,
+        "text_color": "text--neutral",
+        "width": "wrapper"
+      },
+      "type": "apps"
+    },
+    "17576513510ada6ccb": {
+      "block_order": [
+        "judge_me_reviews_review_widget_XLfkab",
+        "judge_me_reviews_all_reviews_page_4hkCHK"
+      ],
+      "blocks": {
+        "judge_me_reviews_all_reviews_page_4hkCHK": {
+          "disabled": true,
+          "settings": {
+            "empty_state": "empty_widget",
+            "max_width": 1200,
+            "review_source": "all",
+            "show_first": "product",
+            "show_tabs": false
+          },
+          "type": "shopify://apps/judge-me-reviews/blocks/all_reviews_page/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8"
+        },
+        "judge_me_reviews_review_widget_XLfkab": {
+          "settings": {
+            "empty_state": "empty_widget",
+            "max_width": 1200,
+            "review_data": "sample_data",
+            "show_shop_reviews": false
+          },
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8"
+        }
+      },
+      "settings": {
+        "bg": "palette--light bg--neutral",
+        "padding_bottom": 36,
+        "padding_top": 36,
+        "text_color": "text--neutral",
+        "width": "wrapper"
+      },
+      "type": "apps"
+    },
+    "apps_JAWzRj": {
+      "block_order": [
+        "gsc_instagram_feed_instafeed_mNTnDY"
+      ],
+      "blocks": {
+        "gsc_instagram_feed_instafeed_mNTnDY": {
+          "settings": {
+            "widget_id": "GSC-uIxMwmNBjDcAIwD"
+          },
+          "type": "shopify://apps/gsc-instagram-feed/blocks/instafeed/96970b1b-b770-454f-b16b-51f47e1aa4ed"
+        }
+      },
+      "custom_css": [
+        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}"
+      ],
+      "settings": {
+        "bg": "palette--light bg--neutral",
+        "padding_bottom": 60,
+        "padding_top": 20,
+        "text_color": "text--neutral",
+        "width": "wrapper"
+      },
+      "type": "apps"
+    },
+    "layer_construct_wkNw6a": {
+      "block_order": [
+        "card_Tftm6Y",
+        "card_p7hngU",
+        "card_wCrciP"
+      ],
+      "blocks": {
+        "card_Tftm6Y": {
+          "settings": {
+            "heading": "Artisan Design",
+            "image_desktop": "{{ product.metafields.custom.artisan_design_image.value }}",
+            "image_mobile": "{{ product.metafields.custom.artisan_design_image_mobile.value }}",
+            "text": "No pixelated prints. Crisp lines and rich textures that pass the 'inch-away' test. If they can tell they're fake, we failed."
+          },
+          "type": "card"
+        },
+        "card_p7hngU": {
+          "settings": {
+            "heading": "Flexible-Fit Technology",
+            "image_desktop": "shopify://shop_images/flexible-fit-web_5a7d4063-c3aa-40bb-a056-fb57dd82a935.png",
+            "image_mobile": "shopify://shop_images/flexible-fit-mobile_511cad49-d266-4750-b554-2713427645b6.png",
+            "text": "Rigid plastic pops off. Our Soft-Gel flexes with your natural nail bed for a vacuum-seal fit that lasts 2+ weeks."
+          },
+          "type": "card"
+        },
+        "card_wCrciP": {
+          "settings": {
+            "heading": "The 'Vanishing' Cuticle Line",
+            "image_desktop": "shopify://shop_images/vanishing-cuticle-web_41cf16fe-039c-4007-b182-b21a3c9187aa.png",
+            "image_mobile": "shopify://shop_images/vanishing-cuticle-mobile_71bcd962-8106-473d-9d88-2be7e1d19d9f.png",
+            "text": "A bulky cuticle line is a dead giveaway. Our 'Zero-Edge' taper melts into your nail bed. 100% seamless. 0% hair snagging."
+          },
+          "type": "card"
+        }
+      },
+      "custom_css": [
+        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
+        "h4 {margin-bottom: 7px;}",
+        ".layer-card.main-card p,.layer-card.main-card li,.layer-card.feature-wide p {font-size: 17px !important;}",
+        "h4,p {color: #222;}",
+        "p {font-size: 15px !important;}",
+        "@media screen and (max-width: 768px) {p, li {font-size: 14px !important; }}"
+      ],
+      "name": "Layer Construct Section",
+      "settings": {
+        "left_heading": "The 4-Layer Salon Construct",
+        "left_image_desktop": "shopify://shop_images/4layer-salon-destkop.jpg",
+        "left_image_mobile": "shopify://shop_images/4-layer-mobile_65643286-51b9-462c-9731-cf1845a373c2.png",
+        "left_text": "<p>We don't print nails; we build them.</p>\n<ol>\n  <li>Base Primer.</li>\n  <li>Soft Gel Core.</li>\n  <li>High-Pigment Polish.</li>\n  <li>UV-Hardened Top Coat.</li>\n</ol>\n<p>Indestructible structure, glass-like finish.</p>"
+      },
+      "type": "layer-construct"
+    },
+    "main": {
       "block_order": [
         "judge_me_reviews_preview_badge_9gqj6X",
         "title",
@@ -219,6 +188,194 @@
         "description",
         "swishlist_simple_wishlist_wishlist_product_button_dyMtgm"
       ],
+      "blocks": {
+        "appstle_subscription_appstle_subscription_product_page_widget_DYYWjm": {
+          "settings": {},
+          "type": "shopify://apps/appstle-subscription/blocks/appstle-subscription-product-page-widget/fe257d39-6f88-4f35-ab08-bd437e3aa94e"
+        },
+        "bundle_box_axmiMP": {
+          "settings": {
+            "background_color": "#ffffff",
+            "border_radius": 12,
+            "button_label": "Build Now",
+            "button_link": "https://bratnoir.com/collections/all",
+            "heading": "Build Your Own Bundle",
+            "image": "{{ product.metafields.custom.build_your_own_bundle_image.value }}",
+            "image_width": 40,
+            "padding_bottom": 20,
+            "text": "Why overpay for one mani when you could press on five?"
+          },
+          "type": "bundle-box"
+        },
+        "buttons": {
+          "settings": {
+            "enable_gift_card_recipient": true,
+            "enable_payment_button": false,
+            "padding_bottom": 40
+          },
+          "type": "add-buttons"
+        },
+        "description": {
+          "settings": {
+            "description_expanded": true,
+            "enable_description": false,
+            "icon_description": "",
+            "icon_name_1": "",
+            "icon_name_2": "",
+            "icon_name_3": "",
+            "icon_name_4": "",
+            "icon_name_5": "",
+            "padding_bottom": 20,
+            "raw_content_1": "<p><strong>Press-ons, but make it glam. Here’s how to slay in 5 steps:</strong></p><p><strong>1. Prep The Canvas: </strong>Wash your hands, push back cuticles, buff lightly, and swipe with the alcohol pad. You’re laying down the VIP carpet.</p><p><strong>2. Find Your Match: </strong>Choose the nail size that fits snug on each finger. Not perfect? File one down. Creative genius mode: on.</p><p><strong>3. Apply with Precision: </strong>Add glue to your natural nail and a dab to the press-on. Don’t overdo it — just a swipe and a dot.</p><p><strong>4. Lock It In: </strong>Hold the nail at an angle and press firmly for 30 seconds. Start with your non-dominant hand. Save thumbs for last.</p><p><strong>5. Finish Like a Pro: </strong>Skip the water for an hour. Add cuticle oil, strike a pose, and show the world how glam you really are.</p>",
+            "raw_content_2": "",
+            "raw_content_3": "",
+            "raw_content_4": "",
+            "raw_content_5": "",
+            "read_more": false,
+            "style": "accordions",
+            "title_1": "How to Apply",
+            "title_2": "How to Apply",
+            "title_3": "Ingredients",
+            "title_4": "",
+            "title_5": ""
+          },
+          "type": "description"
+        },
+        "icon_row_z3rT6C": {
+          "settings": {
+            "background_color": "rgba(0,0,0,0)",
+            "icon_1": "shopify://shop_images/search_activity_1.png",
+            "icon_2": "shopify://shop_images/diamond.png",
+            "icon_3": "shopify://shop_images/ri_recycle-line.png",
+            "icon_4": "shopify://shop_images/icon-park-outline_fingernail.png",
+            "icon_5": "shopify://shop_images/mingcute_egg-crack-line.png",
+            "icon_6": "shopify://shop_images/event_available.png",
+            "icon_size": 60,
+            "line_1_1": "5 Minute Application",
+            "line_1_2": "Salon Quality",
+            "line_1_3": "Reusable Nails",
+            "line_1_4": "No Chipping or Fading",
+            "line_1_5": "Zero Nail Damage",
+            "line_1_6": "Up to 3 Weeks Wear",
+            "line_2_1": "",
+            "line_2_2": "",
+            "line_2_3": "",
+            "line_2_4": "",
+            "line_2_5": "",
+            "line_2_6": "",
+            "padding_bottom": 40,
+            "text_size": 12
+          },
+          "type": "icon-row"
+        },
+        "judge_me_reviews_preview_badge_9gqj6X": {
+          "settings": {},
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8"
+        },
+        "liquid_Ra8HMc": {
+          "settings": {
+            "custom_liquid": "<ul class=\"bundle-notice\">\n  <li><b>Free Shipping on Orders Over $45.</b></li>\n  <li>\n    <b>30-Day Happiness Guarantee.</b>\n    Love your nails or get a full refund.\n  </li>\n  <li>\n    <b>Designed & Shipped from Las Vegas with love <3\n  </li>\n</ul>\n\n<style>\nul.bundle-notice {border: 1px dashed;padding: 10px 15px;list-style: disc;}\n\nul.bundle-notice  li{\n    margin-left: 20px;;\n    padding-left: 5px;\n}\n</style>"
+          },
+          "type": "liquid"
+        },
+        "price": {
+          "settings": {
+            "padding_bottom": 0,
+            "price_size": 4
+          },
+          "type": "price"
+        },
+        "quantity": {
+          "settings": {
+            "padding_bottom": 20,
+            "show_quantity": true
+          },
+          "type": "quantity"
+        },
+        "sizes-remaining": {
+          "disabled": true,
+          "settings": {
+            "countdown": 10,
+            "info_page": "",
+            "padding_bottom": 0,
+            "show_remaining": true,
+            "show_remaining_style": "low",
+            "title": ""
+          },
+          "type": "size-remaining"
+        },
+        "spacer_67MGNk": {
+          "settings": {
+            "padding_bottom": 0,
+            "padding_top": 0,
+            "show_line": true,
+            "target_device": ""
+          },
+          "type": "spacer"
+        },
+        "subscriptions": {
+          "disabled": true,
+          "settings": {
+            "padding_bottom": 36,
+            "subscriptions_enable_selectors": true
+          },
+          "type": "subscription"
+        },
+        "swishlist_simple_wishlist_wishlist_product_button_dyMtgm": {
+          "disabled": true,
+          "settings": {
+            "custom_liquid": ""
+          },
+          "type": "shopify://apps/swishlist-simple-wishlist/blocks/wishlist_product_button/bfcb80f2-f00d-42ae-909a-9f00c726327b"
+        },
+        "text_49XkLL": {
+          "settings": {
+            "padding_bottom": 20,
+            "title": "{{ product.metafields.custom.subdescription | metafield_tag }}"
+          },
+          "type": "text"
+        },
+        "text_TRXwDn": {
+          "disabled": true,
+          "settings": {
+            "padding_bottom": 20,
+            "title": "<p><strong>Build Your Own Bundle</strong></p>"
+          },
+          "type": "text"
+        },
+        "title": {
+          "settings": {
+            "padding_bottom": 14,
+            "product_show_cutline": true,
+            "show_rating": true,
+            "show_rating_count": false,
+            "text_size": 9
+          },
+          "type": "title"
+        },
+        "variants": {
+          "disabled": true,
+          "settings": {
+            "option_size_radio": 50,
+            "option_size_swatch": 34,
+            "option_space": 30,
+            "padding_bottom": 30
+          },
+          "type": "variant-selectors"
+        },
+        "whats_included_W7yY4R": {
+          "settings": {
+            "border_radius": 12,
+            "heading": "<p><strong>What’s Included In Each Nail Set:</strong></p>",
+            "image_max_width": 600,
+            "padding_bottom": 40,
+            "padding_horizontal": 40,
+            "padding_top": 40,
+            "text": "<ul><li>32 nails in 16 inclusive sizes </li><li>Nail Glue (Net Wt. 0.07oz/2g) </li><li>Double Sided nail file </li><li>Cuticle stick </li><li>2 Alcohol Pads</li></ul>"
+          },
+          "type": "whats-included"
+        }
+      },
       "custom_css": [
         ".radio__button label {background-color: transparent !important; border: solid 1px white !important;}",
         ".flex.flex-col.items-center.gap-2 p {font-size: 16px !important;}",
@@ -229,320 +386,25 @@
         ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}"
       ],
       "settings": {
-        "layout": "thumbnails-below@slides",
-        "image_width": "half",
-        "image_spacing": 10,
         "align": "left",
-        "bg": "palette--light bg--neutral",
-        "mobile_layout": "carousel",
-        "enable_video_looping": true,
-        "zoom_enable": true,
         "alt_text_enable": true,
         "alt_text_icon": "icon-ruler",
+        "bg": "palette--light bg--neutral",
+        "enable_video_looping": true,
+        "image_spacing": 10,
+        "image_width": "half",
+        "layout": "thumbnails-below@slides",
+        "mobile_layout": "carousel",
+        "padding_bottom": 36,
+        "padding_top": 24,
         "product_breadcrumbs_enable": false,
         "product_breadcrumbs_list": [],
         "width": "wrapper",
-        "padding_top": 24,
-        "padding_bottom": 36
-      }
-    },
-    "apps_JAWzRj": {
-      "type": "apps",
-      "blocks": {
-        "gsc_instagram_feed_instafeed_mNTnDY": {
-          "type": "shopify://apps/gsc-instagram-feed/blocks/instafeed/96970b1b-b770-454f-b16b-51f47e1aa4ed",
-          "settings": {
-            "widget_id": "GSC-uIxMwmNBjDcAIwD"
-          }
-        }
+        "zoom_enable": true
       },
-      "block_order": [
-        "gsc_instagram_feed_instafeed_mNTnDY"
-      ],
-      "custom_css": [
-        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}"
-      ],
-      "settings": {
-        "text_color": "text--neutral",
-        "bg": "palette--light bg--neutral",
-        "width": "wrapper",
-        "padding_top": 20,
-        "padding_bottom": 60
-      }
-    },
-    "section_richtext_kWQYTm": {
-      "type": "section-richtext",
-      "blocks": {
-        "heading_mttpnB": {
-          "type": "heading",
-          "settings": {
-            "heading": "What Sets Us Apart",
-            "text_size": 8
-          }
-        }
-      },
-      "block_order": [
-        "heading_mttpnB"
-      ],
-      "custom_css": [
-        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}"
-      ],
-      "name": "Rich text",
-      "settings": {
-        "align_text": "text-center",
-        "text_color": "text--neutral",
-        "bg": "palette--light bg--neutral",
-        "content_width": 2000,
-        "width": "wrapper",
-        "padding_top": 36,
-        "padding_bottom": 0
-      }
-    },
-    "layer_construct_wkNw6a": {
-      "type": "layer-construct",
-      "blocks": {
-        "card_Tftm6Y": {
-          "type": "card",
-          "settings": {
-            "image_desktop": "{{ product.metafields.custom.artisan_design_image.value }}",
-            "image_mobile": "{{ product.metafields.custom.artisan_design_image_mobile.value }}",
-            "heading": "Artisan Design",
-            "text": "No pixelated prints. Crisp lines and rich textures that pass the 'inch-away' test. If they can tell they're fake, we failed."
-          }
-        },
-        "card_p7hngU": {
-          "type": "card",
-          "settings": {
-            "image_desktop": "shopify://shop_images/flexible-fit-web_5a7d4063-c3aa-40bb-a056-fb57dd82a935.png",
-            "image_mobile": "shopify://shop_images/flexible-fit-mobile_511cad49-d266-4750-b554-2713427645b6.png",
-            "heading": "Flexible-Fit Technology",
-            "text": "Rigid plastic pops off. Our Soft-Gel flexes with your natural nail bed for a vacuum-seal fit that lasts 2+ weeks."
-          }
-        },
-        "card_wCrciP": {
-          "type": "card",
-          "settings": {
-            "image_desktop": "shopify://shop_images/vanishing-cuticle-web_41cf16fe-039c-4007-b182-b21a3c9187aa.png",
-            "image_mobile": "shopify://shop_images/vanishing-cuticle-mobile_71bcd962-8106-473d-9d88-2be7e1d19d9f.png",
-            "heading": "The 'Vanishing' Cuticle Line",
-            "text": "A bulky cuticle line is a dead giveaway. Our 'Zero-Edge' taper melts into your nail bed. 100% seamless. 0% hair snagging."
-          }
-        }
-      },
-      "block_order": [
-        "card_Tftm6Y",
-        "card_p7hngU",
-        "card_wCrciP"
-      ],
-      "custom_css": [
-        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
-        "h4 {margin-bottom: 7px;}",
-        ".layer-card.main-card p,.layer-card.main-card li,.layer-card.feature-wide p {font-size: 17px !important;}",
-        "h4,p {color: #222;}",
-        "p {font-size: 15px !important;}",
-        "@media screen and (max-width: 768px) {p, li {font-size: 14px !important; }}"
-      ],
-      "name": "Layer Construct Section",
-      "settings": {
-        "left_image_desktop": "shopify://shop_images/4layer-salon-destkop.jpg",
-        "left_image_mobile": "shopify://shop_images/4-layer-mobile_65643286-51b9-462c-9731-cf1845a373c2.png",
-        "left_heading": "The 4-Layer Salon Construct",
-        "left_text": "<p>We don't print nails; we build them.</p>\n<ol>\n  <li>Base Primer.</li>\n  <li>Soft Gel Core.</li>\n  <li>High-Pigment Polish.</li>\n  <li>UV-Hardened Top Coat.</li>\n</ol>\n<p>Indestructible structure, glass-like finish.</p>"
-      }
-    },
-    "section_video_pyfFWD": {
-      "type": "section-video",
-      "blocks": {
-        "heading_jQxf8i": {
-          "type": "heading",
-          "settings": {
-            "title": "Stop Renting Your Nails. Own Them.",
-            "text_size": 15
-          }
-        }
-      },
-      "block_order": [
-        "heading_jQxf8i"
-      ],
-      "custom_css": [
-        "p {font-size: 48px !important;}",
-        "@media screen and (max-width: 768px) {p {font-size: 34px !important; }}"
-      ],
-      "name": "Video banner",
-      "settings": {
-        "height": "use_pixels_500",
-        "color_bg": "palette--light bg--neutral",
-        "video_bg": "shopify://files/videos/Desktop - Collection Banner.mp4",
-        "object_position": "center-center",
-        "preload_image": false,
-        "text_align": "align--middle-center",
-        "text_color": "text--white",
-        "overlay_opacity": 20,
-        "overlay_color": "#000000",
-        "enable_overlay_text": false,
-        "width": "wrapper--none",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
-    "section_announcement_rPaTn7": {
-      "type": "section-announcement",
-      "blocks": {
-        "text_RB7gai": {
-          "type": "text",
-          "settings": {
-            "text": "<p>SOFT-GEL COMFORT.</p>"
-          }
-        },
-        "text_68jJtT": {
-          "type": "text",
-          "settings": {
-            "text": "<p>FULL BRAT ATTITUDE.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "text_RB7gai",
-        "text_68jJtT"
-      ],
-      "disabled": true,
-      "name": "Scrolling promotion",
-      "settings": {
-        "bg_color": "#000000",
-        "color": "#ffffff",
-        "text_size": 4,
-        "padding_top": 10,
-        "padding_bottom": 10
-      }
-    },
-    "1753078667aa1c7b10": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_PBhW7Q": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "review_data": "sample_data",
-            "max_width": 1200,
-            "show_shop_reviews": false,
-            "empty_state": "empty_widget"
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_PBhW7Q"
-      ],
-      "disabled": true,
-      "custom_css": [
-        ".brat-bundle {background: transparent;}",
-        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}"
-      ],
-      "settings": {
-        "text_color": "text--neutral",
-        "bg": "palette--light bg--neutral",
-        "width": "wrapper",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "17576513510ada6ccb": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_XLfkab": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "review_data": "sample_data",
-            "max_width": 1200,
-            "show_shop_reviews": false,
-            "empty_state": "empty_widget"
-          }
-        },
-        "judge_me_reviews_all_reviews_page_4hkCHK": {
-          "type": "shopify://apps/judge-me-reviews/blocks/all_reviews_page/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "disabled": true,
-          "settings": {
-            "max_width": 1200,
-            "review_source": "all",
-            "show_tabs": false,
-            "show_first": "product",
-            "empty_state": "empty_widget"
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_XLfkab",
-        "judge_me_reviews_all_reviews_page_4hkCHK"
-      ],
-      "settings": {
-        "text_color": "text--neutral",
-        "bg": "palette--light bg--neutral",
-        "width": "wrapper",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "section_double_j3qfgR": {
-      "type": "section-double",
-      "blocks": {
-        "image_mKNfhG": {
-          "type": "image",
-          "settings": {
-            "image": "{{ product.metafields.custom.the_brat_difference.value }}",
-            "overlay_opacity": 0,
-            "overlay_color": "#000000",
-            "enable_overlay_text": false,
-            "kicker": "",
-            "title": "",
-            "richtext": "",
-            "text_align": "align--middle-center",
-            "text_color": "text--white",
-            "link_text": "",
-            "link": "",
-            "button_color": "btn--white",
-            "button_style": "btn"
-          }
-        },
-        "text_3ktbGB": {
-          "type": "text",
-          "settings": {
-            "kicker": "",
-            "title": "The Brat Difference",
-            "text": "<p>We said goodbye to outdated salon drama and built something better—soft-gel nails that press on in minutes and serve main character energy for days.<br/><br/><br/>Crafted with soft gel material that mimics a salon finish (without the toxic glue or UV lamps), Brat Noir nails are designed to hug your nails comfortably and slay effortlessly. Because your nails should look expensive, not feel exhausting.</p>",
-            "font_size": 5,
-            "text_columns": 1,
-            "align_text": "text-left",
-            "button_text": "",
-            "button_url": "",
-            "button_color": "btn--neutral",
-            "button_style": "btn-text-thick-line",
-            "text_color": "text--neutral",
-            "bg_color": ""
-          }
-        }
-      },
-      "block_order": [
-        "image_mKNfhG",
-        "text_3ktbGB"
-      ],
-      "disabled": true,
-      "custom_css": [
-        ".brick__block__image,img {border-radius: 20px;}",
-        ".brat-bundle {background: transparent;}",
-        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}"
-      ],
-      "name": "Image with text",
-      "settings": {
-        "height": "use_image",
-        "brick_gutter": 0,
-        "borders": false,
-        "bg_color": "",
-        "preload_image": false,
-        "width": "wrapper",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
+      "type": "product"
     },
     "related": {
-      "type": "related",
       "custom_css": [
         ".brat-bundle {background: transparent;}",
         ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
@@ -550,182 +412,320 @@
         ".wrapper.section-padding.flickity-force-arrows-top {padding-left: 30px !important; padding-right: 30px !important;}"
       ],
       "settings": {
-        "heading": "Frequently Bought Together",
         "bg": "palette--light bg--neutral",
         "collection": "",
         "grid_large": 4,
         "grid_medium": 3,
         "grid_small": 1,
-        "related_products_enable": true,
+        "heading": "Frequently Bought Together",
         "limit": 4,
-        "product_recommendations_heading": "Related products",
-        "show_recently_viewed": false,
+        "padding_bottom": 84,
+        "padding_top": 24,
+        "product_recently_heading": "Recently viewed",
         "product_recently_limit": 6,
         "product_recently_minimum": 4,
-        "product_recently_heading": "Recently viewed",
-        "width": "wrapper",
-        "padding_top": 24,
-        "padding_bottom": 84
-      }
+        "product_recommendations_heading": "Related products",
+        "related_products_enable": true,
+        "show_recently_viewed": false,
+        "width": "wrapper"
+      },
+      "type": "related"
     },
     "section_announcement_CPdLLn": {
-      "type": "section-announcement",
-      "blocks": {
-        "text_nGLtQL": {
-          "type": "text",
-          "settings": {
-            "text": "<p>SOFT-GEL COMFORT.</p>"
-          }
-        },
-        "text_qnNGGt": {
-          "type": "text",
-          "settings": {
-            "text": "<p>FULL BRAT ATTITUDE.</p>"
-          }
-        }
-      },
       "block_order": [
         "text_nGLtQL",
         "text_qnNGGt"
       ],
+      "blocks": {
+        "text_nGLtQL": {
+          "settings": {
+            "text": "<p>SOFT-GEL COMFORT.</p>"
+          },
+          "type": "text"
+        },
+        "text_qnNGGt": {
+          "settings": {
+            "text": "<p>FULL BRAT ATTITUDE.</p>"
+          },
+          "type": "text"
+        }
+      },
       "disabled": true,
       "name": "Scrolling promotion",
       "settings": {
         "bg_color": "#000000",
         "color": "#ffffff",
-        "text_size": 4,
+        "padding_bottom": 10,
         "padding_top": 10,
-        "padding_bottom": 10
-      }
+        "text_size": 4
+      },
+      "type": "section-announcement"
     },
-    "section_icons_qHDaQL": {
-      "type": "section-icons",
+    "section_announcement_rPaTn7": {
+      "block_order": [
+        "text_RB7gai",
+        "text_68jJtT"
+      ],
       "blocks": {
-        "icon_block_JYB4ct": {
-          "type": "icon_block",
+        "text_68jJtT": {
           "settings": {
-            "icon_name": "icon-basket-return",
-            "icon_alt": "shopify://shop_images/Group_153_4cbfdcf1-769c-4e8e-99e1-c122d30f2f18.png",
-            "icon_color": "#aaaaaa",
-            "title": "5 Minute Application",
-            "text": "",
-            "link_text": "",
-            "link_url": ""
-          }
+            "text": "<p>FULL BRAT ATTITUDE.</p>"
+          },
+          "type": "text"
         },
-        "icon_block_rnMDU3": {
-          "type": "icon_block",
+        "text_RB7gai": {
           "settings": {
-            "icon_name": "icon-shipment-world",
-            "icon_alt": "shopify://shop_images/Group_152_bf4d43c5-c6ee-44a6-8851-a28ffa3a9580.png",
-            "icon_color": "#aaaaaa",
-            "title": "Salon Quality",
-            "text": "",
-            "link_text": "",
-            "link_url": ""
-          }
-        },
-        "icon_block_6WWj69": {
-          "type": "icon_block",
-          "settings": {
-            "icon_name": "icon-phone",
-            "icon_alt": "shopify://shop_images/Group_151_cdc5ec29-83cd-4b56-8908-1c6967ccdd2c.png",
-            "icon_color": "#aaaaaa",
-            "title": "Up to 2 Weeks Wear",
-            "text": "",
-            "link_text": "",
-            "link_url": ""
-          }
-        },
-        "icon_block_3QwPEk": {
-          "type": "icon_block",
-          "settings": {
-            "icon_name": "icon-leaf",
-            "icon_alt": "shopify://shop_images/Group_150.png",
-            "icon_color": "#aaaaaa",
-            "title": "Reusable up to 3x",
-            "text": "",
-            "link_text": "",
-            "link_url": ""
-          }
+            "text": "<p>SOFT-GEL COMFORT.</p>"
+          },
+          "type": "text"
         }
       },
+      "disabled": true,
+      "name": "Scrolling promotion",
+      "settings": {
+        "bg_color": "#000000",
+        "color": "#ffffff",
+        "padding_bottom": 10,
+        "padding_top": 10,
+        "text_size": 4
+      },
+      "type": "section-announcement"
+    },
+    "section_double_j3qfgR": {
+      "block_order": [
+        "image_mKNfhG",
+        "text_3ktbGB"
+      ],
+      "blocks": {
+        "image_mKNfhG": {
+          "settings": {
+            "button_color": "btn--white",
+            "button_style": "btn",
+            "enable_overlay_text": false,
+            "image": "{{ product.metafields.custom.the_brat_difference.value }}",
+            "kicker": "",
+            "link": "",
+            "link_text": "",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "richtext": "",
+            "text_align": "align--middle-center",
+            "text_color": "text--white",
+            "title": ""
+          },
+          "type": "image"
+        },
+        "text_3ktbGB": {
+          "settings": {
+            "align_text": "text-left",
+            "bg_color": "",
+            "button_color": "btn--neutral",
+            "button_style": "btn-text-thick-line",
+            "button_text": "",
+            "button_url": "",
+            "font_size": 5,
+            "kicker": "",
+            "text": "<p>We said goodbye to outdated salon drama and built something better—soft-gel nails that press on in minutes and serve main character energy for days.<br/><br/><br/>Crafted with soft gel material that mimics a salon finish (without the toxic glue or UV lamps), Brat Noir nails are designed to hug your nails comfortably and slay effortlessly. Because your nails should look expensive, not feel exhausting.</p>",
+            "text_color": "text--neutral",
+            "text_columns": 1,
+            "title": "The Brat Difference"
+          },
+          "type": "text"
+        }
+      },
+      "custom_css": [
+        ".brick__block__image,img {border-radius: 20px;}",
+        ".brat-bundle {background: transparent;}",
+        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}"
+      ],
+      "disabled": true,
+      "name": "Image with text",
+      "settings": {
+        "bg_color": "",
+        "borders": false,
+        "brick_gutter": 0,
+        "height": "use_image",
+        "padding_bottom": 36,
+        "padding_top": 36,
+        "preload_image": false,
+        "width": "wrapper"
+      },
+      "type": "section-double"
+    },
+    "section_icons_qHDaQL": {
       "block_order": [
         "icon_block_JYB4ct",
         "icon_block_rnMDU3",
         "icon_block_6WWj69",
         "icon_block_3QwPEk"
       ],
-      "disabled": true,
+      "blocks": {
+        "icon_block_3QwPEk": {
+          "settings": {
+            "icon_alt": "shopify://shop_images/Group_150.png",
+            "icon_color": "#aaaaaa",
+            "icon_name": "icon-leaf",
+            "link_text": "",
+            "link_url": "",
+            "text": "",
+            "title": "Reusable up to 3x"
+          },
+          "type": "icon_block"
+        },
+        "icon_block_6WWj69": {
+          "settings": {
+            "icon_alt": "shopify://shop_images/Group_151_cdc5ec29-83cd-4b56-8908-1c6967ccdd2c.png",
+            "icon_color": "#aaaaaa",
+            "icon_name": "icon-phone",
+            "link_text": "",
+            "link_url": "",
+            "text": "",
+            "title": "Up to 2 Weeks Wear"
+          },
+          "type": "icon_block"
+        },
+        "icon_block_JYB4ct": {
+          "settings": {
+            "icon_alt": "shopify://shop_images/Group_153_4cbfdcf1-769c-4e8e-99e1-c122d30f2f18.png",
+            "icon_color": "#aaaaaa",
+            "icon_name": "icon-basket-return",
+            "link_text": "",
+            "link_url": "",
+            "text": "",
+            "title": "5 Minute Application"
+          },
+          "type": "icon_block"
+        },
+        "icon_block_rnMDU3": {
+          "settings": {
+            "icon_alt": "shopify://shop_images/Group_152_bf4d43c5-c6ee-44a6-8851-a28ffa3a9580.png",
+            "icon_color": "#aaaaaa",
+            "icon_name": "icon-shipment-world",
+            "link_text": "",
+            "link_url": "",
+            "text": "",
+            "title": "Salon Quality"
+          },
+          "type": "icon_block"
+        }
+      },
       "custom_css": [
         "p {font-weight: 700;}",
         ".kicker-flourished:after {display: none;}",
         ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}",
         "@media screen and (max-width: 768px) {.float-grid {display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; justify-items: center; text-align: center; } .float-grid .grid__item {width: 100% !important; float: none !important; } .grid__item:not(:first-child) .icon__column {padding-top: 0; }}"
       ],
+      "disabled": true,
       "name": "Icon columns",
       "settings": {
-        "title": "Why Brat Noir?",
-        "bg": "palette--light bg--neutral",
-        "icons_size": 80,
-        "icon_alignment": "icon--top",
-        "layout": "grid--stacked",
         "align_text": "text-center",
-        "width": "wrapper",
+        "bg": "palette--light bg--neutral",
+        "icon_alignment": "icon--top",
+        "icons_size": 80,
+        "layout": "grid--stacked",
+        "padding_bottom": 80,
         "padding_top": 50,
-        "padding_bottom": 80
-      }
-    },
-    "section_liquid_PCbnmP": {
-      "type": "section-liquid",
-      "disabled": true,
-      "name": "Custom Liquid",
-      "settings": {
-        "custom_liquid": "<style>\n  .why-brat-noir {\n    background: #f6e9ee;\n    border-radius: 28px;\n    max-width: 1300px;\n    margin: 80px auto;\n    overflow: hidden;\n  }\n\n  .why-brat-inner {\n    display: grid;\n    grid-template-columns: 1.2fr 2fr 1.2fr;\n    align-items: stretch;\n  }\n\n  /* IMAGE COLUMNS */\n  .why-brat-image {\n    position: relative;\n  }\n\n  .why-brat-image img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    display: block;\n  }\n\n  /* Fade overlays */\n  .why-brat-image::after {\n    content: '';\n    position: absolute;\n    inset: 0;\n    pointer-events: none;\n  }\n\n  .why-brat-image.left::after {\n    background: linear-gradient(\n      to right,\n      rgba(246,233,238,0) 70%,\n      rgba(246,233,238,1) 100%\n    );\n  }\n\n  .why-brat-image.right::after {\n    background: linear-gradient(\n      to left,\n      rgba(246,233,238,0) 70%,\n      rgba(246,233,238,1) 100%\n    );\n  }\n\n  /* CENTER CONTENT */\n  .why-brat-content {\n    text-align: center;\n    padding: 80px 60px;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n  }\n\n  .why-brat-content h2 {\n    font-size: 44px;\n    font-weight: 500;\n    margin-bottom: 48px;\n  }\n\n  /* ICON GRID */\n  .why-brat-icons {\n    display: grid;\n    grid-template-columns: repeat(4, 125px);\n    gap: 48px;\n    justify-content: center;\n    align-items: start;\n  }\n\n  .why-brat-icon {\n    font-family: 'DM Sans', sans-serif;\n    font-weight: 700;\n    font-size: 18px;\n    line-height: 1.3;\n    text-align: center;\n  }\n\n  .why-brat-icon svg {\n    width: 34px;\n    height: 34px;\n    margin: 0 auto 14px;\n    display: block;\n    stroke-width: 1.75;\n  }\n\n  /* MOBILE */\n  @media (max-width: 900px) {\n    .why-brat-noir {\n      max-width: 380px;\n      margin: 60px auto;\n    }\n\n    .why-brat-inner {\n      grid-template-columns: 1fr;\n    }\n\n    /* Hide left image */\n    .why-brat-image.left {\n      display: none;\n    }\n\n    /* Image on top */\n    .why-brat-image.right {\n      order: -1;\n      height: 460px;\n    }\n\n    .why-brat-image.right img {\n      object-position: center top;\n    }\n\n    /* Bottom fade */\n    .why-brat-image.right::after {\n      background: linear-gradient(\n        to bottom,\n        rgba(246,233,238,0) 60%,\n        rgba(246,233,238,1) 100%\n      );\n    }\n\n    .why-brat-content {\n      padding: 48px 24px 56px;\n    }\n\n    .why-brat-content h2 {\n      font-size: 32px;\n      margin-bottom: 32px;\n    }\n\n    .why-brat-icons {\n      grid-template-columns: repeat(2, 125px);\n      gap: 32px 24px;\n      justify-content: center;\n    }\n  }\n</style>\n\n<section class=\"why-brat-noir\">\n  <div class=\"why-brat-inner\">\n\n    <!-- LEFT IMAGE -->\n    <div class=\"why-brat-image left\">\n      <img\n        src=\"https://cdn.shopify.com/s/files/1/0729/8845/9031/files/freepik__create-a-highend-beauty-portrait-of-a-different-af__35915_1.png?v=1765786732\"\n        alt=\"Brat Noir portrait left\"\n      >\n    </div>\n\n    <!-- CENTER CONTENT -->\n    <div class=\"why-brat-content\">\n      <h2>Why Brat Noir</h2>\n\n      <div class=\"why-brat-icons\">\n        <div class=\"why-brat-icon\">\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\">\n            <circle cx=\"12\" cy=\"12\" r=\"10\"/>\n            <path d=\"M12 6v6l4 2\"/>\n          </svg>\n          10-minute<br>application\n        </div>\n\n        <div class=\"why-brat-icon\">\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\">\n            <path d=\"M12 2C7 7 5 10 5 14a7 7 0 0014 0c0-4-2-7-7-12z\"/>\n          </svg>\n          Salon Quality<br>Nails\n        </div>\n\n        <div class=\"why-brat-icon\">\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\">\n            <rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\"/>\n            <path d=\"M16 2v4M8 2v4M3 10h18\"/>\n          </svg>\n          Up to 3 Weeks<br>Wear\n        </div>\n\n        <div class=\"why-brat-icon\">\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\">\n            <path d=\"M21 12l-4-4v3H7\"/>\n            <path d=\"M3 12l4 4v-3h10\"/>\n          </svg>\n          Reusable up<br>to 3x\n        </div>\n      </div>\n    </div>\n\n    <!-- RIGHT IMAGE -->\n    <div class=\"why-brat-image right\">\n      <img\n        src=\"https://cdn.shopify.com/s/files/1/0729/8845/9031/files/image_34.png?v=1765786732\"\n        alt=\"Brat Noir portrait right\"\n      >\n    </div>\n\n  </div>\n</section>"
-      }
+        "title": "Why Brat Noir?",
+        "width": "wrapper"
+      },
+      "type": "section-icons"
     },
     "section_image_UdpBbw": {
-      "type": "section-image",
       "custom_css": [
         ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}"
       ],
       "name": "Image",
       "settings": {
-        "image": "shopify://shop_images/Group_303.png",
-        "mobile_image": "shopify://shop_images/Group_302.png",
-        "max_width": 100,
-        "x_align": "center",
         "color_bg": "palette--light bg--neutral",
-        "width": "wrapper",
+        "image": "shopify://shop_images/Group_303.png",
+        "max_width": 100,
+        "mobile_image": "shopify://shop_images/Group_302.png",
+        "padding_bottom": 36,
         "padding_top": 0,
-        "padding_bottom": 36
-      }
+        "width": "wrapper",
+        "x_align": "center"
+      },
+      "type": "section-image"
+    },
+    "section_liquid_PCbnmP": {
+      "disabled": true,
+      "name": "Custom Liquid",
+      "settings": {
+        "custom_liquid": "<style>\n  .why-brat-noir {\n    background: #f6e9ee;\n    border-radius: 28px;\n    max-width: 1300px;\n    margin: 80px auto;\n    overflow: hidden;\n  }\n\n  .why-brat-inner {\n    display: grid;\n    grid-template-columns: 1.2fr 2fr 1.2fr;\n    align-items: stretch;\n  }\n\n  /* IMAGE COLUMNS */\n  .why-brat-image {\n    position: relative;\n  }\n\n  .why-brat-image img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    display: block;\n  }\n\n  /* Fade overlays */\n  .why-brat-image::after {\n    content: '';\n    position: absolute;\n    inset: 0;\n    pointer-events: none;\n  }\n\n  .why-brat-image.left::after {\n    background: linear-gradient(\n      to right,\n      rgba(246,233,238,0) 70%,\n      rgba(246,233,238,1) 100%\n    );\n  }\n\n  .why-brat-image.right::after {\n    background: linear-gradient(\n      to left,\n      rgba(246,233,238,0) 70%,\n      rgba(246,233,238,1) 100%\n    );\n  }\n\n  /* CENTER CONTENT */\n  .why-brat-content {\n    text-align: center;\n    padding: 80px 60px;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n  }\n\n  .why-brat-content h2 {\n    font-size: 44px;\n    font-weight: 500;\n    margin-bottom: 48px;\n  }\n\n  /* ICON GRID */\n  .why-brat-icons {\n    display: grid;\n    grid-template-columns: repeat(4, 125px);\n    gap: 48px;\n    justify-content: center;\n    align-items: start;\n  }\n\n  .why-brat-icon {\n    font-family: 'DM Sans', sans-serif;\n    font-weight: 700;\n    font-size: 18px;\n    line-height: 1.3;\n    text-align: center;\n  }\n\n  .why-brat-icon svg {\n    width: 34px;\n    height: 34px;\n    margin: 0 auto 14px;\n    display: block;\n    stroke-width: 1.75;\n  }\n\n  /* MOBILE */\n  @media (max-width: 900px) {\n    .why-brat-noir {\n      max-width: 380px;\n      margin: 60px auto;\n    }\n\n    .why-brat-inner {\n      grid-template-columns: 1fr;\n    }\n\n    /* Hide left image */\n    .why-brat-image.left {\n      display: none;\n    }\n\n    /* Image on top */\n    .why-brat-image.right {\n      order: -1;\n      height: 460px;\n    }\n\n    .why-brat-image.right img {\n      object-position: center top;\n    }\n\n    /* Bottom fade */\n    .why-brat-image.right::after {\n      background: linear-gradient(\n        to bottom,\n        rgba(246,233,238,0) 60%,\n        rgba(246,233,238,1) 100%\n      );\n    }\n\n    .why-brat-content {\n      padding: 48px 24px 56px;\n    }\n\n    .why-brat-content h2 {\n      font-size: 32px;\n      margin-bottom: 32px;\n    }\n\n    .why-brat-icons {\n      grid-template-columns: repeat(2, 125px);\n      gap: 32px 24px;\n      justify-content: center;\n    }\n  }\n</style>\n\n<section class=\"why-brat-noir\">\n  <div class=\"why-brat-inner\">\n\n    <!-- LEFT IMAGE -->\n    <div class=\"why-brat-image left\">\n      <img\n        src=\"https://cdn.shopify.com/s/files/1/0729/8845/9031/files/freepik__create-a-highend-beauty-portrait-of-a-different-af__35915_1.png?v=1765786732\"\n        alt=\"Brat Noir portrait left\"\n      >\n    </div>\n\n    <!-- CENTER CONTENT -->\n    <div class=\"why-brat-content\">\n      <h2>Why Brat Noir</h2>\n\n      <div class=\"why-brat-icons\">\n        <div class=\"why-brat-icon\">\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\">\n            <circle cx=\"12\" cy=\"12\" r=\"10\"/>\n            <path d=\"M12 6v6l4 2\"/>\n          </svg>\n          10-minute<br>application\n        </div>\n\n        <div class=\"why-brat-icon\">\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\">\n            <path d=\"M12 2C7 7 5 10 5 14a7 7 0 0014 0c0-4-2-7-7-12z\"/>\n          </svg>\n          Salon Quality<br>Nails\n        </div>\n\n        <div class=\"why-brat-icon\">\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\">\n            <rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\"/>\n            <path d=\"M16 2v4M8 2v4M3 10h18\"/>\n          </svg>\n          Up to 3 Weeks<br>Wear\n        </div>\n\n        <div class=\"why-brat-icon\">\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\">\n            <path d=\"M21 12l-4-4v3H7\"/>\n            <path d=\"M3 12l4 4v-3h10\"/>\n          </svg>\n          Reusable up<br>to 3x\n        </div>\n      </div>\n    </div>\n\n    <!-- RIGHT IMAGE -->\n    <div class=\"why-brat-image right\">\n      <img\n        src=\"https://cdn.shopify.com/s/files/1/0729/8845/9031/files/image_34.png?v=1765786732\"\n        alt=\"Brat Noir portrait right\"\n      >\n    </div>\n\n  </div>\n</section>"
+      },
+      "type": "section-liquid"
+    },
+    "section_richtext_kWQYTm": {
+      "block_order": [
+        "heading_mttpnB"
+      ],
+      "blocks": {
+        "heading_mttpnB": {
+          "settings": {
+            "heading": "What Sets Us Apart",
+            "text_size": 8
+          },
+          "type": "heading"
+        }
+      },
+      "custom_css": [
+        ".palette--dark,.palette--light,.palette--bright,.main-content {background: transparent;}"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "align_text": "text-center",
+        "bg": "palette--light bg--neutral",
+        "content_width": 2000,
+        "padding_bottom": 0,
+        "padding_top": 36,
+        "text_color": "text--neutral",
+        "width": "wrapper"
+      },
+      "type": "section-richtext"
     },
     "section_sticky_cta_74ycWW": {
-      "type": "section-sticky-cta",
       "name": "Sticky CTA",
       "settings": {
-        "product": "{{ product }}",
+        "padding_bottom": 16,
         "padding_top": 16,
-        "padding_bottom": 16
-      }
+        "product": "{{ product }}"
+      },
+      "type": "section-sticky-cta"
+    },
+    "section_video_pyfFWD": {
+      "block_order": [
+        "heading_jQxf8i"
+      ],
+      "blocks": {
+        "heading_jQxf8i": {
+          "settings": {
+            "text_size": 15,
+            "title": "Stop Renting Your Nails. Own Them."
+          },
+          "type": "heading"
+        }
+      },
+      "custom_css": [
+        "p {font-size: 48px !important;}",
+        "@media screen and (max-width: 768px) {p {font-size: 34px !important; }}"
+      ],
+      "name": "Video banner",
+      "settings": {
+        "color_bg": "palette--light bg--neutral",
+        "enable_overlay_text": false,
+        "height": "use_pixels_500",
+        "object_position": "center-center",
+        "overlay_color": "#000000",
+        "overlay_opacity": 20,
+        "padding_bottom": 0,
+        "padding_top": 0,
+        "preload_image": false,
+        "text_align": "align--middle-center",
+        "text_color": "text--white",
+        "video_bg": "shopify://files/videos/Desktop - Collection Banner.mp4",
+        "width": "wrapper--none"
+      },
+      "type": "section-video"
     }
-  },
-  "order": [
-    "main",
-    "apps_JAWzRj",
-    "section_richtext_kWQYTm",
-    "layer_construct_wkNw6a",
-    "section_video_pyfFWD",
-    "section_announcement_rPaTn7",
-    "1753078667aa1c7b10",
-    "17576513510ada6ccb",
-    "section_double_j3qfgR",
-    "related",
-    "section_announcement_CPdLLn",
-    "section_icons_qHDaQL",
-    "section_liquid_PCbnmP",
-    "section_image_UdpBbw",
-    "section_sticky_cta_74ycWW"
-  ]
+  }
 }
