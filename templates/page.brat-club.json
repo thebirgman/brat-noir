@@ -62,7 +62,7 @@
         ".standard__icon.text-center {display: flex;}",
         ".palette--light {background: transparent;}",
         ".standard__icon__holder {margin: 0;}",
-        ".standard__spacer--line:after {width: 128px !important;}"
+        ".standard__spacer--line:after {width: 128px; opacity: 1;}"
       ],
       "name": "Rich text",
       "settings": {
