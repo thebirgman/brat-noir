@@ -20,7 +20,6 @@
 
 <style>
 .verified-benefits {
-  
   padding: 20px;
 }
 
@@ -28,16 +27,15 @@
   max-width: 1132px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 24px;
+  gap: 15px;
 }
 
 .verified-benefits__item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  flex: 1;
+  gap: 10px;
+  white-space: nowrap;
 }
 
 .verified-benefits__icon {
@@ -57,10 +55,15 @@
   .verified-benefits__container {
     flex-direction: column;
     align-items: flex-start;
+    gap: 15px;
   }
 
   .verified-benefits__item {
-    width: 100%;
+    white-space: normal;
+  }
+
+  .verified-benefits__text {
+    font-size: 14px;
   }
 }
 </style>
