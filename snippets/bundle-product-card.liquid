@@ -32,10 +32,23 @@
   <div class="bundle-product__actions">
     {% assign first_variant = product.variants.first %}
 
-    {% for allocation in first_variant.selling_plan_allocations %}
-      {% assign first_selling_plan_id = allocation.selling_plan.id %}
-      {% break %}
-    {% endfor %}
+    {% if enable_subscription %}
+      {% comment %} Get the 2nd selling plan (index 1) {% endcomment %}
+      {% assign allocation_index = 0 %}
+      {% for allocation in first_variant.selling_plan_allocations %}
+        {% if allocation_index == 1 %}
+          {% assign first_selling_plan_id = allocation.selling_plan.id %}
+          {% break %}
+        {% endif %}
+        {% assign allocation_index = allocation_index | plus: 1 %}
+      {% endfor %}
+    {% else %}
+      {% comment %} Get the 1st selling plan (index 0) {% endcomment %}
+      {% for allocation in first_variant.selling_plan_allocations %}
+        {% assign first_selling_plan_id = allocation.selling_plan.id %}
+        {% break %}
+      {% endfor %}
+    {% endif %}
     <button
       class="bundle-product__atc"
       data-variant-id="{{ product.first_available_variant.id }}"

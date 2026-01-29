@@ -73,7 +73,7 @@
                 {%- assign is_bestseller = true -%}
               {%- endif -%}
             {%- endif -%}
-            {%- render 'bundle-product-card', product: product, is_bestseller: is_bestseller -%}
+            {%- render 'bundle-product-card', product: product, is_bestseller: is_bestseller, enable_subscription: section.settings.enable_subscription -%}
           {%- endfor -%}
         {%- endif -%}
       </div>
@@ -413,6 +413,13 @@ document.querySelector('.bundle-products__filter-btn[data-filter="all"]')?.click
       "id": "all_label",
       "label": "Label for \"All\" filter",
       "default": "All"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_subscription",
+      "label": "Enable Subscription",
+      "info": "If enabled, the selling plan ID will be assigned from the 2nd index instead of the first",
+      "default": false
     },
     {
       "type": "text",

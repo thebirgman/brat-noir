@@ -120,8 +120,6 @@
           "type": "step",
           "settings": {
             "image": "shopify://shop_images/brat-club-1-free-shipping_02d8059e-b7aa-4410-b5db-c9ad8b5007d0.png",
-            "image_height": 140,
-            "image_height_mobile": 110,
             "title": "<p>Always Free Shipping.</p>",
             "text": "<p>Add 1 - 2 sets and we cover the shipping, always.</p>"
           }
@@ -130,8 +128,6 @@
           "type": "step",
           "settings": {
             "image": "shopify://shop_images/brat-club-2-mystery-set_017ad566-96a6-4363-90d5-c2a170559809.png",
-            "image_height": 140,
-            "image_height_mobile": 110,
             "title": "<p>Free Set.</p>",
             "text": "<p>Add 3 sets, and we’ll toss in a free set of your choice (Value: $18) + free shipping description</p>"
           }
@@ -140,8 +136,6 @@
           "type": "step",
           "settings": {
             "image": "shopify://shop_images/brat-club-3-bundle_3ebd4826-7e05-47e7-80b1-27409e2a0846.png",
-            "image_height": 140,
-            "image_height_mobile": 110,
             "title": "<p>The Velvet Upgrade.</p>",
             "text": "<p>Add 4 sets to unlock $10 off, a FREE set of your choice ($18 Value), the Velvet Vanity Box, and free shipping</p>"
           }
@@ -209,7 +203,7 @@
         "heading": "Build Your Own Collection",
         "subheading": "<p>Curate your own look. <strong>Pro Tip: </strong>Unlock VIP Pricing by adding 3+ sets to cart for $15 per set + FREE SHIPPING</p>",
         "all_label": "All",
-        "bundle_content_heading": "Girl Math Approved:",
+        "bundle_content_heading": "BUNDLE & SAVE: 3 FOR $45",
         "bundle_content_subheading": "3 Sets. $45 Flat. Free Shipping. Secure your rotation now.",
         "progress_text_default": "Add [X] more sets to unlock the $15/set insider rate.",
         "progress_text_two_more": "Getting closer. Add 2 more sets to save $9 instantly + FREE SHIPPING.",

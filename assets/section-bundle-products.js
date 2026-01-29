@@ -317,7 +317,8 @@
         button.classList.add('loading');
 
         const variantId = button.getAttribute('data-variant-id') || null;
-        const sellingPlanID = button.getAttribute('data-selling-plan') || null;
+        const sellingPlanIDAttr = button.getAttribute('data-selling-plan');
+        const sellingPlanID = sellingPlanIDAttr && sellingPlanIDAttr.trim() !== '' ? sellingPlanIDAttr : null;
 
         // Get product data from the card for optimistic update
         const card = button.closest('.bundle-product__card');
@@ -353,7 +354,7 @@
         }
 
         // Don't await - let it run in background after optimistic update
-        addToCart(variantId, 0, 1, productData).then(() => {
+        addToCart(variantId, sellingPlanID, 1, productData).then(() => {
           button.classList.remove('loading');
         }).catch(() => {
           button.classList.remove('loading');
@@ -408,7 +409,8 @@
           return;
         }
         
-        const sellingPlanID = card.querySelector('[data-selling-plan]')?.getAttribute('data-selling-plan') || null;
+        const sellingPlanIDAttr = card.querySelector('[data-selling-plan]')?.getAttribute('data-selling-plan');
+        const sellingPlanID = sellingPlanIDAttr && sellingPlanIDAttr.trim() !== '' ? sellingPlanIDAttr : null;
         
         let currentQuantity = parseInt(quantityInput.value) || 1;
         
