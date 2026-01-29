@@ -62,7 +62,8 @@
         ".standard__icon.text-center {display: flex;}",
         ".palette--light {background: transparent;}",
         ".standard__icon__holder {margin: 0;}",
-        ".standard__spacer--line:after {width: 128px; opacity: 1;}"
+        ".standard__spacer--line:after {width: 128px; opacity: 1;}",
+        "@media (max-width: 768px) {.rte.body-size-4.columns--1.aos-init.aos-animate p {font-size: 14px !important; width: 330px; margin: auto;}}"
       ],
       "name": "Rich text",
       "settings": {
