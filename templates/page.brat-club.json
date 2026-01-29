@@ -102,11 +102,11 @@
         "benefit_3kYa4Q",
         "benefit_wffpJn"
       ],
-      "custom_css": [
-        ".palette--light {background: transparent;}"
-      ],
+      "custom_css": [],
       "name": "Verified Benefits",
-      "settings": {}
+      "settings": {
+        "icon": "shopify://shop_images/verified.svg"
+      }
     },
     "gift_steps_VNE8xd": {
       "type": "gift-steps",
