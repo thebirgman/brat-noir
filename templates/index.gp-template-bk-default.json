@@ -303,7 +303,6 @@
         "preload_image": false,
         "content_width": 2000,
         "text_align": "align--middle-right",
-        "text_align_mobile": "align--top-center",
         "text_color": "text--white",
         "color_bg": "hero__content--transparent",
         "width": "wrapper--none",

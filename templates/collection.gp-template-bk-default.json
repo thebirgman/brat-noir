@@ -234,14 +234,84 @@
       },
       "type": "section-collection-tabs"
     },
-    "section_collection_tabs_aPxHGE": {
+    "section_richtext_miyxB6": {
+      "type": "section-richtext",
+      "blocks": {
+        "heading_c3zizQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Build Your Own Collection",
+            "text_size": 8
+          }
+        },
+        "text_beNXX9": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Curate your own look. <strong>Pro Tip: </strong>Unlock VIP Pricing by adding 3+ sets to cart for $15 per set + FREE SHIPPING</p>",
+            "text_size": 5,
+            "text_columns": 1
+          }
+        }
+      },
       "block_order": [
-        "collection_6tJFMg",
-        "collection_bJFfcq",
-        "collection_h6jy8r",
-        "collection_nUdUnM",
-        "collection_XjrDk8"
+        "heading_c3zizQ",
+        "text_beNXX9"
       ],
+      "custom_css": [
+        ".bg--neutral {background: transparent;}",
+        "strong {font-weight: 700;}"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "align_text": "text-center",
+        "text_color": "text--neutral",
+        "bg": "palette--light bg--neutral",
+        "content_width": 2000,
+        "width": "wrapper",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "gift_steps_qVE7mL": {
+      "type": "gift-steps",
+      "blocks": {
+        "step_f9Erbh": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Group_547.png",
+            "title": "<p><strong>Free Shipping + VIP Pricing</strong></p>",
+            "text": "<p><strong>Add 3 sets </strong>and get VIP Pricing ($15/set) + Free Shipping</p>"
+          }
+        },
+        "step_pHEWpK": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Group_548.png",
+            "title": "<p><strong>The Velvet Upgrade.</strong></p>",
+            "text": "<p><strong>Add 5 sets </strong>to unlock the Velvet Vanity Box + Free Shipping</p>"
+          }
+        }
+      },
+      "block_order": [
+        "step_f9Erbh",
+        "step_pHEWpK"
+      ],
+      "custom_css": [
+        "h2 {margin-bottom: 0 !important;}",
+        ".gift-steps__grid {grid-template-columns: repeat(2, 1fr); max-width: 700px; margin: auto; gap: 40px;}",
+        "strong {font-weight: 700;}"
+      ],
+      "name": "Gift Steps",
+      "settings": {
+        "heading": "The more you add, the more you unlock.",
+        "max_width": 1200,
+        "background": "linear-gradient(180deg, rgba(244, 232, 255, 1), rgba(249, 228, 227, 1) 100%)",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "section_bundle_products_tAiL7K": {
+      "type": "section-bundle-products",
       "blocks": {
         "collection_6tJFMg": {
           "settings": {
@@ -295,30 +365,25 @@
         }
       },
       "custom_css": [
-        "p {max-width: 570px; margin: 0 auto 20px;}",
-        ".collection-tabs h2:after {display: none;}",
-        "h2 {padding: 0; margin-bottom: 0 !important;}",
-        ".tab-content {margin-top: 30px !important;}",
-        "@media screen and (max-width: 768px) {.wrapper {padding-top: 50px; }}"
+        "p.product__grid__collection-name {font-size: 12px !important; font-weight: 300; font-family: \"Montserrat\"; color: #000; letter-spacing: 0.5px !important; text-align: left;}",
+        "section {padding-top: 20px;}",
+        "@media screen and (max-width: 768px) {.bundle-products__filters {padding-left: 0; padding-right: 0; } .bundle-products__filter-btn {font-size: 16px !important; }}",
+        ".bundle-product__title {font-size: 15px;}"
       ],
       "disabled": true,
       "name": "Product slider tabs",
       "settings": {
-        "bg": "palette--light bg--neutral",
-        "description": "<p>We make soft-gel press-ons so luxe, they'll swear you spent hours at the salon.</p>",
-        "description_alignment": "center",
-        "grid_large": 3,
-        "grid_medium": 2,
-        "grid_mobile": 1,
-        "limit": 20,
-        "padding_bottom": 70,
-        "padding_top": 60,
-        "progress_bar": "hidden",
-        "title": "Collections",
-        "width": "wrapper",
-        "wrapper": "wrapper"
-      },
-      "type": "section-collection-tabs"
+        "collection": "collection-2",
+        "heading": "",
+        "subheading": "",
+        "all_label": "All",
+        "bundle_content_heading": "BUNDLE & SAVE: 3 FOR $45",
+        "bundle_content_subheading": "3 Sets. $45 Flat. Free Shipping. Secure your rotation now.",
+        "progress_text_default": "Add [X] more sets to unlock the $15/set insider rate.",
+        "progress_text_two_more": "Getting closer. Add 2 more sets to save $9 instantly + FREE SHIPPING.",
+        "progress_text_one_more": "So close. Add 1 more set to secure the $45 Stash.",
+        "progress_text_complete": "Vault unlocked. Insider rate ($15/set) secured. The math is mathing."
+      }
     },
     "section_collection_tabs_y8FR4V": {
       "block_order": [
@@ -445,5 +510,18 @@
       },
       "type": "collection-sub"
     }
-  }
+  },
+  "order": [
+    "hero",
+    "subcollections",
+    "main",
+    "section_video_z78q6B",
+    "section_announcement_XYjiPA",
+    "section_collection_tabs_aPxHGE",
+    "section_collection_tabs_7FhyYd",
+    "section_richtext_miyxB6",
+    "gift_steps_qVE7mL",
+    "section_bundle_products_tAiL7K",
+    "section_collection_tabs_y8FR4V"
+  ]
 }
