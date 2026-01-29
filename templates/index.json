@@ -265,7 +265,7 @@
           "type": "button",
           "settings": {
             "link_text_1": "Build a Gift Box",
-            "link_1": "",
+            "link_1": "shopify://pages/build-a-gift",
             "button_size_1": "btn--long",
             "button_style_1": "btn",
             "button_color_1": "btn--white",
