@@ -382,7 +382,13 @@
         "progress_text_default": "Add [X] more sets to unlock the $15/set insider rate.",
         "progress_text_two_more": "Getting closer. Add 2 more sets to save $9 instantly + FREE SHIPPING.",
         "progress_text_one_more": "So close. Add 1 more set to secure the $45 Stash.",
-        "progress_text_complete": "Vault unlocked. Insider rate ($15/set) secured. The math is mathing."
+        "progress_text_complete": "Vault unlocked. Insider rate ($15/set) secured. The math is mathing.",
+        "progress_total_steps": 3,
+        "progress_step_1_step_number": 1,
+        "progress_step_2_step_number": 2,
+        "progress_step_3_step_number": 3,
+        "progress_step_4_step_number": 4,
+        "progress_step_5_step_number": 5
       }
     },
     "section_collection_tabs_y8FR4V": {
