@@ -462,7 +462,6 @@
           "settings": {
             "max_width": 1200,
             "review_source": "all",
-            "show_tabs": false,
             "show_first": "product",
             "empty_state": "empty_widget"
           }

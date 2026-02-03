@@ -148,39 +148,85 @@
             endif
           endfor
         -%}
-        {%- assign remaining = 3 | minus: cart.item_count -%}
+        {%- assign total_steps = section.settings.progress_total_steps | default: 5 | at_least: 1 -%}
+        {%- assign remaining = total_steps | minus: cart.item_count -%}
         {%- liquid
-          if cart.item_count >= 3 or has_special_tag
+          if cart.item_count >= total_steps or has_special_tag
             assign progress = 100
+          elsif cart.item_count <= 0
+            assign progress = 0
           else
-            assign progress = 100 | times: cart.item_count | divided_by: 3
+            assign progress_calculation = cart.item_count | times: 100
+            assign progress = progress_calculation | divided_by: total_steps
           endif
         -%}
-        <div class="bundle-products__cart-progress-bar" style="--progress: {{ progress }}%">
+        <div class="bundle-products__cart-progress-bar" style="--progress: {{ progress }}%" data-total-steps="{{ total_steps }}">
           <div class="bundle-products__cart-progress-fill"></div>
           {%- if section.settings.progress_step_1_icon != blank -%}
-            <div class="bundle-products__cart-progress-step bundle-products__cart-progress-step--1">
-              <img src="{{ section.settings.progress_step_1_icon | image_url }}" alt="Step 1" />
+            {%- assign step_1_position = section.settings.progress_step_1_step_number | default: 1 | at_least: 1 | at_most: total_steps -%}
+            {%- if step_1_position == total_steps -%}
+              <div class="bundle-products__cart-progress-step" style="left: calc(100% - 20px)">
+            {%- else -%}
+              {%- assign step_1_percent_base = 100 | times: step_1_position | divided_by: total_steps -%}
+              <div class="bundle-products__cart-progress-step" style="left: calc({{ step_1_percent_base }}% - 10%)">
+            {%- endif -%}
+              <img src="{{ section.settings.progress_step_1_icon | image_url }}" alt="Step {{ step_1_position }}" />
             </div>
           {%- endif -%}
           {%- if section.settings.progress_step_2_icon != blank -%}
-            <div class="bundle-products__cart-progress-step bundle-products__cart-progress-step--2">
-              <img src="{{ section.settings.progress_step_2_icon | image_url }}" alt="Step 2" />
+            {%- assign step_2_position = section.settings.progress_step_2_step_number | default: 2 | at_least: 1 | at_most: total_steps -%}
+            {%- if step_2_position == total_steps -%}
+              <div class="bundle-products__cart-progress-step" style="left: calc(100% - 20px)">
+            {%- else -%}
+              {%- assign step_2_percent_base = 100 | times: step_2_position | divided_by: total_steps -%}
+              <div class="bundle-products__cart-progress-step" style="left: calc({{ step_2_percent_base }}% - 10%)">
+            {%- endif -%}
+              <img src="{{ section.settings.progress_step_2_icon | image_url }}" alt="Step {{ step_2_position }}" />
             </div>
           {%- endif -%}
           {%- if section.settings.progress_step_3_icon != blank -%}
-            <div class="bundle-products__cart-progress-step bundle-products__cart-progress-step--3">
-              <img src="{{ section.settings.progress_step_3_icon | image_url }}" alt="Step 3" />
+            {%- assign step_3_position = section.settings.progress_step_3_step_number | default: 3 | at_least: 1 | at_most: total_steps -%}
+            {%- if step_3_position == total_steps -%}
+              <div class="bundle-products__cart-progress-step" style="left: calc(100% - 20px)">
+            {%- else -%}
+              {%- assign step_3_percent_base = 100 | times: step_3_position | divided_by: total_steps -%}
+              <div class="bundle-products__cart-progress-step" style="left: calc({{ step_3_percent_base }}% - 10%)">
+            {%- endif -%}
+              <img src="{{ section.settings.progress_step_3_icon | image_url }}" alt="Step {{ step_3_position }}" />
+            </div>
+          {%- endif -%}
+          {%- if section.settings.progress_step_4_icon != blank -%}
+            {%- assign step_4_position = section.settings.progress_step_4_step_number | default: 4 | at_least: 1 | at_most: total_steps -%}
+            {%- if step_4_position == total_steps -%}
+              <div class="bundle-products__cart-progress-step" style="left: calc(100% - 20px)">
+            {%- else -%}
+              {%- assign step_4_percent_base = 100 | times: step_4_position | divided_by: total_steps -%}
+              <div class="bundle-products__cart-progress-step" style="left: calc({{ step_4_percent_base }}% - 10%)">
+            {%- endif -%}
+              <img src="{{ section.settings.progress_step_4_icon | image_url }}" alt="Step {{ step_4_position }}" />
+            </div>
+          {%- endif -%}
+          {%- if section.settings.progress_step_5_icon != blank -%}
+            {%- assign step_5_position = section.settings.progress_step_5_step_number | default: 5 | at_least: 1 | at_most: total_steps -%}
+            {%- if step_5_position == total_steps -%}
+              <div class="bundle-products__cart-progress-step" style="left: calc(100% - 20px)">
+            {%- else -%}
+              {%- assign step_5_percent_base = 100 | times: step_5_position | divided_by: total_steps -%}
+              <div class="bundle-products__cart-progress-step" style="left: calc({{ step_5_percent_base }}% - 10%)">
+            {%- endif -%}
+              <img src="{{ section.settings.progress_step_5_icon | image_url }}" alt="Step {{ step_5_position }}" />
             </div>
           {%- endif -%}
         </div>
         {%- liquid
           assign progress_text = ''
-          if cart.item_count >= 3 or has_special_tag
+          assign one_less_than_total = total_steps | minus: 1
+          assign two_less_than_total = total_steps | minus: 2
+          if cart.item_count >= total_steps or has_special_tag
             assign progress_text = section.settings.progress_text_complete | default: 'We love to see it. 20% OFF applied.'
-          elsif cart.item_count == 2
+          elsif cart.item_count == one_less_than_total
             assign progress_text = section.settings.progress_text_one_more | default: 'Just 1 more set to unlock 20% OFF'
-          elsif cart.item_count == 1
+          elsif cart.item_count == two_less_than_total
             assign progress_text = section.settings.progress_text_two_more | default: 'Just 2 more sets to unlock 20% OFF'
           else
             assign default_text = section.settings.progress_text_default | default: 'You are [X] sets away from 20% OFF'
@@ -271,7 +317,7 @@
   }, 500);
 
   // Update saved amount
-  setInterval(function () {
+  function updateSavedAmount(){
     fetch('/cart.js')
       .then(response => response.json())
       .then(cart => {
@@ -335,7 +381,7 @@
         }
       })
       .catch(console.error);
-  }, 500);
+    }
 
 // Category filter by data-collection
 document.querySelectorAll('.bundle-products__filter-btn').forEach(btn => {
@@ -457,25 +503,78 @@ document.querySelector('.bundle-products__filter-btn[data-filter="all"]')?.click
     },
     {
       "type": "header",
+      "content": "Progress Bar Settings"
+    },
+    {
+      "type": "number",
+      "id": "progress_total_steps",
+      "label": "Total Steps",
+      "default": 5,
+      "info": "Total number of steps for the progress bar"
+    },
+    {
+      "type": "header",
       "content": "Progress Bar Step Icons"
     },
     {
       "type": "image_picker",
       "id": "progress_step_1_icon",
-      "label": "Step 1 Icon",
-      "info": "Icon displayed at the first step (33% of progress bar)"
+      "label": "Icon 1"
+    },
+    {
+      "type": "number",
+      "id": "progress_step_1_step_number",
+      "label": "Icon 1 - Step Number",
+      "default": 1,
+      "info": "Which step this icon represents (1 to total steps)"
     },
     {
       "type": "image_picker",
       "id": "progress_step_2_icon",
-      "label": "Step 2 Icon",
-      "info": "Icon displayed at the second step (66% of progress bar)"
+      "label": "Icon 2"
+    },
+    {
+      "type": "number",
+      "id": "progress_step_2_step_number",
+      "label": "Icon 2 - Step Number",
+      "default": 2,
+      "info": "Which step this icon represents (1 to total steps)"
     },
     {
       "type": "image_picker",
       "id": "progress_step_3_icon",
-      "label": "Step 3 Icon",
-      "info": "Icon displayed at the final step (100% of progress bar)"
+      "label": "Icon 3"
+    },
+    {
+      "type": "number",
+      "id": "progress_step_3_step_number",
+      "label": "Icon 3 - Step Number",
+      "default": 3,
+      "info": "Which step this icon represents (1 to total steps)"
+    },
+    {
+      "type": "image_picker",
+      "id": "progress_step_4_icon",
+      "label": "Icon 4"
+    },
+    {
+      "type": "number",
+      "id": "progress_step_4_step_number",
+      "label": "Icon 4 - Step Number",
+      "default": 4,
+      "info": "Which step this icon represents (1 to total steps)"
+    },
+    {
+      "type": "image_picker",
+      "id": "progress_step_5_icon",
+      "label": "Icon 5"
+    },
+    {
+      "type": "number",
+      "id": "progress_step_5_step_number",
+      "label": "Icon 5 - Step Number",
+      "default": 5,
+      "info": "Which step this icon represents (1 to total steps)"
     }
   ],
   "blocks": [

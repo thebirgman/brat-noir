@@ -1,6 +1,8 @@
 (function () {
   // Debounce helper to prevent rate limiting
   let refreshCartTimeout = null;
+  let isRefreshingCart = false; // Flag to prevent concurrent refresh calls
+  
   function debouncedRefreshCart(delay = 500) {
     if (refreshCartTimeout) {
       clearTimeout(refreshCartTimeout);
@@ -88,7 +90,8 @@
     const progress = document.querySelector('.bundle-products__cart-progress-bar');
     if (progress) {
       const currentItems = cartContainer.querySelectorAll('.bundle-products__cart-item').length;
-      progress.style.setProperty('--progress', (currentItems / 3) * 100 + '%');
+      const totalSteps = parseInt(progress.dataset.totalSteps) || 5; // Default to 5 if not set
+      progress.style.setProperty('--progress', (currentItems / totalSteps) * 100 + '%');
     }
   }
 
@@ -228,18 +231,21 @@
 
     const progress = document.querySelector('.bundle-products__cart-progress-bar');
     if (progress) {
-      // Mark complete if 3+ items OR has special tag
-      if (data.item_count >= 3 || hasSpecialTag) {
+      const totalSteps = parseInt(progress.dataset.totalSteps) || 5; // Default to 5 if not set
+      // Mark complete if totalSteps+ items OR has special tag
+      if (data.item_count >= totalSteps || hasSpecialTag) {
         progress.style.setProperty('--progress', '100%');
       } else {
-        progress.style.setProperty('--progress', (data.item_count / 3) * 100 + '%');
+        progress.style.setProperty('--progress', (data.item_count / totalSteps) * 100 + '%');
       }
     }
 
     const remaining = document.querySelector('.bundle-products__cart-progress-text');
     if (remaining) {
+      const progressBar = document.querySelector('.bundle-products__cart-progress-bar');
+      const totalSteps = progressBar ? (parseInt(progressBar.dataset.totalSteps) || 5) : 5;
       const itemCount = data.item_count;
-      const remainingCount = 3 - itemCount;
+      const remainingCount = totalSteps - itemCount;
       let progressText = '';
       
       // Get text templates from data attributes
@@ -249,11 +255,11 @@
       const textComplete = remaining.dataset.progressTextComplete || 'We love to see it. 20% OFF applied.';
       
       // Apply conditional logic matching the Liquid template
-      if (itemCount >= 3 || hasSpecialTag) {
+      if (itemCount >= totalSteps || hasSpecialTag) {
         progressText = textComplete;
-      } else if (itemCount === 2) {
+      } else if (itemCount === totalSteps - 1) {
         progressText = textOneMore;
-      } else if (itemCount === 1) {
+      } else if (itemCount === totalSteps - 2) {
         progressText = textTwoMore;
       } else {
         // Replace [X] with remaining count
