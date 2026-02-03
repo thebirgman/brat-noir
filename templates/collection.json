@@ -348,50 +348,6 @@
         "progress_step_4_step_number": 4,
         "progress_step_5_step_number": 5
       }
-    },
-    "section_collection_tabs_y8FR4V": {
-      "type": "section-collection-tabs",
-      "blocks": {
-        "collection_Vgf4KT": {
-          "type": "collection",
-          "settings": {
-            "collection": "bundles",
-            "title": "Brat Halloween Bundle",
-            "grid_large": 4,
-            "grid_medium": 2,
-            "grid_mobile": 1.2
-          }
-        }
-      },
-      "block_order": [
-        "collection_Vgf4KT"
-      ],
-      "custom_css": [
-        ".scrolling-promo,.tabs,.kicker-flourished:after {display: none !important;}",
-        "h2 {padding: 0;}",
-        ".product__grid__price {display: flex; flex-direction: column;}",
-        ".bg--neutral {background: transparent;}",
-        ".product__grid__main-info p {text-align: left;}",
-        "@media screen and (min-width: 1080px) {.slide-item.product-grid-slide[data-item] {width: calc(25% - 25px); }}",
-        ".collection-tabs-container {max-width: 100%; margin: 0 auto !important;}",
-        ".product__grid__price {min-width: 70px; text-align: right; align-items: flex-end; flex-direction: row-reverse;}"
-      ],
-      "name": "Product slider tabs",
-      "settings": {
-        "title": "The Vaults",
-        "description": "<p>5-Set Collections. Maximum value + Instant Free Shipping.</p>",
-        "description_alignment": "center",
-        "wrapper": "wrapper",
-        "progress_bar": "hidden",
-        "grid_large": 3,
-        "grid_medium": 2,
-        "grid_mobile": 1,
-        "limit": 9,
-        "bg": "palette--light bg--neutral",
-        "width": "wrapper",
-        "padding_top": 30,
-        "padding_bottom": 20
-      }
     }
   },
   "order": [
@@ -403,7 +359,6 @@
     "section_collection_tabs_aPxHGE",
     "section_richtext_miyxB6",
     "gift_steps_qVE7mL",
-    "section_bundle_products_tAiL7K",
-    "section_collection_tabs_y8FR4V"
+    "section_bundle_products_tAiL7K"
   ]
 }
