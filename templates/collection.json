@@ -204,50 +204,6 @@
         "padding_bottom": 70
       }
     },
-    "section_collection_tabs_7FhyYd": {
-      "type": "section-collection-tabs",
-      "blocks": {
-        "collection_Y8434L": {
-          "type": "collection",
-          "settings": {
-            "collection": "trio-bundle",
-            "title": "Trio Bundle",
-            "grid_large": 4,
-            "grid_medium": 2,
-            "grid_mobile": 1.2
-          }
-        }
-      },
-      "block_order": [
-        "collection_Y8434L"
-      ],
-      "custom_css": [
-        ".scrolling-promo,.tabs,.kicker-flourished:after {display: none !important;}",
-        "h2 {padding: 0;}",
-        ".product__grid__price {display: flex;}",
-        ".bg--neutral {background: transparent;}",
-        ".product__grid__main-info p {text-align: left;}",
-        "@media screen and (min-width: 1080px) {.slide-item.product-grid-slide[data-item] {width: calc(33% - 25px); }}",
-        ".collection-tabs-container {max-width: 100%; margin: 0 auto !important;}",
-        ".product__grid__price {min-width: 70px; text-align: right; align-items: flex-end; flex-direction: row-reverse;}"
-      ],
-      "name": "Product slider tabs",
-      "settings": {
-        "title": "The Starter Edits",
-        "description": "<p>3 Sets. $45. Free Shipping. The perfect entry point to the Brat life.</p>",
-        "description_alignment": "center",
-        "wrapper": "wrapper",
-        "progress_bar": "hidden",
-        "grid_large": 3,
-        "grid_medium": 2,
-        "grid_mobile": 1,
-        "limit": 9,
-        "bg": "palette--light bg--neutral",
-        "width": "wrapper",
-        "padding_top": 50,
-        "padding_bottom": 30
-      }
-    },
     "section_richtext_miyxB6": {
       "type": "section-richtext",
       "blocks": {
@@ -271,6 +227,7 @@
         "heading_c3zizQ",
         "text_beNXX9"
       ],
+      "disabled": true,
       "custom_css": [
         ".bg--neutral {background: transparent;}",
         "strong {font-weight: 700;}"
@@ -324,7 +281,7 @@
         "heading": "The more you add, the more you unlock.",
         "max_width": 1200,
         "background": "linear-gradient(180deg, rgba(244, 232, 255, 1), rgba(249, 228, 227, 1) 100%)",
-        "padding_top": 0,
+        "padding_top": 80,
         "padding_bottom": 0
       }
     },
@@ -443,7 +400,6 @@
     "section_video_z78q6B",
     "section_announcement_XYjiPA",
     "section_collection_tabs_aPxHGE",
-    "section_collection_tabs_7FhyYd",
     "section_richtext_miyxB6",
     "gift_steps_qVE7mL",
     "section_bundle_products_tAiL7K",
