@@ -932,3 +932,15 @@ p.bundle-products__cart-progress-text {
     width: 100%!Important;
     text-align: center;
 }
+
+.bundle-products__cart-progress-step[style*="40"] + .bundle-products__cart-progress-step[style*="40"] {
+  left: calc(30% + 50px)!Important;
+}
+.bundle-products__cart-progress-step[style*="60"] + .bundle-products__cart-progress-step[style*="60"] {
+  left: calc(50% + 50px)!Important;
+}
+
+.bundle-products__cart-progress-step img {
+  max-width: 40px;
+  max-height: 40px;
+}

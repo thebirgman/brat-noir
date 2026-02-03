@@ -180,6 +180,22 @@
       });
   };
 
-  setInterval(updateProgressBar, 400);
+  // Call once on page load
+  updateProgressBar();
+
+  // Listen for cart change events
+  document.addEventListener('cart:updated', updateProgressBar);
+  document.addEventListener('theme:cart:change', updateProgressBar);
+  
+  // Also listen for custom cart events that might be dispatched
+  document.addEventListener('cart:change', updateProgressBar);
+  
+  // Fallback: listen for form submissions that might update cart
+  document.addEventListener('submit', function(event) {
+    const form = event.target;
+    if (form?.action?.includes('/cart/add') || form?.action?.includes('/cart/change')) {
+      setTimeout(updateProgressBar, 50);
+    }
+  });
 })();
 </script>
