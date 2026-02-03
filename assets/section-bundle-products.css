@@ -944,3 +944,27 @@ p.bundle-products__cart-progress-text {
   max-width: 40px;
   max-height: 40px;
 }
+
+.template-collection .bundle-product__card {
+    max-width: calc(25% - 10px);
+}
+.bundle-products__grid {
+    width: 100%;
+   
+}
+@media screen and (max-width: 990px) {
+.template-collection .bundle-product__card {
+    max-width: calc(33.33% - 10px);
+}
+}
+
+@media screen and (max-width: 768px) {
+.template-collection .bundle-product__card {
+    max-width: calc(50% - 10px);
+}
+    .bundle-products__grid {
+    width: 100%;
+    padding: 16px 10px!Important;
+}
+}
+
