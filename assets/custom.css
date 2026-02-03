@@ -3643,3 +3643,79 @@ body .product__grid__price.product__grid__price--nowrap {
 #build-a-gift .standard__heading strong {
   font-weight: 500!important;
 }
+
+
+@media screen and (max-width: 768px) {
+.collection-tabs-container {
+    padding: 0 30px!important;
+}
+
+.bundle-products__filters {
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.bundle-products {
+    padding: 50px 20px;
+}
+
+.bundle-products__grid {
+    padding: 0 40px!important;
+}
+
+.bundle-products__filter-btn {
+    width: auto;
+    min-width: 150px;
+    margin: 0!important;
+}
+}
+
+
+@media screen and (max-width: 768px) {
+.bundle-product__card {
+    width: 100%;
+    max-width:100%;
+}
+
+.collection-tabs-container {
+    padding: 0!important;
+    flex-wrap: nowrap!important;
+    justify-content: flex-start!important;
+    gap: 20px!Important;
+    max-width: initial!important;
+    width: auto!important;
+    min-width: 100%!important;
+}
+
+.collection-tabs .slide-item.product-grid-slide[data-item] {
+    min-width: 80vw;
+    scroll-snap-align: start;
+}
+
+.collection-tabs-container {
+    overflow: scroll!important;
+    scroll-behavior: smooth;
+    scroll-snap-align: start;
+}
+
+.collection-tabs-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  -webkit-overflow-scrolling: touch;
+  gap: 12px;
+
+  /* Optional: visible scrollbar on iOS */
+  scrollbar-width: thin;
+}
+
+.collection-tabs-container>* {
+  scroll-snap-align: start; /* or center if you want centered snaps */
+  
+}
+
+
+.slide-item.product-grid-slide {}
+}
