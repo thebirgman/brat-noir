@@ -274,8 +274,7 @@
       "custom_css": [
         "h2 {margin-bottom: 0 !important;}",
         ".gift-steps__grid {grid-template-columns: repeat(2, 1fr); max-width: 700px; margin: auto; gap: 40px;}",
-        "strong {font-weight: 700;}",
-        ".bundle-products__cart {display: none;}"
+        "strong {font-weight: 700;}"
       ],
       "name": "Gift Steps",
       "settings": {
@@ -328,7 +327,8 @@
         "p.product__grid__collection-name {font-size: 12px !important; font-weight: 300; font-family: \"Montserrat\"; color: #000; letter-spacing: 0.5px !important; text-align: left;}",
         "section {padding-top: 20px;}",
         "@media screen and (max-width: 768px) {.bundle-products__filters {padding-left: 0; padding-right: 0; } .bundle-products__filter-btn {font-size: 16px !important; }}",
-        ".bundle-product__title {font-size: 15px;}"
+        ".bundle-product__title {font-size: 15px;}",
+        ".bundle-products__cart {display: none;}"
       ],
       "settings": {
         "collection": "collection-2",
