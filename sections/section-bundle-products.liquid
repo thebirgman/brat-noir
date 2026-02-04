@@ -195,7 +195,7 @@
           {%- if section.settings.progress_step_1_icon != blank -%}
             {%- assign step_1_position = section.settings.progress_step_1_step_number | default: 1 | at_least: 1 | at_most: total_steps -%}
             {%- if step_1_position == total_steps -%}
-              <div class="bundle-products__cart-progress-step" style="left: calc(100% - 20px)">
+              <div class="bundle-products__cart-progress-step" style="left: calc(100% - 15px)">
             {%- else -%}
               {%- assign step_1_percent_base = 100 | times: step_1_position | divided_by: total_steps -%}
               <div class="bundle-products__cart-progress-step" style="left: calc({{ step_1_percent_base }}% - 10%)">
@@ -206,7 +206,7 @@
           {%- if section.settings.progress_step_2_icon != blank -%}
             {%- assign step_2_position = section.settings.progress_step_2_step_number | default: 2 | at_least: 1 | at_most: total_steps -%}
             {%- if step_2_position == total_steps -%}
-              <div class="bundle-products__cart-progress-step" style="left: calc(100% - 20px)">
+              <div class="bundle-products__cart-progress-step" style="left: calc(100% - 15px)">
             {%- else -%}
               {%- assign step_2_percent_base = 100 | times: step_2_position | divided_by: total_steps -%}
               <div class="bundle-products__cart-progress-step" style="left: calc({{ step_2_percent_base }}% - 10%)">
@@ -217,7 +217,7 @@
           {%- if section.settings.progress_step_3_icon != blank -%}
             {%- assign step_3_position = section.settings.progress_step_3_step_number | default: 3 | at_least: 1 | at_most: total_steps -%}
             {%- if step_3_position == total_steps -%}
-              <div class="bundle-products__cart-progress-step" style="left: calc(100% - 20px)">
+              <div class="bundle-products__cart-progress-step" style="left: calc(100% - 15px)">
             {%- else -%}
               {%- assign step_3_percent_base = 100 | times: step_3_position | divided_by: total_steps -%}
               <div class="bundle-products__cart-progress-step" style="left: calc({{ step_3_percent_base }}% - 10%)">
@@ -228,7 +228,7 @@
           {%- if section.settings.progress_step_4_icon != blank -%}
             {%- assign step_4_position = section.settings.progress_step_4_step_number | default: 4 | at_least: 1 | at_most: total_steps -%}
             {%- if step_4_position == total_steps -%}
-              <div class="bundle-products__cart-progress-step" style="left: calc(100% - 20px)">
+              <div class="bundle-products__cart-progress-step" style="left: calc(100% - 15px)">
             {%- else -%}
               {%- assign step_4_percent_base = 100 | times: step_4_position | divided_by: total_steps -%}
               <div class="bundle-products__cart-progress-step" style="left: calc({{ step_4_percent_base }}% - 10%)">
@@ -239,7 +239,7 @@
           {%- if section.settings.progress_step_5_icon != blank -%}
             {%- assign step_5_position = section.settings.progress_step_5_step_number | default: 5 | at_least: 1 | at_most: total_steps -%}
             {%- if step_5_position == total_steps -%}
-              <div class="bundle-products__cart-progress-step" style="left: calc(100% - 20px)">
+              <div class="bundle-products__cart-progress-step" style="left: calc(100% - 15px)">
             {%- else -%}
               {%- assign step_5_percent_base = 100 | times: step_5_position | divided_by: total_steps -%}
               <div class="bundle-products__cart-progress-step" style="left: calc({{ step_5_percent_base }}% - 10%)">
