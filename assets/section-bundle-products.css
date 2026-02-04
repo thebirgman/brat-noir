@@ -1031,3 +1031,12 @@ span.bundle-products__cart-item-title {}
 .bundle-products__cart-item--duplicate {
     display: none;
 }
+
+.bundle-products__cart-progress-bar[style*="60"] {}
+
+.bundle-products__cart-progress-bar[style*="60"] {
+}
+
+.bundle-products__cart-progress-bar[style*="60"] .bundle-products__cart-progress-fill {
+    width: 70%!important;
+}
