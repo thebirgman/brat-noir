@@ -171,6 +171,7 @@
       removeBtn.removeAttribute('data-remove-from-cart');
       removeBtn.setAttribute('aria-hidden', 'true');
     }
+    slot.classList.remove('bundle-products__cart-item--trio-bundle', 'bundle-products__cart-item--collection');
     delete slot.dataset.filled;
   }
 
@@ -220,8 +221,9 @@
       
       console.log('Cart data:', data);
 
-    // Check for products with special tags (trio-bundle or collection), compare_at_price, and collection title
-    let hasSpecialTag = false;
+    // Check for products with special tags (trio-bundle = 3 products worth, collection = 5 products worth), compare_at_price, and collection title
+    const itemEffectiveSteps = []; // Per-item: 3 for trio-bundle, 5 for collection, 1 otherwise
+    let tagResults = []; // Per-item: { effectiveSteps, tag: 'trio-bundle'|'collection'|null }
     const itemCompareAtPrices = new Map(); // Store variant_id -> compare_at_price
     const itemCollectionTitles = new Map(); // Store variant_id -> collection title (for display above product title)
     
@@ -260,24 +262,23 @@
                 itemCollectionTitles.set(item.variant_id, collectionTitle);
               }
               
-              // Check for special tags
+              // Check for special tags: trio-bundle = 3 products worth (e.g. 60%), collection = 5 products worth (100%)
               if (productData.tags) {
                 const tags = Array.isArray(productData.tags) ? productData.tags : productData.tags.split(',');
-                return tags.some(tag => 
-                  tag.trim().toLowerCase() === 'trio-bundle' || 
-                  tag.trim().toLowerCase() === 'collection'
-                );
+                const normalized = tags.map(t => t.trim().toLowerCase());
+                if (normalized.includes('collection')) return { effectiveSteps: 5, tag: 'collection' };
+                if (normalized.includes('trio-bundle')) return { effectiveSteps: 3, tag: 'trio-bundle' };
               }
             }
           }
         } catch (e) {
           console.warn('Could not fetch product data for item:', item.product_id);
         }
-        return false;
+        return { effectiveSteps: 1, tag: null };
       });
       
-      const tagResults = await Promise.all(productChecks);
-      hasSpecialTag = tagResults.some(result => result === true);
+      tagResults = await Promise.all(productChecks);
+      itemEffectiveSteps.push(...tagResults.map(r => r.effectiveSteps));
     }
 
     const cartContainer = document.querySelector('.bundle-products__cart-items');
@@ -290,7 +291,11 @@
         if (!slot) continue;
         const slotNumber = i + 1;
         const item = data.items[i];
+        // Remove tag classes from slot (in case we're re-rendering or clearing)
+        slot.classList.remove('bundle-products__cart-item--trio-bundle', 'bundle-products__cart-item--collection');
         if (item) {
+          const itemTag = (tagResults && tagResults[i] && tagResults[i].tag) ? tagResults[i].tag : null;
+          if (itemTag) slot.classList.add('bundle-products__cart-item--' + itemTag);
           fillSlot(slot, { ...item, collection_title: itemCollectionTitles.get(item.variant_id) || '' });
         } else {
           resetSlotToPlaceholder(slot, slotNumber);
@@ -324,20 +329,22 @@
     const progress = document.querySelector('.bundle-products__cart-progress-bar');
     if (progress) {
       const totalSteps = parseInt(progress.dataset.totalSteps) || 5; // Default to 5 if not set
-      // Mark complete if totalSteps+ items OR has special tag
-      if (data.item_count >= totalSteps || hasSpecialTag) {
-        progress.style.setProperty('--progress', '100%');
-      } else {
-        progress.style.setProperty('--progress', (data.item_count / totalSteps) * 100 + '%');
-      }
+      // Effective count: trio-bundle = 3, collection = 5, else 1 per item
+      const effectiveItemCount = itemEffectiveSteps.length
+        ? itemEffectiveSteps.reduce((sum, n) => sum + n, 0)
+        : data.item_count;
+      const progressPct = Math.min(100, (effectiveItemCount / totalSteps) * 100);
+      progress.style.setProperty('--progress', progressPct + '%');
     }
 
     const remaining = document.querySelector('.bundle-products__cart-progress-text');
     if (remaining) {
       const progressBar = document.querySelector('.bundle-products__cart-progress-bar');
       const totalSteps = progressBar ? (parseInt(progressBar.dataset.totalSteps) || 5) : 5;
-      const itemCount = data.item_count;
-      const remainingCount = totalSteps - itemCount;
+      const effectiveItemCount = itemEffectiveSteps.length
+        ? itemEffectiveSteps.reduce((sum, n) => sum + n, 0)
+        : data.item_count;
+      const remainingCount = Math.max(0, totalSteps - effectiveItemCount);
       let progressText = '';
       
       // Get text templates from data attributes
@@ -346,15 +353,14 @@
       const textOneMore = remaining.dataset.progressTextOneMore || 'Just 1 more set to unlock 20% OFF';
       const textComplete = remaining.dataset.progressTextComplete || 'We love to see it. 20% OFF applied.';
       
-      // Apply conditional logic matching the Liquid template
-      if (itemCount >= totalSteps || hasSpecialTag) {
+      // Apply conditional logic using effective count (trio-bundle = 3, collection = 5)
+      if (effectiveItemCount >= totalSteps) {
         progressText = textComplete;
-      } else if (itemCount === totalSteps - 1) {
+      } else if (effectiveItemCount === totalSteps - 1) {
         progressText = textOneMore;
-      } else if (itemCount === totalSteps - 2) {
+      } else if (effectiveItemCount === totalSteps - 2) {
         progressText = textTwoMore;
       } else {
-        // Replace [X] with remaining count
         progressText = textDefault.replace('[X]', remainingCount);
       }
       
