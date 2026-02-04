@@ -340,9 +340,12 @@
         "progress_text_one_more": "So close. Add 1 more set to secure the $45 Stash.",
         "progress_text_complete": "Vault unlocked. Insider rate ($15/set) secured. The math is mathing.",
         "progress_total_steps": 5,
-        "progress_step_1_step_number": 1,
-        "progress_step_2_step_number": 2,
-        "progress_step_3_step_number": 3,
+        "progress_step_1_icon": "shopify://shop_images/Group_542_2.png",
+        "progress_step_1_step_number": 3,
+        "progress_step_2_icon": "shopify://shop_images/Group_543_1.png",
+        "progress_step_2_step_number": 3,
+        "progress_step_3_icon": "shopify://shop_images/Group_544_b3877652-6389-46ab-966c-16d5d76552fa.png",
+        "progress_step_3_step_number": 5,
         "progress_step_4_step_number": 4,
         "progress_step_5_step_number": 5
       }
