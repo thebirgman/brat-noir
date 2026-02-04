@@ -341,10 +341,13 @@
         "progress_text_complete": "Vault unlocked. Insider rate ($15/set) secured. The math is mathing.",
         "progress_total_steps": 5,
         "progress_step_1_icon": "shopify://shop_images/Group_542_2.png",
+        "progress_step_1_icon_completed": "shopify://shop_images/Group_542_4026b6d2-710d-4234-b2c7-5b2b7eb6f4c9.png",
         "progress_step_1_step_number": 3,
         "progress_step_2_icon": "shopify://shop_images/Group_543_1.png",
+        "progress_step_2_icon_completed": "shopify://shop_images/Group_543_fecb2529-6072-4c67-b983-d686d7f88c47.png",
         "progress_step_2_step_number": 3,
         "progress_step_3_icon": "shopify://shop_images/Group_544_b3877652-6389-46ab-966c-16d5d76552fa.png",
+        "progress_step_3_icon_completed": "shopify://shop_images/Group_544_2f270467-6cff-4d3c-ae0d-de6f46033089.png",
         "progress_step_3_step_number": 5,
         "progress_step_4_step_number": 4,
         "progress_step_5_step_number": 5
