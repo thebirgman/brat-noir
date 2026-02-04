@@ -147,7 +147,7 @@
     if (placeholder) placeholder.classList.remove('hidden');
     const img = slot.querySelector('.bundle-products__cart-item-image');
     if (img) img.style.display = 'none';
-    const config = SLOT_PLACEHOLDERS[slotNumber - 1];
+    const config = SLOT_PLACEHOLDERS[(slotNumber - 1) % SLOT_PLACEHOLDERS.length];
     const details = slot.querySelector('.bundle-products__cart-item-details');
     if (details && config) {
       const titleEl = details.querySelector('.bundle-products__cart-item-title');
@@ -171,7 +171,7 @@
       removeBtn.removeAttribute('data-remove-from-cart');
       removeBtn.setAttribute('aria-hidden', 'true');
     }
-    slot.classList.remove('bundle-products__cart-item--trio-bundle', 'bundle-products__cart-item--collection');
+    slot.classList.remove('bundle-products__cart-item--trio-bundle', 'bundle-products__cart-item--collection', 'bundle-products__cart-item--duplicate');
     delete slot.dataset.filled;
   }
 
@@ -286,29 +286,32 @@
       const slots = Array.from(cartContainer.querySelectorAll('.bundle-products__cart-item')).sort(
         (a, b) => parseInt(a.dataset.slot, 10) - parseInt(b.dataset.slot, 10)
       );
+      const slotCount = slots.length;
       // Assign slots by effective steps: trio-bundle fills 3 slots, collection fills 5, normal fills 1
-      const slotAssignments = new Array(5).fill(null);
+      const slotAssignments = new Array(slotCount).fill(null);
       if (data.items && data.items.length > 0 && tagResults.length === data.items.length) {
         let slotIndex = 0;
-        for (let i = 0; i < data.items.length && slotIndex < 5; i++) {
+        for (let i = 0; i < data.items.length && slotIndex < slotCount; i++) {
           const item = data.items[i];
           const effectiveSteps = tagResults[i].effectiveSteps;
           const tag = tagResults[i].tag;
           const collection_title = itemCollectionTitles.get(item.variant_id) || '';
-          for (let j = 0; j < effectiveSteps && slotIndex < 5; j++) {
-            slotAssignments[slotIndex] = { ...item, tag, collection_title, product_title: item.product_title || item.title || '' };
+          for (let j = 0; j < effectiveSteps && slotIndex < slotCount; j++) {
+            const isDuplicate = j > 0;
+            slotAssignments[slotIndex] = { ...item, tag, collection_title, product_title: item.product_title || item.title || '', isDuplicate };
             slotIndex++;
           }
         }
       }
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < slotCount; i++) {
         const slot = slots[i];
         if (!slot) continue;
         const slotNumber = i + 1;
         const assignment = slotAssignments[i];
-        slot.classList.remove('bundle-products__cart-item--trio-bundle', 'bundle-products__cart-item--collection');
+        slot.classList.remove('bundle-products__cart-item--trio-bundle', 'bundle-products__cart-item--collection', 'bundle-products__cart-item--duplicate');
         if (assignment) {
           if (assignment.tag) slot.classList.add('bundle-products__cart-item--' + assignment.tag);
+          if (assignment.isDuplicate) slot.classList.add('bundle-products__cart-item--duplicate');
           fillSlot(slot, assignment);
         } else {
           resetSlotToPlaceholder(slot, slotNumber);
