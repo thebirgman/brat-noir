@@ -1027,3 +1027,7 @@ span.bundle-products__cart-item-title {
 span.bundle-products__cart-item-title {}
 
 .bundle-product__info {}
+
+.bundle-products__cart-item--duplicate {
+    display: none;
+}
