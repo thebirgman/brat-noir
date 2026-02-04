@@ -528,7 +528,7 @@
       }
     });
 
-    // Handle quantity changes in bundle product cards
+    // Quantity wrapper: plus = add to cart (same as product card); minus = remove one from cart; input = display-only (synced by refreshCart)
     document.addEventListener('click', async (event) => {
       const decreaseBtn = event.target.closest('[data-decrease-quantity]');
       const increaseBtn = event.target.closest('[data-increase-quantity]');
@@ -560,9 +560,7 @@
         if (decreaseBtn) {
           if (currentQuantity > 1) {
             currentQuantity--;
-            quantityInput.value = currentQuantity;
-            
-            // Update cart - set new quantity
+            // Update cart; input value is synced from cart by refreshCart
             try {
               const response = await fetch('/cart/change.js', {
                 method: 'POST',
@@ -596,96 +594,22 @@
             card.classList.remove('added');
           }
         } else if (increaseBtn) {
-          currentQuantity++;
-          quantityInput.value = currentQuantity;
-          
-          // Add one more to cart using /cart/add.js
-          const item = {
-            id: parseInt(variantId),
-            quantity: 1
+          // Plus = same as add-to-cart on the product card
+          const atcButton = card.querySelector('[data-add-to-cart]');
+          const sellingPlanId = atcButton?.getAttribute('data-selling-plan') || sellingPlanID || null;
+          const productData = {
+            title: card.querySelector('.bundle-product__title')?.textContent?.trim() || '',
+            image: card.querySelector('.bundle-product__image')?.src || '',
+            price: card.querySelector('.bundle-product__price--sale, .bundle-product__price--regular')?.textContent || '0',
+            collection: (card.dataset.collection || '').trim(),
+            trioBundle: card.dataset.trioBundle === 'true'
           };
-          
-          if (sellingPlanID) {
-            item.selling_plan = parseInt(sellingPlanID);
-          }
-          
-          try {
-            const response = await fetch('/cart/add.js', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ items: [item] })
-            });
-            
-            if (!response.ok) {
-              console.warn('Cart add failed:', response.status);
-            }
-          } catch (error) {
-            console.error('Error adding to cart:', error);
-          }
-          
+          addToCart(variantId, sellingPlanId, 1, productData);
           debouncedRefreshCart();
         }
       }
     });
     
-    // Handle direct input changes
-    document.addEventListener('change', async (event) => {
-      const quantityInput = event.target.closest('.bundle-product__quantity-input');
-      if (!quantityInput || !quantityInput.closest('.bundle-product__quantity-wrapper')) return;
-      
-      const card = quantityInput.closest('.bundle-product__card');
-      if (!card) return;
-      
-      // Get variant ID from input or fallback to button's data attribute
-      let variantId = quantityInput.getAttribute('data-variant-id');
-      if (!variantId) {
-        const addButton = card.querySelector('[data-add-to-cart]');
-        variantId = addButton?.getAttribute('data-variant-id');
-      }
-      
-      if (!variantId) {
-        console.error('No variant ID found for quantity change');
-        return;
-      }
-      
-      let newQuantity = parseInt(quantityInput.value);
-      
-      if (isNaN(newQuantity) || newQuantity < 0) {
-        newQuantity = 1;
-        quantityInput.value = 1;
-      }
-      
-      if (newQuantity === 0) {
-        await removeFromCart(variantId);
-        const quantityWrapper = quantityInput.closest('.bundle-product__quantity-wrapper');
-        const atcButton = card.querySelector('.bundle-product__atc');
-        if (quantityWrapper && atcButton) {
-          quantityWrapper.style.display = 'none';
-          atcButton.style.display = 'flex';
-        }
-        card.classList.remove('added');
-      } else {
-        // Set absolute quantity in cart
-        try {
-          const response = await fetch('/cart/change.js', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              id: variantId,
-              quantity: newQuantity
-            })
-          });
-          
-          if (!response.ok) {
-            console.warn('Cart change failed:', response.status);
-          }
-        } catch (error) {
-          console.error('Error changing cart:', error);
-        }
-        debouncedRefreshCart();
-      }
-    });
-
     refreshCart();
   });
 
