@@ -91,28 +91,16 @@
       (a, b) => parseInt(a.dataset.slot, 10) - parseInt(b.dataset.slot, 10)
     );
 
-    // Check if item already exists (for quantity updates)
-    const existingSlot = slots.find(s => s.querySelector('[data-remove-from-cart="' + variantId + '"]'));
-    if (existingSlot) {
-      const titleElement = existingSlot.querySelector('.bundle-products__cart-item-title');
-      if (titleElement) {
-        const currentQty = parseInt(titleElement.textContent.match(/x\s*(\d+)/)?.[1] || '1');
-        const newQty = currentQty + quantity;
-        titleElement.textContent = titleElement.textContent.replace(/x\s*\d+/, `x ${newQty}`);
-      }
-    } else {
-      // Find first empty slot and fill it
-      const emptySlot = slots.find(s => !s.dataset.filled);
-      if (emptySlot) {
-        const slotNumber = parseInt(emptySlot.dataset.slot, 10);
-        fillSlot(emptySlot, {
-          variant_id: variantId,
-          product_title: productData.title || '',
-          image: productData.image || '',
-          quantity: quantity,
-          collection_title: productData.collection || ''
-        });
-      }
+    // Each product = 1 slot; never combine same product into one slot
+    const emptySlot = slots.find(s => !s.dataset.filled);
+    if (emptySlot) {
+      fillSlot(emptySlot, {
+        variant_id: variantId,
+        product_title: productData.title || '',
+        image: productData.image || '',
+        quantity: 1,
+        collection_title: productData.collection || ''
+      });
     }
 
     // Optimistically update progress (total will be corrected by refreshCart)
@@ -208,17 +196,28 @@
     }
 
     try {
-      const response = await fetch(`/cart/change.js`, {
+      // Each product = 1 slot: decrease quantity by 1 (remove line only when qty was 1)
+      const cartRes = await fetch('/cart.js');
+      if (!cartRes.ok) {
+        debouncedRefreshCart();
+        return;
+      }
+      const cartData = await cartRes.json();
+      const line = (cartData.items || []).find(function (item) { return String(item.variant_id) === String(variantId); });
+      const newQuantity = line ? Math.max(0, (line.quantity || 1) - 1) : 0;
+      const lineId = line && line.key ? line.key : variantId;
+
+      const response = await fetch('/cart/change.js', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          id: variantId,
-          quantity: 0
+          id: lineId,
+          quantity: newQuantity
         })
       });
-      
+
       if (!response.ok) {
         console.warn('Remove from cart failed:', response.status);
       }
@@ -226,7 +225,6 @@
       console.error('Error removing from cart:', error);
     }
 
-    // Update bundle cart UI with real data and update cart drawer in background
     debouncedRefreshCart();
   }
 
@@ -309,7 +307,7 @@
         (a, b) => parseInt(a.dataset.slot, 10) - parseInt(b.dataset.slot, 10)
       );
       const slotCount = slots.length;
-      // Assign slots by effective steps: trio-bundle fills 3 slots, collection fills 5, normal fills 1
+      // Each product = 1 slot: normal item qty 3 = 3 slots; trio = 3 slots; collection = 5 slots
       const slotAssignments = new Array(slotCount).fill(null);
       if (data.items && data.items.length > 0 && tagResults.length === data.items.length) {
         let slotIndex = 0;
@@ -318,9 +316,10 @@
           const effectiveSteps = tagResults[i].effectiveSteps;
           const tag = tagResults[i].tag;
           const collection_title = itemCollectionTitles.get(item.variant_id) || '';
-          for (let j = 0; j < effectiveSteps && slotIndex < slotCount; j++) {
+          const slotsForItem = tag ? effectiveSteps : (item.quantity || 1);
+          for (let j = 0; j < slotsForItem && slotIndex < slotCount; j++) {
             const isDuplicate = j > 0;
-            slotAssignments[slotIndex] = { ...item, tag, collection_title, product_title: item.product_title || item.title || '', isDuplicate };
+            slotAssignments[slotIndex] = { ...item, quantity: 1, tag, collection_title, product_title: item.product_title || item.title || '', isDuplicate };
             slotIndex++;
           }
         }
