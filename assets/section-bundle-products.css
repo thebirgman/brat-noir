@@ -1013,3 +1013,17 @@ p.bundle-products__cart-progress-text {
 }
 }
 
+
+
+.bundle-products__cart-item[data-filled=true] {
+    order: -1;
+}
+
+span.bundle-products__cart-item-title {
+    font-weight: 500;
+    font-size: 17px;
+}
+
+span.bundle-products__cart-item-title {}
+
+.bundle-product__info {}
