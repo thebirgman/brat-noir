@@ -286,17 +286,30 @@
       const slots = Array.from(cartContainer.querySelectorAll('.bundle-products__cart-item')).sort(
         (a, b) => parseInt(a.dataset.slot, 10) - parseInt(b.dataset.slot, 10)
       );
+      // Assign slots by effective steps: trio-bundle fills 3 slots, collection fills 5, normal fills 1
+      const slotAssignments = new Array(5).fill(null);
+      if (data.items && data.items.length > 0 && tagResults.length === data.items.length) {
+        let slotIndex = 0;
+        for (let i = 0; i < data.items.length && slotIndex < 5; i++) {
+          const item = data.items[i];
+          const effectiveSteps = tagResults[i].effectiveSteps;
+          const tag = tagResults[i].tag;
+          const collection_title = itemCollectionTitles.get(item.variant_id) || '';
+          for (let j = 0; j < effectiveSteps && slotIndex < 5; j++) {
+            slotAssignments[slotIndex] = { ...item, tag, collection_title, product_title: item.product_title || item.title || '' };
+            slotIndex++;
+          }
+        }
+      }
       for (let i = 0; i < 5; i++) {
         const slot = slots[i];
         if (!slot) continue;
         const slotNumber = i + 1;
-        const item = data.items[i];
-        // Remove tag classes from slot (in case we're re-rendering or clearing)
+        const assignment = slotAssignments[i];
         slot.classList.remove('bundle-products__cart-item--trio-bundle', 'bundle-products__cart-item--collection');
-        if (item) {
-          const itemTag = (tagResults && tagResults[i] && tagResults[i].tag) ? tagResults[i].tag : null;
-          if (itemTag) slot.classList.add('bundle-products__cart-item--' + itemTag);
-          fillSlot(slot, { ...item, collection_title: itemCollectionTitles.get(item.variant_id) || '' });
+        if (assignment) {
+          if (assignment.tag) slot.classList.add('bundle-products__cart-item--' + assignment.tag);
+          fillSlot(slot, assignment);
         } else {
           resetSlotToPlaceholder(slot, slotNumber);
         }
