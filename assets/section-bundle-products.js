@@ -8,6 +8,27 @@
     { label: "Collector's Piece", hint: 'Velvet Box Unlocked.' }
   ];
 
+  /**
+   * Update progress step icons: show completed icon when progress has reached that step.
+   * @param {HTMLElement} progressBar - .bundle-products__cart-progress-bar
+   * @param {number} effectiveItemCount - Current progress (items or effective steps)
+   * @param {number} totalSteps - Total steps (default 5)
+   */
+  function updateProgressStepIcons(progressBar, effectiveItemCount, totalSteps) {
+    if (!progressBar) return;
+    const steps = progressBar.querySelectorAll('.bundle-products__cart-progress-step');
+    steps.forEach(function (step) {
+      const stepNum = parseInt(step.dataset.step, 10);
+      if (isNaN(stepNum)) return;
+      const img = step.querySelector('img');
+      if (!img) return;
+      const defaultSrc = step.dataset.icon;
+      const completedSrc = step.dataset.iconCompleted || '';
+      const isReached = effectiveItemCount >= stepNum;
+      img.src = (isReached && completedSrc) ? completedSrc : (defaultSrc || img.src);
+    });
+  }
+
   // Debounce helper to prevent rate limiting
   let refreshCartTimeout = null;
   let isRefreshingCart = false; // Flag to prevent concurrent refresh calls
@@ -100,6 +121,7 @@
       const filledCount = cartContainer.querySelectorAll('.bundle-products__cart-item[data-filled="true"]').length;
       const totalSteps = parseInt(progress.dataset.totalSteps) || 5;
       progress.style.setProperty('--progress', (filledCount / totalSteps) * 100 + '%');
+      updateProgressStepIcons(progress, filledCount, totalSteps);
     }
   }
 
@@ -351,6 +373,7 @@
         : data.item_count;
       const progressPct = Math.min(100, (effectiveItemCount / totalSteps) * 100);
       progress.style.setProperty('--progress', progressPct + '%');
+      updateProgressStepIcons(progress, effectiveItemCount, totalSteps);
     }
 
     const remaining = document.querySelector('.bundle-products__cart-progress-text');
