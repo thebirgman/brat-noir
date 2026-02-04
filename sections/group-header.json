@@ -139,7 +139,7 @@
         "header_style": "logo_center",
         "logo": "shopify://shop_images/Group_2.png",
         "menu_left": "left-menu",
-        "menu_right": "right-menu",
+        "menu_right": "right-menu-v2",
         "logo_max_limit": 75,
         "logo_padding": 15,
         "logo_text_size": 5,
