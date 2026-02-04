@@ -1,4 +1,13 @@
 (function () {
+  // Placeholder texts for empty slots (matches build-a-gift-box style)
+  const SLOT_PLACEHOLDERS = [
+    { label: 'Start Your Stack', hint: 'Add 3 sets to unlock VIP Status.' },
+    { label: 'Weekday Look', hint: "You're 2 sets away from Free Shipping." },
+    { label: 'Unlock VIP', hint: 'Add this for Free Ship + VIP Pricing.' },
+    { label: 'Weekend Look', hint: 'Get a luxury home for your nails next.' },
+    { label: "Collector's Piece", hint: 'Velvet Box Unlocked.' }
+  ];
+
   // Debounce helper to prevent rate limiting
   let refreshCartTimeout = null;
   let isRefreshingCart = false; // Flag to prevent concurrent refresh calls
@@ -54,54 +63,124 @@
   }
 
   function optimisticallyAddToBundleCart(variantId, productData, quantity) {
-    const template = document.querySelector('#bundle-cart-item');
-    if (!template) return;
-
     const cartContainer = document.querySelector('.bundle-products__cart-items');
     if (!cartContainer) return;
 
+    const slots = Array.from(cartContainer.querySelectorAll('.bundle-products__cart-item')).sort(
+      (a, b) => parseInt(a.dataset.slot, 10) - parseInt(b.dataset.slot, 10)
+    );
+
     // Check if item already exists (for quantity updates)
-    const existingItem = cartContainer.querySelector(`[data-remove-from-cart="${variantId}"]`)?.closest('.bundle-products__cart-item');
-    if (existingItem) {
-      // Update existing item quantity
-      const titleElement = existingItem.querySelector('.bundle-products__cart-item-title');
+    const existingSlot = slots.find(s => s.querySelector('[data-remove-from-cart="' + variantId + '"]'));
+    if (existingSlot) {
+      const titleElement = existingSlot.querySelector('.bundle-products__cart-item-title');
       if (titleElement) {
         const currentQty = parseInt(titleElement.textContent.match(/x\s*(\d+)/)?.[1] || '1');
         const newQty = currentQty + quantity;
         titleElement.textContent = titleElement.textContent.replace(/x\s*\d+/, `x ${newQty}`);
       }
     } else {
-      // Create and add new optimistic cart item
-      const itemHtml = template.innerHTML
-        .replace(/%ID%/g, variantId)
-        .replace(/%TITLE%/g, productData.title)
-        .replace(/%IMAGE%/g, productData.image || 'default-image-url.jpg')
-        .replace(/%QUANTITY%/g, quantity);
-
-      const tempDiv = document.createElement('div');
-      tempDiv.innerHTML = itemHtml;
-      const newItem = tempDiv.firstElementChild;
-      
-      // Add to the beginning of cart items
-      cartContainer.insertBefore(newItem, cartContainer.firstChild);
+      // Find first empty slot and fill it
+      const emptySlot = slots.find(s => !s.dataset.filled);
+      if (emptySlot) {
+        const slotNumber = parseInt(emptySlot.dataset.slot, 10);
+        fillSlot(emptySlot, {
+          variant_id: variantId,
+          product_title: productData.title || '',
+          image: productData.image || '',
+          quantity: quantity,
+          collection_title: productData.collection || ''
+        });
+      }
     }
 
     // Optimistically update progress (total will be corrected by refreshCart)
     const progress = document.querySelector('.bundle-products__cart-progress-bar');
     if (progress) {
-      const currentItems = cartContainer.querySelectorAll('.bundle-products__cart-item').length;
-      const totalSteps = parseInt(progress.dataset.totalSteps) || 5; // Default to 5 if not set
-      progress.style.setProperty('--progress', (currentItems / totalSteps) * 100 + '%');
+      const filledCount = cartContainer.querySelectorAll('.bundle-products__cart-item[data-filled="true"]').length;
+      const totalSteps = parseInt(progress.dataset.totalSteps) || 5;
+      progress.style.setProperty('--progress', (filledCount / totalSteps) * 100 + '%');
     }
   }
 
+  function fillSlot(slot, item) {
+    const placeholder = slot.querySelector('.bundle-products__cart-item-placeholder');
+    if (placeholder) placeholder.classList.add('hidden');
+    let img = slot.querySelector('.bundle-products__cart-item-image');
+    if (!img) {
+      img = document.createElement('img');
+      img.className = 'bundle-products__cart-item-image';
+      const details = slot.querySelector('.bundle-products__cart-item-details');
+      slot.insertBefore(img, details);
+    }
+    img.src = item.image || '';
+    img.alt = item.product_title || '';
+    img.style.display = '';
+    const details = slot.querySelector('.bundle-products__cart-item-details');
+    if (details) {
+      let collectionEl = details.querySelector('.bundle-products__cart-item-collection');
+      const titleEl = details.querySelector('.bundle-products__cart-item-title');
+      const hintEl = details.querySelector('.bundle-products__cart-item-hint');
+      if (!collectionEl && titleEl) {
+        collectionEl = document.createElement('span');
+        collectionEl.className = 'bundle-products__cart-item-collection';
+        details.insertBefore(collectionEl, titleEl);
+      }
+      if (collectionEl) {
+        collectionEl.textContent = item.collection_title || '';
+        collectionEl.style.display = item.collection_title ? '' : 'none';
+      }
+      if (titleEl) titleEl.textContent = (item.product_title || '') + ' x ' + (item.quantity || 1);
+      if (hintEl) hintEl.style.display = 'none';
+    }
+    const removeBtn = slot.querySelector('.bundle-products__cart-item-remove');
+    if (removeBtn) {
+      removeBtn.style.display = '';
+      removeBtn.setAttribute('data-remove-from-cart', item.variant_id);
+      removeBtn.removeAttribute('aria-hidden');
+    }
+    slot.dataset.filled = 'true';
+  }
+
+  function resetSlotToPlaceholder(slot, slotNumber) {
+    const placeholder = slot.querySelector('.bundle-products__cart-item-placeholder');
+    if (placeholder) placeholder.classList.remove('hidden');
+    const img = slot.querySelector('.bundle-products__cart-item-image');
+    if (img) img.style.display = 'none';
+    const config = SLOT_PLACEHOLDERS[slotNumber - 1];
+    const details = slot.querySelector('.bundle-products__cart-item-details');
+    if (details && config) {
+      const titleEl = details.querySelector('.bundle-products__cart-item-title');
+      let hintEl = details.querySelector('.bundle-products__cart-item-hint');
+      if (!hintEl && titleEl) {
+        hintEl = document.createElement('span');
+        hintEl.className = 'bundle-products__cart-item-hint';
+        details.appendChild(hintEl);
+      }
+      if (titleEl) titleEl.textContent = config.label;
+      if (hintEl) {
+        hintEl.textContent = config.hint;
+        hintEl.style.display = '';
+      }
+      const collectionEl = details.querySelector('.bundle-products__cart-item-collection');
+      if (collectionEl) collectionEl.style.display = 'none';
+    }
+    const removeBtn = slot.querySelector('.bundle-products__cart-item-remove');
+    if (removeBtn) {
+      removeBtn.style.display = 'none';
+      removeBtn.removeAttribute('data-remove-from-cart');
+      removeBtn.setAttribute('aria-hidden', 'true');
+    }
+    delete slot.dataset.filled;
+  }
+
   async function removeFromCart(variantId) {
-    // Optimistically remove from bundle cart UI immediately
+    // Optimistically reset this slot to placeholder
     const cartContainer = document.querySelector('.bundle-products__cart-items');
     if (cartContainer) {
-      const itemToRemove = cartContainer.querySelector(`[data-remove-from-cart="${variantId}"]`)?.closest('.bundle-products__cart-item');
-      if (itemToRemove) {
-        itemToRemove.remove();
+      const slot = cartContainer.querySelector(`[data-remove-from-cart="${variantId}"]`)?.closest('.bundle-products__cart-item');
+      if (slot && slot.dataset.slot) {
+        resetSlotToPlaceholder(slot, parseInt(slot.dataset.slot, 10));
       }
     }
 
@@ -140,14 +219,14 @@
       const data = await response.json();
       
       console.log('Cart data:', data);
-      const template = document.querySelector('#bundle-cart-item');
 
-    // Check for products with special tags (trio-bundle or collection) and get compare_at_price
+    // Check for products with special tags (trio-bundle or collection), compare_at_price, and collection title
     let hasSpecialTag = false;
     const itemCompareAtPrices = new Map(); // Store variant_id -> compare_at_price
+    const itemCollectionTitles = new Map(); // Store variant_id -> collection title (for display above product title)
     
     if (data.items && data.items.length > 0) {
-      // Fetch product data to check tags and get compare_at_price
+      // Fetch product data to check tags, get compare_at_price, and collection for each item
       const productChecks = data.items.map(async (item) => {
         try {
           // Extract product handle from URL if available, or use product_id as fallback
@@ -173,6 +252,14 @@
                 }
               }
               
+              // Get collection title (first collection or metafield, for display above product title)
+              const collectionTitle = (productData.collections && productData.collections[0] && (productData.collections[0].title || productData.collections[0].name)) ||
+                (productData.metafields && productData.metafields.custom && productData.metafields.custom.collection_name && (typeof productData.metafields.custom.collection_name === 'string' ? productData.metafields.custom.collection_name : productData.metafields.custom.collection_name.value)) ||
+                '';
+              if (collectionTitle) {
+                itemCollectionTitles.set(item.variant_id, collectionTitle);
+              }
+              
               // Check for special tags
               if (productData.tags) {
                 const tags = Array.isArray(productData.tags) ? productData.tags : productData.tags.split(',');
@@ -193,18 +280,23 @@
       hasSpecialTag = tagResults.some(result => result === true);
     }
 
-    let html = '';
-    data.items.forEach(item => {
-      const itemHtml = template.innerHTML
-        .replace(/%ID%/g, item.variant_id)
-        .replace(/%TITLE%/g, item.product_title)
-        .replace(/%IMAGE%/g, item.image || 'default-image-url.jpg')
-        .replace(/%QUANTITY%/g, item.quantity);
-      html += itemHtml;
-    });
-
     const cartContainer = document.querySelector('.bundle-products__cart-items');
-    if (cartContainer) cartContainer.innerHTML = html;
+    if (cartContainer) {
+      const slots = Array.from(cartContainer.querySelectorAll('.bundle-products__cart-item')).sort(
+        (a, b) => parseInt(a.dataset.slot, 10) - parseInt(b.dataset.slot, 10)
+      );
+      for (let i = 0; i < 5; i++) {
+        const slot = slots[i];
+        if (!slot) continue;
+        const slotNumber = i + 1;
+        const item = data.items[i];
+        if (item) {
+          fillSlot(slot, { ...item, collection_title: itemCollectionTitles.get(item.variant_id) || '' });
+        } else {
+          resetSlotToPlaceholder(slot, slotNumber);
+        }
+      }
+    }
 
     const total = document.querySelector('.bundle-products__cart-total-price');
     if (total) total.innerHTML = '$' + ((data.total_price || 0) / 100);
@@ -325,12 +417,14 @@
         const variantId = button.getAttribute('data-variant-id') || null;
         const sellingPlanID = button.getAttribute('data-selling-plan') || null;
 
-        // Get product data from the card for optimistic update
+        // Get product data from the card for optimistic update (including collection and trio-bundle)
         const card = button.closest('.bundle-product__card');
         const productData = card ? {
           title: card.querySelector('.bundle-product__title')?.textContent?.trim() || '',
           image: card.querySelector('.bundle-product__image')?.src || '',
-          price: card.querySelector('.bundle-product__price--sale, .bundle-product__price--regular')?.textContent || '0'
+          price: card.querySelector('.bundle-product__price--sale, .bundle-product__price--regular')?.textContent || '0',
+          collection: (card.dataset.collection || '').trim(),
+          trioBundle: card.dataset.trioBundle === 'true'
         } : null;
 
         // Add visual feedback class to product card and show quantity selector
