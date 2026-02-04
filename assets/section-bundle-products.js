@@ -273,18 +273,23 @@
       hasSpecialTag = tagResults.some(result => result === true);
     }
 
-    let html = '';
-    data.items.forEach(item => {
-      const itemHtml = template.innerHTML
-        .replace(/%ID%/g, item.variant_id)
-        .replace(/%TITLE%/g, item.product_title)
-        .replace(/%IMAGE%/g, item.image || 'default-image-url.jpg')
-        .replace(/%QUANTITY%/g, item.quantity);
-      html += itemHtml;
-    });
-
     const cartContainer = document.querySelector('.bundle-products__cart-items');
-    if (cartContainer) cartContainer.innerHTML = html;
+    if (cartContainer) {
+      const slots = Array.from(cartContainer.querySelectorAll('.bundle-products__cart-item')).sort(
+        (a, b) => parseInt(a.dataset.slot, 10) - parseInt(b.dataset.slot, 10)
+      );
+      for (let i = 0; i < 5; i++) {
+        const slot = slots[i];
+        if (!slot) continue;
+        const slotNumber = i + 1;
+        const item = data.items[i];
+        if (item) {
+          fillSlot(slot, item);
+        } else {
+          resetSlotToPlaceholder(slot, slotNumber);
+        }
+      }
+    }
 
     const total = document.querySelector('.bundle-products__cart-total-price');
     if (total) total.innerHTML = '$' + ((data.total_price || 0) / 100);
