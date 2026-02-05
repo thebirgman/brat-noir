@@ -275,6 +275,7 @@
         </div>
         {%- liquid
           assign progress_text = ''
+          assign step_0_text = section.settings.progress_text_step_0 | default: 'You are [X] sets away from 20% OFF'
           assign step_1_text = section.settings.progress_text_step_1 | default: 'You are [X] sets away from 20% OFF'
           assign step_2_text = section.settings.progress_text_step_2 | default: 'You are [X] sets away from 20% OFF'
           assign step_3_text = section.settings.progress_text_step_3 | default: 'Just 2 more sets to unlock 20% OFF'
@@ -290,12 +291,15 @@
             assign progress_text = step_3_text
           elsif cart.item_count == 2
             assign progress_text = step_2_text | replace: '[X]', remaining
-          else
+          elsif cart.item_count == 1
             assign progress_text = step_1_text | replace: '[X]', remaining
+          else
+            assign progress_text = step_0_text | replace: '[X]', remaining
           endif
         -%}
         <p 
           class="bundle-products__cart-progress-text"
+          data-progress-text-step-0="{{ step_0_text | escape }}"
           data-progress-text-step-1="{{ step_1_text | escape }}"
           data-progress-text-step-2="{{ step_2_text | escape }}"
           data-progress-text-step-3="{{ step_3_text | escape }}"
@@ -541,9 +545,16 @@ document.querySelector('.bundle-products__filter-btn[data-filter="all"]')?.click
     },
     {
       "type": "text",
+      "id": "progress_text_step_0",
+      "label": "Progress Text (0 sets in cart)",
+      "info": "Use [X] as placeholder for remaining sets. Example: 'You are [X] sets away from 20% OFF'",
+      "default": "You are [X] sets away from 20% OFF"
+    },
+    {
+      "type": "text",
       "id": "progress_text_step_1",
       "label": "Progress Text (Step 1 – 1 set in cart)",
-      "info": "Use [X] as placeholder for remaining sets. Example: 'You are [X] sets away from 20% OFF'",
+      "info": "Use [X] as placeholder for remaining sets",
       "default": "You are [X] sets away from 20% OFF"
     },
     {

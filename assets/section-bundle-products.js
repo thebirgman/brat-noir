@@ -385,7 +385,8 @@
       const remainingCount = Math.max(0, totalSteps - effectiveItemCount);
       let progressText = '';
 
-      // Get step text templates from data attributes (steps 1-5)
+      // Get step text templates from data attributes (0–5)
+      const textStep0 = remaining.dataset.progressTextStep0 || 'You are [X] sets away from 20% OFF';
       const textStep1 = remaining.dataset.progressTextStep1 || 'You are [X] sets away from 20% OFF';
       const textStep2 = remaining.dataset.progressTextStep2 || 'You are [X] sets away from 20% OFF';
       const textStep3 = remaining.dataset.progressTextStep3 || 'Just 2 more sets to unlock 20% OFF';
@@ -401,8 +402,10 @@
         progressText = textStep3;
       } else if (effectiveItemCount === 2) {
         progressText = textStep2.replace('[X]', remainingCount);
-      } else {
+      } else if (effectiveItemCount === 1) {
         progressText = textStep1.replace('[X]', remainingCount);
+      } else {
+        progressText = textStep0.replace('[X]', remainingCount);
       }
 
       remaining.innerHTML = progressText;
