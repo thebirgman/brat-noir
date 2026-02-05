@@ -275,25 +275,33 @@
         </div>
         {%- liquid
           assign progress_text = ''
+          assign step_1_text = section.settings.progress_text_step_1 | default: 'You are [X] sets away from 20% OFF'
+          assign step_2_text = section.settings.progress_text_step_2 | default: 'You are [X] sets away from 20% OFF'
+          assign step_3_text = section.settings.progress_text_step_3 | default: 'Just 2 more sets to unlock 20% OFF'
+          assign step_4_text = section.settings.progress_text_step_4 | default: 'Just 1 more set to unlock 20% OFF'
+          assign step_5_text = section.settings.progress_text_step_5 | default: 'We love to see it. 20% OFF applied.'
           assign one_less_than_total = total_steps | minus: 1
           assign two_less_than_total = total_steps | minus: 2
           if cart.item_count >= total_steps or has_special_tag
-            assign progress_text = section.settings.progress_text_complete | default: 'We love to see it. 20% OFF applied.'
+            assign progress_text = step_5_text
           elsif cart.item_count == one_less_than_total
-            assign progress_text = section.settings.progress_text_one_more | default: 'Just 1 more set to unlock 20% OFF'
+            assign progress_text = step_4_text
           elsif cart.item_count == two_less_than_total
-            assign progress_text = section.settings.progress_text_two_more | default: 'Just 2 more sets to unlock 20% OFF'
+            assign progress_text = step_3_text
+          elsif cart.item_count == 2
+            assign progress_text = step_2_text | replace: '[X]', remaining
           else
-            assign default_text = section.settings.progress_text_default | default: 'You are [X] sets away from 20% OFF'
-            assign progress_text = default_text | replace: '[X]', remaining
+            assign progress_text = step_1_text | replace: '[X]', remaining
           endif
         -%}
         <p 
           class="bundle-products__cart-progress-text"
-          data-progress-text-default="{{ section.settings.progress_text_default | default: 'You are [X] sets away from 20% OFF' | escape }}"
-          data-progress-text-two-more="{{ section.settings.progress_text_two_more | default: 'Just 2 more sets to unlock 20% OFF' | escape }}"
-          data-progress-text-one-more="{{ section.settings.progress_text_one_more | default: 'Just 1 more set to unlock 20% OFF' | escape }}"
-          data-progress-text-complete="{{ section.settings.progress_text_complete | default: 'We love to see it. 20% OFF applied.' | escape }}">
+          data-progress-text-step-1="{{ step_1_text | escape }}"
+          data-progress-text-step-2="{{ step_2_text | escape }}"
+          data-progress-text-step-3="{{ step_3_text | escape }}"
+          data-progress-text-step-4="{{ step_4_text | escape }}"
+          data-progress-text-step-5="{{ step_5_text | escape }}"
+          data-total-steps="{{ total_steps }}">
           {{ progress_text }}
         </p>
       </div>
@@ -533,27 +541,34 @@ document.querySelector('.bundle-products__filter-btn[data-filter="all"]')?.click
     },
     {
       "type": "text",
-      "id": "progress_text_default",
-      "label": "Default Progress Text",
+      "id": "progress_text_step_1",
+      "label": "Progress Text (Step 1 – 1 set in cart)",
       "info": "Use [X] as placeholder for remaining sets. Example: 'You are [X] sets away from 20% OFF'",
       "default": "You are [X] sets away from 20% OFF"
     },
     {
       "type": "text",
-      "id": "progress_text_two_more",
-      "label": "Progress Text (3 sets in cart)",
+      "id": "progress_text_step_2",
+      "label": "Progress Text (Step 2 – 2 sets in cart)",
+      "info": "Use [X] as placeholder for remaining sets",
+      "default": "You are [X] sets away from 20% OFF"
+    },
+    {
+      "type": "text",
+      "id": "progress_text_step_3",
+      "label": "Progress Text (Step 3 – 3 sets in cart)",
       "default": "Just 2 more sets to unlock 20% OFF"
     },
     {
       "type": "text",
-      "id": "progress_text_one_more",
-      "label": "Progress Text (4 sets in cart)",
+      "id": "progress_text_step_4",
+      "label": "Progress Text (Step 4 – 4 sets in cart)",
       "default": "Just 1 more set to unlock 20% OFF"
     },
     {
       "type": "text",
-      "id": "progress_text_complete",
-      "label": "Progress Text (5+ sets in cart)",
+      "id": "progress_text_step_5",
+      "label": "Progress Text (Step 5 – 5+ sets in cart)",
       "default": "We love to see it. 20% OFF applied."
     },
     {
