@@ -385,13 +385,14 @@
       const remainingCount = Math.max(0, totalSteps - effectiveItemCount);
       let progressText = '';
 
-      // Get step text templates from data attributes (0–5)
-      const textStep0 = remaining.dataset.progressTextStep0 || 'You are [X] sets away from 20% OFF';
-      const textStep1 = remaining.dataset.progressTextStep1 || 'You are [X] sets away from 20% OFF';
-      const textStep2 = remaining.dataset.progressTextStep2 || 'You are [X] sets away from 20% OFF';
-      const textStep3 = remaining.dataset.progressTextStep3 || 'Just 2 more sets to unlock 20% OFF';
-      const textStep4 = remaining.dataset.progressTextStep4 || 'Just 1 more set to unlock 20% OFF';
-      const textStep5 = remaining.dataset.progressTextStep5 || 'We love to see it. 20% OFF applied.';
+      // Get step text templates from data attributes (0–5) - use getAttribute for reliable access
+      // (dataset can mis-handle attributes like data-progress-text-step-0 due to hyphen-digit)
+      const textStep0 = remaining.getAttribute('data-progress-text-step-0') ?? 'You are [X] sets away from 20% OFF';
+      const textStep1 = remaining.getAttribute('data-progress-text-step-1') ?? 'You are [X] sets away from 20% OFF';
+      const textStep2 = remaining.getAttribute('data-progress-text-step-2') ?? 'You are [X] sets away from 20% OFF';
+      const textStep3 = remaining.getAttribute('data-progress-text-step-3') ?? 'Just 2 more sets to unlock 20% OFF';
+      const textStep4 = remaining.getAttribute('data-progress-text-step-4') ?? 'Just 1 more set to unlock 20% OFF';
+      const textStep5 = remaining.getAttribute('data-progress-text-step-5') ?? 'We love to see it. 20% OFF applied.';
 
       // Apply step-based logic (effective count: trio-bundle = 3, collection = 5)
       if (effectiveItemCount >= totalSteps) {
