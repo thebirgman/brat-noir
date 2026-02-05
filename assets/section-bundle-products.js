@@ -378,30 +378,33 @@
     const remaining = document.querySelector('.bundle-products__cart-progress-text');
     if (remaining) {
       const progressBar = document.querySelector('.bundle-products__cart-progress-bar');
-      const totalSteps = progressBar ? (parseInt(progressBar.dataset.totalSteps) || 5) : 5;
+      const totalSteps = parseInt(remaining.dataset.totalSteps || progressBar?.dataset?.totalSteps || '5', 10) || 5;
       const effectiveItemCount = itemEffectiveSteps.length
         ? itemEffectiveSteps.reduce((sum, n) => sum + n, 0)
         : data.item_count;
       const remainingCount = Math.max(0, totalSteps - effectiveItemCount);
       let progressText = '';
-      
-      // Get text templates from data attributes
-      const textDefault = remaining.dataset.progressTextDefault || 'You are [X] sets away from 20% OFF';
-      const textTwoMore = remaining.dataset.progressTextTwoMore || 'Just 2 more sets to unlock 20% OFF';
-      const textOneMore = remaining.dataset.progressTextOneMore || 'Just 1 more set to unlock 20% OFF';
-      const textComplete = remaining.dataset.progressTextComplete || 'We love to see it. 20% OFF applied.';
-      
-      // Apply conditional logic using effective count (trio-bundle = 3, collection = 5)
+
+      // Get step text templates from data attributes (steps 1-5)
+      const textStep1 = remaining.dataset.progressTextStep1 || 'You are [X] sets away from 20% OFF';
+      const textStep2 = remaining.dataset.progressTextStep2 || 'You are [X] sets away from 20% OFF';
+      const textStep3 = remaining.dataset.progressTextStep3 || 'Just 2 more sets to unlock 20% OFF';
+      const textStep4 = remaining.dataset.progressTextStep4 || 'Just 1 more set to unlock 20% OFF';
+      const textStep5 = remaining.dataset.progressTextStep5 || 'We love to see it. 20% OFF applied.';
+
+      // Apply step-based logic (effective count: trio-bundle = 3, collection = 5)
       if (effectiveItemCount >= totalSteps) {
-        progressText = textComplete;
+        progressText = textStep5;
       } else if (effectiveItemCount === totalSteps - 1) {
-        progressText = textOneMore;
+        progressText = textStep4;
       } else if (effectiveItemCount === totalSteps - 2) {
-        progressText = textTwoMore;
+        progressText = textStep3;
+      } else if (effectiveItemCount === 2) {
+        progressText = textStep2.replace('[X]', remainingCount);
       } else {
-        progressText = textDefault.replace('[X]', remainingCount);
+        progressText = textStep1.replace('[X]', remainingCount);
       }
-      
+
       remaining.innerHTML = progressText;
     }
     
