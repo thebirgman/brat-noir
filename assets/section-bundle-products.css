@@ -1040,3 +1040,54 @@ span.bundle-products__cart-item-title {}
 .bundle-products__cart-progress-bar[style*="60"] .bundle-products__cart-progress-fill {
     width: 70%!important;
 }
+
+
+.template-collection [data-grid="ombré"] .bundle-product__card {
+    max-width: 260px;
+}
+
+.template-collection .bundle-products__grid[data-grid="ombré"] {
+    max-width: 900px;
+    margin: auto!important;
+    justify-content: center!important;
+}
+
+
+.template-collection [data-grid="classic"] .bundle-product__card {
+    max-width: 260px;
+}
+
+.template-collection  .bundle-products__grid[data-grid="classic"] {
+    max-width: 900px;
+    margin: auto!important;
+    justify-content: center!important;
+}
+
+.template-collection [data-grid="goth"] .bundle-product__card {
+    max-width: 260px;
+}
+
+.template-collection .bundle-products__grid[data-grid="goth"] {
+    max-width: 900px;
+    margin: auto!important;
+    justify-content: center!important;
+}
+
+
+
+.template-collection .bundle-products__grids {
+    margin: auto;
+}
+
+.template-collection [data-grid=summer] .bundle-product__card[data-collection="Summer Collection"] {
+    justify-content: center!important;
+}
+
+.template-collection .bundle-products__grid[data-grid="summer"] {
+    justify-content: center!important;
+}
+@media screen and (min-width: 768px) and (max-width: 1000px) {
+.template-collection [data-grid=summer] .bundle-product__card[data-collection="Summer Collection"] {
+    max-width: calc(50% - 20px) !important;
+}
+}
