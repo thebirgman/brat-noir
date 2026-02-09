@@ -416,7 +416,7 @@
     aria-label="{{ 'general.accessibility.main_menu' | t }}"
     id="header-menu">
     <div class="drawer__content">
-      <div class="drawer__top">
+      <div class="drawer__top drawer__top--with-logo">
         <div class="drawer__top__left">
           {% if drawer_locale or drawer_currency %}
             {%- form 'localization', class: 'header__drawer__selects', id: 'localization-form-drawer' -%}
@@ -438,6 +438,17 @@
           {%- endif -%}
         </div>
 
+        <div class="drawer__top__center">
+          <a class="drawer__logo-link" href="{{ routes.root_url }}">
+            {%- if section.settings.logo != blank -%}
+              {%- assign alt = section.settings.logo.alt | default: shop.name | strip_html | escape -%}
+              {{ section.settings.logo | image_url: width: 150 | image_tag: class: 'drawer__logo-img', alt: alt, loading: 'lazy' }}
+            {%- else -%}
+              <span class="drawer__logo-text">{{ shop.name }}</span>
+            {%- endif -%}
+          </a>
+        </div>
+
         <button class="drawer__button drawer__close"
           data-first-focus
           data-drawer-toggle="hamburger"
@@ -446,6 +457,12 @@
         </button>
       </div>
 
+      {%- if section.settings.mobile_drawer_featured_image != blank -%}
+        <div class="drawer__featured">
+          {{ section.settings.mobile_drawer_featured_image | image_url: width: 800 | image_tag: loading: 'lazy', widths: '400, 600, 800', sizes: '100vw', alt: shop.name }}
+        </div>
+      {%- endif -%}
+
       <div class="drawer__inner" data-drawer-scrolls>
         {% if section.settings.enable_search %}
           <div class="drawer__search" data-drawer-search>
@@ -453,19 +470,15 @@
           </div>
         {% endif %}
 
-        {% assign menu_index = 0 %}
         {%- assign mobile_menu_linklist = section.settings.mobile_menu_linklist | default: main_menu_linklist -%}
-        <div class="drawer__menu" data-stagger-animation data-sliderule-pane="0">
+        <div class="drawer__menu drawer__menu--accordion" data-drawer-menu>
           {% for link in linklists[mobile_menu_linklist].links %}
-            {% render 'nav-item-mobile', link: link, section: section, index: forloop.index %}
-            {% assign menu_index = forloop.index %}
+            {% render 'nav-item-drawer', link: link, section: section %}
           {% endfor %}
 
           {% if drawer_links %}
-            {% assign secondary_index = menu_index | plus: 1 %}
             {% for link in linklists[drawer_links].links %}
-              {% render 'nav-item-mobile', link: link, section: section, index: secondary_index, secondary_menu: true %}
-              {% assign secondary_index = secondary_index | plus: forloop.index %}
+              {% render 'nav-item-drawer', link: link, section: section %}
             {% endfor %}
           {% endif %}
         </div>
@@ -908,6 +921,16 @@
 			"unit": ":1",
 			"label": "Collection image height",
 			"default": 2.5
+		},
+		{
+			"type": "header",
+			"content": "Mobile menu drawer"
+		},
+		{
+			"type": "image_picker",
+			"id": "mobile_drawer_featured_image",
+			"label": "Featured image",
+			"info": "Large image shown at the top of the mobile menu drawer"
 		}
 	],
 	"blocks": [
@@ -1217,6 +1240,23 @@
 							"label": "Desktop dropdown only"
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "Menu image (mobile)",
+			"type": "menu_image",
+			"settings": [
+				{
+					"type": "text",
+					"id": "title",
+					"label": "Menu item title",
+					"info": "Match the exact menu link title (e.g. Home, Shop All, Bundles) to show this image next to it"
+				},
+				{
+					"type": "image_picker",
+					"id": "image",
+					"label": "Image"
 				}
 			]
 		},

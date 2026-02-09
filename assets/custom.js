@@ -165,6 +165,43 @@
   // document.dispatchEvent(new CustomEvent('theme:scroll:unlock', {bubbles: true}));
 
 
+  /* Mobile drawer menu accordion: .drawer-menu-item__toggle expands/collapses children */
+  (function() {
+    function handleDrawerAccordionClick(e) {
+      const drawer = document.querySelector('#header-menu');
+      if (!drawer || !drawer.contains(e.target)) return;
+      var btn = e.target.closest('.drawer-menu-item__toggle');
+      if (!btn) return;
+      e.preventDefault();
+      e.stopPropagation();
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      var item = btn.closest('.drawer-menu-item');
+      var panel = item ? item.querySelector('.drawer-menu-item__children') : null;
+      if (panel) panel.hidden = expanded;
+      btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      if (item) item.classList.toggle('drawer-menu-item--is-open', !expanded);
+    }
+    document.addEventListener('click', handleDrawerAccordionClick, true);
+    document.addEventListener('DOMContentLoaded', function() {
+      var drawer = document.querySelector('#header-menu');
+      if (drawer) {
+        var toggles = drawer.querySelectorAll('.drawer-menu-item__toggle');
+        toggles.forEach(function(btn) {
+          btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            var expanded = btn.getAttribute('aria-expanded') === 'true';
+            var item = btn.closest('.drawer-menu-item');
+            var panel = item ? item.querySelector('.drawer-menu-item__children') : null;
+            if (panel) panel.hidden = expanded;
+            btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            if (item) item.classList.toggle('drawer-menu-item--is-open', !expanded);
+          });
+        });
+      }
+    });
+  })();
+
   // ^^ Keep your scripts inside this IIFE function call to avoid leaking your
   // variables into the global scope.
 })();
