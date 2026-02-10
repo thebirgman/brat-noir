@@ -3997,7 +3997,7 @@ p.search__results__title {
     
 }
 .menu__item.parent .navlink--child:hover span{
-    color: #fff;
+    color: #fff!important;
 }
 .header__dropdown__inner {
     border-radius: 10px;
