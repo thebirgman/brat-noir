@@ -4020,3 +4020,37 @@ a.navlink.navlink--child {}
   gap: 10px;
   padding: 12px 20px;
 }
+
+
+.header__dropdown__inner a:not(:hover) svg {
+    filter: invert(1);
+}
+
+svg {}
+
+nav#header-menu .drawer-menu-item__thumb img {
+    border-radius: 0;
+}
+
+nav#header-menu .drawer-menu-item__thumb {
+    border-radius: 0;
+}
+
+.sticky-footer {
+    z-index: 10!important;
+}
+
+#build-a-gift .needsclick.kl-teaser-RJbDRM.kl-private-reset-css-Xuajs1:has([data-testid="animated-teaser"]) {
+    bottom: 90px!important;
+}
+
+#build-your-own .needsclick.kl-teaser-RJbDRM.kl-private-reset-css-Xuajs1:has([data-testid="animated-teaser"]) {
+    bottom: 90px!important;
+}
+
+.header__logo.header__logo--image.header__logo--has-transparent {}
+@media screen and (max-width: 820px) {
+.shopify-section.shopify-section-group-group-header {
+    z-index: 999999;
+}
+}
