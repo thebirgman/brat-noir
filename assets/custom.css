@@ -3814,7 +3814,7 @@ body .product__grid__price.product__grid__price--nowrap {
     max-width:100%;
 }
 
-.collection-tabs-container {
+ .collection-tabs-container {
     padding: 0!important;
     flex-wrap: nowrap!important;
     justify-content: flex-start!important;
@@ -3829,13 +3829,13 @@ body .product__grid__price.product__grid__price--nowrap {
     scroll-snap-align: start;
 }
 
-.collection-tabs-container {
+body:not(.template-index) .collection-tabs-container {
     overflow: scroll!important;
     scroll-behavior: smooth;
     scroll-snap-align: start;
 }
 
-.collection-tabs-container {
+body:not(.template-index) .collection-tabs-container {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -3848,7 +3848,7 @@ body .product__grid__price.product__grid__price--nowrap {
   scrollbar-width: thin;
 }
 
-.collection-tabs-container>* {
+body:not(.template-index) .collection-tabs-container>* {
   scroll-snap-align: start; /* or center if you want centered snaps */
   
 }
