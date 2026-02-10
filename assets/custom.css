@@ -3643,3 +3643,9 @@ body .product__grid__price.product__grid__price--nowrap {
 #build-a-gift .standard__heading strong {
   font-weight: 500!important;
 }
+
+body:not(.template-index):not(#build-your-own-bundle) [data-header-transparent=true]:not(.meganav--visible):not(.js__header__stuck) span.navtext svg {}
+
+body:not(.template-index):not(#build-your-own-bundle) [data-header-transparent=true]:not(.meganav--visible):not(.js__header__stuck) span.navtext path {
+    stroke: #000;
+}
