@@ -4118,3 +4118,30 @@ span.navtext {
 a.navlink.navlink--toplevel .navtext svg path {
     stroke: #fff;
 }
+
+#pre-curated-bundles .product__grid__price.product__grid__price--nowrap {
+    flex-direction: row!important;
+    gap: 10px!Important;
+    align-items: center;
+}
+
+#pre-curated-bundles .product__grid__price--nowrap .compare-at {
+    margin-left: 0;
+}
+
+#pre-curated-bundles .product__grid__main-info {
+    padding: 5px 0;
+    padding-right: 10px;
+}
+@media screen and (max-width: 768px) {
+#pre-curated-bundles .product__grid__main-info {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px;
+    padding-right: 12px;
+}
+
+#pre-curated-bundles  .product__grid__main-info p {
+    font-size: 17px!Important;
+}
+}
