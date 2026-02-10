@@ -459,7 +459,9 @@
 
       {%- if section.settings.mobile_drawer_featured_image != blank -%}
         <div class="drawer__featured">
+			<a href=" {{ section.settings.mobile_drawer_featured_url }}">
           {{ section.settings.mobile_drawer_featured_image | image_url: width: 800 | image_tag: loading: 'lazy', widths: '400, 600, 800', sizes: '100vw', alt: shop.name }}
+			</a>
         </div>
       {%- endif -%}
 
@@ -926,11 +928,17 @@
 			"type": "header",
 			"content": "Mobile menu drawer"
 		},
+		
 		{
 			"type": "image_picker",
 			"id": "mobile_drawer_featured_image",
 			"label": "Featured image",
 			"info": "Large image shown at the top of the mobile menu drawer"
+		},
+		{
+			"type": "url",
+			"id": "mobile_drawer_featured_url",
+			"label": "Featured IMage URL"
 		}
 	],
 	"blocks": [
