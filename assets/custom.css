@@ -4108,3 +4108,9 @@ span.drawer-menu-item__icon.drawer-menu-item__icon--close.is-hidden {
 nav#header-menu .drawer-menu-item__icon--plus {
     transition: .2s ease-in-out;
 }
+
+span.navtext {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
