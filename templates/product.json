@@ -158,7 +158,7 @@
             "heading": "Build Your Own Bundle",
             "text": "Why overpay for one mani when you could press on five?",
             "button_label": "Build Now",
-            "button_link": "https://bratnoir.com/collections/all",
+            "button_link": "https://bratnoir.com/pages/build-your-own",
             "image_width": 40,
             "border_radius": 12,
             "padding_bottom": 20,
@@ -462,6 +462,7 @@
           "settings": {
             "max_width": 1200,
             "review_source": "all",
+            "show_all_reviews_in_same_tab": false,
             "show_first": "product",
             "empty_state": "empty_widget"
           }
