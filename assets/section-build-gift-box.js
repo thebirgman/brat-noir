@@ -422,9 +422,7 @@
           const quantityWrapper = productCard.querySelector('.bundle-product__quantity-wrapper');
           const atcButton = productCard.querySelector('.bundle-product__atc');
           
-          if (atcButton) {
-            atcButton.style.display = 'none';
-          }
+         
           
           // Show quantity selector after 2 seconds
           if (quantityWrapper) {
@@ -447,6 +445,9 @@
           
           // Remove the temporary is-added-to-box class after 2 seconds (keep 'added' class)
           setTimeout(() => {
+             if (atcButton) {
+            atcButton.style.display = 'none';
+          }
             productCard.classList.remove('is-added-to-box');
           }, 2000);
         }

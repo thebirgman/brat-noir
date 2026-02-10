@@ -72,7 +72,11 @@
     aria-controls="dropdown-{{ key }}"
   {% endif %}>
   <a href="{{ link.url }}" data-top-link class="navlink navlink--toplevel{% if highlight_links contains link_title_handle %} highlight--link{% endif %}">
-    <span class="navtext">{{ link.title | strip_html | escape }}</span>
+    <span class="navtext">{{ link.title | strip_html | escape }} {% if expands %} 
+<svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.353516 0.353577L4.85352 4.85358L9.35352 0.353577" stroke="black"/>
+</svg>
+{% endif %}</span>
   </a>
   {% if expands %}
     <div class="header__dropdown"
@@ -138,6 +142,11 @@
               {% assign link_title_handle = link.title | handle %}
               <a href="{{ link.url }}" data-stagger class="navlink navlink--child{% if link.active %} main-menu--active{% endif %}{% if highlight_links contains link_title_handle %} highlight--link{% endif %}">
                 <span class="navtext">{{ link.title | strip_html | escape }}</span>
+
+<svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.353516 9.35358L4.85352 4.85358L0.353515 0.353577" stroke="white"/>
+</svg>
+
               </a>
             {% endfor %}
           {%- endif -%}

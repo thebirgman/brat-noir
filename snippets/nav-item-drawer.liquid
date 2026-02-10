@@ -1,0 +1,63 @@
+{%- comment -%}
+  Mobile drawer menu item: thumbnail (from menu_image block by title) + label.
+  If link has children, renders as accordion (toggle expands/collapses children inline).
+  Match menu_image block by title (handleized) so "Build a Gift" matches block title "Build a Gift".
+{%- endcomment -%}
+{%- liquid
+  assign link_title_handle = link.title | strip | handle
+  assign menu_image = nil
+  if section
+    for block in section.blocks
+      if block.type == 'menu_image' and block.settings.image != blank
+        assign block_title_handle = block.settings.title | strip | handle
+        if block_title_handle == link_title_handle
+          assign menu_image = block.settings.image
+          break
+        endif
+      endif
+    endfor
+  endif
+-%}
+
+<div class="drawer-menu-item{% if link.links.size > 0 %} drawer-menu-item--has-children{% endif %}" data-drawer-menu-item>
+  {%- if link.links.size > 0 -%}
+    {%- comment -%} Accordion: button toggles children, do not navigate {%- endcomment -%}
+    <button type="button"
+      class="drawer-menu-item__row drawer-menu-item__toggle"
+      data-drawer-accordion-toggle
+      aria-expanded="false"
+      aria-controls="drawer-accordion-{{ link.title | handleize }}-{{ link.url | handleize }}"
+      id="drawer-toggle-{{ link.title | handleize }}-{{ link.url | handleize }}">
+      <span class="drawer-menu-item__thumb">
+        {%- if menu_image -%}
+          {{ menu_image | image_url: width: 300 | image_tag: loading: 'lazy', widths: '120, 300', alt: link.title }}
+        {%- else -%}
+          <span class="drawer-menu-item__thumb-placeholder"></span>
+        {%- endif -%}
+      </span>
+      <span class="drawer-menu-item__label">{{ link.title | strip_html | escape }}</span>
+      <span class="drawer-menu-item__icon drawer-menu-item__icon--plus" aria-hidden="true">+</span>
+      <span class="drawer-menu-item__icon drawer-menu-item__icon--close is-hidden" aria-hidden="true">×</span>
+    </button>
+    <div class="drawer-menu-item__children"
+      id="drawer-accordion-{{ link.title | handleize }}-{{ link.url | handleize }}"
+      data-drawer-accordion-panel
+      hidden>
+      {%- for child in link.links -%}
+        <a class="drawer-menu-item__child-link" href="{{ child.url }}">{{ child.title | strip_html | escape }}</a>
+      {%- endfor -%}
+    </div>
+  {%- else -%}
+    {%- comment -%} Simple link {%- endcomment -%}
+    <a class="drawer-menu-item__row drawer-menu-item__link" href="{{ link.url }}">
+      <span class="drawer-menu-item__thumb">
+        {%- if menu_image -%}
+          {{ menu_image | image_url: width: 300 | image_tag: loading: 'lazy', widths: '120, 300', alt: link.title }}
+        {%- else -%}
+          <span class="drawer-menu-item__thumb-placeholder"></span>
+        {%- endif -%}
+      </span>
+      <span class="drawer-menu-item__label">{{ link.title | strip_html | escape }}</span>
+    </a>
+  {%- endif -%}
+</div>

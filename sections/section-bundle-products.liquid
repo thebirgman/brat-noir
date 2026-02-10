@@ -122,17 +122,47 @@
       </div>
 
       <div class="bundle-products__cart-items">
-        {%- for product in cart.items -%}
-          <div class="bundle-products__cart-item">
-            <img class="bundle-products__cart-item-image" src="{{ product | image_url }}" alt="{{ product.title }}" />
-            <div class="bundle-products__cart-item-details">
-              <span class="bundle-products__cart-item-collection">{{ product.collections[0].title }}</span>
-              <span class="bundle-products__cart-item-title">{{ product.title }} x {{ product.quantity }}</span>
+        {%- for i in (1..5) -%}
+          {%- assign idx = i | minus: 1 -%}
+          {%- assign item = cart.items[idx] -%}
+          {%- if item -%}
+            <div class="bundle-products__cart-item" data-slot="{{ i }}" data-filled="true">
+              <div class="bundle-products__cart-item-placeholder hidden" aria-hidden="true">
+                <svg class="bundle-products__cart-item-plus" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <img class="bundle-products__cart-item-image" src="{{ item.image | image_url: width: 178 }}" alt="{{ item.product_title }}" />
+              <div class="bundle-products__cart-item-details">
+                <span class="bundle-products__cart-item-title">{{ item.product_title }} x {{ item.quantity }}</span>
+              </div>
+              <button class="bundle-products__cart-item-remove" data-remove-from-cart="{{ item.variant_id }}">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.4 14.6538L10 11.0538L13.6 14.6538L14.6538 13.6L11.0538 10L14.6538 6.4L13.6 5.34625L10 8.94625L6.4 5.34625L5.34625 6.4L8.94625 10L5.34625 13.6L6.4 14.6538ZM10.0017 19.5C8.68775 19.5 7.45267 19.2507 6.2965 18.752C5.14033 18.2533 4.13467 17.5766 3.2795 16.7218C2.42433 15.8669 1.74725 14.8617 1.24825 13.706C0.749417 12.5503 0.5 11.3156 0.5 10.0017C0.5 8.68775 0.749333 7.45267 1.248 6.2965C1.74667 5.14033 2.42342 4.13467 3.27825 3.2795C4.13308 2.42433 5.13833 1.74725 6.294 1.24825C7.44967 0.749417 8.68442 0.5 9.99825 0.5C11.3123 0.5 12.5473 0.749333 13.7035 1.248C14.8597 1.74667 15.8653 2.42342 16.7205 3.27825C17.5757 4.13308 18.2528 5.13833 18.7518 6.294C19.2506 7.44967 19.5 8.68442 19.5 9.99825C19.5 11.3123 19.2507 12.5473 18.752 13.7035C18.2533 14.8597 17.5766 15.8653 16.7218 16.7205C15.8669 17.5757 14.8617 18.2528 13.706 18.7518C12.5503 19.2506 11.3156 19.5 10.0017 19.5ZM10 18C12.2333 18 14.125 17.225 15.675 15.675C17.225 14.125 18 12.2333 18 10C18 7.76667 17.225 5.875 15.675 4.325C14.125 2.775 12.2333 2 10 2C7.76667 2 5.875 2.775 4.325 4.325C2.775 5.875 2 7.76667 2 10C2 12.2333 2.775 14.125 4.325 15.675C5.875 17.225 7.76667 18 10 18Z" fill="#ABABAB"/></svg>
+              </button>
             </div>
-            <button class="bundle-products__cart-item-remove" data-remove-from-cart="{{ product.variant_id }}">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.4 14.6538L10 11.0538L13.6 14.6538L14.6538 13.6L11.0538 10L14.6538 6.4L13.6 5.34625L10 8.94625L6.4 5.34625L5.34625 6.4L8.94625 10L5.34625 13.6L6.4 14.6538ZM10.0017 19.5C8.68775 19.5 7.45267 19.2507 6.2965 18.752C5.14033 18.2533 4.13467 17.5766 3.2795 16.7218C2.42433 15.8669 1.74725 14.8617 1.24825 13.706C0.749417 12.5503 0.5 11.3156 0.5 10.0017C0.5 8.68775 0.749333 7.45267 1.248 6.2965C1.74667 5.14033 2.42342 4.13467 3.27825 3.2795C4.13308 2.42433 5.13833 1.74725 6.294 1.24825C7.44967 0.749417 8.68442 0.5 9.99825 0.5C11.3123 0.5 12.5473 0.749333 13.7035 1.248C14.8597 1.74667 15.8653 2.42342 16.7205 3.27825C17.5757 4.13308 18.2528 5.13833 18.7518 6.294C19.2506 7.44967 19.5 8.68442 19.5 9.99825C19.5 11.3123 19.2507 12.5473 18.752 13.7035C18.2533 14.8597 17.5766 15.8653 16.7218 16.7205C15.8669 17.5757 14.8617 18.2528 13.706 18.7518C12.5503 19.2506 11.3156 19.5 10.0017 19.5ZM10 18C12.2333 18 14.125 17.225 15.675 15.675C17.225 14.125 18 12.2333 18 10C18 7.76667 17.225 5.875 15.675 4.325C14.125 2.775 12.2333 2 10 2C7.76667 2 5.875 2.775 4.325 4.325C2.775 5.875 2 7.76667 2 10C2 12.2333 2.775 14.125 4.325 15.675C5.875 17.225 7.76667 18 10 18Z" fill="#ABABAB"/></svg>
-            </button>
-          </div>
+          {%- else -%}
+            {%- case i -%}
+              {%- when 1 -%}{%- assign slot_label = 'Start Your Stack' -%}{%- assign slot_hint = 'Add 3 sets to unlock VIP Status.' -%}
+              {%- when 2 -%}{%- assign slot_label = 'Weekday Look' -%}{%- assign slot_hint = "You're 2 sets away from Free Shipping." -%}
+              {%- when 3 -%}{%- assign slot_label = 'Unlock VIP' -%}{%- assign slot_hint = 'Add this for Free Ship + VIP Pricing.' -%}
+              {%- when 4 -%}{%- assign slot_label = 'Weekend Look' -%}{%- assign slot_hint = 'Get a luxury home for your nails next.' -%}
+              {%- when 5 -%}{%- assign slot_label = "Collector's Piece" -%}{%- assign slot_hint = 'Velvet Box Unlocked.' -%}
+            {%- endcase -%}
+            <div class="bundle-products__cart-item" data-slot="{{ i }}" data-label="{{ slot_label }}" data-hint="{{ slot_hint }}">
+              <div class="bundle-products__cart-item-placeholder">
+                <svg class="bundle-products__cart-item-plus" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="bundle-products__cart-item-details">
+                <span class="bundle-products__cart-item-title">{{ slot_label }}</span>
+                <span class="bundle-products__cart-item-hint">{{ slot_hint }}</span>
+              </div>
+              <button class="bundle-products__cart-item-remove" data-remove-from-cart="" style="display: none;" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.4 14.6538L10 11.0538L13.6 14.6538L14.6538 13.6L11.0538 10L14.6538 6.4L13.6 5.34625L10 8.94625L6.4 5.34625L5.34625 6.4L8.94625 10L5.34625 13.6L6.4 14.6538ZM10.0017 19.5C8.68775 19.5 7.45267 19.2507 6.2965 18.752C5.14033 18.2533 4.13467 17.5766 3.2795 16.7218C2.42433 15.8669 1.74725 14.8617 1.24825 13.706C0.749417 12.5503 0.5 11.3156 0.5 10.0017C0.5 8.68775 0.749333 7.45267 1.248 6.2965C1.74667 5.14033 2.42342 4.13467 3.27825 3.2795C4.13308 2.42433 5.13833 1.74725 6.294 1.24825C7.44967 0.749417 8.68442 0.5 9.99825 0.5C11.3123 0.5 12.5473 0.749333 13.7035 1.248C14.8597 1.74667 15.8653 2.42342 16.7205 3.27825C17.5757 4.13308 18.2528 5.13833 18.7518 6.294C19.2506 7.44967 19.5 8.68442 19.5 9.99825C19.5 11.3123 19.2507 12.5473 18.752 13.7035C18.2533 14.8597 17.5766 15.8653 16.7218 16.7205C15.8669 17.5757 14.8617 18.2528 13.706 18.7518C12.5503 19.2506 11.3156 19.5 10.0017 19.5ZM10 18C12.2333 18 14.125 17.225 15.675 15.675C17.225 14.125 18 12.2333 18 10C18 7.76667 17.225 5.875 15.675 4.325C14.125 2.775 12.2333 2 10 2C7.76667 2 5.875 2.775 4.325 4.325C2.775 5.875 2 7.76667 2 10C2 12.2333 2.775 14.125 4.325 15.675C5.875 17.225 7.76667 18 10 18Z" fill="#ABABAB"/></svg>
+              </button>
+            </div>
+          {%- endif -%}
         {%- endfor -%}
       </div>
 
@@ -164,81 +194,118 @@
           <div class="bundle-products__cart-progress-fill"></div>
           {%- if section.settings.progress_step_1_icon != blank -%}
             {%- assign step_1_position = section.settings.progress_step_1_step_number | default: 1 | at_least: 1 | at_most: total_steps -%}
+            {%- assign step_1_threshold = 100 | times: step_1_position | divided_by: total_steps -%}
+            {%- assign step_1_icon_src = section.settings.progress_step_1_icon | image_url -%}
+            {%- if progress >= step_1_threshold and section.settings.progress_step_1_icon_completed != blank -%}
+              {%- assign step_1_icon_src = section.settings.progress_step_1_icon_completed | image_url -%}
+            {%- endif -%}
             {%- if step_1_position == total_steps -%}
-              <div class="bundle-products__cart-progress-step" style="left: calc(100% - 20px)">
+              <div class="bundle-products__cart-progress-step" style="left: calc(100% - 15px)" data-step="{{ step_1_position }}" data-icon="{{ section.settings.progress_step_1_icon | image_url }}" data-icon-completed="{% if section.settings.progress_step_1_icon_completed != blank %}{{ section.settings.progress_step_1_icon_completed | image_url }}{% endif %}">
             {%- else -%}
               {%- assign step_1_percent_base = 100 | times: step_1_position | divided_by: total_steps -%}
-              <div class="bundle-products__cart-progress-step" style="left: calc({{ step_1_percent_base }}% - 10%)">
+              <div class="bundle-products__cart-progress-step" style="left: calc({{ step_1_percent_base }}% - 10%)" data-step="{{ step_1_position }}" data-icon="{{ section.settings.progress_step_1_icon | image_url }}" data-icon-completed="{% if section.settings.progress_step_1_icon_completed != blank %}{{ section.settings.progress_step_1_icon_completed | image_url }}{% endif %}">
             {%- endif -%}
-              <img src="{{ section.settings.progress_step_1_icon | image_url }}" alt="Step {{ step_1_position }}" />
+              <img src="{{ step_1_icon_src }}" alt="Step {{ step_1_position }}" />
             </div>
           {%- endif -%}
           {%- if section.settings.progress_step_2_icon != blank -%}
             {%- assign step_2_position = section.settings.progress_step_2_step_number | default: 2 | at_least: 1 | at_most: total_steps -%}
+            {%- assign step_2_threshold = 100 | times: step_2_position | divided_by: total_steps -%}
+            {%- assign step_2_icon_src = section.settings.progress_step_2_icon | image_url -%}
+            {%- if progress >= step_2_threshold and section.settings.progress_step_2_icon_completed != blank -%}
+              {%- assign step_2_icon_src = section.settings.progress_step_2_icon_completed | image_url -%}
+            {%- endif -%}
             {%- if step_2_position == total_steps -%}
-              <div class="bundle-products__cart-progress-step" style="left: calc(100% - 20px)">
+              <div class="bundle-products__cart-progress-step" style="left: calc(100% - 15px)" data-step="{{ step_2_position }}" data-icon="{{ section.settings.progress_step_2_icon | image_url }}" data-icon-completed="{% if section.settings.progress_step_2_icon_completed != blank %}{{ section.settings.progress_step_2_icon_completed | image_url }}{% endif %}">
             {%- else -%}
               {%- assign step_2_percent_base = 100 | times: step_2_position | divided_by: total_steps -%}
-              <div class="bundle-products__cart-progress-step" style="left: calc({{ step_2_percent_base }}% - 10%)">
+              <div class="bundle-products__cart-progress-step" style="left: calc({{ step_2_percent_base }}% - 10%)" data-step="{{ step_2_position }}" data-icon="{{ section.settings.progress_step_2_icon | image_url }}" data-icon-completed="{% if section.settings.progress_step_2_icon_completed != blank %}{{ section.settings.progress_step_2_icon_completed | image_url }}{% endif %}">
             {%- endif -%}
-              <img src="{{ section.settings.progress_step_2_icon | image_url }}" alt="Step {{ step_2_position }}" />
+              <img src="{{ step_2_icon_src }}" alt="Step {{ step_2_position }}" />
             </div>
           {%- endif -%}
           {%- if section.settings.progress_step_3_icon != blank -%}
             {%- assign step_3_position = section.settings.progress_step_3_step_number | default: 3 | at_least: 1 | at_most: total_steps -%}
+            {%- assign step_3_threshold = 100 | times: step_3_position | divided_by: total_steps -%}
+            {%- assign step_3_icon_src = section.settings.progress_step_3_icon | image_url -%}
+            {%- if progress >= step_3_threshold and section.settings.progress_step_3_icon_completed != blank -%}
+              {%- assign step_3_icon_src = section.settings.progress_step_3_icon_completed | image_url -%}
+            {%- endif -%}
             {%- if step_3_position == total_steps -%}
-              <div class="bundle-products__cart-progress-step" style="left: calc(100% - 20px)">
+              <div class="bundle-products__cart-progress-step" style="left: calc(100% - 15px)" data-step="{{ step_3_position }}" data-icon="{{ section.settings.progress_step_3_icon | image_url }}" data-icon-completed="{% if section.settings.progress_step_3_icon_completed != blank %}{{ section.settings.progress_step_3_icon_completed | image_url }}{% endif %}">
             {%- else -%}
               {%- assign step_3_percent_base = 100 | times: step_3_position | divided_by: total_steps -%}
-              <div class="bundle-products__cart-progress-step" style="left: calc({{ step_3_percent_base }}% - 10%)">
+              <div class="bundle-products__cart-progress-step" style="left: calc({{ step_3_percent_base }}% - 10%)" data-step="{{ step_3_position }}" data-icon="{{ section.settings.progress_step_3_icon | image_url }}" data-icon-completed="{% if section.settings.progress_step_3_icon_completed != blank %}{{ section.settings.progress_step_3_icon_completed | image_url }}{% endif %}">
             {%- endif -%}
-              <img src="{{ section.settings.progress_step_3_icon | image_url }}" alt="Step {{ step_3_position }}" />
+              <img src="{{ step_3_icon_src }}" alt="Step {{ step_3_position }}" />
             </div>
           {%- endif -%}
           {%- if section.settings.progress_step_4_icon != blank -%}
             {%- assign step_4_position = section.settings.progress_step_4_step_number | default: 4 | at_least: 1 | at_most: total_steps -%}
+            {%- assign step_4_threshold = 100 | times: step_4_position | divided_by: total_steps -%}
+            {%- assign step_4_icon_src = section.settings.progress_step_4_icon | image_url -%}
+            {%- if progress >= step_4_threshold and section.settings.progress_step_4_icon_completed != blank -%}
+              {%- assign step_4_icon_src = section.settings.progress_step_4_icon_completed | image_url -%}
+            {%- endif -%}
             {%- if step_4_position == total_steps -%}
-              <div class="bundle-products__cart-progress-step" style="left: calc(100% - 20px)">
+              <div class="bundle-products__cart-progress-step" style="left: calc(100% - 15px)" data-step="{{ step_4_position }}" data-icon="{{ section.settings.progress_step_4_icon | image_url }}" data-icon-completed="{% if section.settings.progress_step_4_icon_completed != blank %}{{ section.settings.progress_step_4_icon_completed | image_url }}{% endif %}">
             {%- else -%}
               {%- assign step_4_percent_base = 100 | times: step_4_position | divided_by: total_steps -%}
-              <div class="bundle-products__cart-progress-step" style="left: calc({{ step_4_percent_base }}% - 10%)">
+              <div class="bundle-products__cart-progress-step" style="left: calc({{ step_4_percent_base }}% - 10%)" data-step="{{ step_4_position }}" data-icon="{{ section.settings.progress_step_4_icon | image_url }}" data-icon-completed="{% if section.settings.progress_step_4_icon_completed != blank %}{{ section.settings.progress_step_4_icon_completed | image_url }}{% endif %}">
             {%- endif -%}
-              <img src="{{ section.settings.progress_step_4_icon | image_url }}" alt="Step {{ step_4_position }}" />
+              <img src="{{ step_4_icon_src }}" alt="Step {{ step_4_position }}" />
             </div>
           {%- endif -%}
           {%- if section.settings.progress_step_5_icon != blank -%}
             {%- assign step_5_position = section.settings.progress_step_5_step_number | default: 5 | at_least: 1 | at_most: total_steps -%}
+            {%- assign step_5_threshold = 100 | times: step_5_position | divided_by: total_steps -%}
+            {%- assign step_5_icon_src = section.settings.progress_step_5_icon | image_url -%}
+            {%- if progress >= step_5_threshold and section.settings.progress_step_5_icon_completed != blank -%}
+              {%- assign step_5_icon_src = section.settings.progress_step_5_icon_completed | image_url -%}
+            {%- endif -%}
             {%- if step_5_position == total_steps -%}
-              <div class="bundle-products__cart-progress-step" style="left: calc(100% - 20px)">
+              <div class="bundle-products__cart-progress-step" style="left: calc(100% - 15px)" data-step="{{ step_5_position }}" data-icon="{{ section.settings.progress_step_5_icon | image_url }}" data-icon-completed="{% if section.settings.progress_step_5_icon_completed != blank %}{{ section.settings.progress_step_5_icon_completed | image_url }}{% endif %}">
             {%- else -%}
               {%- assign step_5_percent_base = 100 | times: step_5_position | divided_by: total_steps -%}
-              <div class="bundle-products__cart-progress-step" style="left: calc({{ step_5_percent_base }}% - 10%)">
+              <div class="bundle-products__cart-progress-step" style="left: calc({{ step_5_percent_base }}% - 10%)" data-step="{{ step_5_position }}" data-icon="{{ section.settings.progress_step_5_icon | image_url }}" data-icon-completed="{% if section.settings.progress_step_5_icon_completed != blank %}{{ section.settings.progress_step_5_icon_completed | image_url }}{% endif %}">
             {%- endif -%}
-              <img src="{{ section.settings.progress_step_5_icon | image_url }}" alt="Step {{ step_5_position }}" />
+              <img src="{{ step_5_icon_src }}" alt="Step {{ step_5_position }}" />
             </div>
           {%- endif -%}
         </div>
         {%- liquid
           assign progress_text = ''
+          assign step_0_text = section.settings.progress_text_step_0 | default: 'You are [X] sets away from 20% OFF'
+          assign step_1_text = section.settings.progress_text_step_1 | default: 'You are [X] sets away from 20% OFF'
+          assign step_2_text = section.settings.progress_text_step_2 | default: 'You are [X] sets away from 20% OFF'
+          assign step_3_text = section.settings.progress_text_step_3 | default: 'Just 2 more sets to unlock 20% OFF'
+          assign step_4_text = section.settings.progress_text_step_4 | default: 'Just 1 more set to unlock 20% OFF'
+          assign step_5_text = section.settings.progress_text_step_5 | default: 'We love to see it. 20% OFF applied.'
           assign one_less_than_total = total_steps | minus: 1
           assign two_less_than_total = total_steps | minus: 2
           if cart.item_count >= total_steps or has_special_tag
-            assign progress_text = section.settings.progress_text_complete | default: 'We love to see it. 20% OFF applied.'
+            assign progress_text = step_5_text
           elsif cart.item_count == one_less_than_total
-            assign progress_text = section.settings.progress_text_one_more | default: 'Just 1 more set to unlock 20% OFF'
+            assign progress_text = step_4_text
           elsif cart.item_count == two_less_than_total
-            assign progress_text = section.settings.progress_text_two_more | default: 'Just 2 more sets to unlock 20% OFF'
+            assign progress_text = step_3_text
+          elsif cart.item_count == 2
+            assign progress_text = step_2_text | replace: '[X]', remaining
+          elsif cart.item_count == 1
+            assign progress_text = step_1_text | replace: '[X]', remaining
           else
-            assign default_text = section.settings.progress_text_default | default: 'You are [X] sets away from 20% OFF'
-            assign progress_text = default_text | replace: '[X]', remaining
+            assign progress_text = step_0_text | replace: '[X]', remaining
           endif
         -%}
         <p 
           class="bundle-products__cart-progress-text"
-          data-progress-text-default="{{ section.settings.progress_text_default | default: 'You are [X] sets away from 20% OFF' | escape }}"
-          data-progress-text-two-more="{{ section.settings.progress_text_two_more | default: 'Just 2 more sets to unlock 20% OFF' | escape }}"
-          data-progress-text-one-more="{{ section.settings.progress_text_one_more | default: 'Just 1 more set to unlock 20% OFF' | escape }}"
-          data-progress-text-complete="{{ section.settings.progress_text_complete | default: 'We love to see it. 20% OFF applied.' | escape }}">
+          data-progress-text-step-0="{{ step_0_text | escape }}"
+          data-progress-text-step-1="{{ step_1_text | escape }}"
+          data-progress-text-step-2="{{ step_2_text | escape }}"
+          data-progress-text-step-3="{{ step_3_text | escape }}"
+          data-progress-text-step-4="{{ step_4_text | escape }}"
+          data-progress-text-step-5="{{ step_5_text | escape }}"
+          data-total-steps="{{ total_steps }}">
           {{ progress_text }}
         </p>
       </div>
@@ -478,27 +545,41 @@ document.querySelector('.bundle-products__filter-btn[data-filter="all"]')?.click
     },
     {
       "type": "text",
-      "id": "progress_text_default",
-      "label": "Default Progress Text",
+      "id": "progress_text_step_0",
+      "label": "Progress Text (0 sets in cart)",
       "info": "Use [X] as placeholder for remaining sets. Example: 'You are [X] sets away from 20% OFF'",
       "default": "You are [X] sets away from 20% OFF"
     },
     {
       "type": "text",
-      "id": "progress_text_two_more",
-      "label": "Progress Text (3 sets in cart)",
+      "id": "progress_text_step_1",
+      "label": "Progress Text (Step 1 – 1 set in cart)",
+      "info": "Use [X] as placeholder for remaining sets",
+      "default": "You are [X] sets away from 20% OFF"
+    },
+    {
+      "type": "text",
+      "id": "progress_text_step_2",
+      "label": "Progress Text (Step 2 – 2 sets in cart)",
+      "info": "Use [X] as placeholder for remaining sets",
+      "default": "You are [X] sets away from 20% OFF"
+    },
+    {
+      "type": "text",
+      "id": "progress_text_step_3",
+      "label": "Progress Text (Step 3 – 3 sets in cart)",
       "default": "Just 2 more sets to unlock 20% OFF"
     },
     {
       "type": "text",
-      "id": "progress_text_one_more",
-      "label": "Progress Text (4 sets in cart)",
+      "id": "progress_text_step_4",
+      "label": "Progress Text (Step 4 – 4 sets in cart)",
       "default": "Just 1 more set to unlock 20% OFF"
     },
     {
       "type": "text",
-      "id": "progress_text_complete",
-      "label": "Progress Text (5+ sets in cart)",
+      "id": "progress_text_step_5",
+      "label": "Progress Text (Step 5 – 5+ sets in cart)",
       "default": "We love to see it. 20% OFF applied."
     },
     {
@@ -522,6 +603,12 @@ document.querySelector('.bundle-products__filter-btn[data-filter="all"]')?.click
       "label": "Icon 1"
     },
     {
+      "type": "image_picker",
+      "id": "progress_step_1_icon_completed",
+      "label": "Icon 1 - Completed",
+      "info": "Shown when the progress bar reaches this step"
+    },
+    {
       "type": "number",
       "id": "progress_step_1_step_number",
       "label": "Icon 1 - Step Number",
@@ -532,6 +619,12 @@ document.querySelector('.bundle-products__filter-btn[data-filter="all"]')?.click
       "type": "image_picker",
       "id": "progress_step_2_icon",
       "label": "Icon 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "progress_step_2_icon_completed",
+      "label": "Icon 2 - Completed",
+      "info": "Shown when the progress bar reaches this step"
     },
     {
       "type": "number",
@@ -546,6 +639,12 @@ document.querySelector('.bundle-products__filter-btn[data-filter="all"]')?.click
       "label": "Icon 3"
     },
     {
+      "type": "image_picker",
+      "id": "progress_step_3_icon_completed",
+      "label": "Icon 3 - Completed",
+      "info": "Shown when the progress bar reaches this step"
+    },
+    {
       "type": "number",
       "id": "progress_step_3_step_number",
       "label": "Icon 3 - Step Number",
@@ -558,6 +657,12 @@ document.querySelector('.bundle-products__filter-btn[data-filter="all"]')?.click
       "label": "Icon 4"
     },
     {
+      "type": "image_picker",
+      "id": "progress_step_4_icon_completed",
+      "label": "Icon 4 - Completed",
+      "info": "Shown when the progress bar reaches this step"
+    },
+    {
       "type": "number",
       "id": "progress_step_4_step_number",
       "label": "Icon 4 - Step Number",
@@ -568,6 +673,12 @@ document.querySelector('.bundle-products__filter-btn[data-filter="all"]')?.click
       "type": "image_picker",
       "id": "progress_step_5_icon",
       "label": "Icon 5"
+    },
+    {
+      "type": "image_picker",
+      "id": "progress_step_5_icon_completed",
+      "label": "Icon 5 - Completed",
+      "info": "Shown when the progress bar reaches this step"
     },
     {
       "type": "number",

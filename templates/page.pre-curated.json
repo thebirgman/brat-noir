@@ -9,12 +9,247 @@
  */
 {
   "sections": {
+    "hero": {
+      "type": "collection-hero",
+      "disabled": true,
+      "settings": {
+        "text_align": "align--middle-center",
+        "show_title": true,
+        "show_title_below": false,
+        "show_description": true,
+        "show_description_below": false,
+        "color_bg": "palette--light bg--neutral",
+        "show_image": true,
+        "bg_position": "center-center",
+        "image_height": "use_screen_one_third",
+        "overlay_opacity": 20,
+        "overlay_color": "#000000",
+        "enable_overlay_text": false,
+        "text_color": "text--white",
+        "width": "wrapper--none",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "width_text": "wrapper",
+        "padding_top_text": 36,
+        "padding_bottom_text": 0
+      }
+    },
+    "subcollections": {
+      "type": "collection-sub",
+      "disabled": true,
+      "settings": {
+        "subcollections": [],
+        "limit": 6,
+        "color_bg": "palette--light bg--neutral",
+        "text_color": "text--white",
+        "text_align": "align--middle-center",
+        "select_image": "collection",
+        "bg_position": "center-center",
+        "wh_ratio": 1.7,
+        "overlay_opacity": 20,
+        "overlay_color": "#000000",
+        "grid_mobile": 1.2,
+        "width": "wrapper",
+        "padding_top": 20,
+        "padding_bottom": 0
+      }
+    },
     "main": {
-      "type": "page",
-      "settings": {}
+      "type": "collection",
+      "disabled": true,
+      "settings": {
+        "product_limit": 36,
+        "grid_large": 3,
+        "grid_mobile": "2",
+        "enable_layout_toggle": true,
+        "color_bg": "palette--light bg--neutral",
+        "collection_sorting": true,
+        "hide_sidebar": false,
+        "collapse_filters": false,
+        "show_products_count": true,
+        "width": "wrapper",
+        "padding_top": 20,
+        "padding_bottom": 64
+      }
+    },
+    "section_collection_tabs_7FhyYd": {
+      "type": "section-collection-tabs",
+      "blocks": {
+        "collection_Y8434L": {
+          "type": "collection",
+          "settings": {
+            "collection": "trio-bundle",
+            "title": "Trio Bundle",
+            "grid_large": 4,
+            "grid_medium": 2,
+            "grid_mobile": 1.2
+          }
+        }
+      },
+      "block_order": [
+        "collection_Y8434L"
+      ],
+      "custom_css": [
+        ".scrolling-promo,.tabs,.kicker-flourished:after {display: none !important;}",
+        "h2 {padding: 0;}",
+        ".product__grid__price {display: flex;}",
+        ".bg--neutral {background: transparent;}",
+        ".product__grid__main-info p {text-align: left;}",
+        "@media screen and (min-width: 1080px) {.slide-item.product-grid-slide[data-item] {width: calc(33% - 25px); }}",
+        ".collection-tabs-container {max-width: 100%; margin: 0 auto !important;}",
+        ".product__grid__price {min-width: 70px; text-align: right; align-items: flex-end; flex-direction: row-reverse;}"
+      ],
+      "name": "Product slider tabs",
+      "settings": {
+        "title": "The Starter Edits",
+        "description": "<p>3 Sets. $45. Free Shipping. The perfect entry point to the Brat life.</p>",
+        "description_alignment": "center",
+        "wrapper": "wrapper",
+        "progress_bar": "hidden",
+        "grid_large": 3,
+        "grid_medium": 2,
+        "grid_mobile": 1,
+        "limit": 9,
+        "bg": "palette--light bg--neutral",
+        "width": "wrapper",
+        "padding_top": 50,
+        "padding_bottom": 30
+      }
+    },
+    "section_richtext_miyxB6": {
+      "type": "section-richtext",
+      "blocks": {
+        "heading_c3zizQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Build Your Own Collection",
+            "text_size": 8
+          }
+        },
+        "text_beNXX9": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Curate your own look. <strong>Pro Tip: </strong>Unlock VIP Pricing by adding 3+ sets to cart for $15 per set + FREE SHIPPING</p>",
+            "text_size": 5,
+            "text_columns": 1
+          }
+        }
+      },
+      "block_order": [
+        "heading_c3zizQ",
+        "text_beNXX9"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".bg--neutral {background: transparent;}",
+        "strong {font-weight: 700;}"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "align_text": "text-center",
+        "text_color": "text--neutral",
+        "bg": "palette--light bg--neutral",
+        "content_width": 2000,
+        "width": "wrapper",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "gift_steps_qVE7mL": {
+      "type": "gift-steps",
+      "blocks": {
+        "step_f9Erbh": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Group_547.png",
+            "image_height": 140,
+            "image_height_mobile": 110,
+            "title": "<p><strong>Free Shipping + VIP Pricing</strong></p>",
+            "text": "<p><strong>Add 3 sets </strong>and get VIP Pricing ($15/set) + Free Shipping</p>"
+          }
+        },
+        "step_pHEWpK": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/the-velvet-upgrade.png",
+            "image_height": 140,
+            "image_height_mobile": 110,
+            "title": "<p><strong>The Velvet Upgrade.</strong></p>",
+            "text": "<p><strong>Add 5 sets </strong>to unlock the Velvet Vanity Box + Free Shipping</p>"
+          }
+        }
+      },
+      "block_order": [
+        "step_f9Erbh",
+        "step_pHEWpK"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "h2 {margin-bottom: 0 !important;}",
+        ".gift-steps__grid {grid-template-columns: repeat(2, 1fr); max-width: 700px; margin: auto; gap: 40px;}",
+        "strong {font-weight: 700;}"
+      ],
+      "name": "Gift Steps",
+      "settings": {
+        "heading": "The more you add, the more you unlock.",
+        "max_width": 1200,
+        "background": "linear-gradient(180deg, rgba(244, 232, 255, 1), rgba(249, 228, 227, 1) 100%)",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "section_collection_tabs_y8FR4V": {
+      "type": "section-collection-tabs",
+      "blocks": {
+        "collection_Vgf4KT": {
+          "type": "collection",
+          "settings": {
+            "collection": "bundles",
+            "title": "Brat Halloween Bundle",
+            "grid_large": 4,
+            "grid_medium": 2,
+            "grid_mobile": 1.2
+          }
+        }
+      },
+      "block_order": [
+        "collection_Vgf4KT"
+      ],
+      "custom_css": [
+        ".scrolling-promo,.tabs,.kicker-flourished:after {display: none !important;}",
+        "h2 {padding: 0;}",
+        ".product__grid__price {display: flex; flex-direction: column;}",
+        ".bg--neutral {background: transparent;}",
+        ".product__grid__main-info p {text-align: left;}",
+        "@media screen and (min-width: 1080px) {.slide-item.product-grid-slide[data-item] {width: calc(25% - 25px); }}",
+        ".collection-tabs-container {max-width: 100%; margin: 0 auto !important;}",
+        ".product__grid__price {min-width: 70px; text-align: right; align-items: flex-end; flex-direction: row-reverse;}"
+      ],
+      "name": "Product slider tabs",
+      "settings": {
+        "title": "The Vaults",
+        "description": "<p>5-Set Collections. Maximum value + Instant Free Shipping.</p>",
+        "description_alignment": "center",
+        "wrapper": "wrapper",
+        "progress_bar": "hidden",
+        "grid_large": 3,
+        "grid_medium": 2,
+        "grid_mobile": 1,
+        "limit": 9,
+        "bg": "palette--light bg--neutral",
+        "width": "wrapper",
+        "padding_top": 30,
+        "padding_bottom": 20
+      }
     }
   },
   "order": [
-    "main"
+    "hero",
+    "subcollections",
+    "main",
+    "section_collection_tabs_7FhyYd",
+    "section_richtext_miyxB6",
+    "gift_steps_qVE7mL",
+    "section_collection_tabs_y8FR4V"
   ]
 }

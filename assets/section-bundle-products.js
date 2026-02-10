@@ -1,4 +1,34 @@
 (function () {
+  // Placeholder texts for empty slots (matches build-a-gift-box style)
+  const SLOT_PLACEHOLDERS = [
+    { label: 'Start Your Stack', hint: 'Add 3 sets to unlock VIP Status.' },
+    { label: 'Weekday Look', hint: "You're 2 sets away from Free Shipping." },
+    { label: 'Unlock VIP', hint: 'Add this for Free Ship + VIP Pricing.' },
+    { label: 'Weekend Look', hint: 'Get a luxury home for your nails next.' },
+    { label: "Collector's Piece", hint: 'Velvet Box Unlocked.' }
+  ];
+
+  /**
+   * Update progress step icons: show completed icon when progress has reached that step.
+   * @param {HTMLElement} progressBar - .bundle-products__cart-progress-bar
+   * @param {number} effectiveItemCount - Current progress (items or effective steps)
+   * @param {number} totalSteps - Total steps (default 5)
+   */
+  function updateProgressStepIcons(progressBar, effectiveItemCount, totalSteps) {
+    if (!progressBar) return;
+    const steps = progressBar.querySelectorAll('.bundle-products__cart-progress-step');
+    steps.forEach(function (step) {
+      const stepNum = parseInt(step.dataset.step, 10);
+      if (isNaN(stepNum)) return;
+      const img = step.querySelector('img');
+      if (!img) return;
+      const defaultSrc = step.dataset.icon;
+      const completedSrc = step.dataset.iconCompleted || '';
+      const isReached = effectiveItemCount >= stepNum;
+      img.src = (isReached && completedSrc) ? completedSrc : (defaultSrc || img.src);
+    });
+  }
+
   // Debounce helper to prevent rate limiting
   let refreshCartTimeout = null;
   let isRefreshingCart = false; // Flag to prevent concurrent refresh calls
@@ -54,69 +84,140 @@
   }
 
   function optimisticallyAddToBundleCart(variantId, productData, quantity) {
-    const template = document.querySelector('#bundle-cart-item');
-    if (!template) return;
-
     const cartContainer = document.querySelector('.bundle-products__cart-items');
     if (!cartContainer) return;
 
-    // Check if item already exists (for quantity updates)
-    const existingItem = cartContainer.querySelector(`[data-remove-from-cart="${variantId}"]`)?.closest('.bundle-products__cart-item');
-    if (existingItem) {
-      // Update existing item quantity
-      const titleElement = existingItem.querySelector('.bundle-products__cart-item-title');
-      if (titleElement) {
-        const currentQty = parseInt(titleElement.textContent.match(/x\s*(\d+)/)?.[1] || '1');
-        const newQty = currentQty + quantity;
-        titleElement.textContent = titleElement.textContent.replace(/x\s*\d+/, `x ${newQty}`);
-      }
-    } else {
-      // Create and add new optimistic cart item
-      const itemHtml = template.innerHTML
-        .replace(/%ID%/g, variantId)
-        .replace(/%TITLE%/g, productData.title)
-        .replace(/%IMAGE%/g, productData.image || 'default-image-url.jpg')
-        .replace(/%QUANTITY%/g, quantity);
+    const slots = Array.from(cartContainer.querySelectorAll('.bundle-products__cart-item')).sort(
+      (a, b) => parseInt(a.dataset.slot, 10) - parseInt(b.dataset.slot, 10)
+    );
 
-      const tempDiv = document.createElement('div');
-      tempDiv.innerHTML = itemHtml;
-      const newItem = tempDiv.firstElementChild;
-      
-      // Add to the beginning of cart items
-      cartContainer.insertBefore(newItem, cartContainer.firstChild);
+    // Each product = 1 slot; never combine same product into one slot
+    const emptySlot = slots.find(s => !s.dataset.filled);
+    if (emptySlot) {
+      fillSlot(emptySlot, {
+        variant_id: variantId,
+        product_title: productData.title || '',
+        image: productData.image || '',
+        quantity: 1,
+        collection_title: productData.collection || ''
+      });
     }
 
     // Optimistically update progress (total will be corrected by refreshCart)
     const progress = document.querySelector('.bundle-products__cart-progress-bar');
     if (progress) {
-      const currentItems = cartContainer.querySelectorAll('.bundle-products__cart-item').length;
-      const totalSteps = parseInt(progress.dataset.totalSteps) || 5; // Default to 5 if not set
-      progress.style.setProperty('--progress', (currentItems / totalSteps) * 100 + '%');
+      const filledCount = cartContainer.querySelectorAll('.bundle-products__cart-item[data-filled="true"]').length;
+      const totalSteps = parseInt(progress.dataset.totalSteps) || 5;
+      progress.style.setProperty('--progress', (filledCount / totalSteps) * 100 + '%');
+      updateProgressStepIcons(progress, filledCount, totalSteps);
     }
   }
 
+  function fillSlot(slot, item) {
+    const placeholder = slot.querySelector('.bundle-products__cart-item-placeholder');
+    if (placeholder) placeholder.classList.add('hidden');
+    let img = slot.querySelector('.bundle-products__cart-item-image');
+    if (!img) {
+      img = document.createElement('img');
+      img.className = 'bundle-products__cart-item-image';
+      const details = slot.querySelector('.bundle-products__cart-item-details');
+      slot.insertBefore(img, details);
+    }
+    img.src = item.image || '';
+    img.alt = item.product_title || '';
+    img.style.display = '';
+    const details = slot.querySelector('.bundle-products__cart-item-details');
+    if (details) {
+      let collectionEl = details.querySelector('.bundle-products__cart-item-collection');
+      const titleEl = details.querySelector('.bundle-products__cart-item-title');
+      const hintEl = details.querySelector('.bundle-products__cart-item-hint');
+      if (!collectionEl && titleEl) {
+        collectionEl = document.createElement('span');
+        collectionEl.className = 'bundle-products__cart-item-collection';
+        details.insertBefore(collectionEl, titleEl);
+      }
+      if (collectionEl) {
+        collectionEl.textContent = item.collection_title || '';
+        collectionEl.style.display = item.collection_title ? '' : 'none';
+      }
+      if (titleEl) titleEl.textContent = (item.product_title || '') + ' x ' + (item.quantity || 1);
+      if (hintEl) hintEl.style.display = 'none';
+    }
+    const removeBtn = slot.querySelector('.bundle-products__cart-item-remove');
+    if (removeBtn) {
+      removeBtn.style.display = '';
+      removeBtn.setAttribute('data-remove-from-cart', item.variant_id);
+      removeBtn.removeAttribute('aria-hidden');
+    }
+    slot.dataset.filled = 'true';
+  }
+
+  function resetSlotToPlaceholder(slot, slotNumber) {
+    const placeholder = slot.querySelector('.bundle-products__cart-item-placeholder');
+    if (placeholder) placeholder.classList.remove('hidden');
+    const img = slot.querySelector('.bundle-products__cart-item-image');
+    if (img) img.style.display = 'none';
+    const config = SLOT_PLACEHOLDERS[(slotNumber - 1) % SLOT_PLACEHOLDERS.length];
+    const details = slot.querySelector('.bundle-products__cart-item-details');
+    if (details && config) {
+      const titleEl = details.querySelector('.bundle-products__cart-item-title');
+      let hintEl = details.querySelector('.bundle-products__cart-item-hint');
+      if (!hintEl && titleEl) {
+        hintEl = document.createElement('span');
+        hintEl.className = 'bundle-products__cart-item-hint';
+        details.appendChild(hintEl);
+      }
+      if (titleEl) titleEl.textContent = config.label;
+      if (hintEl) {
+        hintEl.textContent = config.hint;
+        hintEl.style.display = '';
+      }
+      const collectionEl = details.querySelector('.bundle-products__cart-item-collection');
+      if (collectionEl) collectionEl.style.display = 'none';
+    }
+    const removeBtn = slot.querySelector('.bundle-products__cart-item-remove');
+    if (removeBtn) {
+      removeBtn.style.display = 'none';
+      removeBtn.removeAttribute('data-remove-from-cart');
+      removeBtn.setAttribute('aria-hidden', 'true');
+    }
+    slot.classList.remove('bundle-products__cart-item--trio-bundle', 'bundle-products__cart-item--collection', 'bundle-products__cart-item--duplicate');
+    delete slot.dataset.filled;
+  }
+
   async function removeFromCart(variantId) {
-    // Optimistically remove from bundle cart UI immediately
+    // Optimistically reset this slot to placeholder
     const cartContainer = document.querySelector('.bundle-products__cart-items');
     if (cartContainer) {
-      const itemToRemove = cartContainer.querySelector(`[data-remove-from-cart="${variantId}"]`)?.closest('.bundle-products__cart-item');
-      if (itemToRemove) {
-        itemToRemove.remove();
+      const slot = cartContainer.querySelector(`[data-remove-from-cart="${variantId}"]`)?.closest('.bundle-products__cart-item');
+      if (slot && slot.dataset.slot) {
+        resetSlotToPlaceholder(slot, parseInt(slot.dataset.slot, 10));
       }
     }
 
     try {
-      const response = await fetch(`/cart/change.js`, {
+      // Each product = 1 slot: decrease quantity by 1 (remove line only when qty was 1)
+      const cartRes = await fetch('/cart.js');
+      if (!cartRes.ok) {
+        debouncedRefreshCart();
+        return;
+      }
+      const cartData = await cartRes.json();
+      const line = (cartData.items || []).find(function (item) { return String(item.variant_id) === String(variantId); });
+      const newQuantity = line ? Math.max(0, (line.quantity || 1) - 1) : 0;
+      const lineId = line && line.key ? line.key : variantId;
+
+      const response = await fetch('/cart/change.js', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          id: variantId,
-          quantity: 0
+          id: lineId,
+          quantity: newQuantity
         })
       });
-      
+
       if (!response.ok) {
         console.warn('Remove from cart failed:', response.status);
       }
@@ -124,7 +225,6 @@
       console.error('Error removing from cart:', error);
     }
 
-    // Update bundle cart UI with real data and update cart drawer in background
     debouncedRefreshCart();
   }
 
@@ -140,14 +240,15 @@
       const data = await response.json();
       
       console.log('Cart data:', data);
-      const template = document.querySelector('#bundle-cart-item');
 
-    // Check for products with special tags (trio-bundle or collection) and get compare_at_price
-    let hasSpecialTag = false;
+    // Check for products with special tags (trio-bundle = 3 products worth, collection = 5 products worth), compare_at_price, and collection title
+    const itemEffectiveSteps = []; // Per-item: 3 for trio-bundle, 5 for collection, 1 otherwise
+    let tagResults = []; // Per-item: { effectiveSteps, tag: 'trio-bundle'|'collection'|null }
     const itemCompareAtPrices = new Map(); // Store variant_id -> compare_at_price
+    const itemCollectionTitles = new Map(); // Store variant_id -> collection title (for display above product title)
     
     if (data.items && data.items.length > 0) {
-      // Fetch product data to check tags and get compare_at_price
+      // Fetch product data to check tags, get compare_at_price, and collection for each item
       const productChecks = data.items.map(async (item) => {
         try {
           // Extract product handle from URL if available, or use product_id as fallback
@@ -173,38 +274,71 @@
                 }
               }
               
-              // Check for special tags
+              // Get collection title (first collection or metafield, for display above product title)
+              const collectionTitle = (productData.collections && productData.collections[0] && (productData.collections[0].title || productData.collections[0].name)) ||
+                (productData.metafields && productData.metafields.custom && productData.metafields.custom.collection_name && (typeof productData.metafields.custom.collection_name === 'string' ? productData.metafields.custom.collection_name : productData.metafields.custom.collection_name.value)) ||
+                '';
+              if (collectionTitle) {
+                itemCollectionTitles.set(item.variant_id, collectionTitle);
+              }
+              
+              // Check for special tags: trio-bundle = 3 products worth (e.g. 60%), collection = 5 products worth (100%)
               if (productData.tags) {
                 const tags = Array.isArray(productData.tags) ? productData.tags : productData.tags.split(',');
-                return tags.some(tag => 
-                  tag.trim().toLowerCase() === 'trio-bundle' || 
-                  tag.trim().toLowerCase() === 'collection'
-                );
+                const normalized = tags.map(t => t.trim().toLowerCase());
+                if (normalized.includes('collection')) return { effectiveSteps: 5, tag: 'collection' };
+                if (normalized.includes('trio-bundle')) return { effectiveSteps: 3, tag: 'trio-bundle' };
               }
             }
           }
         } catch (e) {
           console.warn('Could not fetch product data for item:', item.product_id);
         }
-        return false;
+        return { effectiveSteps: 1, tag: null };
       });
       
-      const tagResults = await Promise.all(productChecks);
-      hasSpecialTag = tagResults.some(result => result === true);
+      tagResults = await Promise.all(productChecks);
+      itemEffectiveSteps.push(...tagResults.map(r => r.effectiveSteps));
     }
 
-    let html = '';
-    data.items.forEach(item => {
-      const itemHtml = template.innerHTML
-        .replace(/%ID%/g, item.variant_id)
-        .replace(/%TITLE%/g, item.product_title)
-        .replace(/%IMAGE%/g, item.image || 'default-image-url.jpg')
-        .replace(/%QUANTITY%/g, item.quantity);
-      html += itemHtml;
-    });
-
     const cartContainer = document.querySelector('.bundle-products__cart-items');
-    if (cartContainer) cartContainer.innerHTML = html;
+    if (cartContainer) {
+      const slots = Array.from(cartContainer.querySelectorAll('.bundle-products__cart-item')).sort(
+        (a, b) => parseInt(a.dataset.slot, 10) - parseInt(b.dataset.slot, 10)
+      );
+      const slotCount = slots.length;
+      // Each product = 1 slot: normal item qty 3 = 3 slots; trio = 3 slots; collection = 5 slots
+      const slotAssignments = new Array(slotCount).fill(null);
+      if (data.items && data.items.length > 0 && tagResults.length === data.items.length) {
+        let slotIndex = 0;
+        for (let i = 0; i < data.items.length && slotIndex < slotCount; i++) {
+          const item = data.items[i];
+          const effectiveSteps = tagResults[i].effectiveSteps;
+          const tag = tagResults[i].tag;
+          const collection_title = itemCollectionTitles.get(item.variant_id) || '';
+          const slotsForItem = tag ? effectiveSteps : (item.quantity || 1);
+          for (let j = 0; j < slotsForItem && slotIndex < slotCount; j++) {
+            const isDuplicate = j > 0;
+            slotAssignments[slotIndex] = { ...item, quantity: 1, tag, collection_title, product_title: item.product_title || item.title || '', isDuplicate };
+            slotIndex++;
+          }
+        }
+      }
+      for (let i = 0; i < slotCount; i++) {
+        const slot = slots[i];
+        if (!slot) continue;
+        const slotNumber = i + 1;
+        const assignment = slotAssignments[i];
+        slot.classList.remove('bundle-products__cart-item--trio-bundle', 'bundle-products__cart-item--collection', 'bundle-products__cart-item--duplicate');
+        if (assignment) {
+          if (assignment.tag) slot.classList.add('bundle-products__cart-item--' + assignment.tag);
+          if (assignment.isDuplicate) slot.classList.add('bundle-products__cart-item--duplicate');
+          fillSlot(slot, assignment);
+        } else {
+          resetSlotToPlaceholder(slot, slotNumber);
+        }
+      }
+    }
 
     const total = document.querySelector('.bundle-products__cart-total-price');
     if (total) total.innerHTML = '$' + ((data.total_price || 0) / 100);
@@ -232,40 +366,49 @@
     const progress = document.querySelector('.bundle-products__cart-progress-bar');
     if (progress) {
       const totalSteps = parseInt(progress.dataset.totalSteps) || 5; // Default to 5 if not set
-      // Mark complete if totalSteps+ items OR has special tag
-      if (data.item_count >= totalSteps || hasSpecialTag) {
-        progress.style.setProperty('--progress', '100%');
-      } else {
-        progress.style.setProperty('--progress', (data.item_count / totalSteps) * 100 + '%');
-      }
+      // Effective count: trio-bundle = 3, collection = 5, else 1 per item
+      const effectiveItemCount = itemEffectiveSteps.length
+        ? itemEffectiveSteps.reduce((sum, n) => sum + n, 0)
+        : data.item_count;
+      const progressPct = Math.min(100, (effectiveItemCount / totalSteps) * 100);
+      progress.style.setProperty('--progress', progressPct + '%');
+      updateProgressStepIcons(progress, effectiveItemCount, totalSteps);
     }
 
     const remaining = document.querySelector('.bundle-products__cart-progress-text');
     if (remaining) {
       const progressBar = document.querySelector('.bundle-products__cart-progress-bar');
-      const totalSteps = progressBar ? (parseInt(progressBar.dataset.totalSteps) || 5) : 5;
-      const itemCount = data.item_count;
-      const remainingCount = totalSteps - itemCount;
+      const totalSteps = parseInt(remaining.dataset.totalSteps || progressBar?.dataset?.totalSteps || '5', 10) || 5;
+      const effectiveItemCount = itemEffectiveSteps.length
+        ? itemEffectiveSteps.reduce((sum, n) => sum + n, 0)
+        : data.item_count;
+      const remainingCount = Math.max(0, totalSteps - effectiveItemCount);
       let progressText = '';
-      
-      // Get text templates from data attributes
-      const textDefault = remaining.dataset.progressTextDefault || 'You are [X] sets away from 20% OFF';
-      const textTwoMore = remaining.dataset.progressTextTwoMore || 'Just 2 more sets to unlock 20% OFF';
-      const textOneMore = remaining.dataset.progressTextOneMore || 'Just 1 more set to unlock 20% OFF';
-      const textComplete = remaining.dataset.progressTextComplete || 'We love to see it. 20% OFF applied.';
-      
-      // Apply conditional logic matching the Liquid template
-      if (itemCount >= totalSteps || hasSpecialTag) {
-        progressText = textComplete;
-      } else if (itemCount === totalSteps - 1) {
-        progressText = textOneMore;
-      } else if (itemCount === totalSteps - 2) {
-        progressText = textTwoMore;
+
+      // Get step text templates from data attributes (0–5) - use getAttribute for reliable access
+      // (dataset can mis-handle attributes like data-progress-text-step-0 due to hyphen-digit)
+      const textStep0 = remaining.getAttribute('data-progress-text-step-0') ?? 'You are [X] sets away from 20% OFF';
+      const textStep1 = remaining.getAttribute('data-progress-text-step-1') ?? 'You are [X] sets away from 20% OFF';
+      const textStep2 = remaining.getAttribute('data-progress-text-step-2') ?? 'You are [X] sets away from 20% OFF';
+      const textStep3 = remaining.getAttribute('data-progress-text-step-3') ?? 'Just 2 more sets to unlock 20% OFF';
+      const textStep4 = remaining.getAttribute('data-progress-text-step-4') ?? 'Just 1 more set to unlock 20% OFF';
+      const textStep5 = remaining.getAttribute('data-progress-text-step-5') ?? 'We love to see it. 20% OFF applied.';
+
+      // Apply step-based logic (effective count: trio-bundle = 3, collection = 5)
+      if (effectiveItemCount >= totalSteps) {
+        progressText = textStep5;
+      } else if (effectiveItemCount === totalSteps - 1) {
+        progressText = textStep4;
+      } else if (effectiveItemCount === totalSteps - 2) {
+        progressText = textStep3;
+      } else if (effectiveItemCount === 2) {
+        progressText = textStep2.replace('[X]', remainingCount);
+      } else if (effectiveItemCount === 1) {
+        progressText = textStep1.replace('[X]', remainingCount);
       } else {
-        // Replace [X] with remaining count
-        progressText = textDefault.replace('[X]', remainingCount);
+        progressText = textStep0.replace('[X]', remainingCount);
       }
-      
+
       remaining.innerHTML = progressText;
     }
     
@@ -325,12 +468,14 @@
         const variantId = button.getAttribute('data-variant-id') || null;
         const sellingPlanID = button.getAttribute('data-selling-plan') || null;
 
-        // Get product data from the card for optimistic update
+        // Get product data from the card for optimistic update (including collection and trio-bundle)
         const card = button.closest('.bundle-product__card');
         const productData = card ? {
           title: card.querySelector('.bundle-product__title')?.textContent?.trim() || '',
           image: card.querySelector('.bundle-product__image')?.src || '',
-          price: card.querySelector('.bundle-product__price--sale, .bundle-product__price--regular')?.textContent || '0'
+          price: card.querySelector('.bundle-product__price--sale, .bundle-product__price--regular')?.textContent || '0',
+          collection: (card.dataset.collection || '').trim(),
+          trioBundle: card.dataset.trioBundle === 'true'
         } : null;
 
         // Add visual feedback class to product card and show quantity selector
@@ -341,7 +486,11 @@
           const quantityWrapper = card.querySelector('.bundle-product__quantity-wrapper');
           const atcButton = card.querySelector('.bundle-product__atc');
           
-          if (quantityWrapper && atcButton) {
+          
+          
+          // Remove the temporary is-added-to-box class after 2 seconds (keep 'added' class)
+          setTimeout(() => {
+            if (quantityWrapper && atcButton) {
             atcButton.style.display = 'none';
             quantityWrapper.style.display = 'flex';
             
@@ -351,9 +500,6 @@
               quantityInput.value = '1';
             }
           }
-          
-          // Remove the temporary is-added-to-box class after 2 seconds (keep 'added' class)
-          setTimeout(() => {
             card.classList.remove('is-added-to-box');
           }, 2000);
         }
@@ -389,7 +535,7 @@
       }
     });
 
-    // Handle quantity changes in bundle product cards
+    // Quantity wrapper: plus = add to cart (same as product card); minus = remove one from cart; input = display-only (synced by refreshCart)
     document.addEventListener('click', async (event) => {
       const decreaseBtn = event.target.closest('[data-decrease-quantity]');
       const increaseBtn = event.target.closest('[data-increase-quantity]');
@@ -421,9 +567,7 @@
         if (decreaseBtn) {
           if (currentQuantity > 1) {
             currentQuantity--;
-            quantityInput.value = currentQuantity;
-            
-            // Update cart - set new quantity
+            // Update cart; input value is synced from cart by refreshCart
             try {
               const response = await fetch('/cart/change.js', {
                 method: 'POST',
@@ -457,96 +601,22 @@
             card.classList.remove('added');
           }
         } else if (increaseBtn) {
-          currentQuantity++;
-          quantityInput.value = currentQuantity;
-          
-          // Add one more to cart using /cart/add.js
-          const item = {
-            id: parseInt(variantId),
-            quantity: 1
+          // Plus = same as add-to-cart on the product card
+          const atcButton = card.querySelector('[data-add-to-cart]');
+          const sellingPlanId = atcButton?.getAttribute('data-selling-plan') || sellingPlanID || null;
+          const productData = {
+            title: card.querySelector('.bundle-product__title')?.textContent?.trim() || '',
+            image: card.querySelector('.bundle-product__image')?.src || '',
+            price: card.querySelector('.bundle-product__price--sale, .bundle-product__price--regular')?.textContent || '0',
+            collection: (card.dataset.collection || '').trim(),
+            trioBundle: card.dataset.trioBundle === 'true'
           };
-          
-          if (sellingPlanID) {
-            item.selling_plan = parseInt(sellingPlanID);
-          }
-          
-          try {
-            const response = await fetch('/cart/add.js', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ items: [item] })
-            });
-            
-            if (!response.ok) {
-              console.warn('Cart add failed:', response.status);
-            }
-          } catch (error) {
-            console.error('Error adding to cart:', error);
-          }
-          
+          addToCart(variantId, sellingPlanId, 1, productData);
           debouncedRefreshCart();
         }
       }
     });
     
-    // Handle direct input changes
-    document.addEventListener('change', async (event) => {
-      const quantityInput = event.target.closest('.bundle-product__quantity-input');
-      if (!quantityInput || !quantityInput.closest('.bundle-product__quantity-wrapper')) return;
-      
-      const card = quantityInput.closest('.bundle-product__card');
-      if (!card) return;
-      
-      // Get variant ID from input or fallback to button's data attribute
-      let variantId = quantityInput.getAttribute('data-variant-id');
-      if (!variantId) {
-        const addButton = card.querySelector('[data-add-to-cart]');
-        variantId = addButton?.getAttribute('data-variant-id');
-      }
-      
-      if (!variantId) {
-        console.error('No variant ID found for quantity change');
-        return;
-      }
-      
-      let newQuantity = parseInt(quantityInput.value);
-      
-      if (isNaN(newQuantity) || newQuantity < 0) {
-        newQuantity = 1;
-        quantityInput.value = 1;
-      }
-      
-      if (newQuantity === 0) {
-        await removeFromCart(variantId);
-        const quantityWrapper = quantityInput.closest('.bundle-product__quantity-wrapper');
-        const atcButton = card.querySelector('.bundle-product__atc');
-        if (quantityWrapper && atcButton) {
-          quantityWrapper.style.display = 'none';
-          atcButton.style.display = 'flex';
-        }
-        card.classList.remove('added');
-      } else {
-        // Set absolute quantity in cart
-        try {
-          const response = await fetch('/cart/change.js', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              id: variantId,
-              quantity: newQuantity
-            })
-          });
-          
-          if (!response.ok) {
-            console.warn('Cart change failed:', response.status);
-          }
-        } catch (error) {
-          console.error('Error changing cart:', error);
-        }
-        debouncedRefreshCart();
-      }
-    });
-
     refreshCart();
   });
 
