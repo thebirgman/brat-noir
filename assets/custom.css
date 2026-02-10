@@ -4114,3 +4114,7 @@ span.navtext {
     align-items: center;
     gap: 10px;
 }
+
+a.navlink.navlink--toplevel .navtext svg path {
+    stroke: #fff;
+}
