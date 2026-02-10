@@ -191,7 +191,7 @@
         "p {max-width: 820px; margin: 30px auto;}",
         ".collection-tabs h2:after {display: none;}",
         "h2 {padding: 0;}",
-        "@media screen and (max-width: 768px) {.tab-link {max-width: 160px !important; width: 100% !important; font-size: 15px !important; } .product-grid-slide {width: calc(50% - 15px) !important; margin: 0 !important; } .collection-tabs-container {gap: 15px; padding: 0 10px !important; }}",
+        "@media screen and (max-width: 768px) {.tab-link {max-width: 160px !important; width: 100% !important; font-size: 15px !important; } .product-grid-slide {width: calc(50% - 15px) !important; margin: 0 !important; } .collection-tabs-container {gap: 10px; padding: 0 10px !important; }}",
         ".price {color: #000 !important;}"
       ],
       "name": "Product slider tabs",
