@@ -138,7 +138,8 @@
         "transparent_logo": "shopify://shop_images/Brat_Noir_Logo_1.png",
         "show_collection_images": true,
         "collection_wh_ratio": 2.5,
-        "mobile_drawer_featured_image": "shopify://shop_images/Rectangle_320_1fbfa993-8a1f-43c6-8bbe-d609d9195059.jpg"
+        "mobile_drawer_featured_image": "shopify://shop_images/Rectangle_320_1fbfa993-8a1f-43c6-8bbe-d609d9195059.jpg",
+        "mobile_drawer_featured_url": "shopify://collections/all"
       }
     }
   },
