@@ -223,7 +223,7 @@
         ".product__grid__main-info p {text-align: left;}",
         "@media screen and (min-width: 1080px) {.slide-item.product-grid-slide[data-item] {width: calc(25% - 25px); }}",
         ".collection-tabs-container {max-width: 100%; margin: 0 auto !important;}",
-        ".product__grid__price {min-width: 70px; text-align: right; align-items: flex-end; flex-direction: row-reverse;}"
+        ".product__grid__price {min-width: 70px; text-align: right; align-items: flex-end; flex-direction: row; row-gap: 0;}"
       ],
       "name": "Product slider tabs",
       "settings": {
