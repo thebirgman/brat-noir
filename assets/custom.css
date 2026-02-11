@@ -4169,7 +4169,7 @@ body:not(.template-index):not(#build-your-own-bundle) [data-header-transparent=t
     margin-top: -20px;
 }
 .template-collection .bundle-products__grid {
-  justify-content: center;
+  justify-content: center!important;
 }
 }
 
