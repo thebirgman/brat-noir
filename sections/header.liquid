@@ -9,7 +9,7 @@
   elsif template contains 'blog' and section.settings.transparent_blog
     assign transparent_header = true
   elsif template contains 'page' and section.settings.transparent_page
-    assign transparent_header = false
+    assign transparent_header = true
   elsif template == 'index' and section.settings.transparent_home
     assign transparent_header = true
   endif

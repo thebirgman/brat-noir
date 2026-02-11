@@ -4150,3 +4150,7 @@ a.navlink.navlink--toplevel .navtext svg path {
 .needsclick.kl-private-reset-css-Xuajs1[aria-label="POPUP Form"] {
     z-index: 9999999!important;
 }
+
+body:not(#build-your-own-bundle):not(.template-index) .shopify-section-group-group-header[id*="header"] {
+    z-index: 999;
+}
