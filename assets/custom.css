@@ -4177,3 +4177,8 @@ body:not(.template-index):not(#build-your-own-bundle) [data-header-transparent=t
 }
 }
 
+
+
+body:not(.template-index) .header__mobile__left svg,body:not(.template-index)  .header__mobile__right svg {
+    stroke: #000;
+}
