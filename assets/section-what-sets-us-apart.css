@@ -630,3 +630,19 @@
 .what-sets-us-apart__item-text h3 strong, .what-sets-us-apart__item-text h3 {
     font-weight: 500;
 }
+
+
+
+@media screen and (min-width: 768px) and (max-width: 820px){
+.what-sets-us-apart__slide.what-sets-us-apart__slide--text-left {
+    padding-left: 30px;
+}
+}
+
+@media screen and (max-width: 820px) {
+.what-sets-us-apart__container {
+    max-width: 650px;
+}
+
+
+}
