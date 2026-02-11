@@ -487,6 +487,13 @@ p.cart__footer__itemtotal,
 
 
 @media (max-width: 575px) {
+
+    .brick__collection .brick__product{
+    width: 80%!important;
+    border-radius: 20px!important;
+        padding: 5px 5px 25px!important;
+  }
+
   .collection-tabs .tabs {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr);
