@@ -221,7 +221,7 @@
         ".product__grid__price {display: flex; flex-direction: column;}",
         ".bg--neutral {background: transparent;}",
         ".product__grid__main-info p {text-align: left;}",
-        "@media screen and (min-width: 1080px) {.slide-item.product-grid-slide[data-item] {width: calc(25% - 25px); }}",
+        "@media screen and (min-width: 1080px) {.slide-item {width: calc(25% - 25px); }}",
         ".collection-tabs-container {max-width: 100%; margin: 0 auto !important;}",
         ".product__grid__price {min-width: 70px; text-align: right; align-items: flex-end; flex-direction: row; row-gap: 0;}"
       ],
@@ -241,6 +241,13 @@
         "padding_top": 30,
         "padding_bottom": 20
       }
+    },
+    "section_liquid_mVax8P": {
+      "type": "section-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "custom_liquid": "<style>\n@media screen and (max-width: 900px)  and (min-width: 768px){\n.slide-item.product-grid-slide[data-item] {\n    width: calc(50% - 20px)!important;\n}\n}\n</style>"
+      }
     }
   },
   "order": [
@@ -250,6 +257,7 @@
     "section_collection_tabs_7FhyYd",
     "section_richtext_miyxB6",
     "gift_steps_qVE7mL",
-    "section_collection_tabs_y8FR4V"
+    "section_collection_tabs_y8FR4V",
+    "section_liquid_mVax8P"
   ]
 }
