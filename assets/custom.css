@@ -4154,3 +4154,7 @@ a.navlink.navlink--toplevel .navtext svg path {
 body:not(#build-your-own-bundle):not(.template-index) .shopify-section-group-group-header[id*="header"] {
     z-index: 999;
 }
+
+body:not(.template-index):not(#build-your-own-bundle) [data-header-transparent=true]:not(.meganav--visible):not(.js__header__stuck) span.navtext path {
+    stroke: #000!important;
+}
