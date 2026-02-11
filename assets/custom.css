@@ -1860,10 +1860,6 @@ button.flickity-button.flickity-prev-next-button.previous {
   display: none!Important;
 }
 
-.template-collection .needsclick.kl-private-reset-css-Xuajs1 {
-    display: none;
-}
-
 
 @media screen and (max-width: 768px) {
 .sticky-cta-visible  .needsclick.kl-private-reset-css-Xuajs1[class*="kl-teaser"] {
