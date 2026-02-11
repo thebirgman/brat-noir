@@ -4085,6 +4085,10 @@ nav#header-menu .drawer-menu-item__thumb {
     bottom: 90px!important;
 }
 
+.template-product .needsclick.kl-teaser-RJbDRM.kl-private-reset-css-Xuajs1:has([data-testid="animated-teaser"]) {
+    bottom: 90px!important;
+}
+
 .header__logo.header__logo--image.header__logo--has-transparent {}
 @media screen and (max-width: 820px) {
 .shopify-section.shopify-section-group-group-header {
