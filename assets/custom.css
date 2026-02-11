@@ -4154,3 +4154,12 @@ body:not(#build-your-own-bundle):not(.template-index) .shopify-section-group-gro
 body:not(.template-index):not(#build-your-own-bundle) [data-header-transparent=true]:not(.meganav--visible):not(.js__header__stuck) span.navtext path {
     stroke: #000!important;
 }
+
+@media screen and (max-width: 768px) {
+
+.template-index .brick__block__product__inner .text__standard.text-center {
+    padding-top: 0!important;
+    margin-top: -20px;
+}
+
+}
