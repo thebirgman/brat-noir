@@ -1129,3 +1129,16 @@ span.bundle-products__cart-item-title {}
     max-width: calc(50% - 20px) !important;
 }
 }
+
+
+
+.bundle-products__ritual {
+    order: 2;
+    border: 1px solid #FFFFFF;
+    box-shadow: 0px 4px 14px 0px #0000000D;
+}
+
+.bundle-products__ritual-select {
+    border: 0;
+    border-radius: 4px;
+}
