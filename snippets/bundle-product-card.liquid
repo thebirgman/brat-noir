@@ -33,7 +33,13 @@
   </div>
   <div class="bundle-product__actions">
     {% assign first_variant = product.variants.first %}
-
+    {% comment %} Build JSON array of selling plan IDs in order; first option = index 1 in ritual dropdown {% endcomment %}
+    {% assign selling_plan_ids = '' %}
+    {% for allocation in first_variant.selling_plan_allocations %}
+      {% if selling_plan_ids != '' %}{% assign selling_plan_ids = selling_plan_ids | append: ',' %}{% endif %}
+      {% assign selling_plan_ids = selling_plan_ids | append: allocation.selling_plan.id %}
+    {% endfor %}
+    {% assign first_selling_plan_id = '' %}
     {% for allocation in first_variant.selling_plan_allocations %}
       {% assign first_selling_plan_id = allocation.selling_plan.id %}
       {% break %}
@@ -42,6 +48,7 @@
       class="bundle-product__atc"
       data-variant-id="{{ product.first_available_variant.id }}"
       data-selling-plan="{{ first_selling_plan_id }}"
+      data-selling-plan-ids="[{{ selling_plan_ids }}]"
       data-add-to-cart
     >
       ADD TO CART

@@ -12,7 +12,20 @@
   {%- endfor -%}
 {%- endif -%}
 
-<section class="bundle-products" id="bundle-products-{{ section.id }}">
+{%- liquid
+  assign ritual_options_str = section.settings.ritual_dropdown_options | strip | split: ','
+  assign ritual_options = ritual_options_str | map: 'strip' | join: ','
+  assign show_subscription_only = section.settings.cart_show_subscription_only
+  assign show_non_subscription_only = section.settings.cart_show_non_subscription_only
+-%}
+<section
+  class="bundle-products"
+  id="bundle-products-{{ section.id }}"
+  data-ritual-options="{{ ritual_options | escape }}"
+  data-ritual-label="{{ section.settings.ritual_dropdown_label | escape }}"
+  data-cart-subscription-only="{% if show_subscription_only %}true{% else %}false{% endif %}"
+  data-cart-non-subscription-only="{% if show_non_subscription_only %}true{% else %}false{% endif %}"
+>
   <h2>{{ section.settings.heading }}</h2>
   
   {%- if section.settings.subheading != blank -%}
@@ -120,6 +133,25 @@
           <span class="bundle-products__cart-total-saved">YOU SAVED <span class="saved-amount">{{ total_saved | money_without_trailing_zeros }}</span></span>
         </div>
       </div>
+
+      {%- if show_subscription_only and ritual_options_str.size > 0 and ritual_options_str.first != blank -%}
+        <div class="bundle-products__ritual">
+          <label class="bundle-products__ritual-label" for="ritual-{{ section.id }}">{{ section.settings.ritual_dropdown_label | default: 'Choose Your Ritual:' }}</label>
+          <select
+            class="bundle-products__ritual-select"
+            id="ritual-{{ section.id }}"
+            name="ritual"
+            data-ritual-select
+            aria-label="{{ section.settings.ritual_dropdown_label | default: 'Choose Your Ritual' }}">
+            {%- for opt in ritual_options_str -%}
+              {%- assign label = opt | strip -%}
+              {%- if label != '' -%}
+                <option value="{{ forloop.index }}"{% if forloop.first %} selected{% endif %}>{{ label }}</option>
+              {%- endif -%}
+            {%- endfor -%}
+          </select>
+        </div>
+      {%- endif -%}
 
       <div class="bundle-products__cart-items">
         {%- for i in (1..5) -%}
@@ -528,6 +560,37 @@ document.querySelector('.bundle-products__filter-btn[data-filter="all"]')?.click
       "default": "All"
     },
     {
+      "type": "header",
+      "content": "Subscription / Ritual"
+    },
+    {
+      "type": "text",
+      "id": "ritual_dropdown_options",
+      "label": "Ritual dropdown options",
+      "info": "Comma-separated labels (e.g. Ship every 2 Weeks, Ship every 4 Weeks). First option = selling plan index 1.",
+      "default": "Ship every 2 Weeks, Ship every 4 Weeks, Ship every 6 Weeks"
+    },
+    {
+      "type": "text",
+      "id": "ritual_dropdown_label",
+      "label": "Ritual dropdown label",
+      "default": "Choose Your Ritual:"
+    },
+    {
+      "type": "checkbox",
+      "id": "cart_show_subscription_only",
+      "label": "Cart: show subscription products only",
+      "info": "When enabled, cart slots and progress bar use only items with a selling plan.",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "cart_show_non_subscription_only",
+      "label": "Cart: show non-subscription products only",
+      "info": "When enabled, cart slots and progress bar use only items without a selling plan.",
+      "default": false
+    },
+    {
       "type": "text",
       "id": "bundle_content_heading",
       "label": "Bundle Content Heading",
@@ -582,6 +645,7 @@ document.querySelector('.bundle-products__filter-btn[data-filter="all"]')?.click
       "label": "Progress Text (Step 5 – 5+ sets in cart)",
       "default": "We love to see it. 20% OFF applied."
     },
+    
     {
       "type": "header",
       "content": "Progress Bar Settings"

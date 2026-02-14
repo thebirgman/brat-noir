@@ -1,4 +1,31 @@
 (function () {
+  /**
+   * Get the selling plan ID to use when adding to cart, based on the ritual dropdown.
+   * First dropdown option = index 1 = first selling plan in product.
+   * @param {HTMLElement} card - .bundle-product__card
+   * @returns {number|null} selling plan id or null
+   */
+  function getSellingPlanIdFromRitual(card) {
+    const section = card?.closest('.bundle-products');
+    const select = section?.querySelector('[data-ritual-select]');
+    const addBtn = card?.querySelector('[data-add-to-cart][data-selling-plan-ids]');
+    if (!addBtn || !select) {
+      return addBtn?.getAttribute('data-selling-plan') || null;
+    }
+    const idsJson = addBtn.getAttribute('data-selling-plan-ids');
+    if (!idsJson) return addBtn.getAttribute('data-selling-plan') || null;
+    let ids = [];
+    try {
+      ids = JSON.parse(idsJson);
+    } catch (e) {
+      return addBtn.getAttribute('data-selling-plan') || null;
+    }
+    if (!Array.isArray(ids) || ids.length === 0) return null;
+    const ritualIndex = parseInt(select.value, 10) || 1;
+    const oneBased = Math.max(1, Math.min(ritualIndex, ids.length));
+    return ids[oneBased - 1] || null;
+  }
+
   // Placeholder texts for empty slots (matches build-a-gift-box style)
   const SLOT_PLACEHOLDERS = [
     { label: 'Start Your Stack', hint: 'Add 3 sets to unlock VIP Status.' },
@@ -301,20 +328,39 @@
       itemEffectiveSteps.push(...tagResults.map(r => r.effectiveSteps));
     }
 
+    // Filter items by subscription / non-subscription when section settings are set (only when exactly one option is on)
+    const section = document.querySelector('.bundle-products');
+    const subscriptionOnly = section?.dataset?.cartSubscriptionOnly === 'true';
+    const nonSubscriptionOnly = section?.dataset?.cartNonSubscriptionOnly === 'true';
+    let displayItems = data.items || [];
+    let tagResultsDisplay = tagResults;
+    let itemEffectiveStepsDisplay = itemEffectiveSteps;
+    if (subscriptionOnly && !nonSubscriptionOnly && data.items && data.items.length > 0) {
+      const indices = data.items.map(function (item, i) { return !!(item.selling_plan_allocation) ? i : -1; }).filter(function (i) { return i >= 0; });
+      displayItems = indices.map(function (i) { return data.items[i]; });
+      tagResultsDisplay = indices.map(function (i) { return tagResults[i]; });
+      itemEffectiveStepsDisplay = tagResultsDisplay.map(function (r) { return r.effectiveSteps; });
+    } else if (nonSubscriptionOnly && !subscriptionOnly && data.items && data.items.length > 0) {
+      const indices = data.items.map(function (item, i) { return !item.selling_plan_allocation ? i : -1; }).filter(function (i) { return i >= 0; });
+      displayItems = indices.map(function (i) { return data.items[i]; });
+      tagResultsDisplay = indices.map(function (i) { return tagResults[i]; });
+      itemEffectiveStepsDisplay = tagResultsDisplay.map(function (r) { return r.effectiveSteps; });
+    }
+
     const cartContainer = document.querySelector('.bundle-products__cart-items');
     if (cartContainer) {
       const slots = Array.from(cartContainer.querySelectorAll('.bundle-products__cart-item')).sort(
         (a, b) => parseInt(a.dataset.slot, 10) - parseInt(b.dataset.slot, 10)
       );
       const slotCount = slots.length;
-      // Each product = 1 slot: normal item qty 3 = 3 slots; trio = 3 slots; collection = 5 slots
+      // Each product = 1 slot: normal item qty 3 = 3 slots; trio = 3 slots; collection = 5 slots (use displayItems for subscription filter)
       const slotAssignments = new Array(slotCount).fill(null);
-      if (data.items && data.items.length > 0 && tagResults.length === data.items.length) {
+      if (displayItems.length > 0 && tagResultsDisplay.length === displayItems.length) {
         let slotIndex = 0;
-        for (let i = 0; i < data.items.length && slotIndex < slotCount; i++) {
-          const item = data.items[i];
-          const effectiveSteps = tagResults[i].effectiveSteps;
-          const tag = tagResults[i].tag;
+        for (let i = 0; i < displayItems.length && slotIndex < slotCount; i++) {
+          const item = displayItems[i];
+          const effectiveSteps = tagResultsDisplay[i].effectiveSteps;
+          const tag = tagResultsDisplay[i].tag;
           const collection_title = itemCollectionTitles.get(item.variant_id) || '';
           const slotsForItem = tag ? effectiveSteps : (item.quantity || 1);
           for (let j = 0; j < slotsForItem && slotIndex < slotCount; j++) {
@@ -366,10 +412,10 @@
     const progress = document.querySelector('.bundle-products__cart-progress-bar');
     if (progress) {
       const totalSteps = parseInt(progress.dataset.totalSteps) || 5; // Default to 5 if not set
-      // Effective count: trio-bundle = 3, collection = 5, else 1 per item
-      const effectiveItemCount = itemEffectiveSteps.length
-        ? itemEffectiveSteps.reduce((sum, n) => sum + n, 0)
-        : data.item_count;
+      // Effective count: trio-bundle = 3, collection = 5, else 1 per item (use filtered list when subscription/non-subscription only)
+      const effectiveItemCount = itemEffectiveStepsDisplay.length
+        ? itemEffectiveStepsDisplay.reduce((sum, n) => sum + n, 0)
+        : displayItems.length;
       const progressPct = Math.min(100, (effectiveItemCount / totalSteps) * 100);
       progress.style.setProperty('--progress', progressPct + '%');
       updateProgressStepIcons(progress, effectiveItemCount, totalSteps);
@@ -379,9 +425,9 @@
     if (remaining) {
       const progressBar = document.querySelector('.bundle-products__cart-progress-bar');
       const totalSteps = parseInt(remaining.dataset.totalSteps || progressBar?.dataset?.totalSteps || '5', 10) || 5;
-      const effectiveItemCount = itemEffectiveSteps.length
-        ? itemEffectiveSteps.reduce((sum, n) => sum + n, 0)
-        : data.item_count;
+      const effectiveItemCount = itemEffectiveStepsDisplay.length
+        ? itemEffectiveStepsDisplay.reduce((sum, n) => sum + n, 0)
+        : displayItems.length;
       const remainingCount = Math.max(0, totalSteps - effectiveItemCount);
       let progressText = '';
 
@@ -466,7 +512,7 @@
         button.classList.add('loading');
 
         const variantId = button.getAttribute('data-variant-id') || null;
-        const sellingPlanID = button.getAttribute('data-selling-plan') || null;
+        const sellingPlanID = getSellingPlanIdFromRitual(card) || button.getAttribute('data-selling-plan') || null;
 
         // Get product data from the card for optimistic update (including collection and trio-bundle)
         const card = button.closest('.bundle-product__card');
@@ -505,7 +551,7 @@
         }
 
         // Don't await - let it run in background after optimistic update
-        addToCart(variantId, 0, 1, productData).then(() => {
+        addToCart(variantId, sellingPlanID, 1, productData).then(() => {
           button.classList.remove('loading');
         }).catch(() => {
           button.classList.remove('loading');
@@ -560,7 +606,7 @@
           return;
         }
         
-        const sellingPlanID = card.querySelector('[data-selling-plan]')?.getAttribute('data-selling-plan') || null;
+        const sellingPlanID = getSellingPlanIdFromRitual(card) || card.querySelector('[data-selling-plan]')?.getAttribute('data-selling-plan') || null;
         
         let currentQuantity = parseInt(quantityInput.value) || 1;
         
@@ -601,9 +647,8 @@
             card.classList.remove('added');
           }
         } else if (increaseBtn) {
-          // Plus = same as add-to-cart on the product card
-          const atcButton = card.querySelector('[data-add-to-cart]');
-          const sellingPlanId = atcButton?.getAttribute('data-selling-plan') || sellingPlanID || null;
+          // Plus = same as add-to-cart on the product card; use ritual dropdown for selling plan
+          const sellingPlanId = getSellingPlanIdFromRitual(card) || card.querySelector('[data-add-to-cart]')?.getAttribute('data-selling-plan') || null;
           const productData = {
             title: card.querySelector('.bundle-product__title')?.textContent?.trim() || '',
             image: card.querySelector('.bundle-product__image')?.src || '',
