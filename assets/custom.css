@@ -4182,3 +4182,14 @@ body:not(.template-index):not(#build-your-own-bundle) [data-header-transparent=t
 body:not(.template-index) .header__mobile__left svg,body:not(.template-index)  .header__mobile__right svg {
     stroke: #000;
 }
+
+.bundle-products__ritual {
+    order: 2;
+    border: 1px solid #FFFFFF;
+    box-shadow: 0px 4px 14px 0px #0000000D;
+}
+
+.bundle-products__ritual-select {
+    border: 0;
+    border-radius: 4px;
+}
