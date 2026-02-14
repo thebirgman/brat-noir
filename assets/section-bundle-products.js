@@ -6,21 +6,26 @@
    * @returns {number|null} selling plan id or null
    */
   function getSellingPlanIdFromRitual(card) {
-    const section = card?.closest('.bundle-products');
+    if (!card) return null;
+    const section = card.closest('.bundle-products');
     const select = section?.querySelector('[data-ritual-select]');
-    const addBtn = card?.querySelector('[data-add-to-cart][data-selling-plan-ids]');
-    if (!addBtn || !select) {
-      return addBtn?.getAttribute('data-selling-plan') || null;
+    const addBtn = card.querySelector('[data-add-to-cart]');
+    const idsJson = addBtn?.getAttribute('data-selling-plan-ids');
+    // When no ritual dropdown (or no plan ids): use button's data-selling-plan (first plan)
+    if (!addBtn || !select || !idsJson) {
+      const fallback = addBtn?.getAttribute('data-selling-plan') || null;
+      if (typeof console !== 'undefined' && console.log) {
+        console.log('[Bundle ATC] getSellingPlanIdFromRitual: using fallback data-selling-plan:', fallback);
+      }
+      return fallback;
     }
-    const idsJson = addBtn.getAttribute('data-selling-plan-ids');
-    if (!idsJson) return addBtn.getAttribute('data-selling-plan') || null;
     let ids = [];
     try {
       ids = JSON.parse(idsJson);
     } catch (e) {
       return addBtn.getAttribute('data-selling-plan') || null;
     }
-    if (!Array.isArray(ids) || ids.length === 0) return null;
+    if (!Array.isArray(ids) || ids.length === 0) return addBtn.getAttribute('data-selling-plan') || null;
     const ritualIndex = parseInt(select.value, 10) || 1;
     const oneBased = Math.max(1, Math.min(ritualIndex, ids.length));
     return ids[oneBased - 1] || null;
@@ -70,23 +75,20 @@
   }
 
   async function addToCart(variantId, sellingPlanId, quantity, productData) {
-    console.log('variantId:', variantId);
-    console.log('sellingPlanId:', sellingPlanId);
+    const item = {
+      id: parseInt(variantId),
+      quantity: quantity
+    };
+    if (sellingPlanId) {
+      item.selling_plan = parseInt(sellingPlanId);
+    }
+    console.log('[Bundle ATC] addToCart payload:', JSON.stringify({ items: [item] }));
 
     // Optimistically update bundle cart UI immediately
     if (productData) {
       optimisticallyAddToBundleCart(variantId, productData, quantity);
     }
 
-    const item = {
-      id: parseInt(variantId),
-      quantity: quantity
-    };
-
-    if (sellingPlanId) {
-      item.selling_plan = parseInt(sellingPlanId);
-    }
-    
     // Add to cart in background
     try {
       const response = await fetch('/cart/add.js', {
@@ -98,12 +100,15 @@
           items: [item]
         })
       });
-      
+
+      const responseData = await response.json().catch(function () { return null; });
       if (!response.ok) {
-        console.warn('Add to cart failed:', response.status);
+        console.warn('[Bundle ATC] Add to cart failed:', response.status, responseData);
+      } else {
+        console.log('[Bundle ATC] Add to cart success:', responseData);
       }
     } catch (error) {
-      console.error('Error adding to cart:', error);
+      console.error('[Bundle ATC] Error adding to cart:', error);
     }
 
     // Update bundle cart UI with real data and update cart drawer in background
@@ -508,14 +513,19 @@
   document.addEventListener('DOMContentLoaded', () => {
     const addToCartButtons = document.querySelectorAll('[data-add-to-cart]');
     addToCartButtons.forEach(button => {
-      button.addEventListener('click', async () => {
+      button.addEventListener('click', async (e) => {
+        e.preventDefault();
+        e.stopPropagation();
         button.classList.add('loading');
 
+        const card = button.closest('.bundle-product__card');
         const variantId = button.getAttribute('data-variant-id') || null;
         const sellingPlanID = getSellingPlanIdFromRitual(card) || button.getAttribute('data-selling-plan') || null;
 
+        // Debug: log what we're sending (remove in production if desired)
+        console.log('[Bundle ATC] variantId:', variantId, 'sellingPlanID:', sellingPlanID, 'card:', !!card);
+
         // Get product data from the card for optimistic update (including collection and trio-bundle)
-        const card = button.closest('.bundle-product__card');
         const productData = card ? {
           title: card.querySelector('.bundle-product__title')?.textContent?.trim() || '',
           image: card.querySelector('.bundle-product__image')?.src || '',

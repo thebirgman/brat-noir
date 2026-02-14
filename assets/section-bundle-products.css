@@ -828,7 +828,7 @@ a.bundle-product_card_link {
 }
 
 .bundle-product__actions {
-    z-index: 2;
+    z-index: 3;
     position: relative;
 }
 
