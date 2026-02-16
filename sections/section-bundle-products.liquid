@@ -173,13 +173,23 @@
               </button>
             </div>
           {%- else -%}
+            {% if template contains "brat-club" %}
             {%- case i -%}
+              {%- when 1 -%}{%- assign slot_label = 'Start Your Stack' -%}{%- assign slot_hint = 'Unlocks Free Shipping instantly.' -%}
+              {%- when 2 -%}{%- assign slot_label = 'Switch It Up' -%}{%- assign slot_hint = "You are 2 sets away from your Free Gift." -%}
+              {%- when 3 -%}{%- assign slot_label = 'Unlock Your Freebie' -%}{%- assign slot_hint = 'Add this set to unlock your Free Set instantly.' -%}
+              {%- when 4 -%}{%- assign slot_label = 'Free Set :)' -%}{%- assign slot_hint = 'You earned it. This set is on us ($18 Value)' -%}
+              {%- when 5 -%}{%- assign slot_label = "Unlock Velvet Status" -%}{%- assign slot_hint = 'Add to get $10 Off + The Velvet Box.' -%}
+            {%- endcase -%}
+          {% else %}
+             {%- case i -%}
               {%- when 1 -%}{%- assign slot_label = 'Start Your Stack' -%}{%- assign slot_hint = 'Add 3 sets to unlock VIP Status.' -%}
               {%- when 2 -%}{%- assign slot_label = 'Weekday Look' -%}{%- assign slot_hint = "You're 2 sets away from Free Shipping." -%}
               {%- when 3 -%}{%- assign slot_label = 'Unlock VIP' -%}{%- assign slot_hint = 'Add this for Free Ship + VIP Pricing.' -%}
               {%- when 4 -%}{%- assign slot_label = 'Weekend Look' -%}{%- assign slot_hint = 'Get a luxury home for your nails next.' -%}
               {%- when 5 -%}{%- assign slot_label = "Collector's Piece" -%}{%- assign slot_hint = 'Velvet Box Unlocked.' -%}
-            {%- endcase -%}
+              {%- endcase -%}
+          {% endif %}
             <div class="bundle-products__cart-item" data-slot="{{ i }}" data-label="{{ slot_label }}" data-hint="{{ slot_hint }}">
               <div class="bundle-products__cart-item-placeholder">
                 <svg class="bundle-products__cart-item-plus" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
