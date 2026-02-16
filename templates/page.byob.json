@@ -358,6 +358,13 @@
         "progress_step_4_step_number": 4,
         "progress_step_5_step_number": 5
       }
+    },
+    "section_liquid_De7Di6": {
+      "type": "section-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "custom_liquid": "<style>\n.bundle-product__quantity-wrapper {\n    display: none!important;\n}\n\n.bundle-product__actions:has(.bundle-product__quantity-wrapper[style*=\"flex\"]) button.bundle-product__atc {\n    display: flex!important;\n}\n</style>"
+      }
     }
   },
   "order": [
@@ -369,6 +376,7 @@
     "section_collection_tabs_aPxHGE",
     "section_richtext_miyxB6",
     "gift_steps_qVE7mL",
-    "section_bundle_products_tAiL7K"
+    "section_bundle_products_tAiL7K",
+    "section_liquid_De7Di6"
   ]
 }
