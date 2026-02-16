@@ -280,6 +280,13 @@
         "max_width": 1200,
         "background": "rgba(0,0,0,0)"
       }
+    },
+    "section_liquid_yHcAdR": {
+      "type": "section-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "custom_liquid": "<style>\n.bundle-product__quantity-wrapper {\n    display: none!important;\n}\n\n.bundle-product__actions:has(.bundle-product__quantity-wrapper[style*=\"flex\"]) button.bundle-product__atc {\n    display: flex!important;\n}\n</style>"
+      }
     }
   },
   "order": [
@@ -287,6 +294,7 @@
     "section_richtext_r7WzkB",
     "gift_steps_VNE8xd",
     "section_bundle_products_UGbh4h",
-    "no_stress_promise_DLDMBq"
+    "no_stress_promise_DLDMBq",
+    "section_liquid_yHcAdR"
   ]
 }
