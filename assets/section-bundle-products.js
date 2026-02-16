@@ -32,13 +32,25 @@
   }
 
   // Placeholder texts for empty slots (matches build-a-gift-box style)
-  const SLOT_PLACEHOLDERS = [
+  if(window.location.href.includes('brat-club')){
+var SLOT_PLACEHOLDERS = [
+    { label: 'Start Your Stack', hint: 'Unlocks Free Shipping instantly.' },
+    { label: 'Switch It Up', hint: "You are 2 sets away from your Free Gift." },
+    { label: 'Unlock Your Freebie', hint: 'Add this set to unlock your Free Set instantly.' },
+    { label: 'Free Set :)', hint: 'You earned it. This set is on us ($18 Value)' },
+    { label: "Unlock Velvet Status", hint: 'Add to get $10 Off + The Velvet Box.' }
+  ];
+  }
+  else{
+var SLOT_PLACEHOLDERS = [
     { label: 'Start Your Stack', hint: 'Add 3 sets to unlock VIP Status.' },
     { label: 'Weekday Look', hint: "You're 2 sets away from Free Shipping." },
     { label: 'Unlock VIP', hint: 'Add this for Free Ship + VIP Pricing.' },
     { label: 'Weekend Look', hint: 'Get a luxury home for your nails next.' },
     { label: "Collector's Piece", hint: 'Velvet Box Unlocked.' }
   ];
+  }
+  
 
   /**
    * Update progress step icons: show completed icon when progress has reached that step.
