@@ -245,7 +245,7 @@
               <div class="bundle-products__cart-progress-step" style="left: calc(100% - 15px)" data-step="{{ step_1_position }}" data-icon="{{ section.settings.progress_step_1_icon | image_url }}" data-icon-completed="{% if section.settings.progress_step_1_icon_completed != blank %}{{ section.settings.progress_step_1_icon_completed | image_url }}{% endif %}">
             {%- else -%}
               {%- assign step_1_percent_base = 100 | times: step_1_position | divided_by: total_steps -%}
-              <div class="bundle-products__cart-progress-step" style="left: calc({{ step_1_percent_base }}% - 10%)" data-step="{{ step_1_position }}" data-icon="{{ section.settings.progress_step_1_icon | image_url }}" data-icon-completed="{% if section.settings.progress_step_1_icon_completed != blank %}{{ section.settings.progress_step_1_icon_completed | image_url }}{% endif %}">
+              <div class="bundle-products__cart-progress-step" style="left: calc({{ step_1_percent_base }}% - 5%)" data-step="{{ step_1_position }}" data-icon="{{ section.settings.progress_step_1_icon | image_url }}" data-icon-completed="{% if section.settings.progress_step_1_icon_completed != blank %}{{ section.settings.progress_step_1_icon_completed | image_url }}{% endif %}">
             {%- endif -%}
               <img src="{{ step_1_icon_src }}" alt="Step {{ step_1_position }}" />
             </div>
