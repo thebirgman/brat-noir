@@ -102,6 +102,7 @@
         ".palette--light {background: transparent;}",
         ".standard__icon__holder {margin: 0;}",
         ".standard__icon__holder {min-width: 20px;}",
+        ".standard__icon.text-center p{text-align: left;}",
         ".standard__icon.text-center {width: fit-content; flex: auto; gap: 10px;}",
         ".wrapper.section-padding {max-width: 1300px;}"
       ],
