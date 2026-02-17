@@ -4085,6 +4085,11 @@ nav#header-menu .drawer-menu-item__thumb {
     bottom: 90px!important;
 }
 
+
+#the-brat-club .needsclick.kl-teaser-RJbDRM.kl-private-reset-css-Xuajs1:has([data-testid="animated-teaser"]) {
+    bottom: 90px!important;
+}
+
 .template-product .needsclick.kl-private-reset-css-Xuajs1:has([data-testid="animated-teaser"]) {
     bottom: 90px!important;
 }
@@ -4192,4 +4197,24 @@ body:not(.template-index) .header__mobile__left svg,body:not(.template-index)  .
 .bundle-products__ritual-select {
     border: 0;
     border-radius: 4px;
+}
+
+.standard__spacer.standard__spacer--line.aos-init.aos-animate {
+}
+
+.standard__spacer--line:after, .hero__spacer--line:after {
+    background: #000!important;
+    opacity: 1;
+    height: 2px;
+    width: 128px;
+    top: 55%;
+    transform: translateY(-50%);
+}
+
+.standard__spacer.standard__spacer--line.aos-init.aos-animate {/* padding-top: 25px; */padding-bottom: 20px;}
+@media screen and (max-width: 820px) {
+.standard__icon.text-center {
+    margin: 5px auto;
+    max-width: 350px;
+}
 }
