@@ -210,8 +210,8 @@
       ],
       "settings": {
         "collection": "collection-2",
-        "heading": "Build Your Own Collection",
-        "subheading": "<p>Curate your own look. <strong>Pro Tip: </strong>Unlock VIP Pricing by adding 3+ sets to cart for $15 per set + FREE SHIPPING</p>",
+        "heading": "",
+        "subheading": "",
         "all_label": "All",
         "ritual_dropdown_options": "Ships every 2 Weeks, Ships every 4 Weeks, Ships every 6 Weeks, Ships every 8 Weeks, Ships every 12 Weeks",
         "ritual_dropdown_label": "Choose Your Ritual:",
