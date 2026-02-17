@@ -1142,3 +1142,8 @@ span.bundle-products__cart-item-title {}
     border: 0;
     border-radius: 4px;
 }
+
+
+.gift-step__image img {
+    object-fit: contain;
+}
