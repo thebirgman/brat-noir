@@ -102,7 +102,7 @@
         ".palette--light {background: transparent;}",
         ".standard__icon__holder {margin: 0;}",
         ".standard__icon__holder {min-width: 20px;}",
-        ".standard__icon.text-center p{text-align: left;}",
+        ".standard__icon.text-center p {text-align: left;}",
         ".standard__icon.text-center {width: fit-content; flex: auto; gap: 10px;}",
         ".wrapper.section-padding {max-width: 1300px;}"
       ],
@@ -289,7 +289,7 @@
       "type": "section-liquid",
       "name": "Custom Liquid",
       "settings": {
-        "custom_liquid": "<style>\n.bundle-product__quantity-wrapper {\n    display: none!important;\n}\n\n.bundle-product__actions:has(.bundle-product__quantity-wrapper[style*=\"flex\"]) button.bundle-product__atc {\n    display: flex!important;\n}\n</style>"
+        "custom_liquid": "<style>\n.bundle-product__quantity-wrapper {\n    display: none!important;\n}\n\n.bundle-product__actions:has(.bundle-product__quantity-wrapper[style*=\"flex\"]) button.bundle-product__atc {\n    display: flex!important;\n}\n\n@media screen and (max-width: 820px) {\n.bundle-products__cart.show {\n    flex: auto!important;\n    padding-bottom: 20px;\n    gap: 10px;\n}\n\n.bundle-products__cart-items {\n    \n}\n\n.bundle-products__cart.show {}\n\n.bundle-products__ritual {\n    margin-top: 0;\n}\n\n.bundle-products__ritual-select {\n    margin-bottom: 0;\n}\n}\n</style>"
       }
     }
   },
