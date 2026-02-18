@@ -381,7 +381,7 @@ var SLOT_PLACEHOLDERS = [
           const collection_title = itemCollectionTitles.get(item.variant_id) || '';
           const slotsForItem = tag ? effectiveSteps : (item.quantity || 1);
           for (let j = 0; j < slotsForItem && slotIndex < slotCount; j++) {
-            const isDuplicate = j > 0;
+            const isDuplicate = false;
             slotAssignments[slotIndex] = { ...item, quantity: 1, tag, collection_title, product_title: item.product_title || item.title || '', isDuplicate };
             slotIndex++;
           }
