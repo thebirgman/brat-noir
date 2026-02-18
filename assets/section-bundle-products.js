@@ -356,7 +356,18 @@ var SLOT_PLACEHOLDERS = [
       const indices = data.items.map(function (item, i) { return !!(item.selling_plan_allocation) ? i : -1; }).filter(function (i) { return i >= 0; });
       displayItems = indices.map(function (i) { return data.items[i]; });
       tagResultsDisplay = indices.map(function (i) { return tagResults[i]; });
-      itemEffectiveStepsDisplay = tagResultsDisplay.map(function (r) { return r.effectiveSteps; });
+      itemEffectiveStepsDisplay = tagResultsDisplay.map(function (r, i) {
+  const item = displayItems[i];
+  const qty = item?.quantity || 1;
+
+  // Tagged bundles count as fixed total steps
+  if (r.tag === 'trio-bundle' || r.tag === 'collection') {
+    return r.effectiveSteps;
+  }
+
+  // Normal items count per quantity
+  return r.effectiveSteps * qty;
+});
     } else if (nonSubscriptionOnly && !subscriptionOnly && data.items && data.items.length > 0) {
       const indices = data.items.map(function (item, i) { return !item.selling_plan_allocation ? i : -1; }).filter(function (i) { return i >= 0; });
       displayItems = indices.map(function (i) { return data.items[i]; });
