@@ -395,7 +395,6 @@ var SLOT_PLACEHOLDERS = [
         slot.classList.remove('bundle-products__cart-item--trio-bundle', 'bundle-products__cart-item--collection', 'bundle-products__cart-item--duplicate');
         if (assignment) {
           if (assignment.tag) slot.classList.add('bundle-products__cart-item--' + assignment.tag);
-          if (assignment.isDuplicate) slot.classList.add('bundle-products__cart-item--duplicate');
           fillSlot(slot, assignment);
         } else {
           resetSlotToPlaceholder(slot, slotNumber);
