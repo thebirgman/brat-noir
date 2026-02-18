@@ -1147,3 +1147,7 @@ span.bundle-products__cart-item-title {}
 .gift-step__image img {
     object-fit: contain;
 }
+
+.bundle-products__cart-item--duplicate {
+    display: flex;
+}
