@@ -381,7 +381,7 @@ var SLOT_PLACEHOLDERS = [
           const collection_title = itemCollectionTitles.get(item.variant_id) || '';
           const slotsForItem = tag ? effectiveSteps : (item.quantity || 1);
           for (let j = 0; j < slotsForItem && slotIndex < slotCount; j++) {
-            const isDuplicate = false;
+            const isDuplicate = j > 0;
             slotAssignments[slotIndex] = { ...item, quantity: 1, tag, collection_title, product_title: item.product_title || item.title || '', isDuplicate };
             slotIndex++;
           }
@@ -395,6 +395,7 @@ var SLOT_PLACEHOLDERS = [
         slot.classList.remove('bundle-products__cart-item--trio-bundle', 'bundle-products__cart-item--collection', 'bundle-products__cart-item--duplicate');
         if (assignment) {
           if (assignment.tag) slot.classList.add('bundle-products__cart-item--' + assignment.tag);
+          if (assignment.isDuplicate) slot.classList.add('bundle-products__cart-item--duplicate');
           fillSlot(slot, assignment);
         } else {
           resetSlotToPlaceholder(slot, slotNumber);
