@@ -1152,6 +1152,7 @@ span.bundle-products__cart-item-title {}
     display: flex;
 }
 
-.bundle-products__cart-item.bundle-products__cart-item--trio-bundle.bundle-products__cart-item--duplicate {
+.bundle-products__cart-item.bundle-products__cart-item--trio-bundle.bundle-products__cart-item--duplicate,
+.bundle-products__cart-item.bundle-products__cart-item--collection.bundle-products__cart-item--duplicate {
     display: none;
 }
