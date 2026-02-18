@@ -1151,3 +1151,7 @@ span.bundle-products__cart-item-title {}
 .bundle-products__cart-item--duplicate {
     display: flex;
 }
+
+.bundle-products__cart-item.bundle-products__cart-item--trio-bundle.bundle-products__cart-item--duplicate {
+    display: none;
+}
