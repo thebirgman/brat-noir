@@ -15,8 +15,8 @@
         "image_zcLd7j": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/January-Banner-Web-2026.png",
-            "mobile_image": "shopify://shop_images/January-Banner-Mobile-2026.png",
+            "image": "shopify://shop_images/february-banner-web.webp",
+            "mobile_image": "shopify://shop_images/february-banner-mobile.webp",
             "overlay_opacity": 0,
             "overlay_color": "#000000",
             "enable_overlay_text": false,
@@ -289,8 +289,8 @@
         "button_n7ANwi"
       ],
       "custom_css": [
-        "@media screen and (min-width: 900px) {a {min-width: 300px;}}",
-        "@media screen and (max-width: 900px) {img{object-position: 50% 70%!important;}}",
+        "@media screen and (min-width: 900px) {a {min-width: 300px; }}",
+        "@media screen and (max-width: 900px) {img {object-position: 50% 70% !important; }}",
         "@media screen and (max-width: 768px) {.hero__title p {font-size: 34px; max-width: 250px; margin-left: auto; margin-right: auto; }}"
       ],
       "name": "Image banner",
