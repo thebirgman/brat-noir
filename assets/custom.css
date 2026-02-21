@@ -3632,8 +3632,7 @@ li.cart-trust-points__item {
     max-width: 400px;
   }
   
-  .hero__content__wrapper--desktop-middle-right .hero__cta__wrapper,
-  .hero__content__wrapper--desktop-middle-left .hero__cta__wrapper {
+  .hero__content__wrapper--desktop-middle-right .hero__cta__wrapper{
     justify-content: flex-start !important;
   }
   .hero__content__wrapper--desktop-bottom-left {
