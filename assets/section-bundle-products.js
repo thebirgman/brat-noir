@@ -428,7 +428,7 @@ var SLOT_PLACEHOLDERS = [
     const total = document.querySelector('.bundle-products__cart-total-price');
     if (total) total.innerHTML = '$' + ((data.total_price || 0) / 100);
 
-    // Calculate total saved amount (discounts + compare_at_price savings)
+    // Calculate total saved amount (discounts + compare_at_price savings + $3 per subscription product)
     let totalSaved = data.total_discount || 0;
     if (data.items && data.items.length > 0) {
       data.items.forEach(item => {
@@ -439,6 +439,11 @@ var SLOT_PLACEHOLDERS = [
           const quantity = item.quantity || 1;
           const savingsPerItem = compareAtPrice - finalPrice;
           totalSaved += savingsPerItem * quantity;
+        }
+        // Subscription: $3 saved per product
+        if (item.selling_plan_allocation) {
+          const quantity = item.quantity || 1;
+          totalSaved += 300 * quantity;
         }
       });
     }
