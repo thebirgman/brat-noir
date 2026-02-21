@@ -128,6 +128,10 @@
                 assign item_savings = compare_at_price_total | minus: final_price_total
                 assign total_saved = total_saved | plus: item_savings
               endif
+              if item.selling_plan_allocation
+                assign subscription_savings = 300 | times: item.quantity
+                assign total_saved = total_saved | plus: subscription_savings
+              endif
             endfor
           -%}
           <span class="bundle-products__cart-total-saved">YOU SAVED <span class="saved-amount">{{ total_saved | money_without_trailing_zeros }}</span></span>
@@ -391,6 +395,10 @@
           assign item_savings = compare_at_price_total | minus: final_price_total
           assign footer_total_saved = footer_total_saved | plus: item_savings
         endif
+        if item.selling_plan_allocation
+          assign subscription_savings = 300 | times: item.quantity
+          assign footer_total_saved = footer_total_saved | plus: subscription_savings
+        endif
       endfor
     -%}
     <div class="value">{{ footer_total_saved | money_without_trailing_zeros }}</div>
@@ -430,8 +438,17 @@
     fetch('/cart.js')
       .then(response => response.json())
       .then(cart => {
-        // Calculate total saved amount (discounts + compare_at_price savings)
+        // Calculate total saved amount (discounts + compare_at_price savings + $3 per subscription product)
         let totalSaved = cart.total_discount || 0;
+        
+        // Subscription: $3 saved per product
+        if (cart.items && cart.items.length > 0) {
+          cart.items.forEach(item => {
+            if (item.selling_plan_allocation) {
+              totalSaved += 300 * (item.quantity || 1);
+            }
+          });
+        }
         
         if (cart.items && cart.items.length > 0) {
           // Fetch product data for all items to get compare_at_price
