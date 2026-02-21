@@ -383,6 +383,83 @@
         "padding_bottom": 60
       }
     },
+    "section_hero_KezJDP": {
+      "type": "section-hero",
+      "blocks": {
+        "kicker_8BPm7J": {
+          "type": "kicker",
+          "disabled": true,
+          "settings": {
+            "kicker": "Introducing",
+            "enable_line": false,
+            "text_size": 4
+          }
+        },
+        "heading_xHmdPi": {
+          "type": "heading",
+          "settings": {
+            "title": "The Gift She’ll Actually Keep.",
+            "text_size": 10
+          }
+        },
+        "text_rtzCai": {
+          "type": "text",
+          "settings": {
+            "richtext": "<p>Curate 5 premium sets in our reusable Velvet Vanity Box. We’ll finish it with a collectible Tarot card and your personal note—handwritten by us.</p>",
+            "text_size": 6
+          }
+        },
+        "button_qY3WFG": {
+          "type": "button",
+          "settings": {
+            "link_text_1": "Build a Gift Box",
+            "link_1": "shopify://pages/build-a-gift",
+            "button_size_1": "btn--long",
+            "button_style_1": "btn",
+            "button_color_1": "btn--white",
+            "link_text_2": "",
+            "link_2": "",
+            "button_size_2": "btn--long",
+            "button_style_2": "btn-text-thick-line",
+            "button_color_2": "btn--white",
+            "link_text_3": "",
+            "link_3": "",
+            "button_size_3": "btn--long",
+            "button_style_3": "btn-text-thick-line",
+            "button_color_3": "btn--white"
+          }
+        }
+      },
+      "block_order": [
+        "kicker_8BPm7J",
+        "heading_xHmdPi",
+        "text_rtzCai",
+        "button_qY3WFG"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 900px) {a {min-width: 300px; }}",
+        "@media screen and (max-width: 900px) {img {object-position: 50% 70% !important; }}",
+        "@media screen and (max-width: 768px) {.hero__title p {font-size: 34px; max-width: 250px; margin-left: auto; margin-right: auto; }}"
+      ],
+      "name": "Image banner",
+      "settings": {
+        "image": "shopify://shop_images/homepage-gift-section-web.png",
+        "mobile_image": "shopify://shop_images/homepage-gift-section-mobile.png",
+        "height": "use_image",
+        "overlay_opacity": 15,
+        "overlay_color": "#000000",
+        "enable_overlay_text": false,
+        "preload_image": false,
+        "content_width": 2000,
+        "text_align": "align--middle-left",
+        "text_align_mobile": "align--top-center",
+        "text_color": "text--white",
+        "color_bg": "hero__content--transparent",
+        "width": "wrapper--none",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "section_announcement_4Dq9yg": {
       "type": "section-announcement",
       "blocks": {
@@ -814,6 +891,7 @@
     "175307847684129928",
     "section_hero_DNb4Wp",
     "section_custom_content_eMeDwn",
+    "section_hero_KezJDP",
     "section_announcement_4Dq9yg",
     "brat_bundle_UUh33H",
     "section_richtext_JzM6AG",
