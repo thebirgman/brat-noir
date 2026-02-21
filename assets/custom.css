@@ -3626,12 +3626,14 @@ li.cart-trust-points__item {
     text-align: left !important;
   }
   
-  .hero__content__wrapper--desktop-middle-right .text__standard {
+  .hero__content__wrapper--desktop-middle-right .text__standard,
+  .hero__content__wrapper--desktop-middle-left .text__standard {
     text-align: left !important;
     max-width: 400px;
   }
   
-  .hero__content__wrapper--desktop-middle-right .hero__cta__wrapper {
+  .hero__content__wrapper--desktop-middle-right .hero__cta__wrapper,
+  .hero__content__wrapper--desktop-middle-left .hero__cta__wrapper {
     justify-content: flex-start !important;
   }
   .hero__content__wrapper--desktop-bottom-left {
@@ -3655,6 +3657,7 @@ li.cart-trust-points__item {
 
 @media screen and (min-width: 768px) {
   .hero__content__wrapper--desktop-middle-right .hero__content {
+  ..hero__content__wrapper--desktop-middle-left .hero__content {
       max-width: 40% !important;
   }
   }
