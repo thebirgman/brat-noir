@@ -4192,4 +4192,7 @@ body:not(.template-index) .header__mobile__left svg,body:not(.template-index)  .
 .layer-card.main-card {
     max-height: 730px!important;
 }
+.build-gift-box__container {
+    max-width: 1060px!important;
+}
 }
