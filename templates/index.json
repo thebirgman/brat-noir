@@ -290,7 +290,7 @@
       ],
       "custom_css": [
         "@media screen and (min-width: 900px) {a {min-width: 300px; }}",
-        "@media screen and (max-width: 900px) {img {object-position: 50% 70% !important; } .section--image.fade-in-child.js-overflow-container{min-height: 500px; }}",
+        "@media screen and (max-width: 900px) {img {object-position: 50% 70% !important; } .section--image {min-height: 500px; }}",
         "@media screen and (max-width: 768px) {.hero__title p {font-size: 34px; max-width: 250px; margin-left: auto; margin-right: auto; }}"
       ],
       "name": "Image banner",
