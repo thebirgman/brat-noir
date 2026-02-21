@@ -3880,7 +3880,7 @@ nav#header-menu .drawer-menu-item__thumb {
     width: 180px;
     height: 80px;
 }
-@media screen and (max-width: 820px) {
+@media screen and (max-width: 1180px) {
   a.drawer-menu-item__row.drawer-menu-item__link {}
 
   nav#header-menu .drawer-menu-item {
