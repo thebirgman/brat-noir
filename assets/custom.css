@@ -4183,4 +4183,13 @@ body:not(.template-index) .header__mobile__left svg,body:not(.template-index)  .
     stroke: #000;
 }
 
-.needsclick.kl-private-reset-css-Xuajs1:has([data-testid="animated-teaser"])
+.needsclick.kl-private-reset-css-Xuajs1:has([data-testid="animated-teaser"]) {
+    z-index: 900!important;
+}
+
+
+@media screen and (max-width: 1180px) and (min-width: 768px) {
+.layer-card.main-card {
+    max-height: 730px!important;
+}
+}
