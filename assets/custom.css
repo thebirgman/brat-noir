@@ -4220,3 +4220,23 @@ body:not(.template-index) .header__mobile__left svg,body:not(.template-index)  .
     max-width: 350px;
 }
 }
+
+
+
+@media screen and (min-width: 768px) and (max-width: 990px) {
+.template-index .hero__content__wrapper.hero__content__wrapper--mobile-top-center.hero__content__wrapper--desktop-middle-right.wrapper--none {
+    min-height: 500px;
+}
+
+.template-index .section--image {
+    min-height: 500px;
+}
+
+.template-index .image-overlay {
+    min-height: 500px;
+}
+
+.template-index  .image__hero__frame {
+    min-height: 500px;
+}
+}
