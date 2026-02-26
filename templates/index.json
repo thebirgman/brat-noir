@@ -291,7 +291,7 @@
       "custom_css": [
         "@media screen and (min-width: 900px) {a {min-width: 300px; }}",
         "@media screen and (max-width: 900px) {img {object-position: 50% 70% !important; }}",
-        ".text__standard.text--white{margin-left: auto;}",
+        ".text__standard.text--white {margin-left: auto;}",
         "@media screen and (max-width: 768px) {.hero__title p {font-size: 34px; max-width: 250px; margin-left: auto; margin-right: auto; }}"
       ],
       "name": "Image banner",
@@ -444,8 +444,8 @@
       ],
       "name": "Image banner",
       "settings": {
-        "image": "shopify://shop_images/homepage-gift-section-web.png",
-        "mobile_image": "shopify://shop_images/homepage-gift-section-mobile.png",
+        "image": "shopify://shop_images/brat-club-web.webp",
+        "mobile_image": "shopify://shop_images/brat-club-mobile.webp",
         "height": "use_image",
         "overlay_opacity": 15,
         "overlay_color": "#000000",
