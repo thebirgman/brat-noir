@@ -399,22 +399,22 @@
         "heading_xHmdPi": {
           "type": "heading",
           "settings": {
-            "title": "The Gift She’ll Actually Keep.",
+            "title": "That Fresh Set Feeling, On Repeat.",
             "text_size": 10
           }
         },
         "text_rtzCai": {
           "type": "text",
           "settings": {
-            "richtext": "<p>Curate 5 premium sets in our reusable Velvet Vanity Box. We’ll finish it with a collectible Tarot card and your personal note—handwritten by us.</p>",
+            "richtext": "<p>Join The Brat Club for up to 30% off, free mystery gifts, and VIP access to new drops. Pause, skip, or swap styles whenever life gets busy.</p>",
             "text_size": 6
           }
         },
         "button_qY3WFG": {
           "type": "button",
           "settings": {
-            "link_text_1": "Build a Gift Box",
-            "link_1": "shopify://pages/build-a-gift",
+            "link_text_1": "JOIN THE CLUB",
+            "link_1": "shopify://pages/the-brat-club",
             "button_size_1": "btn--long",
             "button_style_1": "btn",
             "button_color_1": "btn--white",
