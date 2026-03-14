@@ -195,7 +195,7 @@
       {% endif %}
 
       {%- assign alt = section.settings.image.alt | default: 'Banner Image' -%}
-      {% render 'image-parallax', img_object: section.settings.image, img_object_mobile: section.settings.mobile_image, frame_height_class: section.settings.height, alt: alt, preload: preload, loading: loading, fetchpriority: fetchpriority %}
+      {% render 'image-parallax', img_object: section.settings.image, img_object_tablet: section.settings.tablet_image, img_object_mobile: section.settings.mobile_image, frame_height_class: section.settings.height, alt: alt, preload: preload, loading: loading, fetchpriority: fetchpriority %}
 
       {% if section.settings.height == 'use_screen_full' %}
         <div class="scroll_icon_wrap">
@@ -216,6 +216,12 @@
 			"type": "image_picker",
 			"id": "image",
 			"label": "Image"
+		},
+		{
+			"type": "image_picker",
+			"id": "tablet_image",
+			"label": "Tablet image",
+			"info": "Displays on screens 768px–1024px wide. Falls back to the desktop image if not set."
 		},
 		{
 			"type": "image_picker",
