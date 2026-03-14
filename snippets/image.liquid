@@ -18,10 +18,9 @@
   {% render 'image', img_object: section.settings.image, wh_ratio: section.settings.wh_ratio %}
 {% endcomment %}
 
-  {%- liquid
-    assign image = img_object
-    assign image_tablet = img_object_tablet
-    assign image_mobile = img_object_mobile
+{%- liquid
+  assign image = img_object
+  assign image_mobile = img_object_mobile
 
   if cover != false
     assign cover = true
@@ -124,24 +123,16 @@
     endcapture
   -%}
 
-  {%- if image_mobile or image_tablet -%}
+  {%- if image_mobile -%}
     {%- liquid
-      # Mobile/tablet image overrides force use of a picture tag, and prevent use of preload
+      # Mobile image override forces use of a picture tag, and prevents use of preload
       # Preload triggers before width is known and causes multi-image download
 
       # We can use default srcset because our use cases for mobile overrides are 100% width or near 100% width
       # If that changes we will need to use image-grid-srcset
-      if image_mobile
-        capture srcset_mobile
-          render 'image-default-srcset', image: image_mobile
-        endcapture
-      endif
-
-      if image_tablet
-        capture srcset_tablet
-          render 'image-default-srcset', image: image_tablet
-        endcapture
-      endif
+      capture srcset_mobile
+        render 'image-default-srcset', image: image_mobile
+      endcapture
 
       # Without object-position set inline the theme editor will warn
       # merchants that the theme doesn't support focal points
@@ -155,26 +146,13 @@
     -%}
     <picture class="{{ wrapper_classes }}" style="{{ wrapper_style }}">
       {% if isHero %}
-        {% if image_tablet %}
-          <source media="(min-width: 1025px)" sizes="{{ sizes }}" srcset="{{ srcset }}" />
-          <source media="(min-width: 768px) and (max-width: 1024px)" sizes="{{ sizes }}" srcset="{{ srcset_tablet }}" />
-        {% else %}
-          <source media="(min-width: 768px)" sizes="{{ sizes }}" srcset="{{ srcset }}" />
-        {% endif %}
-        {% if image_mobile %}
-          <source media="(max-width: 767px)" sizes="{{ sizes }}" srcset="{{ srcset_mobile }}" />
-        {% endif %}
-      {% else %}
-        {% if image_tablet %}
-          <source media="(min-width: 1025px)" sizes="{{ sizes }}" srcset="{{ srcset }}" />
-          <source media="(min-width: 821px) and (max-width: 1024px)" sizes="{{ sizes }}" srcset="{{ srcset_tablet }}" />
-        {% else %}
-          <source media="(min-width: 821px)" sizes="{{ sizes }}" srcset="{{ srcset }}" />
-        {% endif %}
-        {% if image_mobile %}
-          <source media="(max-width: 820px)" sizes="{{ sizes }}" srcset="{{ srcset_mobile }}" />
-        {% endif %}
-      {% endif %}
+      <source media="(min-width: 768px)" sizes="{{ sizes }}" srcset="{{ srcset }}" />
+      <source media="(max-width: 767px)" sizes="{{ sizes }}" srcset="{{ srcset_mobile }}" />
+
+    {% else %}
+       <source media="(min-width: 821px)" sizes="{{ sizes }}" srcset="{{ srcset }}" />
+      <source media="(max-width: 820px)" sizes="{{ sizes }}" srcset="{{ srcset_mobile }}" />
+    {% endif %}
       {{ image | image_url: width: width_default | image_tag:
         class: image_classes,
         alt: alt,
