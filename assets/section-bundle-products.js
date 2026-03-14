@@ -596,7 +596,7 @@ var SLOT_PLACEHOLDERS = [
             }
           }
             card.classList.remove('is-added-to-box');
-          }, 2000);
+          }, 1000);
         }
 
         // Don't await - let it run in background after optimistic update
