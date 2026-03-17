@@ -554,11 +554,25 @@ var SLOT_PLACEHOLDERS = [
         ? data.items.find(item => item.variant_id.toString() === autoAddVariantId)
         : null;
 
+      // Resolve selling plan using same ritual dropdown index as other products
+      let autoAddSellingPlanId = null;
+      try {
+        const spIds = JSON.parse(sectionEl.getAttribute('data-auto-add-selling-plan-ids') || '[]');
+        if (Array.isArray(spIds) && spIds.length > 0) {
+          const ritualSelect = sectionEl.querySelector('[data-ritual-select]');
+          const ritualIndex = ritualSelect ? (parseInt(ritualSelect.value, 10) || 1) : 1;
+          const oneBased = Math.max(1, Math.min(ritualIndex, spIds.length));
+          autoAddSellingPlanId = spIds[oneBased - 1] || null;
+        }
+      } catch (e) {}
+
       if (subscriptionCount >= autoAddThreshold && !alreadyInCart) {
+        const itemPayload = { id: parseInt(autoAddVariantId), quantity: 1 };
+        if (autoAddSellingPlanId) itemPayload.selling_plan = parseInt(autoAddSellingPlanId);
         fetch('/cart/add.js', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ items: [{ id: parseInt(autoAddVariantId), quantity: 1 }] })
+          body: JSON.stringify({ items: [itemPayload] })
         })
           .then(() => debouncedRefreshCart(400))
           .catch(err => console.warn('[Auto-add] Failed to add product:', err));

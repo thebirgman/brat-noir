@@ -18,6 +18,19 @@
   assign show_subscription_only = section.settings.cart_show_subscription_only
   assign show_non_subscription_only = section.settings.cart_show_non_subscription_only
 -%}
+{%- liquid
+  assign auto_add_sp_ids_json = '[]'
+  if section.settings.auto_add_product != blank
+    assign auto_add_sp_parts = ''
+    for allocation in section.settings.auto_add_product.variants.first.selling_plan_allocations
+      if auto_add_sp_parts != ''
+        assign auto_add_sp_parts = auto_add_sp_parts | append: ','
+      endif
+      assign auto_add_sp_parts = auto_add_sp_parts | append: allocation.selling_plan.id
+    endfor
+    assign auto_add_sp_ids_json = '[' | append: auto_add_sp_parts | append: ']'
+  endif
+-%}
 <section
   class="bundle-products"
   id="bundle-products-{{ section.id }}"
@@ -27,6 +40,7 @@
   data-cart-non-subscription-only="{% if show_non_subscription_only %}true{% else %}false{% endif %}"
   data-auto-add-variant="{% if section.settings.auto_add_product != blank %}{{ section.settings.auto_add_product.variants.first.id }}{% endif %}"
   data-auto-add-threshold="{{ section.settings.auto_add_threshold | default: 3 }}"
+  data-auto-add-selling-plan-ids="{{ auto_add_sp_ids_json | escape }}"
 >
   <h2>{{ section.settings.heading }}</h2>
   
