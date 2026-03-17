@@ -117,24 +117,32 @@
           </svg>
         </div>
         <div class="bundle-products__cart-total-text">
-          <span class="bundle-products__cart-total-label">Your Club Box</span>
+          <span class="bundle-products__cart-total-label">Your Current Total</span>
           <span class="bundle-products__cart-total-price">{{ cart.total_price | money_without_trailing_zeros }}</span>
           {%- liquid
-            assign total_saved = cart.total_discount
-            for item in cart.items
-              if item.variant.compare_at_price and item.variant.compare_at_price > item.final_price
-                assign compare_at_price_total = item.variant.compare_at_price | times: item.quantity
-                assign final_price_total = item.final_price | times: item.quantity
-                assign item_savings = compare_at_price_total | minus: final_price_total
-                assign total_saved = total_saved | plus: item_savings
-              endif
-              if item.selling_plan_allocation
-                assign subscription_savings = 300 | times: item.quantity
-                assign total_saved = total_saved | plus: subscription_savings
-              endif
-            endfor
+            if cart.item_count == 0
+              assign saved_amount_text = section.settings.saved_amount_step_0 | default: ''
+            elsif cart.item_count == 1
+              assign saved_amount_text = section.settings.saved_amount_step_1 | default: ''
+            elsif cart.item_count == 2
+              assign saved_amount_text = section.settings.saved_amount_step_2 | default: ''
+            elsif cart.item_count == 3
+              assign saved_amount_text = section.settings.saved_amount_step_3 | default: ''
+            elsif cart.item_count == 4
+              assign saved_amount_text = section.settings.saved_amount_step_4 | default: ''
+            else
+              assign saved_amount_text = section.settings.saved_amount_step_5 | default: ''
+            endif
           -%}
-          <span class="bundle-products__cart-total-saved">YOU SAVED <span class="saved-amount">{{ total_saved | money_without_trailing_zeros }}</span></span>
+          <span
+            class="bundle-products__cart-total-saved"
+            data-saved-step-0="{{ section.settings.saved_amount_step_0 | escape }}"
+            data-saved-step-1="{{ section.settings.saved_amount_step_1 | escape }}"
+            data-saved-step-2="{{ section.settings.saved_amount_step_2 | escape }}"
+            data-saved-step-3="{{ section.settings.saved_amount_step_3 | escape }}"
+            data-saved-step-4="{{ section.settings.saved_amount_step_4 | escape }}"
+            data-saved-step-5="{{ section.settings.saved_amount_step_5 | escape }}"
+          >YOU SAVED <span class="saved-amount">{{ saved_amount_text }}</span></span>
         </div>
       </div>
 
@@ -214,7 +222,30 @@
 
       <div class="bundle-products__cart-progress">
         <p class="bundle-products__cart-progress-heading">{{ section.settings.bundle_content_heading }}</p>
-        <p class="bundle-products__cart-progress-subheading">{{ section.settings.bundle_content_subheading }} </p>
+        {%- liquid
+          if cart.item_count == 0
+            assign bundle_subheading = section.settings.bundle_content_subheading_step_0 | default: section.settings.bundle_content_subheading
+          elsif cart.item_count == 1
+            assign bundle_subheading = section.settings.bundle_content_subheading_step_1 | default: section.settings.bundle_content_subheading
+          elsif cart.item_count == 2
+            assign bundle_subheading = section.settings.bundle_content_subheading_step_2 | default: section.settings.bundle_content_subheading
+          elsif cart.item_count == 3
+            assign bundle_subheading = section.settings.bundle_content_subheading_step_3 | default: section.settings.bundle_content_subheading
+          elsif cart.item_count == 4
+            assign bundle_subheading = section.settings.bundle_content_subheading_step_4 | default: section.settings.bundle_content_subheading
+          else
+            assign bundle_subheading = section.settings.bundle_content_subheading_step_5 | default: section.settings.bundle_content_subheading
+          endif
+        -%}
+        <p
+          class="bundle-products__cart-progress-subheading"
+          data-subheading-step-0="{{ section.settings.bundle_content_subheading_step_0 | default: section.settings.bundle_content_subheading | escape }}"
+          data-subheading-step-1="{{ section.settings.bundle_content_subheading_step_1 | default: section.settings.bundle_content_subheading | escape }}"
+          data-subheading-step-2="{{ section.settings.bundle_content_subheading_step_2 | default: section.settings.bundle_content_subheading | escape }}"
+          data-subheading-step-3="{{ section.settings.bundle_content_subheading_step_3 | default: section.settings.bundle_content_subheading | escape }}"
+          data-subheading-step-4="{{ section.settings.bundle_content_subheading_step_4 | default: section.settings.bundle_content_subheading | escape }}"
+          data-subheading-step-5="{{ section.settings.bundle_content_subheading_step_5 | default: section.settings.bundle_content_subheading | escape }}"
+        >{{ bundle_subheading }}</p>
         {%- liquid
           assign has_special_tag = false
           for item in cart.items
@@ -357,7 +388,7 @@
       </div>
 
       {%- form 'cart', cart -%}
-        <button type="submit" name="checkout" class="bundle-products__cart-checkout">START MY ROTATION</button>
+        <button type="submit" name="checkout" class="bundle-products__cart-checkout">SECURE CHECKOUT</button>
       {%- endform -%}
     </div>
   </div>
@@ -386,22 +417,7 @@
 
   <div class="footer-box saved">
     <div class="label">Saved</div>
-    {%- liquid
-      assign footer_total_saved = cart.total_discount
-      for item in cart.items
-        if item.variant.compare_at_price and item.variant.compare_at_price > item.final_price
-          assign compare_at_price_total = item.variant.compare_at_price | times: item.quantity
-          assign final_price_total = item.final_price | times: item.quantity
-          assign item_savings = compare_at_price_total | minus: final_price_total
-          assign footer_total_saved = footer_total_saved | plus: item_savings
-        endif
-        if item.selling_plan_allocation
-          assign subscription_savings = 300 | times: item.quantity
-          assign footer_total_saved = footer_total_saved | plus: subscription_savings
-        endif
-      endfor
-    -%}
-    <div class="value">{{ footer_total_saved | money_without_trailing_zeros }}</div>
+    <div class="value footer-saved-value">{{ saved_amount_text }}</div>
   </div>
 
   <div class="footer-box open-bundle">
@@ -432,82 +448,6 @@
     console.log(source.textContent)
     if (source && target) target.textContent = source.textContent;
   }, 500);
-
-  // Update saved amount
-  function updateSavedAmount(){
-    fetch('/cart.js')
-      .then(response => response.json())
-      .then(cart => {
-        // Calculate total saved amount (discounts + compare_at_price savings + $3 per subscription product)
-        let totalSaved = cart.total_discount || 0;
-        
-        // Subscription: $3 saved per product
-        if (cart.items && cart.items.length > 0) {
-          cart.items.forEach(item => {
-            if (item.selling_plan_allocation) {
-              totalSaved += 300 * (item.quantity || 1);
-            }
-          });
-        }
-        
-        if (cart.items && cart.items.length > 0) {
-          // Fetch product data for all items to get compare_at_price
-          const productPromises = cart.items.map(async (item) => {
-            try {
-              let productHandle = item.handle;
-              if (!productHandle && item.url) {
-                const urlMatch = item.url.match(/\/products\/([^\/\?]+)/);
-                if (urlMatch) {
-                  productHandle = urlMatch[1];
-                }
-              }
-              
-              if (productHandle) {
-                const productResponse = await fetch(`/products/${productHandle}.js`);
-                console.log('response' + productResponse)
-                if (productResponse.ok) {
-                  const productData = await productResponse.json();
-                  if (productData.variants) {
-                    const variant = productData.variants.find(v => v.id === item.variant_id);
-                    if (variant && variant.compare_at_price && variant.compare_at_price > variant.price) {
-                      const compareAtPrice = variant.compare_at_price;
-                      const finalPrice = item.final_price;
-                      const quantity = item.quantity || 1;
-                      const savingsPerItem = compareAtPrice - finalPrice;
-                      return savingsPerItem * quantity;
-                    }
-                  }
-                }
-              }
-            } catch (e) {
-              console.warn('Could not fetch product data for item:', item.product_id);
-            }
-            return 0;
-          });
-          
-          // Wait for all product fetches to complete and sum up savings
-          Promise.all(productPromises).then(savings => {
-            savings.forEach(saving => {
-              totalSaved += saving;
-            });
-            
-            const savedTotal = totalSaved / 100;
-            const savedAmountEl = document.querySelector('span.saved-amount');
-            const savedAmountEl2 = document.querySelector('.footer-box.saved .value');
-            if (savedAmountEl) savedAmountEl.textContent = `$${savedTotal.toFixed(2)}`;
-            if (savedAmountEl2) savedAmountEl2.textContent = `$${savedTotal.toFixed(2)}`;
-          });
-        } else {
-          // No items, just update with discount
-          const savedTotal = totalSaved / 100;
-          const savedAmountEl = document.querySelector('span.saved-amount');
-          const savedAmountEl2 = document.querySelector('.footer-box.saved .value');
-          if (savedAmountEl) savedAmountEl.textContent = `$${savedTotal.toFixed(2)}`;
-          if (savedAmountEl2) savedAmountEl2.textContent = `$${savedTotal.toFixed(2)}`;
-        }
-      })
-      .catch(console.error);
-    }
 
 // Category filter by data-collection
 document.querySelectorAll('.bundle-products__filter-btn').forEach(btn => {
@@ -626,8 +566,83 @@ document.querySelector('.bundle-products__filter-btn[data-filter="all"]')?.click
     {
       "type": "text",
       "id": "bundle_content_subheading",
-      "label": "Bundle Content Subheading",
-      "default": "Unlock brat-level savings and score that full bundle deal babe,"
+      "label": "Bundle Content Subheading (fallback)",
+      "default": "Unlock brat-level savings and score that full bundle deal babe,",
+      "info": "Used if a per-step subheading below is left blank."
+    },
+    {
+      "type": "header",
+      "content": "Bundle Content Subheading Per Step"
+    },
+    {
+      "type": "text",
+      "id": "bundle_content_subheading_step_0",
+      "label": "Subheading – Step 0 (0 sets in cart)"
+    },
+    {
+      "type": "text",
+      "id": "bundle_content_subheading_step_1",
+      "label": "Subheading – Step 1 (1 set in cart)"
+    },
+    {
+      "type": "text",
+      "id": "bundle_content_subheading_step_2",
+      "label": "Subheading – Step 2 (2 sets in cart)"
+    },
+    {
+      "type": "text",
+      "id": "bundle_content_subheading_step_3",
+      "label": "Subheading – Step 3 (3 sets in cart)"
+    },
+    {
+      "type": "text",
+      "id": "bundle_content_subheading_step_4",
+      "label": "Subheading – Step 4 (4 sets in cart)"
+    },
+    {
+      "type": "text",
+      "id": "bundle_content_subheading_step_5",
+      "label": "Subheading – Step 5 (5+ sets in cart)"
+    },
+    {
+      "type": "header",
+      "content": "Saved Amount Per Step"
+    },
+    {
+      "type": "text",
+      "id": "saved_amount_step_0",
+      "label": "Saved Amount – Step 0 (0 sets in cart)",
+      "info": "Text shown in the 'YOU SAVED' line. Example: $0"
+    },
+    {
+      "type": "text",
+      "id": "saved_amount_step_1",
+      "label": "Saved Amount – Step 1 (1 set in cart)",
+      "info": "Example: $5"
+    },
+    {
+      "type": "text",
+      "id": "saved_amount_step_2",
+      "label": "Saved Amount – Step 2 (2 sets in cart)",
+      "info": "Example: $10"
+    },
+    {
+      "type": "text",
+      "id": "saved_amount_step_3",
+      "label": "Saved Amount – Step 3 (3 sets in cart)",
+      "info": "Example: $15"
+    },
+    {
+      "type": "text",
+      "id": "saved_amount_step_4",
+      "label": "Saved Amount – Step 4 (4 sets in cart)",
+      "info": "Example: $20"
+    },
+    {
+      "type": "text",
+      "id": "saved_amount_step_5",
+      "label": "Saved Amount – Step 5 (5+ sets in cart)",
+      "info": "Example: $25"
     },
     {
       "type": "header",

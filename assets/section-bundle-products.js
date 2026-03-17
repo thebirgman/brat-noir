@@ -428,29 +428,15 @@ var SLOT_PLACEHOLDERS = [
     const total = document.querySelector('.bundle-products__cart-total-price');
     if (total) total.innerHTML = '$' + ((data.total_price || 0) / 100);
 
-    // Calculate total saved amount (discounts + compare_at_price savings + $3 per subscription product)
-    let totalSaved = data.total_discount || 0;
-    if (data.items && data.items.length > 0) {
-      data.items.forEach(item => {
-        // Get compare_at_price from the map we populated earlier
-        const compareAtPrice = itemCompareAtPrices.get(item.variant_id);
-        if (compareAtPrice && compareAtPrice > item.final_price) {
-          const finalPrice = item.final_price;
-          const quantity = item.quantity || 1;
-          const savingsPerItem = compareAtPrice - finalPrice;
-          totalSaved += savingsPerItem * quantity;
-        }
-        // Subscription: $3 saved per product
-        if (item.selling_plan_allocation) {
-          const quantity = item.quantity || 1;
-          totalSaved += 300 * quantity;
-        }
-      });
-    }
-
-    const savedAmount = document.querySelector('span.saved-amount');
-    if (savedAmount) {
-      savedAmount.textContent = '$' + (totalSaved / 100).toFixed(2);
+    // Update saved amount using per-step values from data attributes
+    const savedTotalEl = document.querySelector('span.bundle-products__cart-total-saved');
+    const savedAmountEl = document.querySelector('span.saved-amount');
+    const footerSavedEl = document.querySelector('.footer-saved-value');
+    if (savedTotalEl && savedAmountEl) {
+      const savedStep = Math.min(data.item_count || 0, 5);
+      const savedText = savedTotalEl.getAttribute('data-saved-step-' + savedStep) || '';
+      savedAmountEl.textContent = savedText;
+      if (footerSavedEl) footerSavedEl.textContent = savedText;
     }
 
     const progress = document.querySelector('.bundle-products__cart-progress-bar');
@@ -500,6 +486,17 @@ var SLOT_PLACEHOLDERS = [
       }
 
       remaining.innerHTML = progressText;
+    }
+
+    // Update bundle content subheading based on current step
+    const subheadingEl = document.querySelector('.bundle-products__cart-progress-subheading');
+    if (subheadingEl) {
+      const effectiveCount = itemEffectiveStepsDisplay.length
+        ? itemEffectiveStepsDisplay.reduce((sum, n) => sum + n, 0)
+        : displayItems.length;
+      const subStep = Math.min(effectiveCount, 5);
+      const subText = subheadingEl.getAttribute('data-subheading-step-' + subStep) || '';
+      if (subText) subheadingEl.textContent = subText;
     }
     
     // Sync quantity selectors with cart state
@@ -596,7 +593,7 @@ var SLOT_PLACEHOLDERS = [
             }
           }
             card.classList.remove('is-added-to-box');
-          }, 1000);
+          }, 2000);
         }
 
         // Don't await - let it run in background after optimistic update
