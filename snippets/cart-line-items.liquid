@@ -103,6 +103,9 @@
           <!-- PRICE -->
           <div class="cart__items__price">
             <p class="line__price">
+              {% if line_item.final_price == 0 %}
+                  FREE
+              {% else %}
               {%- assign discounted = false -%}
               {%- if line_item.original_price > line_item.final_price -%}
                 {%- assign discounted = true -%}
@@ -152,6 +155,7 @@
               {%- else -%}
                 {{ line_item.final_price | money_without_trailing_zeros }}
               {%- endif -%}
+            {% endif %}
             </p>
           </div>
 
