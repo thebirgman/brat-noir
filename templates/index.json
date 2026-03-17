@@ -446,6 +446,7 @@
       "name": "Image banner",
       "settings": {
         "image": "shopify://shop_images/brat-club-web.webp",
+        "tablet_image": "shopify://shop_images/homepage-vip-section-ipad.png",
         "mobile_image": "shopify://shop_images/brat-club-mobile.webp",
         "height": "use_image",
         "overlay_opacity": 15,
