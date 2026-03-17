@@ -5,7 +5,7 @@
 <div class="cart__items">
   {% for line_item in cart.items %}
 
-    <div class="cart__items__row" data-cart-item>
+    <div class="cart__items__row {{ line_item.product.handle }}" data-cart-item>
       <div class="item--loadbar" data-item-loadbar style="display: none;">&nbsp;</div>
 
       <div class="cart__items__grid" data-item>
