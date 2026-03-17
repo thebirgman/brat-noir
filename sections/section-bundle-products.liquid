@@ -25,6 +25,8 @@
   data-ritual-label="{{ section.settings.ritual_dropdown_label | escape }}"
   data-cart-subscription-only="{% if show_subscription_only %}true{% else %}false{% endif %}"
   data-cart-non-subscription-only="{% if show_non_subscription_only %}true{% else %}false{% endif %}"
+  data-auto-add-variant="{% if section.settings.auto_add_product != blank %}{{ section.settings.auto_add_product.variants.first.id }}{% endif %}"
+  data-auto-add-threshold="{{ section.settings.auto_add_threshold | default: 3 }}"
 >
   <h2>{{ section.settings.heading }}</h2>
   
@@ -118,7 +120,33 @@
         </div>
         <div class="bundle-products__cart-total-text">
           <span class="bundle-products__cart-total-label">Your Current Total</span>
-          <span class="bundle-products__cart-total-price">{{ cart.total_price | money_without_trailing_zeros }}</span>
+          {%- liquid
+            if cart.item_count == 0
+              assign total_price_text = section.settings.total_price_step_0 | default: ''
+            elsif cart.item_count == 1
+              assign total_price_text = section.settings.total_price_step_1 | default: ''
+            elsif cart.item_count == 2
+              assign total_price_text = section.settings.total_price_step_2 | default: ''
+            elsif cart.item_count == 3
+              assign total_price_text = section.settings.total_price_step_3 | default: ''
+            elsif cart.item_count == 4
+              assign total_price_text = section.settings.total_price_step_4 | default: ''
+            else
+              assign total_price_text = section.settings.total_price_step_5 | default: ''
+            endif
+            if total_price_text == blank
+              assign total_price_text = cart.total_price | money_without_trailing_zeros
+            endif
+          -%}
+          <span
+            class="bundle-products__cart-total-price"
+            data-price-step-0="{{ section.settings.total_price_step_0 | escape }}"
+            data-price-step-1="{{ section.settings.total_price_step_1 | escape }}"
+            data-price-step-2="{{ section.settings.total_price_step_2 | escape }}"
+            data-price-step-3="{{ section.settings.total_price_step_3 | escape }}"
+            data-price-step-4="{{ section.settings.total_price_step_4 | escape }}"
+            data-price-step-5="{{ section.settings.total_price_step_5 | escape }}"
+          >{{ total_price_text }}</span>
           {%- liquid
             if cart.item_count == 0
               assign saved_amount_text = section.settings.saved_amount_step_0 | default: ''
@@ -606,6 +634,46 @@ document.querySelector('.bundle-products__filter-btn[data-filter="all"]')?.click
     },
     {
       "type": "header",
+      "content": "Total Price Per Step"
+    },
+    {
+      "type": "text",
+      "id": "total_price_step_0",
+      "label": "Total Price – Step 0 (0 sets in cart)",
+      "info": "Overrides the live cart total. Leave blank to show the real cart price. Example: $0"
+    },
+    {
+      "type": "text",
+      "id": "total_price_step_1",
+      "label": "Total Price – Step 1 (1 set in cart)",
+      "info": "Example: $18"
+    },
+    {
+      "type": "text",
+      "id": "total_price_step_2",
+      "label": "Total Price – Step 2 (2 sets in cart)",
+      "info": "Example: $36"
+    },
+    {
+      "type": "text",
+      "id": "total_price_step_3",
+      "label": "Total Price – Step 3 (3 sets in cart)",
+      "info": "Example: $54"
+    },
+    {
+      "type": "text",
+      "id": "total_price_step_4",
+      "label": "Total Price – Step 4 (4 sets in cart)",
+      "info": "Example: $72"
+    },
+    {
+      "type": "text",
+      "id": "total_price_step_5",
+      "label": "Total Price – Step 5 (5+ sets in cart)",
+      "info": "Example: $75"
+    },
+    {
+      "type": "header",
       "content": "Saved Amount Per Step"
     },
     {
@@ -643,6 +711,23 @@ document.querySelector('.bundle-products__filter-btn[data-filter="all"]')?.click
       "id": "saved_amount_step_5",
       "label": "Saved Amount – Step 5 (5+ sets in cart)",
       "info": "Example: $25"
+    },
+    {
+      "type": "header",
+      "content": "Auto-Add Product"
+    },
+    {
+      "type": "product",
+      "id": "auto_add_product",
+      "label": "Product to auto-add",
+      "info": "This product's first variant will be automatically added to the cart when the subscription threshold is met, and removed when it is not."
+    },
+    {
+      "type": "number",
+      "id": "auto_add_threshold",
+      "label": "Subscription item threshold",
+      "default": 3,
+      "info": "Number of subscription line items required to trigger the auto-add."
     },
     {
       "type": "header",

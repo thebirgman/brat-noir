@@ -426,7 +426,11 @@ var SLOT_PLACEHOLDERS = [
     }
 
     const total = document.querySelector('.bundle-products__cart-total-price');
-    if (total) total.innerHTML = '$' + ((data.total_price || 0) / 100);
+    if (total) {
+      const priceStep = Math.min(data.item_count || 0, 5);
+      const configuredPrice = total.getAttribute('data-price-step-' + priceStep);
+      total.textContent = configuredPrice || ('$' + ((data.total_price || 0) / 100));
+    }
 
     // Update saved amount using per-step values from data attributes
     const savedTotalEl = document.querySelector('span.bundle-products__cart-total-saved');
@@ -538,6 +542,37 @@ var SLOT_PLACEHOLDERS = [
       }
     });
     
+    // Auto-add / auto-remove a configured product based on subscription item count
+    const sectionEl = document.querySelector('.bundle-products');
+    const autoAddVariantId = sectionEl?.getAttribute('data-auto-add-variant');
+    if (autoAddVariantId) {
+      const autoAddThreshold = parseInt(sectionEl.getAttribute('data-auto-add-threshold') || '3', 10);
+      const subscriptionCount = data.items
+        ? data.items.filter(item => item.selling_plan_allocation).length
+        : 0;
+      const alreadyInCart = data.items
+        ? data.items.find(item => item.variant_id.toString() === autoAddVariantId)
+        : null;
+
+      if (subscriptionCount >= autoAddThreshold && !alreadyInCart) {
+        fetch('/cart/add.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ items: [{ id: parseInt(autoAddVariantId), quantity: 1 }] })
+        })
+          .then(() => debouncedRefreshCart(400))
+          .catch(err => console.warn('[Auto-add] Failed to add product:', err));
+      } else if (subscriptionCount < autoAddThreshold && alreadyInCart) {
+        fetch('/cart/change.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id: parseInt(autoAddVariantId), quantity: 0 })
+        })
+          .then(() => debouncedRefreshCart(400))
+          .catch(err => console.warn('[Auto-add] Failed to remove product:', err));
+      }
+    }
+
     // Return cart data for use in updating theme's cart drawer
     return data;
     } catch (error) {
