@@ -4240,3 +4240,11 @@ body:not(.template-index) .header__mobile__left svg,body:not(.template-index)  .
     min-height: 500px;
 }
 }
+
+input#updates_44757595652119\:9f85e7b4a8f81a22f34e3197303d9d9e {
+    display: none;
+}
+
+.cart__items__row.free-set-unlocked {
+    pointer-events: none;
+}
