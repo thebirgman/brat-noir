@@ -1241,3 +1241,7 @@ span.bundle-products__cart-item-collection {}
 }
 
 span.bundle-products__cart-item-collection {}
+
+.bundle-products__cart-item:has([data-remove-from-cart="44757595652119"])[data-slot="1"] {
+    order: 5!important;
+}
