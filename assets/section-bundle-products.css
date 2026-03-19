@@ -1203,3 +1203,41 @@ button.bundle-products__cart-checkout {
 .bundle-products__cart-item {
     order: 3;
 }
+
+.bundle-products__cart-item[data-slot="1"][data-filled="true"] {
+    order: 7;
+}
+
+.bundle-products__cart-item[data-slot="2"][data-filled="true"] {
+    order: 5;
+}
+
+.bundle-products__cart-item[data-slot="3"][data-filled="true"] {
+    order: 4;
+}
+
+.bundle-products__cart-item:has([data-remove-from-cart="44757595652119"]) {
+    order: 6!important;
+}
+
+.bundle-products__cart-item[data-slot="4"][data-filled="true"] {
+    order: 3;
+}
+
+.bundle-products__cart-item[data-slot="5"][data-filled="true"] {
+    order: 2;
+}
+
+.bundle-products__cart-item {
+    order: 10;
+}
+
+span.bundle-products__cart-item-collection {}
+
+
+
+.bundle-products__cart-item:has(span.bundle-products__cart-item-collection:not([style*="none"])) {
+    order: 10;
+}
+
+span.bundle-products__cart-item-collection {}
