@@ -252,7 +252,7 @@
             "image_height": 140,
             "image_height_mobile": 110,
             "title": "<p><strong>Free Shipping + VIP Pricing</strong></p>",
-            "text": "<p><strong>Add 3 sets </strong>and get VIP Pricing ($15/set) + Free Shipping</p>"
+            "text": "<p><strong>Add 3 sets </strong>and get VIP Pricing ($12/set) </p>"
           }
         },
         "step_pHEWpK": {
@@ -262,7 +262,7 @@
             "image_height": 140,
             "image_height_mobile": 110,
             "title": "<p><strong>The Velvet Upgrade.</strong></p>",
-            "text": "<p><strong>Add 5 sets </strong>to unlock the Velvet Vanity Box + Free Shipping</p>"
+            "text": "<p><strong>Add 5 sets </strong>to unlock the Velvet Vanity Box, VIP Pricing ($10/set) + Free Shipping</p>"
           }
         }
       },
@@ -333,12 +333,12 @@
         "heading": "",
         "subheading": "",
         "all_label": "All",
-        "bundle_content_heading": "BUNDLE & SAVE: 3 FOR $45",
-        "bundle_content_subheading": "3 Sets. $45 Flat. Free Shipping. Secure your rotation now.",
-        "progress_text_step_0": "Add 3 more sets to unlock FREE Shipping + VIP Pricing ($15/set)",
-        "progress_text_step_1": "Getting closer. Add 2 more sets to save $9 instantly + FREE SHIPPING.",
-        "progress_text_step_2": "Almost there! Add 1 more set to save $9 instantly + FREE SHIPPING.",
-        "progress_text_step_3": "FREE Shipping + Insider Rate ($15/set) Unlocked! 🎉 Add 2 more for the Velvet Box.",
+        "bundle_content_heading": "BUNDLE & SAVE: 3 FOR $46",
+        "bundle_content_subheading": "3 Sets. $36 Flat. Secure your rotation now.",
+        "progress_text_step_0": "Add 3 more sets to unlock + VIP Pricing ($12/set)",
+        "progress_text_step_1": "Getting closer. Add 2 more sets to save $10 instantly + FREE SHIPPING.",
+        "progress_text_step_2": "Almost there! Add 1 more set to save $10 instantly + FREE SHIPPING.",
+        "progress_text_step_3": "FREE Shipping + Insider Rate ($10/set) Unlocked! 🎉 Add 2 more for the Velvet Box.",
         "progress_text_step_4": "So close! Add 1 more for the Velvet Box.",
         "progress_text_step_5": "You are a total Icon. Velvet Box Secured.",
         "progress_total_steps": 5,

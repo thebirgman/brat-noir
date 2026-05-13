@@ -332,6 +332,8 @@
           "type": "step",
           "settings": {
             "image": "shopify://shop_images/brat-gift-step-1.png",
+            "image_height": 140,
+            "image_height_mobile": 110,
             "title": "<p>Step 1</p>",
             "text": "<p>Select 5 Sets.</p>"
           }
@@ -340,6 +342,8 @@
           "type": "step",
           "settings": {
             "image": "shopify://shop_images/brat-gift-step-2.png",
+            "image_height": 140,
+            "image_height_mobile": 110,
             "title": "<p>Step 2</p>",
             "text": "<p>Craft Your Note.</p>"
           }
@@ -348,6 +352,8 @@
           "type": "step",
           "settings": {
             "image": "shopify://shop_images/brat-gift-step-3.png",
+            "image_height": 140,
+            "image_height_mobile": 110,
             "title": "<p>Step 3</p>",
             "text": "<p>We Ship the Experience.</p>"
           }
@@ -429,7 +435,7 @@
           "type": "result",
           "settings": {
             "total_value": "$130",
-            "final_price": "$75"
+            "final_price": "$50"
           }
         }
       },
